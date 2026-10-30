@@ -1,0 +1,17 @@
+{
+  "id": "math-parallelogram-01",
+  "subject": "mathematics",
+  "class": 9,
+  "source": "Wikimedia Commons, Parallelogram-triangle-area.svg, MartinThoma, CC0; https://commons.wikimedia.org/wiki/File:Parallelogram-triangle-area.svg",
+  "image": "raw/math-parallelogram-01.png",
+  "regions": ["Parallelogram", "Shaded triangle"],
+  "lines": ["Height", "Diagonal"],
+  "labels": ["a", "b", "h", "γ"],
+  "labelsPrinted": 4,
+  "relations": [
+    ["h", "perpendicular-to", "a"],
+    ["Diagonal", "divides", "Parallelogram"]
+  ],
+  "difficulty": "easy",
+  "notes": "CC0 public-domain dedication; lower-case Latin and Greek labels are transcribed as printed."
+}

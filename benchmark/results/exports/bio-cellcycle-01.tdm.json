@@ -1,0 +1,1549 @@
+{
+ "tdm": "0.1",
+ "id": "bio-cellcycle-01",
+ "title": "bio-cellcycle-01",
+ "subject": "bio",
+ "sheet": {
+  "w": 210,
+  "h": 297,
+  "margin": 15
+ },
+ "source": {
+  "kind": "upload",
+  "file": "bio-cellcycle-01",
+  "captured": "2026-10-30T09:26:50.977Z"
+ },
+ "regions": [
+  {
+   "id": "r-15",
+   "name": {
+    "en": "Centrioles"
+   },
+   "polygon": [
+    [
+     104.76,
+     23.9
+    ],
+    [
+     106.36,
+     24.51
+    ],
+    [
+     112.83,
+     31.15
+    ],
+    [
+     112.77,
+     33.79
+    ],
+    [
+     103.94,
+     44.66
+    ],
+    [
+     107.82,
+     59.26
+    ],
+    [
+     110.11,
+     60.1
+    ],
+    [
+     120.65,
+     52.96
+    ],
+    [
+     122.76,
+     52.78
+    ],
+    [
+     133.15,
+     58.82
+    ],
+    [
+     137.32,
+     74.45
+    ],
+    [
+     136.71,
+     76.26
+    ],
+    [
+     128.86,
+     84.22
+    ],
+    [
+     128.54,
+     85.84
+    ],
+    [
+     140.51,
+     91.94
+    ],
+    [
+     143.71,
+     102.46
+    ],
+    [
+     143.37,
+     104.31
+    ],
+    [
+     132.36,
+     121.88
+    ],
+    [
+     144.13,
+     134.51
+    ],
+    [
+     144.53,
+     136.87
+    ],
+    [
+     133.66,
+     154.94
+    ],
+    [
+     131.67,
+     156.07
+    ],
+    [
+     109.09,
+     156.42
+    ],
+    [
+     107.09,
+     155.2
+    ],
+    [
+     109.88,
+     105.7
+    ],
+    [
+     107.28,
+     101.1
+    ],
+    [
+     108.67,
+     98.26
+    ],
+    [
+     97.46,
+     68.6
+    ],
+    [
+     83.45,
+     63.24
+    ],
+    [
+     82.14,
+     61.34
+    ],
+    [
+     82.7,
+     59.76
+    ],
+    [
+     98.1,
+     43.53
+    ],
+    [
+     88.85,
+     28.93
+    ],
+    [
+     88.91,
+     26.62
+    ],
+    [
+     90.35,
+     25.68
+    ]
+   ],
+   "texture": "empty",
+   "keyRef": "d",
+   "confidence": 0.92,
+   "sourceLabel": {
+    "text": "Centrioles",
+    "ocrConfidence": 0.81
+   }
+  },
+  {
+   "id": "r-12",
+   "name": {
+    "en": "Anaphase Chromosomes Break At Centromeres And Sister Chromatids Move To Opposite Ends Of The Cell"
+   },
+   "polygon": [
+    [
+     130.12,
+     61.12
+    ],
+    [
+     132.99,
+     74.78
+    ],
+    [
+     126.35,
+     81.76
+    ],
+    [
+     126.25,
+     81.94
+    ],
+    [
+     125.3,
+     85.58
+    ],
+    [
+     121.11,
+     87.02
+    ],
+    [
+     116.46,
+     86.6
+    ],
+    [
+     111.08,
+     83.74
+    ],
+    [
+     108.17,
+     79.89
+    ],
+    [
+     106.99,
+     74.96
+    ],
+    [
+     107.51,
+     68.31
+    ],
+    [
+     109.45,
+     63.38
+    ],
+    [
+     111.9,
+     63.08
+    ],
+    [
+     112.08,
+     63.01
+    ],
+    [
+     121.75,
+     56.46
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "g",
+   "confidence": 0.98,
+   "sourceLabel": {
+    "text": "Anaphase Chromosomes break at centromeres and sister chromatids move to opposite ends of the cell",
+    "ocrConfidence": 0.95
+   }
+  },
+  {
+   "id": "r-06",
+   "name": {
+    "en": "Bi On Invade Kinetochore Nuciea Microtubules Kinctochores Polar Microtubules Push Against Each Other Moving Centrosomes Apart Astral Microtubules"
+   },
+   "polygon": [
+    [
+     129.2,
+     122.98
+    ],
+    [
+     140.11,
+     135.25
+    ],
+    [
+     138.89,
+     137.65
+    ],
+    [
+     133.74,
+     139.15
+    ],
+    [
+     133.56,
+     139.27
+    ],
+    [
+     132.35,
+     140.83
+    ],
+    [
+     132.28,
+     141.04
+    ],
+    [
+     132.17,
+     144.17
+    ],
+    [
+     132.24,
+     144.4
+    ],
+    [
+     134.34,
+     147.11
+    ],
+    [
+     132.78,
+     149.69
+    ],
+    [
+     130.82,
+     150.79
+    ],
+    [
+     128.42,
+     150.33
+    ],
+    [
+     128.28,
+     150.33
+    ],
+    [
+     124.38,
+     151.17
+    ],
+    [
+     119.44,
+     148.87
+    ],
+    [
+     116.06,
+     145.22
+    ],
+    [
+     114.04,
+     140.03
+    ],
+    [
+     114.07,
+     135.17
+    ],
+    [
+     115.88,
+     130.37
+    ],
+    [
+     120.1,
+     125.48
+    ],
+    [
+     124.93,
+     122.81
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "f",
+   "confidence": 0.95,
+   "sourceLabel": {
+    "text": "Bi oN invade Kinetochore nuciea microtubules Kinctochores Polar microtubules push against each other moving centrosomes apart Astral microtubules",
+    "ocrConfidence": 0.87
+   }
+  },
+  {
+   "id": "r-10",
+   "name": {
+    "en": "Metaphase Chromosomes Line Up Along Metaphase Plate (imaginary Plane)"
+   },
+   "polygon": [
+    [
+     125.23,
+     103.68
+    ],
+    [
+     129.3,
+     103.8
+    ],
+    [
+     131.78,
+     105.28
+    ],
+    [
+     138.27,
+     106.61
+    ],
+    [
+     130.33,
+     119.28
+    ],
+    [
+     124.95,
+     119.22
+    ],
+    [
+     119.38,
+     116.75
+    ],
+    [
+     115.07,
+     111.87
+    ],
+    [
+     113.31,
+     106.36
+    ],
+    [
+     114.23,
+     101.1
+    ],
+    [
+     118.74,
+     101.01
+    ]
+   ],
+   "texture": "diagonal-lines",
+   "keyRef": "e",
+   "confidence": 0.96,
+   "sourceLabel": {
+    "text": "Metaphase Chromosomes line up along metaphase plate (imaginary plane)",
+    "ocrConfidence": 0.89
+   }
+  },
+  {
+   "id": "r-13",
+   "name": {
+    "en": "Myosin It And Actin Filament Ring Contract To Cleave Cell In Two Contractile Ring"
+   },
+   "polygon": [
+    [
+     108.99,
+     32.7
+    ],
+    [
+     101.33,
+     42.93
+    ],
+    [
+     94.65,
+     31.3
+    ],
+    [
+     96.25,
+     28.63
+    ],
+    [
+     104.41,
+     27.74
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "c",
+   "confidence": 0.95,
+   "sourceLabel": {
+    "text": "Myosin It and actin filament ring contract to cleave cell in two Contractile ring",
+    "ocrConfidence": 0.88
+   }
+  },
+  {
+   "id": "r-16",
+   "name": {
+    "en": "Daughter Cells"
+   },
+   "polygon": [
+    [
+     79.95,
+     26.04
+    ],
+    [
+     79.85,
+     30.17
+    ],
+    [
+     78.43,
+     33.34
+    ],
+    [
+     75.36,
+     35.92
+    ],
+    [
+     71.67,
+     36.97
+    ],
+    [
+     68.17,
+     36.67
+    ],
+    [
+     64.57,
+     34.77
+    ],
+    [
+     61.22,
+     29.41
+    ],
+    [
+     61.64,
+     24.78
+    ],
+    [
+     63.26,
+     21.83
+    ],
+    [
+     68.7,
+     18.6
+    ],
+    [
+     73.57,
+     18.92
+    ],
+    [
+     76.73,
+     20.35
+    ],
+    [
+     78.96,
+     22.94
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "b",
+   "confidence": 0.97,
+   "sourceLabel": {
+    "text": "Daughter cells",
+    "ocrConfidence": 0.93
+   }
+  },
+  {
+   "id": "r-14",
+   "name": {
+    "en": "Aly"
+   },
+   "polygon": [
+    [
+     74.54,
+     23.11
+    ],
+    [
+     75.72,
+     24.32
+    ],
+    [
+     76.57,
+     27.15
+    ],
+    [
+     76.39,
+     29.58
+    ],
+    [
+     75.45,
+     31.5
+    ],
+    [
+     71.22,
+     33.38
+    ],
+    [
+     66.86,
+     32.11
+    ],
+    [
+     64.7,
+     28.44
+    ],
+    [
+     64.92,
+     25.89
+    ],
+    [
+     66.08,
+     23.81
+    ],
+    [
+     69.33,
+     22.16
+    ]
+   ],
+   "texture": "diagonal-lines",
+   "keyRef": "a",
+   "confidence": 0.91,
+   "sourceLabel": {
+    "text": "Aly",
+    "ocrConfidence": 0.78
+   }
+  },
+  {
+   "id": "r-02",
+   "name": {
+    "en": "Chromatin"
+   },
+   "polygon": [
+    [
+     90.94,
+     149.6
+    ],
+    [
+     89.53,
+     155.42
+    ],
+    [
+     87.09,
+     157.67
+    ],
+    [
+     84.12,
+     158.72
+    ],
+    [
+     80.99,
+     158.55
+    ],
+    [
+     77.87,
+     157.02
+    ],
+    [
+     74.95,
+     151.81
+    ],
+    [
+     75.22,
+     148.22
+    ],
+    [
+     76.55,
+     145.7
+    ],
+    [
+     81.8,
+     142.73
+    ],
+    [
+     89.32,
+     145.74
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "o",
+   "confidence": 0.95,
+   "sourceLabel": {
+    "text": "Chromatin",
+    "ocrConfidence": 0.87
+   }
+  },
+  {
+   "id": "r-04",
+   "name": {
+    "en": "Sv Ve"
+   },
+   "polygon": [
+    [
+     63.13,
+     134.77
+    ],
+    [
+     65.16,
+     136.31
+    ],
+    [
+     66.77,
+     142.2
+    ],
+    [
+     65.29,
+     145.33
+    ],
+    [
+     63.43,
+     146.76
+    ],
+    [
+     61.07,
+     147.42
+    ],
+    [
+     58.91,
+     147.12
+    ],
+    [
+     56.41,
+     142.22
+    ],
+    [
+     56.37,
+     142.16
+    ],
+    [
+     56.18,
+     141.9
+    ],
+    [
+     56.14,
+     141.85
+    ],
+    [
+     53.68,
+     139.35
+    ],
+    [
+     53.79,
+     137.8
+    ],
+    [
+     55.05,
+     135.75
+    ],
+    [
+     56.99,
+     134.54
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "n",
+   "confidence": 0.8,
+   "sourceLabel": {
+    "text": "SV Ve",
+    "ocrConfidence": 0.5
+   }
+  },
+  {
+   "id": "r-05",
+   "name": {
+    "en": "(animal Cells)"
+   },
+   "polygon": [
+    [
+     79.71,
+     123.02
+    ],
+    [
+     83.68,
+     124.87
+    ],
+    [
+     84.12,
+     126.81
+    ],
+    [
+     82,
+     129.79
+    ],
+    [
+     85.61,
+     131.98
+    ],
+    [
+     85.94,
+     134.03
+    ],
+    [
+     82.7,
+     137.9
+    ],
+    [
+     76.81,
+     138.91
+    ],
+    [
+     74.24,
+     137.9
+    ],
+    [
+     71.79,
+     135.48
+    ],
+    [
+     70.53,
+     129.66
+    ],
+    [
+     71.54,
+     126.88
+    ],
+    [
+     74.15,
+     124.2
+    ]
+   ],
+   "texture": "diagonal-lines",
+   "keyRef": "m",
+   "confidence": 0.98,
+   "sourceLabel": {
+    "text": "(Animal Cells)",
+    "ocrConfidence": 0.95
+   }
+  },
+  {
+   "id": "r-11",
+   "name": {
+    "en": "Gap Cell Grows"
+   },
+   "polygon": [
+    [
+     70.56,
+     77.74
+    ],
+    [
+     70.71,
+     78.95
+    ],
+    [
+     63.73,
+     94.51
+    ],
+    [
+     62.32,
+     95.57
+    ],
+    [
+     58.66,
+     94.65
+    ],
+    [
+     57.6,
+     93.68
+    ],
+    [
+     57.86,
+     89.47
+    ],
+    [
+     65.31,
+     76.8
+    ],
+    [
+     67.69,
+     76.11
+    ]
+   ],
+   "texture": "diagonal-lines",
+   "keyRef": "h",
+   "confidence": 0.97,
+   "sourceLabel": {
+    "text": "Gap Cell grows",
+    "ocrConfidence": 0.92
+   }
+  },
+  {
+   "id": "r-01",
+   "name": {
+    "en": "Centrosome Duplicates"
+   },
+   "polygon": [
+    [
+     60.12,
+     151.19
+    ],
+    [
+     61.22,
+     152.23
+    ],
+    [
+     63.87,
+     160.43
+    ],
+    [
+     63.94,
+     160.6
+    ],
+    [
+     67.74,
+     167.86
+    ],
+    [
+     67.41,
+     171.07
+    ],
+    [
+     66.94,
+     171.67
+    ],
+    [
+     65.41,
+     171.47
+    ],
+    [
+     60.17,
+     163.96
+    ],
+    [
+     55.49,
+     151.79
+    ],
+    [
+     55.95,
+     150.59
+    ],
+    [
+     57.15,
+     150.4
+    ]
+   ],
+   "texture": "diagonal-lines",
+   "keyRef": "l",
+   "confidence": 0.98,
+   "sourceLabel": {
+    "text": "Centrosome duplicates",
+    "ocrConfidence": 0.95
+   }
+  },
+  {
+   "id": "r-07",
+   "name": {
+    "en": "Dna Synthesis Phase S-phase"
+   },
+   "polygon": [
+    [
+     58.77,
+     113.31
+    ],
+    [
+     59.21,
+     114.24
+    ],
+    [
+     58.51,
+     129.19
+    ],
+    [
+     56.95,
+     131.12
+    ],
+    [
+     53.11,
+     132.08
+    ],
+    [
+     52.09,
+     130.67
+    ],
+    [
+     52.96,
+     113.8
+    ],
+    [
+     53.65,
+     112.69
+    ],
+    [
+     55.01,
+     112.39
+    ]
+   ],
+   "texture": "diagonal-lines",
+   "keyRef": "k",
+   "confidence": 0.97,
+   "sourceLabel": {
+    "text": "DNA Synthesis Phase S-Phase",
+    "ocrConfidence": 0.93
+   }
+  },
+  {
+   "id": "r-08",
+   "name": {
+    "en": "Sister"
+   },
+   "polygon": [
+    [
+     61.55,
+     98.8
+    ],
+    [
+     63.46,
+     103.35
+    ],
+    [
+     62.35,
+     107.58
+    ],
+    [
+     58.98,
+     109.78
+    ],
+    [
+     54.29,
+     109.17
+    ],
+    [
+     51.44,
+     105.2
+    ],
+    [
+     52.32,
+     100.3
+    ],
+    [
+     56.35,
+     97.59
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "j",
+   "confidence": 0.82,
+   "sourceLabel": {
+    "text": "Sister",
+    "ocrConfidence": 0.56
+   }
+  },
+  {
+   "id": "r-09",
+   "name": {
+    "en": "Chrom"
+   },
+   "polygon": [
+    [
+     100.69,
+     91.98
+    ],
+    [
+     102.96,
+     94.26
+    ],
+    [
+     104.16,
+     97.45
+    ],
+    [
+     103.32,
+     102.51
+    ],
+    [
+     101.32,
+     103.74
+    ],
+    [
+     99.42,
+     102.5
+    ],
+    [
+     96.41,
+     98.08
+    ],
+    [
+     92.68,
+     96.33
+    ],
+    [
+     90.74,
+     94.11
+    ],
+    [
+     91.43,
+     92.26
+    ],
+    [
+     94.51,
+     90.79
+    ],
+    [
+     97.83,
+     90.8
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "i",
+   "confidence": 0.86,
+   "sourceLabel": {
+    "text": "Chrom",
+    "ocrConfidence": 0.66
+   }
+  }
+ ],
+ "lines": [
+  {
+   "id": "l-05",
+   "name": {
+    "en": "Line 5"
+   },
+   "path": [
+    [
+     95.02,
+     63.66
+    ],
+    [
+     106.55,
+     83.63
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "r"
+  },
+  {
+   "id": "l-07",
+   "name": {
+    "en": "Line 7"
+   },
+   "path": [
+    [
+     120.47,
+     59.86
+    ],
+    [
+     136.92,
+     75.75
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "q"
+  },
+  {
+   "id": "l-08",
+   "name": {
+    "en": "Line 8"
+   },
+   "path": [
+    [
+     87,
+     25.97
+    ],
+    [
+     107.67,
+     33.98
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "p"
+  },
+  {
+   "id": "l-02",
+   "name": {
+    "en": "Line 2"
+   },
+   "path": [
+    [
+     107.25,
+     89.53
+    ],
+    [
+     110.77,
+     101.48
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "s"
+  },
+  {
+   "id": "l-09",
+   "name": {
+    "en": "Line 9"
+   },
+   "path": [
+    [
+     131.44,
+     105
+    ],
+    [
+     121.17,
+     100.5
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "t"
+  }
+ ],
+ "relations": [
+  {
+   "from": "r-12",
+   "to": "r-15",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.54,
+   "source": "detected",
+   "via": "l-01"
+  },
+  {
+   "from": "r-15",
+   "to": "r-10",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.78,
+   "source": "detected",
+   "via": "l-02"
+  },
+  {
+   "from": "r-08",
+   "to": "r-11",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.99,
+   "source": "detected",
+   "via": "l-03"
+  },
+  {
+   "from": "r-09",
+   "to": "r-10",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.05,
+   "source": "detected",
+   "via": "l-04"
+  },
+  {
+   "from": "r-15",
+   "to": "r-13",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.99,
+   "source": "detected",
+   "via": "l-08"
+  },
+  {
+   "from": "r-15",
+   "to": "r-06",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.9,
+   "source": "detected",
+   "via": "l-10"
+  },
+  {
+   "from": "r-06",
+   "to": "r-10",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.71,
+   "source": "detected",
+   "via": "l-11"
+  },
+  {
+   "from": "r-07",
+   "to": "r-01",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.86,
+   "source": "detected",
+   "via": "l-15"
+  }
+ ],
+ "key": [
+  {
+   "ref": "a",
+   "regionId": "r-14",
+   "text": {
+    "en": "Aly"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "b",
+   "regionId": "r-16",
+   "text": {
+    "en": "Daughter Cells"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "c",
+   "regionId": "r-13",
+   "text": {
+    "en": "Myosin It And Actin Filament Ring Contract To Cleave Cell In Two Contractile Ring"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "d",
+   "regionId": "r-15",
+   "text": {
+    "en": "Centrioles"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "e",
+   "regionId": "r-10",
+   "text": {
+    "en": "Metaphase Chromosomes Line Up Along Metaphase Plate (imaginary Plane)"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "f",
+   "regionId": "r-06",
+   "text": {
+    "en": "Bi On Invade Kinetochore Nuciea Microtubules Kinctochores Polar Microtubules Push Against Each Other Moving Centrosomes Apart Astral Microtubules"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "g",
+   "regionId": "r-12",
+   "text": {
+    "en": "Anaphase Chromosomes Break At Centromeres And Sister Chromatids Move To Opposite Ends Of The Cell"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "h",
+   "regionId": "r-11",
+   "text": {
+    "en": "Gap Cell Grows"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "i",
+   "regionId": "r-09",
+   "text": {
+    "en": "Chrom"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "j",
+   "regionId": "r-08",
+   "text": {
+    "en": "Sister"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "k",
+   "regionId": "r-07",
+   "text": {
+    "en": "Dna Synthesis Phase S-phase"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "l",
+   "regionId": "r-01",
+   "text": {
+    "en": "Centrosome Duplicates"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "m",
+   "regionId": "r-05",
+   "text": {
+    "en": "(animal Cells)"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "n",
+   "regionId": "r-04",
+   "text": {
+    "en": "Sv Ve"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "o",
+   "regionId": "r-02",
+   "text": {
+    "en": "Chromatin"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "p",
+   "regionId": "l-08",
+   "text": {
+    "en": "Line 8"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "q",
+   "regionId": "l-07",
+   "text": {
+    "en": "Line 7"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "r",
+   "regionId": "l-05",
+   "text": {
+    "en": "Line 5"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "s",
+   "regionId": "l-02",
+   "text": {
+    "en": "Line 2"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "t",
+   "regionId": "l-09",
+   "text": {
+    "en": "Line 9"
+   },
+   "braille": {}
+  }
+ ],
+ "readingOrder": [
+  "r-14",
+  "r-16",
+  "r-13",
+  "r-15",
+  "r-10",
+  "r-06",
+  "r-12",
+  "r-11",
+  "r-09",
+  "r-08",
+  "r-07",
+  "r-01",
+  "r-05",
+  "r-04",
+  "r-02",
+  "l-08",
+  "l-07",
+  "l-05",
+  "l-02",
+  "l-09"
+ ],
+ "languages": {
+  "primary": "en",
+  "available": [
+   "en"
+  ]
+ },
+ "validation": {
+  "status": "fail",
+  "blocking": [
+   {
+    "rule": "R3",
+    "msg": "Detected: A stroke connects Anaphase Chromosomes Break At Centromeres And Sister Chromatids Move To Opposite Ends Of The Cell to Centrioles (54%) — confirm or remove",
+    "ids": [
+     "r-12",
+     "r-15"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: Line 2 connects Centrioles to Metaphase Chromosomes Line Up Along Metaphase Plate (imaginary Plane) (78%) — confirm or remove",
+    "ids": [
+     "r-15",
+     "r-10"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: A stroke connects Sister to Gap Cell Grows (99%) — confirm or remove",
+    "ids": [
+     "r-08",
+     "r-11"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: A stroke connects Chrom to Metaphase Chromosomes Line Up Along Metaphase Plate (imaginary Plane) (5%) — confirm or remove",
+    "ids": [
+     "r-09",
+     "r-10"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: Line 8 connects Centrioles to Myosin It And Actin Filament Ring Contract To Cleave Cell In Two Contractile Ring (99%) — confirm or remove",
+    "ids": [
+     "r-15",
+     "r-13"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: A stroke connects Centrioles to Bi On Invade Kinetochore Nuciea Microtubules Kinctochores Polar Microtubules Push Against Each Other Moving Centrosomes Apart Astral Microtubules (90%) — confirm or remove",
+    "ids": [
+     "r-15",
+     "r-06"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: A stroke connects Bi On Invade Kinetochore Nuciea Microtubules Kinctochores Polar Microtubules Push Against Each Other Moving Centrosomes Apart Astral Microtubules to Metaphase Chromosomes Line Up Along Metaphase Plate (imaginary Plane) (71%) — confirm or remove",
+    "ids": [
+     "r-06",
+     "r-10"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: A stroke connects Dna Synthesis Phase S-phase to Centrosome Duplicates (86%) — confirm or remove",
+    "ids": [
+     "r-07",
+     "r-01"
+    ]
+   }
+  ],
+  "advisory": [
+   {
+    "rule": "O1",
+    "msg": "Sv Ve: read at 50% confidence",
+    "ids": [
+     "r-04"
+    ]
+   },
+   {
+    "rule": "O1",
+    "msg": "Sister: read at 56% confidence",
+    "ids": [
+     "r-08"
+    ]
+   },
+   {
+    "rule": "O1",
+    "msg": "Chrom: read at 66% confidence",
+    "ids": [
+     "r-09"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-05 has no label",
+    "ids": [
+     "l-05"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-07 has no label",
+    "ids": [
+     "l-07"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-08 has no label",
+    "ids": [
+     "l-08"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-02 has no label",
+    "ids": [
+     "l-02"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-09 has no label",
+    "ids": [
+     "l-09"
+    ]
+   }
+  ]
+ },
+ "provenance": {
+  "pipeline": "0.1",
+  "teacherReviewed": false,
+  "reviewedAt": null
+ }
+}

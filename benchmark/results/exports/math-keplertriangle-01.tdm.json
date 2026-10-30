@@ -1,0 +1,669 @@
+{
+ "tdm": "0.1",
+ "id": "math-keplertriangle-01",
+ "title": "math-keplertriangle-01",
+ "subject": "math",
+ "sheet": {
+  "w": 210,
+  "h": 297,
+  "margin": 15
+ },
+ "source": {
+  "kind": "upload",
+  "file": "math-keplertriangle-01",
+  "captured": "2026-10-30T09:28:41.741Z"
+ },
+ "regions": [
+  {
+   "id": "r-06",
+   "name": {
+    "en": "Voa(-10)"
+   },
+   "polygon": [
+    [
+     134.41,
+     56.38
+    ],
+    [
+     135.86,
+     58.23
+    ],
+    [
+     138.25,
+     150.02
+    ],
+    [
+     137.5,
+     151.66
+    ],
+    [
+     57.15,
+     152.03
+    ],
+    [
+     57.04,
+     149.08
+    ],
+    [
+     132.17,
+     56.91
+    ]
+   ],
+   "texture": "empty",
+   "keyRef": "c",
+   "confidence": 0.78,
+   "sourceLabel": {
+    "text": "VoA(-10)",
+    "ocrConfidence": 0.46
+   }
+  },
+  {
+   "id": "r-01",
+   "name": {
+    "en": "Region 1"
+   },
+   "polygon": [
+    [
+     128.34,
+     147.68
+    ],
+    [
+     62.61,
+     148.22
+    ],
+    [
+     87.93,
+     117.16
+    ]
+   ],
+   "texture": "diagonal-lines",
+   "keyRef": "b",
+   "confidence": 0.5
+  },
+  {
+   "id": "r-02",
+   "name": {
+    "en": "Region 2"
+   },
+   "polygon": [
+    [
+     132.83,
+     116.65
+    ],
+    [
+     133.6,
+     117.48
+    ],
+    [
+     133.6,
+     146.79
+    ],
+    [
+     133.25,
+     147.26
+    ],
+    [
+     132.83,
+     147.21
+    ],
+    [
+     94.62,
+     117.19
+    ],
+    [
+     95.21,
+     116.56
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "f",
+   "confidence": 0.5
+  },
+  {
+   "id": "r-03",
+   "name": {
+    "en": "Region 3"
+   },
+   "polygon": [
+    [
+     128.81,
+     111.26
+    ],
+    [
+     128.96,
+     111.89
+    ],
+    [
+     128.33,
+     112.38
+    ],
+    [
+     92.82,
+     112.38
+    ],
+    [
+     92.51,
+     112.23
+    ],
+    [
+     92.46,
+     111.11
+    ],
+    [
+     105.55,
+     94.48
+    ],
+    [
+     107.04,
+     94.2
+    ]
+   ],
+   "texture": "diagonal-lines",
+   "keyRef": "d",
+   "confidence": 0.5
+  },
+  {
+   "id": "r-04",
+   "name": {
+    "en": "Region 4"
+   },
+   "polygon": [
+    [
+     132.86,
+     93.07
+    ],
+    [
+     133.67,
+     93.94
+    ],
+    [
+     133.67,
+     108.88
+    ],
+    [
+     133.28,
+     109.4
+    ],
+    [
+     132.8,
+     109.35
+    ],
+    [
+     112.96,
+     93.69
+    ],
+    [
+     113.62,
+     92.98
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "e",
+   "confidence": 0.5
+  },
+  {
+   "id": "r-05",
+   "name": {
+    "en": "Region 5"
+   },
+   "polygon": [
+    [
+     128.64,
+     87.97
+    ],
+    [
+     128.74,
+     88.36
+    ],
+    [
+     128.32,
+     88.68
+    ],
+    [
+     111.32,
+     88.61
+    ],
+    [
+     111.24,
+     88.57
+    ],
+    [
+     111.21,
+     87.7
+    ],
+    [
+     117.17,
+     80.22
+    ],
+    [
+     118.45,
+     79.97
+    ]
+   ],
+   "texture": "diagonal-lines",
+   "keyRef": "a",
+   "confidence": 0.5
+  }
+ ],
+ "lines": [
+  {
+   "id": "l-05",
+   "name": {
+    "en": "Line 5"
+   },
+   "path": [
+    [
+     160.91,
+     152.47
+    ],
+    [
+     160.91,
+     52.69
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "k"
+  },
+  {
+   "id": "l-02",
+   "name": {
+    "en": "Line 2"
+   },
+   "path": [
+    [
+     88.24,
+     68.44
+    ],
+    [
+     39.41,
+     131.89
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "g"
+  },
+  {
+   "id": "l-11",
+   "name": {
+    "en": "Line 11"
+   },
+   "path": [
+    [
+     88.8,
+     117.49
+    ],
+    [
+     130.2,
+     149.89
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "h"
+  },
+  {
+   "id": "l-14",
+   "name": {
+    "en": "Line 14"
+   },
+   "path": [
+    [
+     60.9,
+     150.79
+    ],
+    [
+     84.86,
+     120.19
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "j"
+  },
+  {
+   "id": "l-07",
+   "name": {
+    "en": "Line 7"
+   },
+   "path": [
+    [
+     67.76,
+     137.06
+    ],
+    [
+     86.78,
+     112.88
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "i"
+  }
+ ],
+ "relations": [
+  {
+   "from": "r-05",
+   "to": "r-01",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.53,
+   "source": "detected",
+   "via": "l-03"
+  },
+  {
+   "from": "r-03",
+   "to": "r-06",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.94,
+   "source": "detected",
+   "via": "l-04"
+  },
+  {
+   "from": "r-01",
+   "to": "r-03",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.7,
+   "source": "detected",
+   "via": "l-07"
+  },
+  {
+   "from": "r-02",
+   "to": "r-06",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.58,
+   "source": "detected",
+   "via": "l-08"
+  },
+  {
+   "from": "r-01",
+   "to": "r-06",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 1,
+   "source": "detected",
+   "via": "l-09"
+  },
+  {
+   "from": "r-01",
+   "to": "r-02",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.93,
+   "source": "detected",
+   "via": "l-13"
+  },
+  {
+   "from": "r-05",
+   "to": "r-06",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.78,
+   "source": "detected",
+   "via": "l-15"
+  }
+ ],
+ "key": [
+  {
+   "ref": "a",
+   "regionId": "r-05",
+   "text": {
+    "en": "Region 5"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "b",
+   "regionId": "r-01",
+   "text": {
+    "en": "Region 1"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "c",
+   "regionId": "r-06",
+   "text": {
+    "en": "Voa(-10)"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "d",
+   "regionId": "r-03",
+   "text": {
+    "en": "Region 3"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "e",
+   "regionId": "r-04",
+   "text": {
+    "en": "Region 4"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "f",
+   "regionId": "r-02",
+   "text": {
+    "en": "Region 2"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "g",
+   "regionId": "l-02",
+   "text": {
+    "en": "Line 2"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "h",
+   "regionId": "l-11",
+   "text": {
+    "en": "Line 11"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "i",
+   "regionId": "l-07",
+   "text": {
+    "en": "Line 7"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "j",
+   "regionId": "l-14",
+   "text": {
+    "en": "Line 14"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "k",
+   "regionId": "l-05",
+   "text": {
+    "en": "Line 5"
+   },
+   "braille": {}
+  }
+ ],
+ "readingOrder": [
+  "r-05",
+  "r-01",
+  "r-06",
+  "r-03",
+  "r-04",
+  "r-02",
+  "l-02",
+  "l-11",
+  "l-07",
+  "l-14",
+  "l-05"
+ ],
+ "languages": {
+  "primary": "en",
+  "available": [
+   "en"
+  ]
+ },
+ "validation": {
+  "status": "fail",
+  "blocking": [
+   {
+    "rule": "R3",
+    "msg": "Detected: A stroke connects Region 5 to Region 1 (53%) — confirm or remove",
+    "ids": [
+     "r-05",
+     "r-01"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: A stroke connects Region 3 to Voa(-10) (94%) — confirm or remove",
+    "ids": [
+     "r-03",
+     "r-06"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: Line 7 connects Region 1 to Region 3 (70%) — confirm or remove",
+    "ids": [
+     "r-01",
+     "r-03"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: A stroke connects Region 2 to Voa(-10) (58%) — confirm or remove",
+    "ids": [
+     "r-02",
+     "r-06"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: A stroke connects Region 1 to Voa(-10) (100%) — confirm or remove",
+    "ids": [
+     "r-01",
+     "r-06"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: A stroke connects Region 1 to Region 2 (93%) — confirm or remove",
+    "ids": [
+     "r-01",
+     "r-02"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: A stroke connects Region 5 to Voa(-10) (78%) — confirm or remove",
+    "ids": [
+     "r-05",
+     "r-06"
+    ]
+   }
+  ],
+  "advisory": [
+   {
+    "rule": "O1",
+    "msg": "Voa(-10): read at 46% confidence",
+    "ids": [
+     "r-06"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "r-01 has no label",
+    "ids": [
+     "r-01"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "r-02 has no label",
+    "ids": [
+     "r-02"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "r-03 has no label",
+    "ids": [
+     "r-03"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "r-04 has no label",
+    "ids": [
+     "r-04"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "r-05 has no label",
+    "ids": [
+     "r-05"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-05 has no label",
+    "ids": [
+     "l-05"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-02 has no label",
+    "ids": [
+     "l-02"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-11 has no label",
+    "ids": [
+     "l-11"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-14 has no label",
+    "ids": [
+     "l-14"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-07 has no label",
+    "ids": [
+     "l-07"
+    ]
+   }
+  ]
+ },
+ "provenance": {
+  "pipeline": "0.1",
+  "teacherReviewed": false,
+  "reviewedAt": null
+ }
+}

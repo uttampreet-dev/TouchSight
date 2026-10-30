@@ -1,0 +1,437 @@
+{
+ "tdm": "0.1",
+ "id": "bio-flower-02",
+ "title": "bio-flower-02",
+ "subject": "bio",
+ "sheet": {
+  "w": 210,
+  "h": 297,
+  "margin": 15
+ },
+ "source": {
+  "kind": "upload",
+  "file": "bio-flower-02",
+  "captured": "2026-10-30T09:27:34.530Z"
+ },
+ "regions": [
+  {
+   "id": "r-01",
+   "name": {
+    "en": "Lee"
+   },
+   "polygon": [
+    [
+     129.01,
+     92.04
+    ],
+    [
+     129.81,
+     94.38
+    ],
+    [
+     127.76,
+     97.3
+    ],
+    [
+     124.43,
+     109.63
+    ],
+    [
+     122.7,
+     111.15
+    ],
+    [
+     105.59,
+     101.82
+    ],
+    [
+     104.56,
+     99.65
+    ],
+    [
+     111.73,
+     74.33
+    ],
+    [
+     110.62,
+     72.45
+    ],
+    [
+     103.95,
+     70.77
+    ],
+    [
+     102.57,
+     68.63
+    ],
+    [
+     103.11,
+     60.59
+    ],
+    [
+     102.28,
+     59.15
+    ],
+    [
+     98.93,
+     59.4
+    ],
+    [
+     97.77,
+     57.88
+    ],
+    [
+     97.55,
+     35.84
+    ],
+    [
+     109.02,
+     21.02
+    ],
+    [
+     110.52,
+     20.33
+    ],
+    [
+     113.92,
+     23.02
+    ],
+    [
+     115.78,
+     22.87
+    ],
+    [
+     117.04,
+     23.85
+    ],
+    [
+     129.07,
+     46.87
+    ],
+    [
+     130.52,
+     47.67
+    ],
+    [
+     131.76,
+     46.8
+    ],
+    [
+     136.48,
+     37.38
+    ],
+    [
+     149.04,
+     30.66
+    ],
+    [
+     154.67,
+     32.33
+    ],
+    [
+     156.3,
+     34.11
+    ],
+    [
+     155.46,
+     54.71
+    ],
+    [
+     153.65,
+     56.45
+    ],
+    [
+     144.87,
+     56.48
+    ],
+    [
+     143.47,
+     57.26
+    ],
+    [
+     124.27,
+     89.07
+    ],
+    [
+     124.94,
+     91.22
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "a",
+   "confidence": 0.97,
+   "sourceLabel": {
+    "text": "LEE",
+    "ocrConfidence": 0.92
+   }
+  }
+ ],
+ "lines": [
+  {
+   "id": "l-01",
+   "name": {
+    "en": "Line 1"
+   },
+   "path": [
+    [
+     89.95,
+     74.34
+    ],
+    [
+     142.97,
+     93.75
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "b"
+  },
+  {
+   "id": "l-13",
+   "name": {
+    "en": "Line 13"
+   },
+   "path": [
+    [
+     137.77,
+     79.69
+    ],
+    [
+     146.63,
+     54.09
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "g"
+  },
+  {
+   "id": "l-14",
+   "name": {
+    "en": "Line 14"
+   },
+   "path": [
+    [
+     99.38,
+     70.27
+    ],
+    [
+     104.86,
+     43.97
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "c"
+  },
+  {
+   "id": "l-09",
+   "name": {
+    "en": "Line 9"
+   },
+   "path": [
+    [
+     129.75,
+     69.14
+    ],
+    [
+     123.42,
+     80.81
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "e"
+  },
+  {
+   "id": "l-06",
+   "name": {
+    "en": "Line 6"
+   },
+   "path": [
+    [
+     126.52,
+     65.48
+    ],
+    [
+     130.31,
+     56.2
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "d"
+  },
+  {
+   "id": "l-15",
+   "name": {
+    "en": "Line 15"
+   },
+   "path": [
+    [
+     131.44,
+     76.17
+    ],
+    [
+     136.92,
+     69.56
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "f"
+  }
+ ],
+ "relations": [
+  {
+   "from": "l-01",
+   "to": "r-01",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0,
+   "source": "detected",
+   "via": "l-01"
+  }
+ ],
+ "key": [
+  {
+   "ref": "a",
+   "regionId": "r-01",
+   "text": {
+    "en": "Lee"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "b",
+   "regionId": "l-01",
+   "text": {
+    "en": "Line 1"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "c",
+   "regionId": "l-14",
+   "text": {
+    "en": "Line 14"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "d",
+   "regionId": "l-06",
+   "text": {
+    "en": "Line 6"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "e",
+   "regionId": "l-09",
+   "text": {
+    "en": "Line 9"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "f",
+   "regionId": "l-15",
+   "text": {
+    "en": "Line 15"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "g",
+   "regionId": "l-13",
+   "text": {
+    "en": "Line 13"
+   },
+   "braille": {}
+  }
+ ],
+ "readingOrder": [
+  "r-01",
+  "l-01",
+  "l-14",
+  "l-06",
+  "l-09",
+  "l-15",
+  "l-13"
+ ],
+ "languages": {
+  "primary": "en",
+  "available": [
+   "en"
+  ]
+ },
+ "validation": {
+  "status": "fail",
+  "blocking": [
+   {
+    "rule": "R3",
+    "msg": "Detected: Line 1 connects Line 1 to Lee (0%) — confirm or remove",
+    "ids": [
+     "l-01",
+     "r-01"
+    ]
+   }
+  ],
+  "advisory": [
+   {
+    "rule": "N1",
+    "msg": "l-01 has no label",
+    "ids": [
+     "l-01"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-13 has no label",
+    "ids": [
+     "l-13"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-14 has no label",
+    "ids": [
+     "l-14"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-09 has no label",
+    "ids": [
+     "l-09"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-06 has no label",
+    "ids": [
+     "l-06"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-15 has no label",
+    "ids": [
+     "l-15"
+    ]
+   }
+  ]
+ },
+ "provenance": {
+  "pipeline": "0.1",
+  "teacherReviewed": false,
+  "reviewedAt": null
+ }
+}

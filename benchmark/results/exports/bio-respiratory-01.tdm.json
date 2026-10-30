@@ -1,0 +1,645 @@
+{
+ "tdm": "0.1",
+ "id": "bio-respiratory-01",
+ "title": "bio-respiratory-01",
+ "subject": "bio",
+ "sheet": {
+  "w": 210,
+  "h": 297,
+  "margin": 15
+ },
+ "source": {
+  "kind": "upload",
+  "file": "bio-respiratory-01",
+  "captured": "2026-10-30T09:28:11.819Z"
+ },
+ "regions": [
+  {
+   "id": "r-06",
+   "name": {
+    "en": "Pulmonary Artery Pulmonary Vein"
+   },
+   "polygon": [
+    [
+     158.49,
+     34.22
+    ],
+    [
+     159.89,
+     35.08
+    ],
+    [
+     160.24,
+     37.11
+    ],
+    [
+     155.37,
+     49.99
+    ],
+    [
+     151.89,
+     51.52
+    ],
+    [
+     149.79,
+     54.91
+    ],
+    [
+     147.79,
+     56
+    ],
+    [
+     139.7,
+     46.51
+    ],
+    [
+     140.56,
+     42.78
+    ],
+    [
+     140.07,
+     39.79
+    ],
+    [
+     143.83,
+     32.74
+    ],
+    [
+     145.92,
+     31.6
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "a",
+   "confidence": 0.98,
+   "sourceLabel": {
+    "text": "Pulmonary artery Pulmonary vein",
+    "ocrConfidence": 0.94
+   }
+  },
+  {
+   "id": "r-02",
+   "name": {
+    "en": "Ny Ny"
+   },
+   "polygon": [
+    [
+     85.88,
+     135.14
+    ],
+    [
+     90.32,
+     137.57
+    ],
+    [
+     90.36,
+     139.83
+    ],
+    [
+     88.55,
+     142.59
+    ],
+    [
+     89.52,
+     145.98
+    ],
+    [
+     88.7,
+     150.66
+    ],
+    [
+     85.87,
+     152.24
+    ],
+    [
+     83.37,
+     151.9
+    ],
+    [
+     78.59,
+     154.36
+    ],
+    [
+     71.71,
+     152.8
+    ],
+    [
+     71.36,
+     150.97
+    ],
+    [
+     74.85,
+     145.99
+    ],
+    [
+     73.18,
+     144.86
+    ],
+    [
+     70.7,
+     144.76
+    ],
+    [
+     69.72,
+     142.68
+    ],
+    [
+     72.45,
+     139.63
+    ],
+    [
+     73.08,
+     137.35
+    ],
+    [
+     80.35,
+     137.72
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "e",
+   "confidence": 0.82,
+   "sourceLabel": {
+    "text": "Ny Ny",
+    "ocrConfidence": 0.56
+   }
+  },
+  {
+   "id": "r-01",
+   "name": {
+    "en": "Lobar Bronchus"
+   },
+   "polygon": [
+    [
+     96.04,
+     156.85
+    ],
+    [
+     101.14,
+     164.01
+    ],
+    [
+     101.94,
+     181.73
+    ],
+    [
+     99.85,
+     184.03
+    ],
+    [
+     93.37,
+     183.94
+    ],
+    [
+     91.54,
+     181.86
+    ],
+    [
+     92.13,
+     158.63
+    ],
+    [
+     93.64,
+     157.18
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "f",
+   "confidence": 0.98,
+   "sourceLabel": {
+    "text": "Lobar bronchus",
+    "ocrConfidence": 0.94
+   }
+  },
+  {
+   "id": "r-04",
+   "name": {
+    "en": "Oral"
+   },
+   "polygon": [
+    [
+     85.46,
+     70.92
+    ],
+    [
+     83.89,
+     70.13
+    ],
+    [
+     83.01,
+     66.97
+    ],
+    [
+     81.09,
+     64.71
+    ],
+    [
+     80.92,
+     62.73
+    ],
+    [
+     81.96,
+     61.27
+    ],
+    [
+     87.22,
+     59.12
+    ],
+    [
+     90.92,
+     59.03
+    ],
+    [
+     94.92,
+     60.44
+    ],
+    [
+     96.99,
+     62.37
+    ],
+    [
+     98.48,
+     66.78
+    ],
+    [
+     97.79,
+     68.98
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "c",
+   "confidence": 0.98,
+   "sourceLabel": {
+    "text": "Oral",
+    "ocrConfidence": 0.96
+   }
+  },
+  {
+   "id": "r-03",
+   "name": {
+    "en": "Vocal Folds"
+   },
+   "polygon": [
+    [
+     84.34,
+     96.09
+    ],
+    [
+     85.92,
+     97.26
+    ],
+    [
+     85.88,
+     99.75
+    ],
+    [
+     82.06,
+     102.46
+    ],
+    [
+     78.72,
+     102.88
+    ],
+    [
+     68.52,
+     100.8
+    ],
+    [
+     66.93,
+     99.11
+    ],
+    [
+     67.41,
+     97.41
+    ],
+    [
+     71.06,
+     96.07
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "d",
+   "confidence": 0.98,
+   "sourceLabel": {
+    "text": "Vocal folds",
+    "ocrConfidence": 0.96
+   }
+  },
+  {
+   "id": "r-05",
+   "name": {
+    "en": "Alveolar Duct Mucous"
+   },
+   "polygon": [
+    [
+     181.12,
+     51.08
+    ],
+    [
+     183.69,
+     53.24
+    ],
+    [
+     182.31,
+     58.68
+    ],
+    [
+     177.42,
+     62.73
+    ],
+    [
+     173.18,
+     61.08
+    ],
+    [
+     171.66,
+     55.76
+    ],
+    [
+     172.47,
+     54.39
+    ],
+    [
+     175.53,
+     54.26
+    ],
+    [
+     178.26,
+     51.54
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "b",
+   "confidence": 0.93,
+   "sourceLabel": {
+    "text": "Alveolar duct Mucous",
+    "ocrConfidence": 0.82
+   }
+  }
+ ],
+ "lines": [
+  {
+   "id": "l-08",
+   "name": {
+    "en": "Line 8"
+   },
+   "path": [
+    [
+     120.19,
+     102.05
+    ],
+    [
+     126.94,
+     160.55
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "h"
+  },
+  {
+   "id": "l-07",
+   "name": {
+    "en": "Line 7"
+   },
+   "path": [
+    [
+     141.7,
+     73.22
+    ],
+    [
+     182.63,
+     42.56
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "g"
+  },
+  {
+   "id": "l-03",
+   "name": {
+    "en": "Line 3"
+   },
+   "path": [
+    [
+     132.84,
+     109.78
+    ],
+    [
+     142.41,
+     159.28
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "i"
+  },
+  {
+   "id": "l-12",
+   "name": {
+    "en": "Line 12"
+   },
+   "path": [
+    [
+     89.25,
+     147.05
+    ],
+    [
+     89.39,
+     137.2
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "j"
+  }
+ ],
+ "relations": [
+  {
+   "from": "r-06",
+   "to": "r-05",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.85,
+   "source": "detected",
+   "via": "l-04"
+  },
+  {
+   "from": "l-07",
+   "to": "r-06",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.82,
+   "source": "detected",
+   "via": "l-07"
+  }
+ ],
+ "key": [
+  {
+   "ref": "a",
+   "regionId": "r-06",
+   "text": {
+    "en": "Pulmonary Artery Pulmonary Vein"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "b",
+   "regionId": "r-05",
+   "text": {
+    "en": "Alveolar Duct Mucous"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "c",
+   "regionId": "r-04",
+   "text": {
+    "en": "Oral"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "d",
+   "regionId": "r-03",
+   "text": {
+    "en": "Vocal Folds"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "e",
+   "regionId": "r-02",
+   "text": {
+    "en": "Ny Ny"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "f",
+   "regionId": "r-01",
+   "text": {
+    "en": "Lobar Bronchus"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "g",
+   "regionId": "l-07",
+   "text": {
+    "en": "Line 7"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "h",
+   "regionId": "l-08",
+   "text": {
+    "en": "Line 8"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "i",
+   "regionId": "l-03",
+   "text": {
+    "en": "Line 3"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "j",
+   "regionId": "l-12",
+   "text": {
+    "en": "Line 12"
+   },
+   "braille": {}
+  }
+ ],
+ "readingOrder": [
+  "r-06",
+  "r-05",
+  "r-04",
+  "r-03",
+  "r-02",
+  "r-01",
+  "l-07",
+  "l-08",
+  "l-03",
+  "l-12"
+ ],
+ "languages": {
+  "primary": "en",
+  "available": [
+   "en"
+  ]
+ },
+ "validation": {
+  "status": "fail",
+  "blocking": [
+   {
+    "rule": "R3",
+    "msg": "Detected: A stroke connects Pulmonary Artery Pulmonary Vein to Alveolar Duct Mucous (85%) — confirm or remove",
+    "ids": [
+     "r-06",
+     "r-05"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: Line 7 connects Line 7 to Pulmonary Artery Pulmonary Vein (82%) — confirm or remove",
+    "ids": [
+     "l-07",
+     "r-06"
+    ]
+   }
+  ],
+  "advisory": [
+   {
+    "rule": "O1",
+    "msg": "Ny Ny: read at 56% confidence",
+    "ids": [
+     "r-02"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-08 has no label",
+    "ids": [
+     "l-08"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-07 has no label",
+    "ids": [
+     "l-07"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-03 has no label",
+    "ids": [
+     "l-03"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-12 has no label",
+    "ids": [
+     "l-12"
+    ]
+   }
+  ]
+ },
+ "provenance": {
+  "pipeline": "0.1",
+  "teacherReviewed": false,
+  "reviewedAt": null
+ }
+}

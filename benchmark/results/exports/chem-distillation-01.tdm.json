@@ -1,0 +1,757 @@
+{
+ "tdm": "0.1",
+ "id": "chem-distillation-01",
+ "title": "chem-distillation-01",
+ "subject": "chem",
+ "sheet": {
+  "w": 210,
+  "h": 297,
+  "margin": 15
+ },
+ "source": {
+  "kind": "upload",
+  "file": "chem-distillation-01",
+  "captured": "2026-10-30T09:28:15.307Z"
+ },
+ "regions": [
+  {
+   "id": "r-06",
+   "name": {
+    "en": "Region 6"
+   },
+   "polygon": [
+    [
+     38.25,
+     193.94
+    ],
+    [
+     69.5,
+     193.93
+    ],
+    [
+     73.12,
+     195.36
+    ],
+    [
+     74.21,
+     198.71
+    ],
+    [
+     72.43,
+     202.4
+    ],
+    [
+     75.39,
+     213.57
+    ],
+    [
+     75.04,
+     215.33
+    ],
+    [
+     70.93,
+     218.51
+    ],
+    [
+     66.33,
+     216.31
+    ],
+    [
+     41.48,
+     216.31
+    ],
+    [
+     38.35,
+     218.37
+    ],
+    [
+     36.32,
+     218.37
+    ],
+    [
+     32.46,
+     215.54
+    ],
+    [
+     31.95,
+     213.9
+    ],
+    [
+     35.27,
+     202.47
+    ],
+    [
+     33.59,
+     198.93
+    ],
+    [
+     33.74,
+     196.73
+    ],
+    [
+     34.59,
+     195.41
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "e",
+   "confidence": 0.5
+  },
+  {
+   "id": "r-01",
+   "name": {
+    "en": "Region 1"
+   },
+   "polygon": [
+    [
+     69.04,
+     203.81
+    ],
+    [
+     69.63,
+     204.32
+    ],
+    [
+     71.94,
+     212.68
+    ],
+    [
+     71.91,
+     212.85
+    ],
+    [
+     36.07,
+     213.03
+    ],
+    [
+     38.19,
+     204.26
+    ],
+    [
+     38.74,
+     203.8
+    ]
+   ],
+   "texture": "diagonal-lines",
+   "keyRef": "f",
+   "confidence": 0.5
+  },
+  {
+   "id": "r-04",
+   "name": {
+    "en": "Region 4"
+   },
+   "polygon": [
+    [
+     67.63,
+     173.06
+    ],
+    [
+     67.65,
+     176.38
+    ],
+    [
+     65.57,
+     178.16
+    ],
+    [
+     51.78,
+     177.37
+    ],
+    [
+     42.32,
+     178.15
+    ],
+    [
+     40.51,
+     177.36
+    ],
+    [
+     40.19,
+     172.46
+    ],
+    [
+     43.16,
+     166.56
+    ],
+    [
+     49.85,
+     162.25
+    ],
+    [
+     52.86,
+     158.86
+    ],
+    [
+     56.3,
+     159.66
+    ],
+    [
+     57.79,
+     162.26
+    ],
+    [
+     62.27,
+     164.54
+    ],
+    [
+     65.69,
+     168.2
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "b",
+   "confidence": 0.5
+  },
+  {
+   "id": "r-02",
+   "name": {
+    "en": "Region 2"
+   },
+   "polygon": [
+    [
+     58.78,
+     188.95
+    ],
+    [
+     54.98,
+     189.77
+    ],
+    [
+     50.48,
+     189.4
+    ],
+    [
+     45.94,
+     187.39
+    ],
+    [
+     42.34,
+     182.93
+    ],
+    [
+     44.58,
+     181.12
+    ],
+    [
+     64.59,
+     181.77
+    ],
+    [
+     64.68,
+     184.7
+    ]
+   ],
+   "texture": "diagonal-lines",
+   "keyRef": "c",
+   "confidence": 0.5
+  },
+  {
+   "id": "r-03",
+   "name": {
+    "en": "Region 3"
+   },
+   "polygon": [
+    [
+     172.28,
+     183.07
+    ],
+    [
+     173.72,
+     186.7
+    ],
+    [
+     171.74,
+     188.97
+    ],
+    [
+     158.68,
+     188.98
+    ],
+    [
+     156.44,
+     187.96
+    ],
+    [
+     156.32,
+     185.64
+    ],
+    [
+     157.59,
+     183.1
+    ],
+    [
+     163.14,
+     178.57
+    ],
+    [
+     167.94,
+     179.41
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "d",
+   "confidence": 0.5
+  },
+  {
+   "id": "r-05",
+   "name": {
+    "en": "Sf Ss"
+   },
+   "polygon": [
+    [
+     58.78,
+     108.53
+    ],
+    [
+     64.2,
+     111.58
+    ],
+    [
+     64.97,
+     114.05
+    ],
+    [
+     63.04,
+     116.96
+    ],
+    [
+     56.77,
+     116.46
+    ],
+    [
+     55.58,
+     114.84
+    ],
+    [
+     55.78,
+     109.98
+    ],
+    [
+     57.08,
+     108.47
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "a",
+   "confidence": 0.84,
+   "sourceLabel": {
+    "text": "Sf SS",
+    "ocrConfidence": 0.61
+   }
+  }
+ ],
+ "lines": [
+  {
+   "id": "l-01",
+   "name": {
+    "en": "Line 1"
+   },
+   "path": [
+    [
+     50.02,
+     156.02
+    ],
+    [
+     50.27,
+     98.96
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "h"
+  },
+  {
+   "id": "l-02",
+   "name": {
+    "en": "Line 2"
+   },
+   "path": [
+    [
+     34.75,
+     194.83
+    ],
+    [
+     73.04,
+     194.83
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "j"
+  },
+  {
+   "id": "l-09",
+   "name": {
+    "en": "Line 9"
+   },
+   "path": [
+    [
+     48.2,
+     177.49
+    ],
+    [
+     63.21,
+     177.75
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "i"
+  },
+  {
+   "id": "l-10",
+   "name": {
+    "en": "Line 10"
+   },
+   "path": [
+    [
+     56.87,
+     137.78
+    ],
+    [
+     57,
+     123.16
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "g"
+  },
+  {
+   "id": "l-13",
+   "name": {
+    "en": "Line 13"
+   },
+   "path": [
+    [
+     38.11,
+     206.09
+    ],
+    [
+     49.37,
+     208.42
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "l"
+  },
+  {
+   "id": "l-14",
+   "name": {
+    "en": "Line 14"
+   },
+   "path": [
+    [
+     32.29,
+     212.3
+    ],
+    [
+     35.53,
+     201.43
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "k"
+  },
+  {
+   "id": "l-16",
+   "name": {
+    "en": "Line 16"
+   },
+   "path": [
+    [
+     58.43,
+     206.99
+    ],
+    [
+     69.16,
+     205.7
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "m"
+  }
+ ],
+ "relations": [
+  {
+   "from": "r-04",
+   "to": "r-05",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.67,
+   "source": "detected",
+   "via": "l-01"
+  },
+  {
+   "from": "r-04",
+   "to": "r-02",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.91,
+   "source": "detected",
+   "via": "l-11"
+  }
+ ],
+ "key": [
+  {
+   "ref": "a",
+   "regionId": "r-05",
+   "text": {
+    "en": "Sf Ss"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "b",
+   "regionId": "r-04",
+   "text": {
+    "en": "Region 4"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "c",
+   "regionId": "r-02",
+   "text": {
+    "en": "Region 2"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "d",
+   "regionId": "r-03",
+   "text": {
+    "en": "Region 3"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "e",
+   "regionId": "r-06",
+   "text": {
+    "en": "Region 6"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "f",
+   "regionId": "r-01",
+   "text": {
+    "en": "Region 1"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "g",
+   "regionId": "l-10",
+   "text": {
+    "en": "Line 10"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "h",
+   "regionId": "l-01",
+   "text": {
+    "en": "Line 1"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "i",
+   "regionId": "l-09",
+   "text": {
+    "en": "Line 9"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "j",
+   "regionId": "l-02",
+   "text": {
+    "en": "Line 2"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "k",
+   "regionId": "l-14",
+   "text": {
+    "en": "Line 14"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "l",
+   "regionId": "l-13",
+   "text": {
+    "en": "Line 13"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "m",
+   "regionId": "l-16",
+   "text": {
+    "en": "Line 16"
+   },
+   "braille": {}
+  }
+ ],
+ "readingOrder": [
+  "r-05",
+  "r-04",
+  "r-02",
+  "r-03",
+  "r-06",
+  "r-01",
+  "l-10",
+  "l-01",
+  "l-09",
+  "l-02",
+  "l-14",
+  "l-13",
+  "l-16"
+ ],
+ "languages": {
+  "primary": "en",
+  "available": [
+   "en"
+  ]
+ },
+ "validation": {
+  "status": "fail",
+  "blocking": [
+   {
+    "rule": "K1",
+    "msg": "braille key (13 entries in 2 columns) needs 17 mm more sheet",
+    "ids": []
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: Line 1 connects Region 4 to Sf Ss (67%) — confirm or remove",
+    "ids": [
+     "r-04",
+     "r-05"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: A stroke connects Region 4 to Region 2 (91%) — confirm or remove",
+    "ids": [
+     "r-04",
+     "r-02"
+    ]
+   }
+  ],
+  "advisory": [
+   {
+    "rule": "N1",
+    "msg": "r-06 has no label",
+    "ids": [
+     "r-06"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "r-01 has no label",
+    "ids": [
+     "r-01"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "r-04 has no label",
+    "ids": [
+     "r-04"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "r-02 has no label",
+    "ids": [
+     "r-02"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "r-03 has no label",
+    "ids": [
+     "r-03"
+    ]
+   },
+   {
+    "rule": "O1",
+    "msg": "Sf Ss: read at 61% confidence",
+    "ids": [
+     "r-05"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-01 has no label",
+    "ids": [
+     "l-01"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-02 has no label",
+    "ids": [
+     "l-02"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-09 has no label",
+    "ids": [
+     "l-09"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-10 has no label",
+    "ids": [
+     "l-10"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-13 has no label",
+    "ids": [
+     "l-13"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-14 has no label",
+    "ids": [
+     "l-14"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-16 has no label",
+    "ids": [
+     "l-16"
+    ]
+   }
+  ]
+ },
+ "provenance": {
+  "pipeline": "0.1",
+  "teacherReviewed": false,
+  "reviewedAt": null
+ }
+}

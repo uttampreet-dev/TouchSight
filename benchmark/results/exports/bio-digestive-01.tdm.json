@@ -11,13 +11,13 @@
  "source": {
   "kind": "upload",
   "file": "bio-digestive-01",
-  "captured": "2026-10-30T06:09:40.868Z"
+  "captured": "2026-10-30T09:26:59.034Z"
  },
  "regions": [
   {
    "id": "r-08",
    "name": {
-    "en": "Esophagus"
+    "en": "Sublingual- Submandibular Parotid"
    },
    "polygon": [
     [
@@ -251,10 +251,10 @@
    ],
    "texture": "empty",
    "keyRef": "c",
-   "confidence": 0.98,
+   "confidence": 0.94,
    "sourceLabel": {
-    "text": "Esophagus",
-    "ocrConfidence": 0.96
+    "text": "Sublingual- Submandibular Parotid",
+    "ocrConfidence": 0.85
    }
   },
   {
@@ -427,7 +427,7 @@
   {
    "id": "r-09",
    "name": {
-    "en": "Palate Uvula Tongue Teeth"
+    "en": "Uvula"
    },
    "polygon": [
     [
@@ -477,10 +477,10 @@
    ],
    "texture": "dots",
    "keyRef": "b",
-   "confidence": 0.98,
+   "confidence": 0.97,
    "sourceLabel": {
-    "text": "Palate Uvula Tongue Teeth",
-    "ocrConfidence": 0.95
+    "text": "Uvula",
+    "ocrConfidence": 0.92
    }
   },
   {
@@ -533,7 +533,7 @@
   {
    "id": "r-02",
    "name": {
-    "en": "Large Intestine"
+    "en": "Transverse Colon"
    },
    "polygon": [
     [
@@ -566,17 +566,17 @@
     ]
    ],
    "texture": "dots",
-   "keyRef": "e",
+   "keyRef": "f",
    "confidence": 0.98,
    "sourceLabel": {
-    "text": "Large intestine",
+    "text": "Transverse colon",
     "ocrConfidence": 0.96
    }
   },
   {
    "id": "r-04",
    "name": {
-    "en": "Stomach"
+    "en": "Region 4"
    },
    "polygon": [
     [
@@ -613,12 +613,8 @@
     ]
    ],
    "texture": "diagonal-lines",
-   "keyRef": "f",
-   "confidence": 0.98,
-   "sourceLabel": {
-    "text": "Stomach",
-    "ocrConfidence": 0.96
-   }
+   "keyRef": "e",
+   "confidence": 0.5
   }
  ],
  "lines": [
@@ -629,38 +625,18 @@
    },
    "path": [
     [
-     92.48,
-     159.64
+     92.59,
+     159.53
     ],
     [
-     141.77,
-     152.71
+     140.85,
+     152.83
     ]
    ],
    "width": 1.2,
    "style": "single",
    "arrow": "none",
-   "keyRef": "m"
-  },
-  {
-   "id": "l-04",
-   "name": {
-    "en": "Line 4"
-   },
-   "path": [
-    [
-     109.33,
-     180.19
-    ],
-    [
-     139.69,
-     185.49
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "n"
+   "keyRef": "k"
   },
   {
    "id": "l-06",
@@ -669,12 +645,52 @@
    },
    "path": [
     [
-     113.14,
-     43.86
+     94.9,
+     31.62
     ],
     [
-     114.06,
-     68.45
+     99.63,
+     58.05
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "h"
+  },
+  {
+   "id": "l-04",
+   "name": {
+    "en": "Line 4"
+   },
+   "path": [
+    [
+     61.31,
+     29.43
+    ],
+    [
+     60.96,
+     16.38
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "g"
+  },
+  {
+   "id": "l-13",
+   "name": {
+    "en": "Line 13"
+   },
+   "path": [
+    [
+     75.97,
+     46.4
+    ],
+    [
+     63.27,
+     47.32
     ]
    ],
    "width": 1.2,
@@ -689,92 +705,12 @@
    },
    "path": [
     [
-     107.25,
-     119.35
+     125.14,
+     44.67
     ],
     [
-     109.22,
-     141.18
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "k"
-  },
-  {
-   "id": "l-03",
-   "name": {
-    "en": "Line 3"
-   },
-   "path": [
-    [
-     60.96,
-     19.5
-    ],
-    [
-     60.38,
-     41.32
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "h"
-  },
-  {
-   "id": "l-10",
-   "name": {
-    "en": "Line 10"
-   },
-   "path": [
-    [
-     121.1,
-     118.78
-    ],
-    [
-     142.23,
-     114.27
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "l"
-  },
-  {
-   "id": "l-12",
-   "name": {
-    "en": "Line 12"
-   },
-   "path": [
-    [
-     60.38,
-     15.23
-    ],
-    [
-     81.85,
-     15.23
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "g"
-  },
-  {
-   "id": "l-14",
-   "name": {
-    "en": "Line 14"
-   },
-   "path": [
-    [
-     106.33,
-     104
-    ],
-    [
-     126.87,
-     105.39
+     116.84,
+     43.97
     ]
    ],
    "width": 1.2,
@@ -789,36 +725,27 @@
    "to": "r-08",
    "kind": "connects",
    "direction": "forward",
-   "confidence": 0.85,
+   "confidence": 0.95,
    "source": "detected",
    "via": "l-06"
+  },
+  {
+   "from": "r-08",
+   "to": "r-05",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.71,
+   "source": "detected",
+   "via": "l-14"
   },
   {
    "from": "r-08",
    "to": "r-02",
    "kind": "connects",
    "direction": "forward",
-   "confidence": 0.99,
+   "confidence": 0.89,
    "source": "detected",
-   "via": "l-07"
-  },
-  {
-   "from": "r-05",
-   "to": "r-02",
-   "kind": "connects",
-   "direction": "forward",
-   "confidence": 1,
-   "source": "detected",
-   "via": "l-09"
-  },
-  {
-   "from": "r-04",
-   "to": "r-08",
-   "kind": "connects",
-   "direction": "forward",
-   "confidence": 1,
-   "source": "detected",
-   "via": "l-10"
+   "via": "l-15"
   }
  ],
  "key": [
@@ -834,7 +761,7 @@
    "ref": "b",
    "regionId": "r-09",
    "text": {
-    "en": "Palate Uvula Tongue Teeth"
+    "en": "Uvula"
    },
    "braille": {}
   },
@@ -842,7 +769,7 @@
    "ref": "c",
    "regionId": "r-08",
    "text": {
-    "en": "Esophagus"
+    "en": "Sublingual- Submandibular Parotid"
    },
    "braille": {}
   },
@@ -856,38 +783,30 @@
   },
   {
    "ref": "e",
-   "regionId": "r-02",
+   "regionId": "r-04",
    "text": {
-    "en": "Large Intestine"
+    "en": "Region 4"
    },
    "braille": {}
   },
   {
    "ref": "f",
-   "regionId": "r-04",
+   "regionId": "r-02",
    "text": {
-    "en": "Stomach"
+    "en": "Transverse Colon"
    },
    "braille": {}
   },
   {
    "ref": "g",
-   "regionId": "l-12",
+   "regionId": "l-04",
    "text": {
-    "en": "Line 12"
+    "en": "Line 4"
    },
    "braille": {}
   },
   {
    "ref": "h",
-   "regionId": "l-03",
-   "text": {
-    "en": "Line 3"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "i",
    "regionId": "l-06",
    "text": {
     "en": "Line 6"
@@ -895,15 +814,15 @@
    "braille": {}
   },
   {
-   "ref": "j",
-   "regionId": "l-14",
+   "ref": "i",
+   "regionId": "l-13",
    "text": {
-    "en": "Line 14"
+    "en": "Line 13"
    },
    "braille": {}
   },
   {
-   "ref": "k",
+   "ref": "j",
    "regionId": "l-09",
    "text": {
     "en": "Line 9"
@@ -911,26 +830,10 @@
    "braille": {}
   },
   {
-   "ref": "l",
-   "regionId": "l-10",
-   "text": {
-    "en": "Line 10"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "m",
+   "ref": "k",
    "regionId": "l-01",
    "text": {
     "en": "Line 1"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "n",
-   "regionId": "l-04",
-   "text": {
-    "en": "Line 4"
    },
    "braille": {}
   }
@@ -940,16 +843,13 @@
   "r-09",
   "r-08",
   "r-05",
-  "r-02",
   "r-04",
-  "l-12",
-  "l-03",
+  "r-02",
+  "l-04",
   "l-06",
-  "l-14",
+  "l-13",
   "l-09",
-  "l-10",
-  "l-01",
-  "l-04"
+  "l-01"
  ],
  "languages": {
   "primary": "en",
@@ -962,7 +862,7 @@
   "blocking": [
    {
     "rule": "R3",
-    "msg": "Detected: Line 6 connects Palate Uvula Tongue Teeth to Esophagus (85%) — confirm or remove",
+    "msg": "Detected: Line 6 connects Uvula to Sublingual- Submandibular Parotid (95%) — confirm or remove",
     "ids": [
      "r-09",
      "r-08"
@@ -970,42 +870,34 @@
    },
    {
     "rule": "R3",
-    "msg": "Detected: A stroke connects Esophagus to Large Intestine (99%) — confirm or remove",
+    "msg": "Detected: A stroke connects Sublingual- Submandibular Parotid to Gallbladder Common Bile Duct (71%) — confirm or remove",
+    "ids": [
+     "r-08",
+     "r-05"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: A stroke connects Sublingual- Submandibular Parotid to Transverse Colon (89%) — confirm or remove",
     "ids": [
      "r-08",
      "r-02"
-    ]
-   },
-   {
-    "rule": "R3",
-    "msg": "Detected: Line 9 connects Gallbladder Common Bile Duct to Large Intestine (100%) — confirm or remove",
-    "ids": [
-     "r-05",
-     "r-02"
-    ]
-   },
-   {
-    "rule": "R3",
-    "msg": "Detected: Line 10 connects Stomach to Esophagus (100%) — confirm or remove",
-    "ids": [
-     "r-04",
-     "r-08"
     ]
    }
   ],
   "advisory": [
    {
     "rule": "N1",
-    "msg": "l-01 has no label",
+    "msg": "r-04 has no label",
     "ids": [
-     "l-01"
+     "r-04"
     ]
    },
    {
     "rule": "N1",
-    "msg": "l-04 has no label",
+    "msg": "l-01 has no label",
     "ids": [
-     "l-04"
+     "l-01"
     ]
    },
    {
@@ -1017,37 +909,23 @@
    },
    {
     "rule": "N1",
+    "msg": "l-04 has no label",
+    "ids": [
+     "l-04"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-13 has no label",
+    "ids": [
+     "l-13"
+    ]
+   },
+   {
+    "rule": "N1",
     "msg": "l-09 has no label",
     "ids": [
      "l-09"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-03 has no label",
-    "ids": [
-     "l-03"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-10 has no label",
-    "ids": [
-     "l-10"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-12 has no label",
-    "ids": [
-     "l-12"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-14 has no label",
-    "ids": [
-     "l-14"
     ]
    }
   ]

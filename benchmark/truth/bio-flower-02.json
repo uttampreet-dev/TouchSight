@@ -1,0 +1,19 @@
+{
+  "id": "bio-flower-02",
+  "subject": "biology",
+  "class": 10,
+  "source": "Wikimedia Commons, Flower Anatomy (PSF).png, Pearson Scott Foresman, public domain; https://commons.wikimedia.org/wiki/File:Flower_Anatomy_(PSF).png",
+  "image": "raw/bio-flower-02.png",
+  "regions": ["Petal", "Sepal", "Stamen", "Pistil"],
+  "lines": ["Stamen leader line", "Pistil leader line"],
+  "labels": ["PETAL", "STAMEN", "SEPAL", "PISTIL"],
+  "labelsPrinted": 4,
+  "relations": [
+    ["Petal", "part-of", "Flower"],
+    ["Sepal", "part-of", "Flower"],
+    ["Stamen", "part-of", "Flower"],
+    ["Pistil", "part-of", "Flower"]
+  ],
+  "difficulty": "easy",
+  "notes": "Four uppercase printed labels; source image was already opaque."
+}

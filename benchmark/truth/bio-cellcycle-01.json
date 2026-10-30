@@ -1,0 +1,33 @@
+{
+  "id": "bio-cellcycle-01",
+  "subject": "biology",
+  "class": 11,
+  "source": "Wikimedia Commons, Animal cell cycle-en.svg, Kelvinsong, CC0; https://commons.wikimedia.org/wiki/File:Animal_cell_cycle-en.svg",
+  "image": "raw/bio-cellcycle-01.png",
+  "regions": ["G0 phase", "G1 phase", "S phase", "G2 phase", "Prophase", "Prometaphase", "Metaphase", "Anaphase", "Telophase and cytokinesis"],
+  "lines": ["Cell-cycle arrows", "Cleavage furrow", "Contractile ring", "Kinetochore microtubules", "Polar microtubules"],
+  "labels": [
+    "The Cell Cycle", "(Animal Cells)", "Resting Phase G0", "Cell leaves cycle", "Interphase",
+    "Gap I G1", "Cell grows", "DNA Synthesis Phase", "S-Phase", "Cell duplicates its DNA",
+    "Centrosome duplicates", "Gap II G2", "Cell grows some more", "Mitotic Phase M-Phase",
+    "Prophase", "Chromatin condenses into chromosomes", "Nucleolus disappears", "Prometaphase",
+    "Nuclear membrane breaks down", "Kinetochore microtubules invade nuclear space, and attach to kinetochores",
+    "Polar microtubules push against each other, moving centrosomes apart", "Metaphase",
+    "Chromosomes line up along metaphase plate (imaginary plane)", "Anaphase",
+    "Chromosomes break at centromeres, and sister chromatids move to opposite ends of the cell",
+    "Telophase and Cytokinesis", "Nuclear membrane reforms, nucleoli reappear, chromosomes unwind into chromatin",
+    "Myosin II and actin filament ring contract to cleave cell in two", "Daughter cells",
+    "Cleavage furrow", "Contractile ring", "Sister chromatids", "Chromosome", "Sister chromatid",
+    "Centromere", "Kinetochore", "Centrosome", "Centrioles", "Microtubules", "Nucleus",
+    "Nuclear membrane", "Chromatin", "Nucleolus", "Astral microtubules", "Chromosome"
+  ],
+  "labelsPrinted": 45,
+  "relations": [
+    ["G1 phase", "followed-by", "S phase"],
+    ["S phase", "followed-by", "G2 phase"],
+    ["G2 phase", "followed-by", "M phase"],
+    ["Telophase and cytokinesis", "produces", "Daughter cells"]
+  ],
+  "difficulty": "hard",
+  "notes": "Dense English-labelled process diagram. Small labels and text blocks are included; spelling and case follow the visible raster."
+}

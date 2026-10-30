@@ -1,0 +1,22 @@
+{
+  "id": "bio-eye-02",
+  "subject": "biology",
+  "class": 11,
+  "source": "Wikimedia Commons, Diagram of an eye (GN04130).jpg, South Australian government photographer, CC0; cropped to the figure; https://commons.wikimedia.org/wiki/File:Diagram_of_an_eye(GN04130).jpg",
+  "image": "raw/bio-eye-02.jpg",
+  "regions": ["Eyeball", "Anterior segment", "Posterior segment", "Optic nerve"],
+  "lines": ["Optic nerve", "Rectus oculi inferior"],
+  "labels": [
+    "Sclera", "Reflection of conjunctiva", "Iris", "Granula iridis", "Cornea", "Lens",
+    "Anterior chamber", "Ciliary processes", "Choroid", "Rectus oculi inferior",
+    "Retrobulbar fat", "Optic papilla", "Optic nerve"
+  ],
+  "labelsPrinted": 13,
+  "relations": [
+    ["Iris", "surrounds", "Pupil"],
+    ["Lens", "behind", "Iris"],
+    ["Optic nerve", "connects-to", "Optic papilla"]
+  ],
+  "difficulty": "hard",
+  "notes": "CC0 scan cropped to the labelled horse-eye figure; historical spelling 'Granula iridis' retained."
+}

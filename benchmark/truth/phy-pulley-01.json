@@ -1,0 +1,18 @@
+{
+  "id": "phy-pulley-01",
+  "subject": "physics",
+  "class": 11,
+  "source": "Wikimedia Commons, Pulley11-2.svg, derivative by Gauner 1 from Pulley11.svg by Mpfiz, public domain; https://commons.wikimedia.org/wiki/File:Pulley11-2.svg",
+  "image": "raw/phy-pulley-01.png",
+  "regions": ["Outer race", "Inner race", "Ball bearings"],
+  "lines": ["Applied force vector", "Normal-force vector", "Diameter dimension", "Bearing diameter dimension"],
+  "labels": ["F_N", "F + ΔF", "β", "F", "d", "D"],
+  "labelsPrinted": 6,
+  "relations": [
+    ["F_N", "acts-on", "Outer race"],
+    ["d", "measures", "Inner race"],
+    ["D", "measures", "Outer race"]
+  ],
+  "difficulty": "medium",
+  "notes": "Labels are the force symbols, angle, and two dimension symbols; the image depicts a ball bearing rather than a pulley."
+}

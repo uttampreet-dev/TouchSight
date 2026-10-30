@@ -1,0 +1,27 @@
+{
+  "id": "bio-respiratory-01",
+  "subject": "biology",
+  "class": 11,
+  "source": "Wikimedia Commons, Respiratory system complete en.svg, LadyofHats and Jmarchn, public domain; https://commons.wikimedia.org/wiki/File:Respiratory_system_complete_en.svg",
+  "image": "raw/bio-respiratory-01.png",
+  "regions": ["Nasal cavity", "Pharynx", "Larynx", "Trachea", "Right lung", "Left lung", "Alveolar inset"],
+  "lines": ["Main bronchi", "Lingular division bronchi", "Tracheal and bronchi rings", "Alveolar duct", "Pulmonary artery", "Pulmonary vein"],
+  "labels": [
+    "Paranasal sinuses", "Frontal", "Sphenoid", "Nose", "Nasal cavity", "Nasal conchae", "Nasal vestibule",
+    "Pharynx", "Larynx", "Epiglottis", "Thyroid cartilage", "Cricoid cartilage", "Vocal folds", "Trachea",
+    "Carina of trachea", "Esophagus", "Oral cavity", "Main bronchi", "Lingular division bronchi",
+    "Tracheal and bronchi rings", "Right lung", "Superior lobe", "Horizontal fissure", "Oblique fissure",
+    "Middle lobe", "Inferior lobe", "Left lung", "Superior lobe", "Apex of left lung", "Oblique fissure",
+    "Cardiac notch", "Lingula of lung", "Inferior lobe", "Diaphragm", "Lobar bronchus", "Superior",
+    "Inferior", "Middle", "Capillary beds", "Connective tissue", "Alveolar sacs", "Alveolar duct",
+    "Mucous gland", "Mucosal lining", "Pulmonary artery", "Pulmonary vein", "Alveoli", "Atrium"
+  ],
+  "labelsPrinted": 48,
+  "relations": [
+    ["Trachea", "branches-into", "Main bronchi"],
+    ["Main bronchi", "lead-to", "Lungs"],
+    ["Alveolar duct", "ends-in", "Alveolar sacs"]
+  ],
+  "difficulty": "hard",
+  "notes": "English labels on a Wikimedia Commons vector diagram; rasterized with a white background."
+}
