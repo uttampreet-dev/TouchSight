@@ -62,7 +62,7 @@ await phone.click('button[role=tab]:has-text("Quiz")'); await phone.waitForTimeo
 for (const [fx, fy] of [[0.3, 0.3], [0.7, 0.3], [0.3, 0.7], [0.7, 0.7], [0.3, 0.3], [0.7, 0.3], [0.3, 0.7], [0.7, 0.7]]) { const p = at(fx, fy); await phone.mouse.move(p.x, p.y); await phone.mouse.down(); await phone.waitForTimeout(60); await phone.mouse.up(); await phone.waitForTimeout(500) }
 await phone.screenshot({ path: `${OUT}/class-phone-quiz.png` })
 
-await console_.waitForFunction(() => { const c = document.querySelector('.cl-student'); return c && /opened/.test(c.textContent) && document.querySelectorAll('.cl-bars li').length > 0 }, null, { timeout: 8_000 }).catch(() => {})
+await console_.waitForFunction(() => { const c = document.querySelector('.cl-student'); const st = c?.querySelector('.cl-stats')?.textContent.replace(/\s+/g, ' ') ?? ''; return c && /1 opened/.test(st) && !/0 \/0 found/.test(st) && document.querySelectorAll('.cl-bars li').length > 0 }, null, { timeout: 10_000 }).catch(() => {})
 const stud = await console_.locator('.cl-student').first()
 const stats = (await stud.locator('.cl-stats').innerText()).replace(/\s+/g, ' ')
 const bars = await stud.locator('.cl-bars li').count()
