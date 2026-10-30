@@ -5,7 +5,7 @@ import type { Tdm } from '../tdm/types'
 interface TouchSightDB extends DBSchema {
   diagrams: {
     key: string
-    value: { id: string; tdm: Tdm; chapter: string; published: boolean; updatedAt: number; via?: Via }
+    value: { id: string; tdm: Tdm; chapter: string; published: boolean; updatedAt: number}
     indexes: { byChapter: string; byUpdated: number }
   }
   images: { key: string; value: { id: string; blob: Blob; w: number; h: number } }
@@ -22,7 +22,6 @@ interface TouchSightDB extends DBSchema {
 }
 
 /** teacher = made on this device, class = pushed by the teacher over the classroom link, file = opened from a .tdm.json */
-export type Via = 'teacher' | 'class' | 'file'
 
 let dbp: Promise<IDBPDatabase<TouchSightDB>> | null = null
 
@@ -48,9 +47,9 @@ export function db() {
   return dbp
 }
 
-export async function saveDiagram(tdm: Tdm, chapter: string, published: boolean, via: Via = 'teacher') {
+export async function saveDiagram(tdm: Tdm, chapter: string, published: boolean) {
   const d = await db()
-  await d.put('diagrams', { id: tdm.id, tdm, chapter, published, updatedAt: Date.now(), via })
+  await d.put('diagrams', { id: tdm.id, tdm, chapter, published, updatedAt: Date.now() })
 }
 
 export async function getDiagram(id: string) {

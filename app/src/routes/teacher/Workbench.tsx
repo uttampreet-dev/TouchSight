@@ -30,6 +30,8 @@ export function Workbench() {
   const [title, setTitle] = useState('')
   const [imgUrl, setImgUrl] = useState<string | null>(null)
   const [found, setFound] = useState<{ regions: number; labels: number; strokes: number; ms: number } | null>(null)
+  const [phones, setPhones] = useState(0)
+  useEffect(() => { if (step !== 'published') return; const t = setInterval(() => setPhones(classroom.phones), 600); return () => clearInterval(t) }, [step])
   const fileRef = useRef<HTMLInputElement>(null)
 
   // reopen a saved diagram
@@ -244,7 +246,7 @@ export function Workbench() {
           <footer className="wb-pane-f wb-publish">
             {step === 'published' && tdm ? (
               <div className="wb-published">
-                <div className="wb-pub-row"><b>Published</b><span className="mono">pushed to class {teacherRoom()} · phones keep it offline</span><button className="btn" onClick={() => nav('/teacher/library')}>Library</button><button className="btn" onClick={reset}>New</button></div>
+                <div className="wb-pub-row"><b>Published</b><span className="mono">pushed to {phones} phone{phones === 1 ? '' : 's'} in class {teacherRoom()} · they keep it offline</span><button className="btn" onClick={() => nav('/teacher/library')}>Library</button><button className="btn" onClick={reset}>New</button></div>
                 <ExportPanel tdm={tdm} />
               </div>
             ) : tdm && step === 'review' ? (
