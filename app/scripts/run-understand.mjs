@@ -31,6 +31,13 @@ for (const img of images) {
   const r = { name, ...m, wallMs: Date.now() - t0, mode: /colour/.test(summary) ? 'colour' : 'line-art', labels: rows.map((x) => x.split('\t')) }
   results.push(r)
   await page.locator('[data-testid=overlay]').screenshot({ path: `${OUT}/${name}.overlay.png` })
+  // the draft Tactile Diagram Model, as Stage 3 will receive it
+  const draft = await page.evaluate((id) => {
+    const T = window.__touchsight
+    const { tdm } = T.draftTdm(T.last, { id, title: id, subject: id.split('-')[0], sourceKind: 'upload', file: id })
+    return JSON.stringify(tdm)
+  }, name)
+  writeFileSync(`${OUT}/${name}.draft.tdm.json`, draft)
   console.log(`${name}: regions ${r.regions} · labels ${r.labels.length} · linked ${r.linked} · strokes ${r.strokes} · ${r.time} ms (${r.mode})`)
 }
 writeFileSync(`${OUT}/understand.json`, JSON.stringify(results, null, 2))

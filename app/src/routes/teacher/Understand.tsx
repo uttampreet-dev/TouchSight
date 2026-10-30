@@ -19,6 +19,7 @@ export function Understand() {
     setErr(''); setU(null)
     try {
       const res = await understand(file, setStage)
+      if (window.__touchsight) window.__touchsight.last = res
       setU(res); setStage('done')
     } catch (e) {
       setErr((e as Error).message); setStage('')

@@ -93,7 +93,7 @@ function clusterWords(words: Word[]): Label[] {
       // lines of one label sit tight (≈0.2–0.4 h apart); separate stacked labels sit ≥0.8 h apart
       const wa = a.x1 - a.x0, wb = b.x1 - b.x0
       const centred = Math.abs((a.x0 + a.x1) / 2 - (b.x0 + b.x1) / 2) <= Math.max(wa, wb) * 0.2
-      const stacked = hOverlap > Math.min(wa, wb) * 0.3 && (vGap <= h * 0.45 || (vGap <= h * 0.75 && centred))
+      const stacked = hOverlap > Math.min(wa, wb) * 0.3 && (vGap <= h * 0.45 || (vGap <= h * 0.6 && centred))
       if (sameLine || stacked) union(i, j)
     }
   }
