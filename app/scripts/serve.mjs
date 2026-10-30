@@ -15,6 +15,7 @@ const TYPES = {
 
 const server = createServer(async (req, res) => {
   const url = decodeURIComponent((req.url || '/').split('?')[0])
+  if (!/^(localhost|0\.0\.0\.0|127\.0\.0\.1)(:\d+)?$/.test(req.headers.host || '') && (!extname(url) || url.endsWith('.html'))) console.log(`${new Date().toISOString().slice(11, 19)} page ${req.url} host=${req.headers.host} from=${req.headers['cf-connecting-ip'] || req.socket.remoteAddress} ua=${(req.headers['user-agent'] || '').slice(0, 50)}`)
   let file = normalize(join(ROOT, url))
   if (!file.startsWith(ROOT)) { res.writeHead(403); return res.end() }
   try {
