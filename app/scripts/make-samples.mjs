@@ -24,8 +24,20 @@ const SAMPLES = [
     relations: [['right atrium', 'right ventricle', 'flows-into'], ['left atrium', 'left ventricle', 'flows-into']],
   },
   {
-    file: 'bio-plantcell-01.png', id: 'sample-plant-cell', title: 'Plant cell', subject: 'Biology · Class 9 · The fundamental unit of life',
-    keepNamedOnly: true, rename: {}, meanings: {}, relations: [],
+    file: 'bio-plantcell-02.png', id: 'sample-plant-cell', title: 'Plant cell', subject: 'Biology · Class 9 · The fundamental unit of life',
+    keepNamedOnly: true, rename: {},
+    // the pipeline tied "Chloroplast" to the cytoplasm and left the vacuole and nucleus unnamed; the teacher renames by position (mm on the sheet)
+    renameAt: [[106, 99, 'Cytoplasm', 1000], [91, 92, 'Vacuole', 0], [131, 96, 'Nucleus', 0], [107, 145, 'Chloroplast', 0]],
+    meanings: {
+      'cell wall': 'The rigid outer layer, made of cellulose. It gives the plant cell its shape and protects it.',
+      'vacuole': 'The large central store of water, sugars and waste. It keeps the cell firm.',
+      'nucleus': 'Controls everything the cell does and holds the chromosomes.',
+      'nucleolus': 'The dense spot inside the nucleus where ribosomes are made.',
+      'chloroplast': 'Holds chlorophyll. This is where photosynthesis makes food from sunlight.',
+      'mitochondrion': 'Releases energy from food. The powerhouse of the cell.',
+      'cytoplasm': 'The jelly that fills the cell and holds every organelle.',
+    },
+    relations: [['nucleolus', 'nucleus', 'part-of'], ['nucleus', 'cytoplasm', 'part-of']],
   },
 ]
 
@@ -43,9 +55,16 @@ for (const sp of SAMPLES) {
     let { tdm } = T.simplify(draft)
     const before = [...tdm.regions, ...tdm.lines].map((e) => `${e.id}:${e.name.en}`)
     const byName = (n) => [...tdm.regions, ...tdm.lines].find((e) => e.name.en.toLowerCase() === n.toLowerCase())
+    const centroid = (poly) => { let a = 0, cx = 0, cy = 0; for (let i = 0; i < poly.length; i++) { const [x1, y1] = poly[i], [x2, y2] = poly[(i + 1) % poly.length]; const c = x1 * y2 - x2 * y1; a += c; cx += (x1 + x2) * c; cy += (y1 + y2) * c } a /= 2; return [cx / (6 * a), cy / (6 * a), Math.abs(a)] }
+    for (const [x, y, name, minArea] of sp.renameAt ?? []) {
+      const near = tdm.regions.map((r) => { const [cx, cy, area] = centroid(r.polygon); return { r, d: Math.hypot(cx - x, cy - y), area } }).filter((o) => o.area >= minArea && o.d < 8).sort((a, b) => a.d - b.d)[0]
+      if (near) tdm = T.edit.rename(tdm, near.r.id, 'en', name)
+    }
     for (const [from, to] of Object.entries(sp.rename)) { const e = byName(from); if (e) tdm = T.edit.rename(tdm, e.id, 'en', to) }
     if (sp.keepNamedOnly) for (const e of [...tdm.regions, ...tdm.lines]) if (/^(Region|Line) \d+$/.test(e.name.en)) tdm = T.edit.remove(tdm, e.id)
     for (const [n, m] of Object.entries(sp.meanings)) { const e = tdm.regions.find((r) => r.name.en.toLowerCase() === n.toLowerCase()); if (e) e.meaning = m }
+    // the teacher's review: every detected relation is removed, then the ones the figure teaches are drawn
+    for (let i = tdm.relations.length - 1; i >= 0; i--) if (tdm.relations[i].source === 'detected') tdm = T.edit.removeRelation(tdm, i)
     for (const [a, b, kind] of sp.relations) { const ea = byName(a), eb = byName(b); if (ea && eb) tdm = T.edit.addRelation(tdm, ea.id, eb.id, kind) }
     tdm = T.edit.markReviewed({ ...tdm, id: sp.id, title: sp.title, subject: sp.subject })
     tdm.validation = T.validate(tdm)

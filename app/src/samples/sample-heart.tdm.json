@@ -11,7 +11,7 @@
   "source": {
     "kind": "upload",
     "file": "bio-heart-02.png",
-    "captured": "2026-10-29T15:55:50.505Z"
+    "captured": "2026-10-30T08:53:54.990Z"
   },
   "regions": [
     {
@@ -74,7 +74,7 @@
         ]
       ],
       "texture": "empty",
-      "keyRef": "c",
+      "keyRef": "e",
       "confidence": 0.98,
       "sourceLabel": {
         "text": "Superior vena cava",
@@ -118,7 +118,7 @@
         ]
       ],
       "texture": "dots",
-      "keyRef": "d",
+      "keyRef": "b",
       "confidence": 0.98,
       "sourceLabel": {
         "text": "Right ventricle",
@@ -170,7 +170,7 @@
         ]
       ],
       "texture": "diagonal-lines",
-      "keyRef": "e",
+      "keyRef": "d",
       "confidence": 0.98,
       "sourceLabel": {
         "text": "Left ventricle",
@@ -258,7 +258,7 @@
         ]
       ],
       "texture": "dots",
-      "keyRef": "b",
+      "keyRef": "c",
       "confidence": 0.98,
       "sourceLabel": {
         "text": "Left atrium",
@@ -273,13 +273,15 @@
       "from": "r-04",
       "to": "r-02",
       "kind": "flows-into",
-      "direction": "forward"
+      "direction": "forward",
+      "source": "teacher"
     },
     {
       "from": "r-03",
       "to": "r-01",
       "kind": "flows-into",
-      "direction": "forward"
+      "direction": "forward",
+      "source": "teacher"
     }
   ],
   "key": [
@@ -293,22 +295,6 @@
     },
     {
       "ref": "b",
-      "regionId": "r-03",
-      "text": {
-        "en": "Left Atrium"
-      },
-      "braille": {}
-    },
-    {
-      "ref": "c",
-      "regionId": "r-05",
-      "text": {
-        "en": "Heart wall"
-      },
-      "braille": {}
-    },
-    {
-      "ref": "d",
       "regionId": "r-02",
       "text": {
         "en": "Right Ventricle"
@@ -316,20 +302,36 @@
       "braille": {}
     },
     {
-      "ref": "e",
+      "ref": "c",
+      "regionId": "r-03",
+      "text": {
+        "en": "Left Atrium"
+      },
+      "braille": {}
+    },
+    {
+      "ref": "d",
       "regionId": "r-01",
       "text": {
         "en": "Left Ventricle"
+      },
+      "braille": {}
+    },
+    {
+      "ref": "e",
+      "regionId": "r-05",
+      "text": {
+        "en": "Heart wall"
       },
       "braille": {}
     }
   ],
   "readingOrder": [
     "r-04",
-    "r-03",
-    "r-05",
     "r-02",
-    "r-01"
+    "r-03",
+    "r-01",
+    "r-05"
   ],
   "languages": {
     "primary": "en",
@@ -345,6 +347,6 @@
   "provenance": {
     "pipeline": "0.1",
     "teacherReviewed": true,
-    "reviewedAt": "2026-10-29T15:55:50.515Z"
+    "reviewedAt": "2026-10-30T08:53:55.003Z"
   }
 }
