@@ -1,0 +1,14 @@
+{
+  "id": "bio-heart-01",
+  "subject": "biology",
+  "class": 10,
+  "source": "Wikimedia Commons, Diagram of the human heart (cropped).svg, Wapcaplet, CC BY-SA 3.0",
+  "image": "raw/bio-heart-01.png",
+  "regions": ["Right atrium", "Right ventricle", "Left atrium", "Left ventricle"],
+  "lines": ["Aorta", "Pulmonary artery", "Pulmonary vein", "Superior vena cava", "Inferior vena cava"],
+  "labels": ["Superior Vena Cava", "Aorta", "Pulmonary Artery", "Pulmonary Vein", "Left Atrium", "Right Atrium", "Mitral Valve", "Aortic Valve", "Pulmonary Valve", "Tricuspid Valve", "Left Ventricle", "Right Ventricle", "Inferior Vena Cava", "Pericardium"],
+  "labelsPrinted": 14,
+  "relations": [["Right atrium", "flows-into", "Right ventricle"], ["Right ventricle", "flows-into", "Pulmonary artery"], ["Left atrium", "flows-into", "Left ventricle"], ["Left ventricle", "flows-into", "Aorta"]],
+  "difficulty": "hard",
+  "notes": "3-D shaded colour fills, dotted leader lines, labels inside and outside the figure"
+}

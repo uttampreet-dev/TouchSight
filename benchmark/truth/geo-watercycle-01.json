@@ -1,0 +1,65 @@
+{
+  "id": "geo-watercycle-01",
+  "subject": "geography",
+  "class": 9,
+  "source": "Wikimedia Commons, Watercyclesummary.jpg, USGS (John Evans, Howard Perlman), public domain",
+  "image": "raw/geo-watercycle-01.jpg",
+  "regions": [
+    "Atmosphere",
+    "Oceans",
+    "Ice and snow",
+    "Groundwater storage"
+  ],
+  "lines": [
+    "Surface runoff",
+    "Streamflow",
+    "Infiltration",
+    "Groundwater flow"
+  ],
+  "labels": [
+    "The Water Cycle",
+    "Volcanic steam",
+    "Atmosphere",
+    "Sublimation",
+    "Condensation",
+    "Precipitation",
+    "Desublimation",
+    "Evapotranspiration",
+    "Evaporation",
+    "Ice and snow",
+    "Fog drip",
+    "Surface runoff",
+    "Snowmelt runoff",
+    "Dew",
+    "Infiltration",
+    "Streamflow",
+    "Seepage",
+    "Spring",
+    "Plant uptake",
+    "Freshwater",
+    "Groundwater flow",
+    "Groundwater storage",
+    "Oceans",
+    "Vents and volcanos"
+  ],
+  "labelsPrinted": 24,
+  "relations": [
+    [
+      "Evaporation",
+      "flows-into",
+      "Atmosphere"
+    ],
+    [
+      "Condensation",
+      "flows-into",
+      "Precipitation"
+    ],
+    [
+      "Surface runoff",
+      "flows-into",
+      "Oceans"
+    ]
+  ],
+  "difficulty": "hard",
+  "notes": "low-resolution photo-realistic painting, text over imagery, arrows as the main relations"
+}

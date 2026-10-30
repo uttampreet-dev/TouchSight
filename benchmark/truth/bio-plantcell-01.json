@@ -1,0 +1,14 @@
+{
+  "id": "bio-plantcell-01",
+  "subject": "biology",
+  "class": 9,
+  "source": "Wikimedia Commons, Plant cell structure-en.svg, LadyofHats, public domain",
+  "image": "raw/bio-plantcell-01.png",
+  "regions": ["Cell wall", "Vacuole", "Nucleus", "Cytoplasm", "Chloroplast", "Mitochondrion"],
+  "lines": [],
+  "labels": ["Filamentous cytoskeleton", "Plasmodesmata", "Plasma membrane", "Cell wall", "Small membranous vesicles", "Chloroplast", "Thylakoid membrane", "Starch grain", "Smooth endoplasmic reticulum", "Vacuole", "Tonoplast", "Mitochondrion (mitochondria)", "Ribosomes", "Peroxisome", "Cytoplasm", "Nucleus", "Nuclear pore", "Nuclear envelope", "Nucleolus", "Golgi vesicles", "Golgi body (Golgi apparatus)", "Rough endoplasmic reticulum"],
+  "labelsPrinted": 22,
+  "relations": [["Nucleolus", "part-of", "Nucleus"], ["Thylakoid membrane", "part-of", "Chloroplast"], ["Tonoplast", "part-of", "Vacuole"]],
+  "difficulty": "medium",
+  "notes": "flat colour fills, solid black leader lines, every label outside the figure"
+}

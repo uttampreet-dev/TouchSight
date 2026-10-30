@@ -1,0 +1,196 @@
+[
+  {
+    "name": "bio-heart-01",
+    "truth": true,
+    "labelsPrinted": 14,
+    "found": 9,
+    "pct": 64,
+    "spurious": 6,
+    "regionsFound": 9,
+    "regionsExpected": 4,
+    "strokes": 265,
+    "ms": 1610,
+    "missing": [
+      [
+        "Pulmonary Artery",
+        "Pulmonary Art",
+        0.5
+      ],
+      [
+        "Left Atrium",
+        "Right trium",
+        0.5
+      ],
+      [
+        "Left Ventricle",
+        "Left",
+        0.5
+      ],
+      [
+        "Right Ventricle",
+        "Right trium",
+        0.5
+      ],
+      [
+        "Pericardium",
+        "Superior Vena Cava",
+        0
+      ]
+    ]
+  },
+  {
+    "name": "bio-plantcell-01",
+    "truth": true,
+    "labelsPrinted": 22,
+    "found": 21,
+    "pct": 95,
+    "spurious": 4,
+    "regionsFound": 10,
+    "regionsExpected": 6,
+    "strokes": 266,
+    "ms": 1595,
+    "missing": [
+      [
+        "Small membranous vesicles",
+        "Small membranous",
+        0.67
+      ]
+    ]
+  },
+  {
+    "name": "geo-watercycle-01",
+    "truth": true,
+    "labelsPrinted": 24,
+    "found": 11,
+    "pct": 46,
+    "spurious": 7,
+    "regionsFound": 14,
+    "regionsExpected": 4,
+    "strokes": 239,
+    "ms": 1754,
+    "missing": [
+      [
+        "The Water Cycle",
+        "The",
+        0.33
+      ],
+      [
+        "Ice and snow",
+        "Ice and",
+        0.67
+      ],
+      [
+        "Fog drip",
+        "The",
+        0
+      ],
+      [
+        "Surface runoff",
+        "Surface",
+        0.5
+      ],
+      [
+        "Snowmelt runoff",
+        "The",
+        0
+      ],
+      [
+        "Dew",
+        "The",
+        0
+      ],
+      [
+        "Infiltration",
+        "The",
+        0
+      ],
+      [
+        "Streamflow",
+        "The",
+        0
+      ],
+      [
+        "Seepage",
+        "The",
+        0
+      ],
+      [
+        "Spring",
+        "The",
+        0
+      ],
+      [
+        "Plant uptake",
+        "The",
+        0
+      ],
+      [
+        "Freshwater",
+        "The",
+        0
+      ],
+      [
+        "Groundwater flow",
+        "flow",
+        0.5
+      ]
+    ]
+  },
+  {
+    "name": "bio-digestive-01",
+    "truth": true,
+    "labelsPrinted": 30,
+    "found": 29,
+    "pct": 97,
+    "spurious": 5,
+    "regionsFound": 10,
+    "regionsExpected": 7,
+    "strokes": 275,
+    "ms": 1745,
+    "missing": [
+      [
+        "Jejunum",
+        "Mouth",
+        0
+      ]
+    ]
+  },
+  {
+    "name": "bio-eye-01",
+    "truth": true,
+    "labelsPrinted": 19,
+    "found": 18,
+    "pct": 95,
+    "spurious": 3,
+    "regionsFound": 6,
+    "regionsExpected": 7,
+    "strokes": 291,
+    "ms": 1833,
+    "missing": [
+      [
+        "Ciliary body",
+        "Ciliary bodly choroid Chor",
+        0.5
+      ]
+    ]
+  },
+  {
+    "name": "bio-flower-01",
+    "truth": true,
+    "labelsPrinted": 17,
+    "found": 16,
+    "pct": 94,
+    "spurious": 1,
+    "regionsFound": 8,
+    "regionsExpected": 6,
+    "strokes": 264,
+    "ms": 946,
+    "missing": [
+      [
+        "anther",
+        "Mature flower",
+        0
+      ]
+    ]
+  }
+]

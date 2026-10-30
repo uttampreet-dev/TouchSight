@@ -1,0 +1,78 @@
+{
+  "id": "bio-digestive-01",
+  "subject": "biology",
+  "class": 10,
+  "source": "Wikimedia Commons, Digestive system diagram en.svg, Mariana Ruiz & Jmarchn, public domain",
+  "image": "raw/bio-digestive-01.png",
+  "regions": [
+    "Mouth",
+    "Esophagus",
+    "Liver",
+    "Stomach",
+    "Pancreas",
+    "Small intestine",
+    "Large intestine"
+  ],
+  "lines": [
+    "Esophagus",
+    "Common bile duct",
+    "Pancreatic duct"
+  ],
+  "labels": [
+    "Mouth",
+    "Palate",
+    "Uvula",
+    "Tongue",
+    "Teeth",
+    "Pharynx",
+    "Esophagus",
+    "Salivary glands",
+    "Sublingual",
+    "Submandibular",
+    "Parotid",
+    "Liver",
+    "Gallbladder",
+    "Common bile duct",
+    "Stomach",
+    "Pancreas",
+    "Pancreatic duct",
+    "Small intestine",
+    "Duodenum",
+    "Jejunum",
+    "Ileum",
+    "Large intestine",
+    "Transverse colon",
+    "Ascending colon",
+    "Cecum",
+    "Descending colon",
+    "Appendix",
+    "Sigmoid colon",
+    "Rectum",
+    "Anus"
+  ],
+  "labelsPrinted": 30,
+  "relations": [
+    [
+      "Mouth",
+      "flows-into",
+      "Esophagus"
+    ],
+    [
+      "Esophagus",
+      "flows-into",
+      "Stomach"
+    ],
+    [
+      "Stomach",
+      "flows-into",
+      "Small intestine"
+    ],
+    [
+      "Small intestine",
+      "flows-into",
+      "Large intestine"
+    ]
+  ],
+  "difficulty": "hard",
+  "notes": "tall figure, many thin organs, labels grouped in coloured boxes with leader lines"
+}

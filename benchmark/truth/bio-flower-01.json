@@ -1,0 +1,69 @@
+{
+  "id": "bio-flower-01",
+  "subject": "biology",
+  "class": 10,
+  "source": "Wikimedia Commons, Mature flower diagram.svg, Mariana Ruiz (LadyofHats), public domain",
+  "image": "raw/bio-flower-01.png",
+  "regions": [
+    "Petal",
+    "Sepal",
+    "Ovary",
+    "Stamen",
+    "Pistil",
+    "Pedicel"
+  ],
+  "lines": [
+    "Style",
+    "Filament",
+    "Floral axis"
+  ],
+  "labels": [
+    "Mature flower",
+    "ovules",
+    "pistil",
+    "stigma",
+    "style",
+    "ovary",
+    "connective",
+    "anther",
+    "petal/corolla",
+    "sepal/calyx",
+    "perianth",
+    "microsporangium",
+    "filament",
+    "stamen",
+    "floral axis",
+    "nectary",
+    "pedicel"
+  ],
+  "labelsPrinted": 17,
+  "relations": [
+    [
+      "stigma",
+      "part-of",
+      "pistil"
+    ],
+    [
+      "style",
+      "part-of",
+      "pistil"
+    ],
+    [
+      "ovary",
+      "part-of",
+      "pistil"
+    ],
+    [
+      "anther",
+      "part-of",
+      "stamen"
+    ],
+    [
+      "filament",
+      "part-of",
+      "stamen"
+    ]
+  ],
+  "difficulty": "medium",
+  "notes": "three inset detail circles; lower-case labels; red leader lines"
+}

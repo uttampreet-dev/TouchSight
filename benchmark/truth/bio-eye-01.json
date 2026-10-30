@@ -1,0 +1,62 @@
+{
+  "id": "bio-eye-01",
+  "subject": "biology",
+  "class": 10,
+  "source": "Wikimedia Commons, Schematic diagram of the human eye en.svg, Rhcastilhos & Jmarchn, CC BY-SA 3.0",
+  "image": "raw/bio-eye-01.png",
+  "regions": [
+    "Cornea",
+    "Lens",
+    "Iris",
+    "Vitreous humour",
+    "Retina",
+    "Sclera",
+    "Optic nerve"
+  ],
+  "lines": [
+    "Optic nerve",
+    "Retinal blood vessels",
+    "Hyaloid canal"
+  ],
+  "labels": [
+    "Anterior chamber (aqueous humour)",
+    "Posterior chamber",
+    "Cornea",
+    "Pupil",
+    "Uvea",
+    "Iris",
+    "Ciliary body",
+    "Suspensory ligament of lens",
+    "Lens",
+    "Sclera",
+    "Choroid",
+    "Vitreous humour",
+    "Hyaloid canal",
+    "Retinal blood vessels",
+    "Retina",
+    "Macula",
+    "Fovea",
+    "Optic disc",
+    "Optic nerve"
+  ],
+  "labelsPrinted": 19,
+  "relations": [
+    [
+      "Macula",
+      "part-of",
+      "Retina"
+    ],
+    [
+      "Fovea",
+      "part-of",
+      "Macula"
+    ],
+    [
+      "Pupil",
+      "part-of",
+      "Iris"
+    ]
+  ],
+  "difficulty": "medium",
+  "notes": "cross-section, concentric layers, labels outside with solid leader lines"
+}
