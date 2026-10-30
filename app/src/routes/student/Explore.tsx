@@ -11,6 +11,7 @@ import { directionTo, isNamed } from '../../student/hit'
 import { nameIn, t, LANG_NAME } from '../../i18n'
 import { useLang } from '../Student'
 import { BrailleKey } from './Key'
+import { mirror } from '../../student/mirror'
 
 type Mode = 'explore' | 'tour' | 'quiz' | 'key'
 
@@ -18,7 +19,6 @@ declare global {
   interface Window { __tsLog?: { t: number; kind: string; text: string }[]; __tsTdm?: Tdm }
 }
 const log = (kind: string, text: string) => { (window.__tsLog ??= []).push({ t: Date.now(), kind, text }) }
-const stage = typeof BroadcastChannel !== 'undefined' ? new BroadcastChannel('touchsight-stage') : null
 const wait = (ms: number) => new Promise<void>((r) => setTimeout(r, ms))
 
 /** One diagram under the fingers: explore by touch, take the audio tour, or be quizzed. */
@@ -37,15 +37,16 @@ export function Explore() {
 
   useEffect(() => {
     let live = true
-    getDiagram(id).then((row) => { const d = row?.tdm ?? sampleById(id) ?? null; if (live) { setTdm(d); if (d) window.__tsTdm = d } })
+    getDiagram(id).then((row) => { const d = row?.tdm ?? sampleById(id) ?? null; if (live) { setTdm(d); if (d) { window.__tsTdm = d; mirror.hello(d) } } })
     return () => { live = false }
   }, [id])
 
   // ---- the device's three outputs, each logged for the projector and the harness
-  const say = useCallback((text: string, l: Lang = lang) => { log('say', text); setCaption(text); stage?.postMessage({ type: 'say', text }); return speak(text, l) ?? wait(Math.min(2500, 250 + text.length * 45)) }, [lang])
+  const say = useCallback((text: string, l: Lang = lang) => { log('say', text); setCaption(text); mirror.post({ type: 'say', text }); return speak(text, l) ?? wait(Math.min(2500, 250 + text.length * 45)) }, [lang])
   const buzz = useCallback((p: Pulse) => { log('pulse', JSON.stringify(p)); vibrate(p) }, [])
   const hush = useCallback(() => { if (pending.current) { clearTimeout(pending.current); pending.current = null } }, [])
   useEffect(() => () => { hush(); stopSpeech(); stopVibration() }, [hush])
+  useEffect(() => { mirror.post({ type: 'mode', mode }) }, [mode])
 
   // ---- quiz
   const [targets, setTargets] = useState<string[]>([])
@@ -65,6 +66,7 @@ export function Explore() {
     if (!tdm || i >= list.length) return
     const r = tdm.regions.find((x) => x.id === list[i])!
     qStart.current = Date.now()
+    mirror.post({ type: 'quiz', target: r.id })
     say(s.find(nameIn(r.name, lang)))
   }, [tdm, targets, say, s, lang])
 
@@ -82,6 +84,7 @@ export function Explore() {
     const target = targets[qi]
     const tr = tdm.regions.find((x) => x.id === target)!
     setQAttempts((a) => a + 1)
+    mirror.post({ type: 'quiz', target, result: hitId === target ? 'correct' : 'wrong', hitId })
     if (hitId === target) {
       buzz(CORRECT_PULSE)
       setFocus(target)
@@ -90,7 +93,7 @@ export function Explore() {
       const next = qi + 1
       setQi(next); setQFound((f) => f + 1)
       if (next < targets.length) askCurrent(next)
-      else say(s.quizDone(qFound + 1, targets.length))
+      else { mirror.post({ type: 'quiz', target: null }); say(s.quizDone(qFound + 1, targets.length)) }
     } else {
       buzz(WRONG_PULSE)
       const hit = hitId ? tdm.regions.find((x) => x.id === hitId) ?? tdm.lines.find((x) => x.id === hitId) : null
@@ -126,7 +129,7 @@ export function Explore() {
       const el = r ?? l
       if (!el) continue
       setTi(i); setFocus(elId)
-      stage?.postMessage({ type: 'focus', id: elId, diagramId: tdm.id })
+      mirror.post({ type: 'focus', id: elId })
       buzz(r ? TEXTURE_PULSE[r.texture] || 22 : LINE_PULSE)
       await say(`${el.keyRef}. ${describeFully(tdm, elId, lang)}`)
       if (run !== tourRun.current) return
@@ -162,7 +165,7 @@ export function Explore() {
     const p = toMm(e)
     if (!p) return
     setFinger(p)
-    stage?.postMessage({ type: 'finger', p, id: st.current.id, diagramId: tdm.id })
+    mirror.post({ type: 'finger', p, id: st.current.id })
     apply(step(tdm, st.current, p, performance.now(), lang))
   }
   const onLift = (e: React.PointerEvent) => {
@@ -171,7 +174,7 @@ export function Explore() {
     const p = toMm(e)
     apply(step(tdm, st.current, null, performance.now(), lang))
     setFinger(null)
-    stage?.postMessage({ type: 'finger', p: null, id: null, diagramId: tdm.id })
+    mirror.post({ type: 'finger', p: null, id: null })
     if (mode === 'quiz' && !qDone) answer(last, p)
   }
   const whereAmI = () => { if (!tdm) return; const f = focus ?? st.current.id; say(f ? describeFully(tdm, f, lang) : s.blank) }

@@ -1,0 +1,25 @@
+.sg { min-height: 100vh; display: grid; grid-template-columns: 7fr 3fr; background: var(--deep); color: #eaf4f3; }
+.sg-canvas { position: relative; display: flex; align-items: center; justify-content: center; padding: 28px; min-width: 0; min-height: 0; background-image: radial-gradient(rgba(127,212,203,.14) 1px, transparent 1px); background-size: 22px 22px; }
+.sg-canvas > svg { max-height: calc(100vh - 56px); max-width: 100%; border-radius: 10px; box-shadow: 0 30px 80px rgba(0,0,0,.45); }
+.sg-wait { display: grid; gap: 18px; max-width: 560px; justify-items: start; }
+.sg-wait .h1 { margin: 0; font-size: 30px; }
+.sg-wait img { border-radius: 12px; background: #fff; padding: 6px; }
+.sg-url { font-size: 13px; color: var(--teal-soft); word-break: break-all; }
+.sg-hint { font-size: 11px; color: #9fb8b8; }
+.sg-side { border-left: 1px solid rgba(127,212,203,.18); padding: 22px 24px; display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.sg-head { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.sg-head .kicker { color: var(--teal-soft); }
+.sg-badge { margin-left: auto; font-family: var(--mono); font-size: 11px; padding: 4px 9px; border-radius: 999px; border: 1px solid rgba(127,212,203,.3); color: #9fb8b8; }
+.sg-badge.on { color: #fff; background: var(--teal); border-color: var(--teal); }
+.sg-mode { font-size: 12px; color: #9fb8b8; }
+.sg-mode b { color: var(--coral); text-transform: uppercase; }
+.sg-caption { font-family: var(--head); font-weight: 800; font-size: 34px; line-height: 1.12; letter-spacing: -0.01em; min-height: 2.3em; }
+.sg-now { font-size: 12px; color: var(--teal-soft); }
+.sg-latency { display: grid; grid-template-columns: auto 1fr auto 1fr auto 1fr; gap: 4px 10px; font-size: 11px; color: #9fb8b8; border-top: 1px solid rgba(127,212,203,.18); border-bottom: 1px solid rgba(127,212,203,.18); padding: 10px 0; }
+.sg-latency b { color: #fff; font-size: 14px; }
+.sg-log { list-style: none; margin: 0; padding: 0; font-size: 12px; display: grid; gap: 4px; overflow: hidden; }
+.sg-log li { display: grid; grid-template-columns: 92px 44px 1fr; gap: 8px; color: #cfe3e1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sg-log li span { color: #6f8e8c; }
+.sg-log li em { font-style: normal; color: var(--teal-soft); }
+.sg-log li:first-child { color: #fff; }
+@media (max-width: 900px) { .sg { grid-template-columns: 1fr; } .sg-side { border-left: 0; border-top: 1px solid rgba(127,212,203,.18); } }

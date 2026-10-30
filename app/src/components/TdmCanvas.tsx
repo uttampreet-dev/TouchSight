@@ -62,6 +62,8 @@ export interface TdmCanvasProps {
   frame?: 'sheet' | 'diagram'
   /** draw relations as dashed arrows between element centres (console only, never on tactile output) */
   showRelations?: boolean
+  /** extra SVG drawn last, in sheet millimetres (the projector's finger trail) */
+  children?: React.ReactNode
 }
 
 export function diagramBox(tdm: Tdm, pad = 8) {
@@ -72,7 +74,7 @@ export function diagramBox(tdm: Tdm, pad = 8) {
   return { x: x0, y: y0, w: x1 - x0, h: y1 - y0 }
 }
 
-export function TdmCanvas({ tdm, highlight = [], selected, onSelect, showRefs = true, showKey = false, marker, ink = '#17181a', paper = '#ffffff', accent = '#ff6f59', className, style, frame = 'diagram', showRelations = false }: TdmCanvasProps) {
+export function TdmCanvas({ tdm, highlight = [], selected, onSelect, showRefs = true, showKey = false, marker, ink = '#17181a', paper = '#ffffff', accent = '#ff6f59', className, style, frame = 'diagram', showRelations = false, children }: TdmCanvasProps) {
   const box = frame === 'sheet' ? { x: 0, y: 0, w: tdm.sheet.w, h: tdm.sheet.h } : diagramBox(tdm)
   const keyRows = showKey ? Math.ceil(tdm.key.length / 2) : 0
   const vb = showKey && frame === 'diagram' ? { ...box, h: box.h + 10 + keyRows * 7 } : box
@@ -147,6 +149,7 @@ export function TdmCanvas({ tdm, highlight = [], selected, onSelect, showRefs = 
           <circle cx={marker[0]} cy={marker[1]} r={1.2} fill={accent} />
         </g>
       )}
+      {children}
     </svg>
   )
 }

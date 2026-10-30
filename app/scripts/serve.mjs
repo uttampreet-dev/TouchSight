@@ -3,6 +3,7 @@
 import { createServer } from 'node:http'
 import { readFile, stat } from 'node:fs/promises'
 import { extname, join, normalize } from 'node:path'
+import { WebSocketServer } from 'ws'
 
 const ROOT = new URL('../dist/', import.meta.url).pathname
 const PORT = +(process.argv[2] || 4173)
@@ -12,7 +13,7 @@ const TYPES = {
   '.wasm': 'application/wasm', '.woff2': 'font/woff2', '.traineddata': 'application/octet-stream', '.map': 'application/json',
 }
 
-createServer(async (req, res) => {
+const server = createServer(async (req, res) => {
   const url = decodeURIComponent((req.url || '/').split('?')[0])
   let file = normalize(join(ROOT, url))
   if (!file.startsWith(ROOT)) { res.writeHead(403); return res.end() }
@@ -31,4 +32,22 @@ createServer(async (req, res) => {
   } catch {
     res.writeHead(500); res.end()
   }
-}).listen(PORT, '0.0.0.0', () => console.log(`serving dist on http://0.0.0.0:${PORT}`))
+})
+
+// /relay — one room for the jury table: every message fans out to every other client; the last `hello`
+// (the diagram) is replayed to anyone who joins late, so the projector can open after the phone.
+const wss = new WebSocketServer({ noServer: true })
+let lastHello = null
+server.on('upgrade', (req, socket, head) => {
+  if ((req.url || '').split('?')[0] !== '/relay') return socket.destroy()
+  wss.handleUpgrade(req, socket, head, (ws) => wss.emit('connection', ws, req))
+})
+wss.on('connection', (ws) => {
+  if (lastHello) ws.send(lastHello)
+  ws.on('message', (data) => {
+    const text = data.toString()
+    if (text.startsWith('{"type":"hello"')) lastHello = text
+    for (const c of wss.clients) if (c !== ws && c.readyState === 1) c.send(text)
+  })
+})
+server.listen(PORT, '0.0.0.0', () => console.log(`serving dist on http://0.0.0.0:${PORT} (relay at /relay)`))

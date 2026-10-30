@@ -17,16 +17,20 @@
     "idb": "^8.0.4",
     "liblouis": "^0.4.0",
     "liblouis-build": "^3.2.0-rc",
+    "qrcode": "^1.5.4",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "react-router-dom": "^7.18.5",
     "tesseract.js": "^7.0.0",
-    "vite-plugin-pwa": "^2.0.0"
+    "vite-plugin-pwa": "^2.0.0",
+    "ws": "^8.22.0"
   },
   "devDependencies": {
     "@types/node": "^24.19.2",
+    "@types/qrcode": "^1.5.6",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
+    "@types/ws": "^8.18.2",
     "@vitejs/plugin-react": "^6.1.2",
     "oxlint": "^1.89.0",
     "playwright-core": "^1.64.1",
