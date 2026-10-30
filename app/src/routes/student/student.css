@@ -69,3 +69,6 @@
 .st-pick-card { min-height: 112px; border-radius: 16px; border: 2px solid rgba(127,212,203,.35); background: var(--deep-2); color: #fff; display: grid; align-content: center; justify-items: center; gap: 6px; padding: 14px; touch-action: manipulation; }
 .st-pick-card b { font-family: var(--head); font-size: 24px; letter-spacing: -0.01em; } .st-pick-card .mono { font-size: 11px; color: var(--teal-soft); min-height: 14px; }
 .st-pick-card.armed { background: var(--coral); border-color: var(--coral); } .st-pick-card.armed .mono { color: #fff; }
+
+.st-link.open { color: #5fd38f; } .st-link.connecting { color: var(--amber); } .st-link.off { color: var(--coral); }
+.st-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--coral); margin-left: 6px; vertical-align: middle; } .st-dot.open { background: #5fd38f; } .st-dot.connecting { background: var(--amber); }

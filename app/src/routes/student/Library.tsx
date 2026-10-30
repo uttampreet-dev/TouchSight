@@ -27,6 +27,8 @@ export function StudentLibrary() {
   const [armed, setArmed] = useState<string | null>(null)
   const [code, setCode] = useState('')
   const armedAt = useRef(0)
+  const [link, setLink] = useState(classroom.state)
+  useEffect(() => { const t = setInterval(() => setLink(classroom.state), 700); return () => clearInterval(t) }, [])
 
   // a QR link carries the room; the teacher scanned it once on this phone
   useEffect(() => {
@@ -112,7 +114,7 @@ export function StudentLibrary() {
 
       {profile?.room && !profile.name && (
         <section className="st-section st-pick" aria-live="polite">
-          <div className="st-section-head"><span className="kicker">{s.classRoom} · {profile.room}</span><span className="mono">{roster.length}</span></div>
+          <div className="st-section-head"><span className="kicker">{s.classRoom} · {profile.room}</span><span className={`mono st-link ${link}`}>{link === 'open' ? `● ${roster.length}` : link === 'connecting' ? '○ connecting' : '○ offline'}</span></div>
           <p className="st-pick-q">{s.whoAreYou}</p>
           {roster.length ? (
             <div className="st-pick-grid">
@@ -123,7 +125,7 @@ export function StudentLibrary() {
       )}
 
       {profile?.room && profile.name && (
-        <div className="st-me"><span className="kicker">{s.classRoom} · {profile.room}</span><b>{profile.name}</b><button className="mono" onClick={() => { const p = { room: profile.room, name: null }; setStudentProfile(p); setProfile(p) }}>{s.notMe}</button></div>
+        <div className="st-me"><span className="kicker">{s.classRoom} · {profile.room} <i className={`st-dot ${link}`} /></span><b>{profile.name}</b><button className="mono" onClick={() => { const p = { room: profile.room, name: null }; setStudentProfile(p); setProfile(p) }}>{s.notMe}</button></div>
       )}
 
       {!profile?.room && (
