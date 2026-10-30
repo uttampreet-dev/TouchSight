@@ -25,9 +25,13 @@ interface TouchSightDB extends DBSchema {
 
 let dbp: Promise<IDBPDatabase<TouchSightDB>> | null = null
 
+/** Opening never hangs: an older tab holding the previous schema is asked to close, and a 4 s wait fails loudly instead of freezing a screen. */
 export function db() {
   if (!dbp) {
-    dbp = openDB<TouchSightDB>('touchsight', 2, {
+    const open = openDB<TouchSightDB>('touchsight', 2, {
+      blocked() { console.warn('touchsight db: upgrade blocked by another open tab') },
+      blocking() { dbp?.then((d) => d.close()).catch(() => {}); dbp = null },
+      terminated() { dbp = null },
       upgrade(d, oldVersion) {
         if (oldVersion < 1) {
           const diagrams = d.createObjectStore('diagrams', { keyPath: 'id' })
@@ -43,6 +47,10 @@ export function db() {
         }
       },
     })
+    dbp = Promise.race([
+      open,
+      new Promise<never>((_, reject) => setTimeout(() => reject(new Error('Local storage is blocked by another TouchSight tab. Close the other tabs and try again.')), 4000)),
+    ]).catch((e) => { dbp = null; throw e })
   }
   return dbp
 }

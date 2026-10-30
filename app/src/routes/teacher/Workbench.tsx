@@ -54,11 +54,13 @@ export function Workbench() {
       const id = (title || file.name.replace(/\.[^.]+$/, '')).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || `diagram-${Date.now()}`
       const { tdm: draft } = draftTdm(u, { id, title: title || file.name.replace(/\.[^.]+$/, ''), subject: chapter.split(' ')[0] || 'general', sourceKind: 'photo', file: file.name })
       setStage('redesigning for touch')
+      await new Promise((r) => setTimeout(r, 30)) // let the stage paint before the solver takes the thread
       const { tdm: simplified, report } = simplify(draft)
       simplified.validation = validate(simplified)
-      await saveImage(id, file, u.prepared.width, u.prepared.height)
       setImgUrl(URL.createObjectURL(file))
       setTdm(simplified); setReport(report); setTitle(simplified.title); setStep('review'); setStage('')
+      // storing is not on the way to the screen: a blocked database shows a note, never a frozen console
+      saveImage(id, file, u.prepared.width, u.prepared.height).catch((e: Error) => setErr(e.message))
     } catch (e) {
       setErr((e as Error).message); setStep('capture'); setStage('')
     }
@@ -75,13 +77,13 @@ export function Workbench() {
 
   async function saveDraft(t: Tdm) {
     setTdm(t)
-    await saveDiagram(t, chapter || 'drafts', false)
+    try { await saveDiagram(t, chapter || 'drafts', false) } catch (e) { setErr((e as Error).message) }
   }
 
   async function publish() {
     if (!tdm || !canPublish) return
     const t = markReviewed({ ...tdm, title: title || tdm.title })
-    await saveDiagram(t, chapter || 'General', true)
+    try { await saveDiagram(t, chapter || 'General', true) } catch (e) { setErr((e as Error).message) }
     classroom.join(teacherRoom(), 'console'); classroom.publish(t)
     setTdm(t); setStep('published')
   }
@@ -175,6 +177,7 @@ export function Workbench() {
         <section className="wb-pane wb-inspector">
           <header className="wb-pane-h"><span className="kicker">03 · Checks & edits</span><span className="mono">{tdm ? `${findings.blocking.length} blocking · ${findings.advisory.length} advisory` : 'S1 S2 S3 T1 K1 M1 R1 R2 R3 · O1 N1'}</span></header>
           <div className="wb-pane-b wb-checks">
+            {err && step !== 'capture' && <div className="wb-err mono">{err}</div>}
             {!tdm || step === 'understand' ? (
               <ol className="wb-rules-ghost mono">
                 {[['S1', 'separation ≥ 3 mm'], ['S2', 'area ≥ 60 mm² · length ≥ 8 mm'], ['S3', 'line width ≥ 1.2 mm'], ['T1', 'neighbours differ in texture'], ['K1', 'braille key fits the sheet'], ['M1', 'inside the 15 mm margin'], ['R1', 'relations reference parts'], ['R2', 'reading order complete'], ['R3', 'detected relations confirmed'], ['O1', 'OCR confidence ≥ 0.75'], ['N1', 'every part named']].map(([r, t]) => <li key={r}><em>{r}</em><span>{t}</span></li>)}
