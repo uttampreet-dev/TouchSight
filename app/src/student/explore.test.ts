@@ -7,7 +7,7 @@ import { createState, step, describeFully, DWELL_MS, REPEAT_MS } from './explore
 import { hitAt, positionOf, directionTo, isNamed } from './hit'
 import { nameIn } from '../i18n'
 import { centroid } from '../tdm/geometry'
-import { TEXTURE_PULSE, EDGE_PULSE } from '../device/haptics'
+import { TEXTURE_PULSE, EDGE_PULSE, enterPulse } from '../device/haptics'
 
 const heart = () => simplify(parseTdm(readFileSync(resolve(__dirname, '../../../examples/bio-heart-01.tdm.json'), 'utf8'))).tdm
 
@@ -18,12 +18,14 @@ describe('Stage 6 — finger to feedback', () => {
     expect(hitAt(tdm, centroid(r.polygon))?.el.id).toBe(r.id)
     expect(hitAt(tdm, [tdm.sheet.margin + 1, tdm.sheet.margin + 1])).toBeNull()
   })
-  it('entering a part pulses its texture once and speaks its name after the dwell', () => {
+  it('entering a part plays the edge tick then its texture as one pattern and speaks its name after the dwell', () => {
     const tdm = heart()
     const r = tdm.regions[0]
     const st = createState()
     const acts = step(tdm, st, centroid(r.polygon), 1000, 'en')
-    expect(acts.find((a) => a.do === 'pulse')).toEqual({ do: 'pulse', pulse: TEXTURE_PULSE[r.texture] })
+    expect(acts.find((a) => a.do === 'pulse')).toEqual({ do: 'pulse', pulse: enterPulse(TEXTURE_PULSE[r.texture]) })
+    expect(enterPulse(TEXTURE_PULSE.dots)).toEqual([EDGE_PULSE, 90, 30, 70, 30, 70, 30, 70, 30])
+    expect(enterPulse(TEXTURE_PULSE.empty)).toBe(EDGE_PULSE)
     const say = acts.find((a) => a.do === 'say')
     expect(say && say.do === 'say' && say.text.startsWith(r.name.en)).toBe(true)
     expect(say && say.do === 'say' && say.after).toBe(DWELL_MS)

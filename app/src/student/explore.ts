@@ -1,5 +1,5 @@
 import type { Tdm, Point, Lang } from '../tdm/types'
-import { TEXTURE_PULSE, EDGE_PULSE, LINE_PULSE, type Pulse } from '../device/haptics'
+import { TEXTURE_PULSE, EDGE_PULSE, LINE_PULSE, enterPulse, type Pulse } from '../device/haptics'
 import { hitAt, positionOf, type Hit } from './hit'
 import { nameIn, t } from '../i18n'
 
@@ -9,7 +9,7 @@ import { nameIn, t } from '../i18n'
  */
 
 export const DWELL_MS = 320      // the finger rests this long in a part before its name is spoken
-export const REPEAT_MS = 450     // while the finger keeps moving inside a part, its feel repeats at this interval
+export const REPEAT_MS = 750     // while the finger keeps moving inside a part, its rhythm repeats at this interval
 
 export type Action =
   | { do: 'pulse'; pulse: Pulse }
@@ -27,7 +27,8 @@ export interface ExploreState {
 
 export const createState = (): ExploreState => ({ id: null, kind: null, since: 0, lastPulse: 0, down: false })
 
-const feelOf = (hit: NonNullable<Hit>): Pulse => (hit.kind === 'region' ? TEXTURE_PULSE[hit.el.texture] || EDGE_PULSE : LINE_PULSE)
+const feelOf = (hit: NonNullable<Hit>): Pulse => (hit.kind === 'region' ? TEXTURE_PULSE[hit.el.texture] ?? 0 : LINE_PULSE)
+const silent = (p: Pulse) => (typeof p === 'number' ? p === 0 : p.length === 0)
 
 /** Finger at p (null = lifted) at time now. */
 export function step(tdm: Tdm, st: ExploreState, p: Point | null, now: number, lang: Lang): Action[] {
@@ -40,14 +41,14 @@ export function step(tdm: Tdm, st: ExploreState, p: Point | null, now: number, l
   const hit = hitAt(tdm, p)
   const id = hit?.el.id ?? null
   if (id === st.id) {
-    if (hit && now - st.lastPulse >= REPEAT_MS) { st.lastPulse = now; return [{ do: 'pulse', pulse: feelOf(hit) }] }
+    if (hit && !silent(feelOf(hit)) && now - st.lastPulse >= REPEAT_MS) { st.lastPulse = now; return [{ do: 'pulse', pulse: feelOf(hit) }] }
     return []
   }
   // a boundary was crossed
   const out: Action[] = [{ do: 'hush' }]
   st.id = id; st.kind = hit?.kind ?? null; st.since = now; st.lastPulse = now
   if (hit) {
-    out.push({ do: 'pulse', pulse: feelOf(hit) }, { do: 'focus', id }, { do: 'say', text: nameIn(hit.el.name, lang), after: DWELL_MS })
+    out.push({ do: 'pulse', pulse: enterPulse(feelOf(hit)) }, { do: 'focus', id }, { do: 'say', text: nameIn(hit.el.name, lang), after: DWELL_MS })
   } else {
     out.push({ do: 'pulse', pulse: EDGE_PULSE }, { do: 'focus', id: null })
   }
