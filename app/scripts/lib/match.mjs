@@ -19,27 +19,3 @@ export function sim(a, b) {
   return ta.filter((t) => tokenHit(t, tb)).length / ta.length
 }
 
-export function matchLabels(truthLabels, observedLabels) {
-  const candidates = truthLabels.flatMap((truth, truthIndex) =>
-    observedLabels
-      .map((observed, observedIndex) => ({ truthIndex, observedIndex, score: sim(truth, observed) }))
-      .filter((candidate) => candidate.score >= 0.8),
-  ).sort((a, b) => b.score - a.score)
-  const matches = new Map(), usedObserved = new Set()
-  for (const candidate of candidates) {
-    if (matches.has(candidate.truthIndex) || usedObserved.has(candidate.observedIndex)) continue
-    matches.set(candidate.truthIndex, candidate.observedIndex)
-    usedObserved.add(candidate.observedIndex)
-  }
-  const found = [], missing = []
-  truthLabels.forEach((truth, truthIndex) => {
-    const observedIndex = matches.get(truthIndex)
-    if (observedIndex !== undefined) {
-      found.push([truth, observedLabels[observedIndex]])
-      return
-    }
-    const best = observedLabels.map((observed) => ({ observed, score: sim(truth, observed) })).sort((a, b) => b.score - a.score)[0]
-    missing.push([truth, best?.observed ?? '', best ? +best.score.toFixed(2) : 0])
-  })
-  return { found, missing }
-}

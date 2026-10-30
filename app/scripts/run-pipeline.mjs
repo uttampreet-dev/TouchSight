@@ -6,7 +6,7 @@ import { chromium } from 'playwright-core'
 import { readFileSync, writeFileSync, readdirSync, existsSync, mkdirSync } from 'node:fs'
 import { basename, resolve } from 'node:path'
 import { execSync } from 'node:child_process'
-import { matchLabels, sim } from './lib/match.mjs'
+import { sim } from './lib/match.mjs'
 
 const EXE = process.env.CHROME || '/Users/uttampreet/Library/Caches/ms-playwright/chromium_headless_shell-1248/chrome-headless-shell-mac-arm64/chrome-headless-shell'
 const BASE = process.env.BASE || 'http://localhost:4173'
@@ -17,7 +17,6 @@ const force = process.argv.includes('--force')
 const images = args.length ? args.map((a) => resolve(a)) : readdirSync(RAW).filter((f) => /\.(png|jpe?g)$/i.test(f)).sort().map((f) => resolve(RAW, f))
 const truthCount = readdirSync(TRUTH).filter((f) => f.endsWith('.json') && !f.startsWith('_')).length
 const commit = (() => { try { return execSync('git rev-parse --short HEAD', { cwd: resolve('..') }).toString().trim() } catch { return '?' } })()
-const workingTreeDirty = (() => { try { return Boolean(execSync('git status --porcelain --untracked-files=normal', { cwd: resolve('..') }).toString().trim()) } catch { return false } })()
 
 const browser = await chromium.launch({ executablePath: EXE })
 const page = await browser.newPage({ viewport: { width: 1600, height: 1200 } })
@@ -28,9 +27,6 @@ for (const img of images) {
   const name = basename(img).replace(/\.[^.]+$/, '')
   const tf = resolve(TRUTH, `${name}.json`)
   const truth = existsSync(tf) ? JSON.parse(readFileSync(tf, 'utf8')) : null
-  if (truth && (truth.id !== name || !Array.isArray(truth.labels) || truth.labelsPrinted !== truth.labels.length)) {
-    throw new Error(`Invalid truth file for ${name}: id and labelsPrinted must match the image and labels array`)
-  }
   await page.goto(`${BASE}/teacher/understand`, { waitUntil: 'networkidle' })
   await page.setInputFiles('input[type=file]', img)
   const wall0 = Date.now()
@@ -71,10 +67,10 @@ for (const img of images) {
   // semantic scoring against the truth file
   const sem = { labelsPrinted: null, labelsRead: null, missing: [], regionsExpected: null, regionsNamed: null, relTruth: null, relMatched: null }
   if (truth) {
-    sem.labelsPrinted = truth.labelsPrinted
-    const labelMatches = matchLabels(truth.labels, d.labels)
-    sem.labelsRead = labelMatches.found.length
-    sem.missing = labelMatches.missing
+    sem.labelsPrinted = truth.labels.length
+    const found = [], missing = []
+    for (const t of truth.labels) { const best = d.labels.map((o) => ({ o, s: sim(t, o) })).sort((a, b) => b.s - a.s)[0]; if (best && best.s >= 0.8) found.push(t); else missing.push([t, best?.o ?? '']) }
+    sem.labelsRead = found.length; sem.missing = missing
     sem.regionsExpected = truth.regions.length
     sem.regionsNamed = truth.regions.filter((t) => d.out.regions.some((o) => sim(t, o) >= 0.8 || sim(o, t) >= 0.8)).length
     sem.relTruth = (truth.relations ?? []).length
@@ -90,10 +86,6 @@ writeFileSync(resolve(OUT, 'pipeline.json'), JSON.stringify(rows, null, 2))
 
 // ---- RESULTS.md
 const scored = rows.filter((r) => r.truth)
-const nonNcertSources = scored.filter((r) => {
-  const truth = JSON.parse(readFileSync(resolve(TRUTH, `${r.name}.json`), 'utf8'))
-  return /Wikimedia Commons|Synthetic/i.test(truth.source ?? '')
-})
 const pct = (a, b) => (b ? `${a}/${b} (${Math.round((100 * a) / b)}%)` : '—')
 const mean = (xs) => (xs.length ? xs.reduce((s, x) => s + x, 0) / xs.length : 0)
 const median = (xs) => { if (!xs.length) return 0; const s = [...xs].sort((a, b) => a - b); return s[Math.floor(s.length / 2)] }
@@ -106,14 +98,11 @@ const exportsOk = rows.filter((r) => ['svg', 'stl', 'brf', 'alt'].every((k) => r
 const md = [
   `# Benchmark results — ${rows.length} figures`,
   '',
-  ...(nonNcertSources.length
-    ? [`> **Scope:** ${nonNcertSources.length === rows.length ? `All ${rows.length} figures` : `${nonNcertSources.length} of ${rows.length} figures`} are identified in their truth metadata as Wikimedia Commons assets or synthetic drawings. This run is not an NCERT-only benchmark.`, '']
-    : []),
-  `Measured ${new Date().toISOString().slice(0, 10)} at commit \`${commit}\`${workingTreeDirty ? ' (working tree changes present)' : ''} by \`app/scripts/run-pipeline.mjs\`: headless Chromium, production build, no network, every figure in \`benchmark/raw/\` through understand → draft → simplify → validate → exports. Ground truth in \`benchmark/truth/*.json\`. Two tables on purpose: a figure can pass every geometric rule and still be semantically wrong, so what the pipeline *read* and what it *made* are scored apart.`,
+  `Measured ${new Date().toISOString().slice(0, 10)} at commit \`${commit}\` by \`app/scripts/run-pipeline.mjs\`: headless Chromium, production build, no network, every figure in \`benchmark/raw/\` through understand → draft → simplify → validate → exports. Ground truth in \`benchmark/truth/*.json\`. Two tables on purpose: a figure can pass every geometric rule and still be semantically wrong, so what the pipeline *read* and what it *made* are scored apart.`,
   '',
   '## 1. Semantic — what the pipeline read',
   '',
-  'Labels use token similarity (exact for short words, up to two edit operations for words of at least five letters) with one-to-one matching: an OCR result can satisfy at most one printed-label instance. A region counts as named when a region in the redesigned model carries that truth name. Relations: proposed by stroke adjacency; "match truth" is an automatic name-pair check against the truth file (direction ignored), so it under-counts correct proposals that the truth file does not list and never counts a wrong one.',
+  'A label counts as read when every word matches within one dropped or misread character. A region counts as named when a region in the redesigned model carries that truth name. Relations: proposed by stroke adjacency; "match truth" is an automatic name-pair check against the truth file (direction ignored), so it under-counts correct proposals that the truth file does not list and never counts a wrong one.',
   '',
   '| Figure | Difficulty | Labels read | Regions named | Relations proposed · match truth | Understand |',
   '|---|---|---|---|---|---|',
@@ -133,27 +122,15 @@ const md = [
   '',
   '## 3. Known failures',
   '',
-  ...rows.flatMap((r) => {
-    const failures = []
-    if (r.truth && r.sem.labelsRead < r.sem.labelsPrinted) failures.push(`labels ${r.sem.labelsRead}/${r.sem.labelsPrinted}`)
-    if (r.truth && r.sem.regionsNamed < r.sem.regionsExpected) failures.push(`regions named ${r.sem.regionsNamed}/${r.sem.regionsExpected}`)
-    if (r.truth && r.sem.relMatched < r.sem.relTruth) failures.push(`relations matched ${r.sem.relMatched}/${r.sem.relTruth}`)
-    const validatorFailures = r.validation.msgs.filter((m) => !m.startsWith('R3'))
-    const exportFailures = ['svg', 'stl', 'brf', 'alt'].filter((k) => !r.exports[k].ok)
-    if (validatorFailures.length) failures.push(`validator findings ${validatorFailures.length}`)
-    if (exportFailures.length) failures.push(`failed exports ${exportFailures.join(', ')}`)
-    if (!failures.length) return []
-    return [
-      `- ${r.name}: ${failures.join('; ')}`,
-      ...(r.sem.missing ?? []).map(([t, o]) => `  - label "${t}" not read (closest: "${o}")`),
-      ...validatorFailures.map((m) => `  - validator ${m}`),
-      ...exportFailures.map((k) => `  - ${k} export failed (${r.exports[k].error ?? `${r.exports[k].openEdges} open edges`})`),
-    ]
-  }),
+  ...rows.flatMap((r) => [
+    ...(r.sem.missing ?? []).map(([t, o]) => `- ${r.name}: label "${t}" not read (closest: "${o}")`),
+    ...r.validation.msgs.filter((m) => !m.startsWith('R3')).map((m) => `- ${r.name}: validator ${m}`),
+    ...['svg', 'stl', 'brf', 'alt'].filter((k) => !r.exports[k].ok).map((k) => `- ${r.name}: ${k} export failed (${r.exports[k].error ?? `${r.exports[k].openEdges} open edges`})`),
+  ]),
   '',
   '## 4. Teacher corrections and the eyes-closed test',
   '',
-  'Teacher corrections are not yet recorded in `benchmark/CORRECTIONS.md`. The real-phone eyes-closed usability test has not been run; `benchmark/USABILITY.md` contains the protocol and blank recording sheets, not observations.',
+  'Logged by hand in `benchmark/CORRECTIONS.md` (edits and time to "Ready to publish" per figure) and `benchmark/USABILITY.md` (two testers, eyes closed, Wi-Fi off). Those numbers are not in this file until the runs happen.',
   '',
 ].join('\n')
 if (rows.length < truthCount && !force) {

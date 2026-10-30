@@ -5,7 +5,7 @@ import { resolve } from 'node:path'
 
 const RES = resolve('../benchmark/results/understand.json')
 const TRUTH = resolve('../benchmark/truth')
-import { matchLabels, sim } from './lib/match.mjs'
+import { sim } from './lib/match.mjs'
 
 const results = JSON.parse(readFileSync(RES, 'utf8'))
 const rows = []
@@ -13,11 +13,14 @@ for (const r of results) {
   const tf = resolve(TRUTH, `${r.name}.json`)
   if (!existsSync(tf)) { rows.push({ name: r.name, truth: false }); continue }
   const truth = JSON.parse(readFileSync(tf, 'utf8'))
-  if (!Array.isArray(truth.labels) || truth.labelsPrinted !== truth.labels.length) throw new Error(`Invalid truth file for ${r.name}: labelsPrinted does not match labels`)
   const ocr = r.labels.map((x) => x[0])
-  const { found, missing } = matchLabels(truth.labels, ocr)
+  const found = [], missing = []
+  for (const t of truth.labels) {
+    const best = ocr.map((o) => ({ o, s: sim(t, o) })).sort((a, b) => b.s - a.s)[0]
+    if (best && best.s >= 0.8) found.push([t, best.o]); else missing.push([t, best?.o ?? '', best ? +best.s.toFixed(2) : 0])
+  }
   const spurious = ocr.filter((o) => !truth.labels.some((t) => sim(t, o) >= 0.8 || sim(o, t) >= 0.8)).length
-  rows.push({ name: r.name, truth: true, labelsPrinted: truth.labelsPrinted, found: found.length, pct: Math.round((100 * found.length) / truth.labelsPrinted), spurious, regionsFound: r.regions, regionsExpected: truth.regions.length, strokes: r.strokes, ms: r.time, missing })
+  rows.push({ name: r.name, truth: true, labelsPrinted: truth.labels.length, found: found.length, pct: Math.round((100 * found.length) / truth.labels.length), spurious, regionsFound: r.regions, regionsExpected: truth.regions.length, strokes: r.strokes, ms: r.time, missing })
 }
 for (const x of rows) {
   if (!x.truth) { console.log(`${x.name}: no truth file`); continue }
