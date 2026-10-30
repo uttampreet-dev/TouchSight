@@ -8,7 +8,7 @@
 .tc-nav a { color: #b6d0ce; text-decoration: none; padding: 4px 0; border-bottom: 2px solid transparent; }
 .tc-nav a.active { color: #fff; border-bottom-color: var(--coral); }
 
-.wb { height: calc(100vh - 61px); display: grid; grid-template-rows: auto minmax(0, 1fr); min-height: 0; }
+.wb { height: calc(100vh - 62px); display: grid; grid-template-rows: auto minmax(0, 1fr); min-height: 0; }
 .wb-steps { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 24px; padding: 14px 28px; border-bottom: 1px solid rgba(127,212,203,.2); }
 .wb-steps ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; max-width: 980px; }
 .wb-steps li { display: grid; grid-template-columns: 30px 1fr; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; opacity: .55; border: 1px solid transparent; transition: opacity .3s, background .3s; }
