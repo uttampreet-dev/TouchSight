@@ -2,12 +2,10 @@
 // usage: node scripts/serve.mjs [port]
 import { createServer } from 'node:http'
 import { readFile, stat } from 'node:fs/promises'
-import { extname, join, resolve, sep } from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { extname, join, normalize } from 'node:path'
 import { WebSocketServer } from 'ws'
 
-const ROOT = resolve(fileURLToPath(new URL('../dist/', import.meta.url)))
-const ROOT_PREFIX = `${ROOT}${sep}`
+const ROOT = new URL('../dist/', import.meta.url).pathname
 const PORT = +(process.argv[2] || 4173)
 const TYPES = {
   '.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '.mjs': 'text/javascript', '.css': 'text/css',
@@ -17,8 +15,8 @@ const TYPES = {
 
 const server = createServer(async (req, res) => {
   const url = decodeURIComponent((req.url || '/').split('?')[0])
-  let file = resolve(ROOT, `.${url}`)
-  if (file !== ROOT && !file.startsWith(ROOT_PREFIX)) { res.writeHead(403); return res.end() }
+  let file = normalize(join(ROOT, url))
+  if (!file.startsWith(ROOT)) { res.writeHead(403); return res.end() }
   try {
     const s = await stat(file)
     if (s.isDirectory()) file = join(file, 'index.html')
