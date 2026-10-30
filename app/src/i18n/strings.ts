@@ -16,6 +16,8 @@ type Dict = {
   connectsTo: (name: string) => string
   partOf: (name: string) => string
   pointsTo: (name: string) => string
+  receivesFrom: (name: string) => string
+  containsPart: (name: string) => string
   hintMove: (dir: 'up' | 'down' | 'left' | 'right') => string
   positions: Record<Position, string>
   textures: Record<Texture, string>
@@ -39,6 +41,8 @@ const en: Dict = {
   connectsTo: (n) => `Connects to the ${n}.`,
   partOf: (n) => `Part of the ${n}.`,
   pointsTo: (n) => `Points to the ${n}.`,
+  receivesFrom: (n) => `Receives from the ${n}.`,
+  containsPart: (n) => `Contains the ${n}.`,
   hintMove: (d) => `Move ${d}.`,
   positions: { 'top left': 'top left', top: 'top', 'top right': 'top right', left: 'left', centre: 'centre', right: 'right', 'bottom left': 'bottom left', bottom: 'bottom', 'bottom right': 'bottom right' },
   textures: { dots: 'dots', 'diagonal-lines': 'diagonal lines', 'horizontal-lines': 'horizontal lines', grid: 'grid', solid: 'solid', empty: 'outline' },
@@ -60,6 +64,8 @@ const hi: Dict = {
   connectsTo: (n) => `${n} से जुड़ा है।`,
   partOf: (n) => `${n} का भाग है।`,
   pointsTo: (n) => `${n} की ओर है।`,
+  receivesFrom: (n) => `${n} से प्राप्त करता है।`,
+  containsPart: (n) => `इसमें ${n} है।`,
   hintMove: (d) => ({ up: 'ऊपर जाओ।', down: 'नीचे जाओ।', left: 'बाएँ जाओ।', right: 'दाएँ जाओ।' })[d],
   positions: { 'top left': 'ऊपर बाएँ', top: 'ऊपर', 'top right': 'ऊपर दाएँ', left: 'बाएँ', centre: 'बीच में', right: 'दाएँ', 'bottom left': 'नीचे बाएँ', bottom: 'नीचे', 'bottom right': 'नीचे दाएँ' },
   textures: { dots: 'बिंदु', 'diagonal-lines': 'तिरछी रेखाएँ', 'horizontal-lines': 'आड़ी रेखाएँ', grid: 'जाली', solid: 'भरा हुआ', empty: 'रूपरेखा' },
@@ -81,6 +87,8 @@ const pa: Dict = {
   connectsTo: (n) => `${n} ਨਾਲ ਜੁੜਿਆ ਹੈ।`,
   partOf: (n) => `${n} ਦਾ ਭਾਗ ਹੈ।`,
   pointsTo: (n) => `${n} ਵੱਲ ਹੈ।`,
+  receivesFrom: (n) => `${n} ਤੋਂ ਪ੍ਰਾਪਤ ਕਰਦਾ ਹੈ।`,
+  containsPart: (n) => `ਇਸ ਵਿੱਚ ${n} ਹੈ।`,
   hintMove: (d) => ({ up: 'ਉੱਪਰ ਜਾਓ।', down: 'ਹੇਠਾਂ ਜਾਓ।', left: 'ਖੱਬੇ ਜਾਓ।', right: 'ਸੱਜੇ ਜਾਓ।' })[d],
   positions: { 'top left': 'ਉੱਪਰ ਖੱਬੇ', top: 'ਉੱਪਰ', 'top right': 'ਉੱਪਰ ਸੱਜੇ', left: 'ਖੱਬੇ', centre: 'ਵਿਚਕਾਰ', right: 'ਸੱਜੇ', 'bottom left': 'ਹੇਠਾਂ ਖੱਬੇ', bottom: 'ਹੇਠਾਂ', 'bottom right': 'ਹੇਠਾਂ ਸੱਜੇ' },
   textures: { dots: 'ਬਿੰਦੀਆਂ', 'diagonal-lines': 'ਤਿਰਛੀਆਂ ਲਕੀਰਾਂ', 'horizontal-lines': 'ਲੇਟਵੀਆਂ ਲਕੀਰਾਂ', grid: 'ਜਾਲੀ', solid: 'ਭਰਿਆ ਹੋਇਆ', empty: 'ਰੂਪ-ਰੇਖਾ' },

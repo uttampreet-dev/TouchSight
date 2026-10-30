@@ -3,9 +3,9 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { understand, draftTdm } from '../../pipeline/understand'
 import { simplify, type SimplifyReport } from '../../tdm/simplify'
 import { validate } from '../../tdm/validate'
-import { rename, remove, merge, setTexture, moveInOrder, markReviewed } from '../../tdm/edit'
+import { rename, remove, merge, setTexture, moveInOrder, markReviewed, addRelation, confirmRelation, removeRelation, setRelation } from '../../tdm/edit'
 import { TdmCanvas, TEXTURE_LABEL } from '../../components/TdmCanvas'
-import { TEXTURES, type Tdm, type ValidationFinding } from '../../tdm/types'
+import { TEXTURES, RELATION_KINDS, type Tdm, type ValidationFinding, type TdmRelation } from '../../tdm/types'
 import { getDiagram, saveDiagram, saveImage, getImage } from '../../store/db'
 import { serializeTdm } from '../../tdm/io'
 import { area } from '../../tdm/geometry'
@@ -24,6 +24,7 @@ export function Workbench() {
   const [report, setReport] = useState<SimplifyReport | null>(null)
   const [selected, setSelected] = useState<string | null>(null)
   const [mergeWith, setMergeWith] = useState<string | null>(null)
+  const [relateFrom, setRelateFrom] = useState<string | null>(null)
   const [chapter, setChapter] = useState('')
   const [title, setTitle] = useState('')
   const [imgUrl, setImgUrl] = useState<string | null>(null)
@@ -82,8 +83,11 @@ export function Workbench() {
 
   function onPick(id: string | null) {
     if (mergeWith && id && id !== mergeWith && tdm) { saveDraft(merge(tdm, mergeWith, id)); setMergeWith(null); setSelected(mergeWith); return }
+    if (relateFrom && id && id !== relateFrom && tdm) { saveDraft(addRelation(tdm, relateFrom, id, 'connects', 'forward')); setRelateFrom(null); setSelected(relateFrom); return }
     setSelected(id)
   }
+  const nameOf = (id: string) => tdm?.regions.find((r) => r.id === id)?.name.en ?? tdm?.lines.find((l) => l.id === id)?.name.en ?? id
+  useEffect(() => { (window as unknown as { __wb?: Tdm | null }).__wb = tdm }, [tdm])
 
   return (
     <div className="wb">
@@ -150,7 +154,7 @@ export function Workbench() {
               </div>
               <div className="wb-canvas-body">
                 {showSource && imgUrl ? <img src={imgUrl} alt="" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} /> : (
-                  <TdmCanvas tdm={tdm} selected={selected} highlight={highlight} onSelect={onPick} showKey marker={highlight.length ? [...findings.blocking, ...findings.advisory].find((x) => selected && x.ids.includes(selected))?.at ?? null : null} />
+                  <TdmCanvas tdm={tdm} selected={selected} highlight={highlight} onSelect={onPick} showKey showRelations marker={highlight.length ? [...findings.blocking, ...findings.advisory].find((x) => selected && x.ids.includes(selected))?.at ?? null : null} />
                 )}
               </div>
             </div>
@@ -183,11 +187,27 @@ export function Workbench() {
                   <div style={{ display: 'flex', gap: 8, marginTop: 10, flexWrap: 'wrap' }}>
                     <button className="btn" onClick={() => saveDraft(moveInOrder(tdm, sel.id, -1))}>↑ earlier</button>
                     <button className="btn" onClick={() => saveDraft(moveInOrder(tdm, sel.id, 1))}>↓ later</button>
-                    {'polygon' in sel && <button className={`btn ${mergeWith ? 'coral' : ''}`} onClick={() => setMergeWith(mergeWith ? null : sel.id)}>{mergeWith ? 'click the other region…' : 'merge with…'}</button>}
+                    {'polygon' in sel && <button className={`btn ${mergeWith ? 'coral' : ''}`} onClick={() => { setRelateFrom(null); setMergeWith(mergeWith ? null : sel.id) }}>{mergeWith ? 'click the other region…' : 'merge with…'}</button>}
+                    <button className={`btn ${relateFrom ? 'coral' : ''}`} onClick={() => { setMergeWith(null); setRelateFrom(relateFrom ? null : sel.id) }}>{relateFrom ? 'click the target…' : 'relate to…'}</button>
                     <button className="btn" style={{ color: 'var(--coral)' }} onClick={() => { saveDraft(remove(tdm, sel.id)); setSelected(null) }}>remove</button>
                   </div>
                 </section>
               )}
+
+              <section>
+                <div className="kicker" style={{ marginBottom: 6 }}>Relations · {tdm.relations.length}{tdm.relations.some((r) => r.source === 'detected') ? ` · ${tdm.relations.filter((r) => r.source === 'detected').length} to confirm` : ''}</div>
+                {!tdm.relations.length && <div className="mono" style={{ fontSize: 12, color: 'var(--muted)' }}>none yet — select a part, then "relate to…" and click the target</div>}
+                <ul className="wb-rels">
+                  {tdm.relations.map((rel, i) => (
+                    <RelationRow key={`${rel.from}-${rel.to}-${i}`} rel={rel} from={nameOf(rel.from)} to={nameOf(rel.to)} active={!!selected && (rel.from === selected || rel.to === selected)}
+                      onKind={(k) => saveDraft(setRelation(tdm, i, { kind: k }))}
+                      onDirection={() => saveDraft(setRelation(tdm, i, { direction: rel.direction === 'forward' ? 'backward' : rel.direction === 'backward' ? 'both' : 'forward' }))}
+                      onConfirm={() => saveDraft(confirmRelation(tdm, i))}
+                      onRemove={() => saveDraft(removeRelation(tdm, i))}
+                      onSelect={() => setSelected(rel.from)} />
+                  ))}
+                </ul>
+              </section>
 
               <section>
                 <div className="kicker" style={{ marginBottom: 6 }}>Reading order · {tdm.readingOrder.length} elements</div>
@@ -226,6 +246,30 @@ function downloadTdm(t: Tdm) {
   a.download = `${t.id}.tdm.json`
   a.click()
   setTimeout(() => URL.revokeObjectURL(a.href), 1000)
+}
+
+const KIND_WORD: Record<TdmRelation['kind'], string> = { 'flows-into': 'flows into', connects: 'connects to', contains: 'contains', 'part-of': 'is part of', 'points-to': 'points to', 'greater-than': 'is greater than' }
+const DIR_GLYPH: Record<TdmRelation['direction'], string> = { forward: '→', backward: '←', both: '↔' }
+
+function RelationRow({ rel, from, to, active, onKind, onDirection, onConfirm, onRemove, onSelect }: { rel: TdmRelation; from: string; to: string; active: boolean; onKind: (k: TdmRelation['kind']) => void; onDirection: () => void; onConfirm: () => void; onRemove: () => void; onSelect: () => void }) {
+  const detected = rel.source === 'detected'
+  return (
+    <li className={`wb-rel ${detected ? 'detected' : ''} ${active ? 'on' : ''}`}>
+      <div className="wb-rel-sentence" onClick={onSelect}>
+        <b>{from}</b>
+        <select className="wb-rel-kind" value={rel.kind} onChange={(e) => onKind(e.target.value as TdmRelation['kind'])} onClick={(e) => e.stopPropagation()}>
+          {RELATION_KINDS.map((k) => <option key={k} value={k}>{KIND_WORD[k]}</option>)}
+        </select>
+        <b>{to}</b>
+      </div>
+      <div className="wb-rel-tools">
+        <span className="mono">{detected ? `detected${rel.confidence != null ? ` · ${Math.round(rel.confidence * 100)}%` : ''}` : 'teacher'}</span>
+        <button className="btn" title="direction" onClick={onDirection}>{DIR_GLYPH[rel.direction]}</button>
+        {detected && <button className="btn primary ok" onClick={onConfirm}>✓ confirm</button>}
+        <button className="btn no" style={{ color: 'var(--coral)' }} onClick={onRemove}>✕</button>
+      </div>
+    </li>
+  )
 }
 
 function Finding({ f, blocking, onClick, active }: { f: ValidationFinding; blocking: boolean; onClick: () => void; active: boolean }) {

@@ -3,7 +3,7 @@ import { segment, type RegionCandidate } from './segment'
 import { readLabels, type Label } from './ocr'
 import { detectSegments, type Segment } from './lines'
 import { associate, pointInPolygon, distToPolygon, type Association } from './associate'
-import type { Tdm, TdmRegion, TdmLine, Texture } from '../tdm/types'
+import type { Tdm, TdmRegion, TdmLine, TdmRelation, Texture } from '../tdm/types'
 import { TEXTURES } from '../tdm/types'
 
 export interface Understanding {
@@ -87,6 +87,28 @@ export function draftTdm(u: Understanding, meta: { id: string; title: string; su
       arrow: 'none',
       keyRef: refLetter(regions.length + i),
     }))
+  // A content stroke whose two ends land in or beside two different parts says those parts are joined. The
+  // proposal is marked 'detected' and blocks publication until the teacher confirms it (rule R3).
+  // A stroke with one end at a part and the other free (a vessel entering the heart) joins the stroke itself to
+  // that part. An outline holding other parts only counts when no part is within reach.
+  const relations: TdmRelation[] = []
+  // a region holds another when three quarters of the other's vertices fall inside it (outlines share walls, so a strict test fails)
+  const holds = (outer: TdmRegion, inner: TdmRegion) => inner.polygon.filter((p) => pointInPolygon(p, outer.polygon)).length >= 0.75 * inner.polygon.length
+  const containers = new Set(regions.filter((r) => regions.filter((o) => o !== r && holds(r, o)).length >= 2).map((r) => r.id))
+  const parts = regions.filter((r) => !containers.has(r.id))
+  const resolve = (p: [number, number]) => nearestRegionMm(parts, p, RELATION_REACH_MM) ?? nearestRegionMm(regions, p, RELATION_REACH_MM)
+  const dup = (x: string, y: string) => relations.some((r) => (r.from === x && r.to === y) || (r.from === y && r.to === x))
+  for (const l of lines) {
+    const [a, b] = [l.path[0], l.path[l.path.length - 1]].map(resolve)
+    if (a && b && a.region.id !== b.region.id) {
+      if (dup(a.region.id, b.region.id)) continue
+      relations.push({ from: a.region.id, to: b.region.id, kind: 'connects', direction: 'forward', confidence: +(1 - (a.d + b.d) / (2 * RELATION_REACH_MM)).toFixed(2), source: 'detected', via: l.id })
+    } else if ((a && !b) || (b && !a)) {
+      const end = (a ?? b)!
+      if (dup(l.id, end.region.id)) continue
+      relations.push({ from: l.id, to: end.region.id, kind: 'connects', direction: 'forward', confidence: +(1 - end.d / RELATION_REACH_MM).toFixed(2), source: 'detected', via: l.id })
+    }
+  }
   const order = [...regions.map((r) => ({ id: r.id, c: centroidMm(r.polygon) })), ...lines.map((l) => ({ id: l.id, c: l.path[0] }))]
     .sort((a, b) => a.c[1] - b.c[1] || a.c[0] - b.c[0])
     .map((x) => x.id)
@@ -99,7 +121,7 @@ export function draftTdm(u: Understanding, meta: { id: string; title: string; su
     source: { kind: meta.sourceKind, file: meta.file, captured: new Date().toISOString() },
     regions,
     lines,
-    relations: [],
+    relations,
     key: [...regions.map((r) => ({ ref: r.keyRef, regionId: r.id, text: r.name, braille: {} })), ...lines.map((l) => ({ ref: l.keyRef, regionId: l.id, text: l.name, braille: {} }))],
     readingOrder: order,
     languages: { primary: 'en', available: ['en'] },
@@ -107,6 +129,22 @@ export function draftTdm(u: Understanding, meta: { id: string; title: string; su
     provenance: { pipeline: '0.1', teacherReviewed: false, reviewedAt: null },
   }
   return { tdm, fit }
+}
+
+export const RELATION_REACH_MM = 6
+
+/** The part a stroke end belongs to: the smallest region containing it, else the nearest one within reach. */
+function nearestRegionMm(regions: TdmRegion[], p: [number, number], reach: number): { region: TdmRegion; d: number } | null {
+  const inside = regions.filter((r) => pointInPolygon(p, r.polygon)).sort((a, b) => areaMm(a.polygon) - areaMm(b.polygon))
+  if (inside.length) return { region: inside[0], d: 0 }
+  let best: { region: TdmRegion; d: number } | null = null
+  for (const r of regions) { const d = distToPolygon(p, r.polygon); if (d <= reach && (!best || d < best.d)) best = { region: r, d } }
+  return best
+}
+function areaMm(poly: [number, number][]): number {
+  let a = 0
+  for (let i = 0; i < poly.length; i++) { const [x1, y1] = poly[i], [x2, y2] = poly[(i + 1) % poly.length]; a += x1 * y2 - x2 * y1 }
+  return Math.abs(a) / 2
 }
 
 function centroidMm(poly: [number, number][]): [number, number] {

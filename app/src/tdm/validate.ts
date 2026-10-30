@@ -17,6 +17,7 @@ export const VALIDATOR_RULES = [
   { rule: 'O1', blocking: false, text: 'Every label used was read with OCR confidence ≥ 0.75' },
   { rule: 'R1', blocking: true, text: 'Every relation references existing elements' },
   { rule: 'R2', blocking: true, text: 'Every region and line appears in the reading order exactly once' },
+  { rule: 'R3', blocking: true, text: 'Every relation the pipeline detected has been confirmed or removed by the teacher' },
   { rule: 'M1', blocking: true, text: 'Diagram and key sit inside the sheet margins' },
   { rule: 'N1', blocking: false, text: 'Every element has a real name, not a placeholder' },
 ] as const
@@ -105,6 +106,14 @@ export function validate(tdm: Tdm): TdmValidation {
   // R1, R2 — structure
   const ids = new Set([...regions.map((r) => r.id), ...lines.map((l) => l.id)])
   for (const rel of tdm.relations) if (!ids.has(rel.from) || !ids.has(rel.to)) B('R1', `relation ${rel.from} → ${rel.to} references a missing element`, [rel.from, rel.to])
+  const nameOf = (id: string) => regions.find((r) => r.id === id)?.name.en ?? lines.find((l) => l.id === id)?.name.en ?? id
+  const KIND_WORD: Record<string, string> = { 'flows-into': 'flows into', connects: 'connects', contains: 'contains', 'part-of': 'is part of', 'points-to': 'points to', 'greater-than': 'is greater than' }
+  for (const rel of tdm.relations) {
+    if (rel.source !== 'detected' || !ids.has(rel.from) || !ids.has(rel.to)) continue
+    const via = rel.via && ids.has(rel.via) ? nameOf(rel.via) : 'A stroke'
+    const conf = rel.confidence != null ? ` (${Math.round(rel.confidence * 100)}%)` : ''
+    B('R3', `Detected: ${via} ${KIND_WORD[rel.kind] ?? rel.kind} ${nameOf(rel.from)} to ${nameOf(rel.to)}${conf} — confirm or remove`, [rel.from, rel.to])
+  }
   const counts = new Map<string, number>()
   for (const id of tdm.readingOrder) counts.set(id, (counts.get(id) ?? 0) + 1)
   for (const id of ids) { const c = counts.get(id) ?? 0; if (c !== 1) B('R2', `${id} appears ${c} times in the reading order`, [id]) }

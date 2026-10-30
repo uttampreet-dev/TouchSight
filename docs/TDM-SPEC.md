@@ -76,6 +76,20 @@ default, origin top-left, x right, y down). Screens scale from millimetres; prin
 `kind` is free text from a small vocabulary: `flows-into`, `connects`, `contains`, `part-of`, `points-to`,
 `greater-than`. Relations drive the audio tour ("the left ventricle flows into the aorta") and the quiz.
 
+Optional fields record where a relation came from:
+
+```json
+{ "from": "r-03", "to": "r-01", "kind": "connects", "direction": "forward", "confidence": 0.83, "source": "detected", "via": "l-02" }
+```
+
+- `source`: `detected` when the understand stage proposed it from a stroke whose ends sit in or within 6 mm of two
+  different parts; `teacher` once confirmed, drawn or edited in the console. Absent means teacher-made.
+- `confidence`: 0–1 for a detected relation, 1 − (mean end distance / 6 mm).
+- `via`: the stroke that proposed it.
+
+A `detected` relation blocks publication (validator rule R3) until the teacher confirms or removes it: the
+pipeline proposes, a person approves.
+
 ## `key[]` — the braille key printed beside the diagram
 
 ```json
@@ -117,6 +131,7 @@ Written by the validator; a TDM with `status: "fail"` cannot be published.
 | O1 | OCR confidence of every used label ≥ 0.75 | advisory |
 | R1 | every relation references existing ids | yes |
 | R2 | every region appears in `readingOrder` exactly once | yes |
+| R3 | every detected relation has been confirmed or removed by the teacher | yes |
 | M1 | diagram fits inside sheet margins | yes |
 
 ## Versioning

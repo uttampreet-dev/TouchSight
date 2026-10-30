@@ -5,6 +5,7 @@ import { parseTdm, serializeTdm, cloneTdm } from './io'
 import { simplify, RULES } from './simplify'
 import { validate } from './validate'
 import { area, boundaryDistance } from './geometry'
+import { confirmRelation, removeRelation, addRelation, setRelation } from './edit'
 import type { Tdm } from './types'
 
 const EXAMPLE = resolve(__dirname, '../../../examples/bio-heart-01.tdm.json')
@@ -102,6 +103,25 @@ describe('Stage 4 — Validator', () => {
     expect(s1.ids).toEqual(expect.arrayContaining([a.id, b.id]))
     expect(s1.at).toBeDefined()
   })
+  it('R3 blocks a detected relation until the teacher confirms, removes or edits it', () => {
+    const { tdm } = simplify(loadExample())
+    const [a, b] = tdm.regions
+    tdm.relations = [{ from: a.id, to: b.id, kind: 'connects', direction: 'forward', confidence: 0.8, source: 'detected', via: tdm.lines[0]?.id }]
+    const v = validate(tdm)
+    expect(v.status).toBe('fail')
+    const r3 = v.blocking.find((x) => x.rule === 'R3')!
+    expect(r3.msg).toContain('Detected:')
+    expect(r3.msg).toContain(a.name.en)
+    expect(r3.ids).toEqual([a.id, b.id])
+    expect(confirmRelation(tdm, 0).validation.blocking.map((x) => x.rule)).not.toContain('R3')
+    expect(confirmRelation(tdm, 0).relations[0].source).toBe('teacher')
+    expect(removeRelation(tdm, 0).relations).toHaveLength(0)
+    expect(setRelation(tdm, 0, { kind: 'flows-into' }).validation.blocking.map((x) => x.rule)).not.toContain('R3')
+    const drawn = addRelation(tdm, b.id, a.id, 'flows-into', 'backward')
+    expect(drawn.relations).toHaveLength(1) // replaces the detected pair
+    expect(drawn.relations[0]).toMatchObject({ from: b.id, to: a.id, kind: 'flows-into', direction: 'backward', source: 'teacher' })
+    expect(drawn.validation.blocking.map((x) => x.rule)).not.toContain('R3')
+  })
   it('flags low-confidence and unnamed elements as advisory only', () => {
     const { tdm } = simplify(loadExample())
     tdm.regions[0].sourceLabel = { text: 'x', ocrConfidence: 0.5 }
@@ -123,6 +143,7 @@ describe('Stage 3+4 on real drafts from the understand stage', () => {
       const v = validate(tdm)
       const ms = Math.round(performance.now() - t0)
       const geomBlocking = v.blocking.filter((b) => ['S1', 'S2', 'S3', 'T1', 'M1', 'R1', 'R2'].includes(b.rule))
+      rows.push(`    relations proposed: ${draft.relations.length}${draft.relations.length ? ' → ' + draft.relations.map((r) => `${r.from}-${r.to}@${r.confidence}`).join(' ') : ''}; R3 findings ${v.blocking.filter((b) => b.rule === 'R3').length}`)
       for (const d of report.dropped) rows.push(`    dropped ${d.id}: ${d.why}`)
       for (const m of report.merged) rows.push(`    merged ${m.absorbed} into ${m.kept}`)
       rows.push(`${f.replace('.draft.tdm.json', '')}: regions ${report.regionsIn}→${report.regionsOut}, lines ${report.linesIn}→${report.linesOut}, gap ${report.minGapBefore}→${report.minGapAfter} mm, passes ${report.separationPasses}, textures ${report.textures}, scale ${report.scaledBy}, ${ms} ms, blocking ${v.blocking.length} (${v.blocking.map((b) => b.rule).join(',')}), advisory ${v.advisory.length}`)

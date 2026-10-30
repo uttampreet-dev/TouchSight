@@ -1,4 +1,4 @@
-import type { Tdm, Texture, Lang, TdmRegion, TdmLine } from './types'
+import type { Tdm, Texture, Lang, TdmRegion, TdmLine, TdmRelation } from './types'
 import { cloneTdm } from './io'
 import { union, simplifyPolygon } from './geometry'
 import { RULES } from './simplify'
@@ -49,9 +49,38 @@ export function merge(tdm: Tdm, keepId: string, absorbId: string): Tdm {
   return remove(t, absorbId)
 }
 
-export function addRelation(tdm: Tdm, from: string, to: string, kind: Tdm['relations'][number]['kind']): Tdm {
+export function addRelation(tdm: Tdm, from: string, to: string, kind: TdmRelation['kind'] = 'connects', direction: TdmRelation['direction'] = 'forward'): Tdm {
   const t = cloneTdm(tdm)
-  if (!t.relations.some((r) => r.from === from && r.to === to)) t.relations.push({ from, to, kind, direction: 'forward' })
+  if (from === to) return tdm
+  const i = t.relations.findIndex((r) => (r.from === from && r.to === to) || (r.from === to && r.to === from))
+  const rel: TdmRelation = { from, to, kind, direction, source: 'teacher' }
+  if (i >= 0) t.relations[i] = rel
+  else t.relations.push(rel)
+  return revalidate(t)
+}
+
+/** The teacher accepts a detected relation as it stands. */
+export function confirmRelation(tdm: Tdm, index: number): Tdm {
+  const t = cloneTdm(tdm)
+  const r = t.relations[index]
+  if (!r) return tdm
+  t.relations[index] = { from: r.from, to: r.to, kind: r.kind, direction: r.direction, source: 'teacher', via: r.via }
+  return revalidate(t)
+}
+
+export function removeRelation(tdm: Tdm, index: number): Tdm {
+  const t = cloneTdm(tdm)
+  if (!t.relations[index]) return tdm
+  t.relations.splice(index, 1)
+  return revalidate(t)
+}
+
+/** Change a relation's kind or direction; any edit makes it the teacher's. */
+export function setRelation(tdm: Tdm, index: number, patch: Partial<Pick<TdmRelation, 'kind' | 'direction'>>): Tdm {
+  const t = cloneTdm(tdm)
+  const r = t.relations[index]
+  if (!r) return tdm
+  t.relations[index] = { ...r, ...patch, source: 'teacher', confidence: undefined }
   return revalidate(t)
 }
 

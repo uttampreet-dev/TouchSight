@@ -67,13 +67,20 @@ export function describeFully(tdm: Tdm, id: string, lang: Lang): string {
   parts.push(r ? s.textures[r.texture] : s.line)
   parts.push(s.positions[positionOf(tdm, id)])
   if (r?.meaning) parts.push(r.meaning.replace(/[.।]\s*$/, ''))
+  const find = (x: string) => tdm.regions.find((e) => e.id === x) ?? tdm.lines.find((e) => e.id === x)
   for (const rel of tdm.relations) {
-    if (rel.from !== id) continue
-    const target = tdm.regions.find((x) => x.id === rel.to) ?? tdm.lines.find((x) => x.id === rel.to)
-    if (!target) continue
-    const n = nameIn(target.name, lang)
-    const sentence = rel.kind === 'flows-into' ? s.flowsInto(n) : rel.kind === 'part-of' ? s.partOf(n) : rel.kind === 'points-to' ? s.pointsTo(n) : s.connectsTo(n)
-    parts.push(sentence.replace(/[.।]\s*$/, ''))
+    if (rel.from !== id && rel.to !== id) continue
+    // the pair as the arrow runs: backward swaps the ends, both tells it from each side
+    const pairs: [string, string][] = rel.direction === 'backward' ? [[rel.to, rel.from]] : rel.direction === 'both' ? [[rel.from, rel.to], [rel.to, rel.from]] : [[rel.from, rel.to]]
+    for (const [src, dst] of pairs) {
+      const other = find(src === id ? dst : src)
+      if (!other) continue
+      const n = nameIn(other.name, lang)
+      let sentence: string | null
+      if (src === id) sentence = rel.kind === 'flows-into' ? s.flowsInto(n) : rel.kind === 'part-of' ? s.partOf(n) : rel.kind === 'points-to' ? s.pointsTo(n) : rel.kind === 'contains' ? s.containsPart(n) : s.connectsTo(n)
+      else sentence = rel.kind === 'flows-into' ? s.receivesFrom(n) : rel.kind === 'part-of' ? s.containsPart(n) : rel.kind === 'contains' ? s.partOf(n) : rel.kind === 'points-to' ? null : s.connectsTo(n)
+      if (sentence) parts.push(sentence.replace(/[.।]\s*$/, ''))
+    }
   }
   return parts.join(`${stop} `) + stop
 }

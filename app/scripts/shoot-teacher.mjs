@@ -30,6 +30,38 @@ for (const width of [1440, 1280]) {
   await page.click('.wb-order li >> nth=0')
   await page.waitForTimeout(300)
   await page.screenshot({ path: `${OUT}/teacher-review-selected-${width}.png` })
+  // the relation beat: the pipeline proposes, the teacher confirms one, draws one, and the block clears
+  const proposed = await page.locator('.wb-rel.detected').count()
+  const r3 = (await page.locator('.wb-finding').allInnerTexts()).filter((f) => f.startsWith('R3'))
+  console.log(`${width}px: ${proposed} relations proposed, ${r3.length} R3 findings${r3[0] ? ` — "${r3[0].replace(/\n/g, ' ')}"` : ''}`)
+  if (proposed) {
+    await page.screenshot({ path: `${OUT}/teacher-relations-${width}.png` })
+    await page.locator('.wb-rel.detected .ok').first().click()
+    await page.waitForTimeout(200)
+    while (await page.locator('.wb-rel.detected').count()) { await page.locator('.wb-rel.detected .no').first().click(); await page.waitForTimeout(150) }
+  }
+  const draw = await page.evaluate(() => {
+    const t = window.__wb; if (!t) return null
+    const byName = (n) => t.regions.find((r) => r.name.en.toLowerCase() === n)
+    const from = byName('left atrium'), to = byName('left ventricle'); if (!from || !to) return null
+    const svg = document.querySelector('.wb-canvas-body svg'); const ctm = svg.getScreenCTM()
+    const c = to.polygon.reduce((a, p) => [a[0] + p[0] / to.polygon.length, a[1] + p[1] / to.polygon.length], [0, 0])
+    const pt = new DOMPoint(c[0], c[1]).matrixTransform(ctm)
+    return { fromId: from.id, x: pt.x, y: pt.y }
+  })
+  if (draw) {
+    await page.click(`.wb-order li:has-text("Left Atrium")`)
+    await page.click('button:has-text("relate to…")')
+    await page.mouse.click(draw.x, draw.y)
+    await page.waitForTimeout(200)
+    const rows = page.locator('.wb-rel')
+    const last = rows.nth((await rows.count()) - 1)
+    await last.locator('select').selectOption('flows-into')
+    await page.waitForTimeout(200)
+    const sentence = (await last.innerText()).replace(/\n/g, ' ')
+    console.log(`${width}px: drew "${sentence}"`)
+    await page.screenshot({ path: `${OUT}/teacher-relations-drawn-${width}.png` })
+  }
   const status = await page.locator('.wb-status b').innerText()
   const findings = await page.locator('.wb-finding').allInnerTexts()
   const overflow = await page.evaluate(() => ({ docW: document.documentElement.scrollWidth, winW: window.innerWidth, horiz: document.documentElement.scrollWidth > window.innerWidth }))

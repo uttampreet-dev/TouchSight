@@ -51,6 +51,19 @@ describe('Stage 6 — finger to feedback', () => {
     expect(nameIn({ en: 'Left ventricle', hi: 'शिक्षक का नाम' }, 'hi')).toBe('शिक्षक का नाम')
     expect(nameIn({ en: 'Zorblat' }, 'hi')).toBe('Zorblat')
   })
+  it('speaks a relation from both ends, in all three languages', () => {
+    const tdm = heart()
+    const [a, b] = tdm.regions
+    tdm.relations = [{ from: a.id, to: b.id, kind: 'flows-into', direction: 'forward' }]
+    expect(describeFully(tdm, a.id, 'en')).toContain(`Flows into the ${b.name.en}`)
+    expect(describeFully(tdm, b.id, 'en')).toContain(`Receives from the ${a.name.en}`)
+    expect(describeFully(tdm, b.id, 'hi')).toContain('से प्राप्त करता है')
+    expect(describeFully(tdm, b.id, 'pa')).toContain('ਤੋਂ ਪ੍ਰਾਪਤ ਕਰਦਾ ਹੈ')
+    tdm.relations = [{ from: a.id, to: b.id, kind: 'flows-into', direction: 'backward' }]
+    expect(describeFully(tdm, a.id, 'en')).toContain(`Receives from the ${b.name.en}`)
+    tdm.relations = [{ from: a.id, to: b.id, kind: 'connects', direction: 'both' }]
+    expect(describeFully(tdm, b.id, 'en')).toContain(`Connects to the ${a.name.en}`)
+  })
   it('describes a part with its position and relations and points the quiz hint at it', () => {
     const tdm = heart()
     const named = tdm.regions.filter(isNamed)

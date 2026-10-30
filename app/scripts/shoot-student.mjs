@@ -70,6 +70,15 @@ await page.waitForTimeout(200)
 L = await log()
 check(L.some((l) => l.includes('Pumps') || l.includes('Receives')), 'where-am-I reads the meaning sentence')
 
+// the other end of a relation: the left ventricle receives from the left atrium
+const lv = await screenOf('Left Ventricle')
+await page.mouse.move(lv.x, lv.y); await page.mouse.down(); await page.mouse.move(lv.x + 2, lv.y + 2); await page.mouse.up()
+await page.waitForTimeout(200)
+await page.click('button:has-text("Where am I")')
+await page.waitForTimeout(200)
+L = await log()
+check(L.some((l) => l.includes('Receives from the Left Atrium')), `where-am-I on the left ventricle speaks the reverse relation (${L.filter((l) => l.startsWith('say: Left Ventricle')).pop()?.slice(0, 120)})`)
+
 // tour
 await page.click('[role=tab]:has-text("Tour")')
 await page.click('button:has-text("Play")')

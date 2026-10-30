@@ -17,6 +17,7 @@ All distances are millimetres at print size (A4 by default). The thresholds live
 | M1 | Everything sits inside the sheet margins | 15 mm margin | yes | Embosser and swell-paper printable area |
 | R1 | Every relation references existing elements | — | yes | Audio tour and quiz follow relations |
 | R2 | Every region and line appears in the reading order exactly once | — | yes | The guided tour must cover everything, once |
+| R3 | Every relation with `source: "detected"` has been confirmed (becomes `teacher`) or removed | — | yes | A relation is a claim about the subject, not geometry; the pipeline proposes, the teacher approves. Message: *Detected: Line 2 connects Left Atrium to Left Ventricle (83%) — confirm or remove* |
 | O1 | OCR confidence of every label used | ≥ 0.75 | advisory | Below this a misread is likely; the teacher confirms |
 | N1 | Every element has a real name, not a placeholder (`Region 3`, `Line 7`) | — | advisory | An unnamed part is spoken as nothing |
 

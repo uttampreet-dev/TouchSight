@@ -27,6 +27,18 @@ function Patterns({ ink, scale }: { ink: string; scale: number }) {
       <marker id="arrow-end" markerWidth="6" markerHeight="6" refX="4" refY="3" orient="auto" markerUnits="strokeWidth">
         <path d="M0,0 L6,3 L0,6 Z" fill={ink} />
       </marker>
+      <marker id="rel-end" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto" markerUnits="userSpaceOnUse">
+        <path d="M0,0 L5,2.5 L0,5 Z" fill="#3d7dd8" />
+      </marker>
+      <marker id="rel-start" markerWidth="5" markerHeight="5" refX="1" refY="2.5" orient="auto" markerUnits="userSpaceOnUse">
+        <path d="M5,0 L0,2.5 L5,5 Z" fill="#3d7dd8" />
+      </marker>
+      <marker id="rel-end-detected" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto" markerUnits="userSpaceOnUse">
+        <path d="M0,0 L5,2.5 L0,5 Z" fill="#ff6f59" />
+      </marker>
+      <marker id="rel-start-detected" markerWidth="5" markerHeight="5" refX="1" refY="2.5" orient="auto" markerUnits="userSpaceOnUse">
+        <path d="M5,0 L0,2.5 L5,5 Z" fill="#ff6f59" />
+      </marker>
     </defs>
   )
 }
@@ -48,6 +60,8 @@ export interface TdmCanvasProps {
   style?: React.CSSProperties
   /** full sheet or just the diagram's bounding box plus padding */
   frame?: 'sheet' | 'diagram'
+  /** draw relations as dashed arrows between element centres (console only, never on tactile output) */
+  showRelations?: boolean
 }
 
 export function diagramBox(tdm: Tdm, pad = 8) {
@@ -58,13 +72,13 @@ export function diagramBox(tdm: Tdm, pad = 8) {
   return { x: x0, y: y0, w: x1 - x0, h: y1 - y0 }
 }
 
-export function TdmCanvas({ tdm, highlight = [], selected, onSelect, showRefs = true, showKey = false, marker, ink = '#17181a', paper = '#ffffff', accent = '#ff6f59', className, style, frame = 'diagram' }: TdmCanvasProps) {
+export function TdmCanvas({ tdm, highlight = [], selected, onSelect, showRefs = true, showKey = false, marker, ink = '#17181a', paper = '#ffffff', accent = '#ff6f59', className, style, frame = 'diagram', showRelations = false }: TdmCanvasProps) {
   const box = frame === 'sheet' ? { x: 0, y: 0, w: tdm.sheet.w, h: tdm.sheet.h } : diagramBox(tdm)
   const keyRows = showKey ? Math.ceil(tdm.key.length / 2) : 0
   const vb = showKey && frame === 'diagram' ? { ...box, h: box.h + 10 + keyRows * 7 } : box
-  const hl = new Set(highlight)
-  const stroke = (id: string) => (selected === id ? accent : hl.has(id) ? accent : ink)
-  const sw = (id: string) => (selected === id || hl.has(id) ? 1.6 : 1.0)
+  const hl = highlight
+  const stroke = (id: string) => (selected === id ? accent : hl.includes(id) ? accent : ink)
+  const sw = (id: string) => (selected === id || hl.includes(id) ? 1.6 : 1.0)
   const keyTop = diagramBox(tdm, 0).y + diagramBox(tdm, 0).h + 10
 
   return (
@@ -77,7 +91,7 @@ export function TdmCanvas({ tdm, highlight = [], selected, onSelect, showRefs = 
         return (
           <g key={r.id} onClick={(e) => { e.stopPropagation(); onSelect?.(r.id) }} style={{ cursor: onSelect ? 'pointer' : 'default' }}>
             <path d={d} fill={r.texture === 'empty' ? 'none' : r.texture === 'solid' ? ink : `url(#tx-${r.texture})`} fillOpacity={r.texture === 'solid' ? 0.85 : 1} stroke={stroke(r.id)} strokeWidth={sw(r.id)} strokeLinejoin="round" />
-            {(selected === r.id || hl.has(r.id)) && <path d={d} fill={accent} fillOpacity={0.18} stroke="none" />}
+            {(selected === r.id || hl.includes(r.id)) && <path d={d} fill={accent} fillOpacity={0.18} stroke="none" />}
             {showRefs && (
               <g>
                 <rect x={c[0] - 3.2} y={c[1] - 3.2} width={6.4} height={6.4} rx={1} fill={paper} stroke={stroke(r.id)} strokeWidth={0.5} />
@@ -111,6 +125,19 @@ export function TdmCanvas({ tdm, highlight = [], selected, onSelect, showRefs = 
           <g key={k.ref}>
             <text x={x} y={y + 4.5} fontSize={4.5} fontFamily="JetBrains Mono, monospace" fontWeight={700} fill={ink}>{k.ref}</text>
             <text x={x + 7} y={y + 4.5} fontSize={4.2} fontFamily="Inter, Arial, sans-serif" fill={ink}>{k.text.en}</text>
+          </g>
+        )
+      })}
+      {showRelations && tdm.relations.map((rel, i) => {
+        const at = (id: string): [number, number] | null => { const r = tdm.regions.find((x) => x.id === id); if (r) return centroid(r.polygon); const l = tdm.lines.find((x) => x.id === id); return l ? l.path[Math.floor(l.path.length / 2)] : null }
+        const a = at(rel.from), b = at(rel.to)
+        if (!a || !b) return null
+        const on = hl.includes(rel.from) && hl.includes(rel.to)
+        const col = rel.source === 'detected' ? accent : '#3d7dd8'
+        return (
+          <g key={i} pointerEvents="none">
+            <line x1={a[0]} y1={a[1]} x2={b[0]} y2={b[1]} stroke={paper} strokeWidth={on ? 2.6 : 1.8} strokeOpacity={0.9} />
+            <line x1={a[0]} y1={a[1]} x2={b[0]} y2={b[1]} stroke={col} strokeWidth={on ? 1.1 : 0.7} strokeDasharray={rel.source === 'detected' ? '1.2 1.2' : '2.4 1.4'} markerEnd={rel.direction !== 'backward' ? `url(#rel-end${rel.source === 'detected' ? '-detected' : ''})` : undefined} markerStart={rel.direction !== 'forward' ? `url(#rel-start${rel.source === 'detected' ? '-detected' : ''})` : undefined} />
           </g>
         )
       })}

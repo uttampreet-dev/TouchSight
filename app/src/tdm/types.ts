@@ -36,7 +36,15 @@ export interface TdmRelation {
   to: string
   kind: RelationKind
   direction: 'forward' | 'backward' | 'both'
+  /** 0–1 for a relation the pipeline proposed; absent for a teacher's */
+  confidence?: number
+  /** 'detected' blocks publication until the teacher confirms (rule R3); absent means teacher-made */
+  source?: 'detected' | 'teacher'
+  /** the stroke that proposed it */
+  via?: string
 }
+
+export const RELATION_KINDS: RelationKind[] = ['flows-into', 'connects', 'contains', 'part-of', 'points-to', 'greater-than']
 
 export interface TdmKeyEntry {
   ref: string
