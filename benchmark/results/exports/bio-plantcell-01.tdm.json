@@ -1,0 +1,1012 @@
+{
+ "tdm": "0.1",
+ "id": "bio-plantcell-01",
+ "title": "bio-plantcell-01",
+ "subject": "bio",
+ "sheet": {
+  "w": 210,
+  "h": 297,
+  "margin": 15
+ },
+ "source": {
+  "kind": "upload",
+  "file": "bio-plantcell-01",
+  "captured": "2026-10-30T05:54:12.180Z"
+ },
+ "regions": [
+  {
+   "id": "r-10",
+   "name": {
+    "en": "Chloroplast Thylakoid Membrane"
+   },
+   "polygon": [
+    [
+     77.91,
+     35.68
+    ],
+    [
+     104.08,
+     43.78
+    ],
+    [
+     133.34,
+     44.09
+    ],
+    [
+     149.63,
+     50.75
+    ],
+    [
+     150.81,
+     52.01
+    ],
+    [
+     150.31,
+     54.14
+    ],
+    [
+     145.91,
+     58.22
+    ],
+    [
+     146.83,
+     70.16
+    ],
+    [
+     148.59,
+     71.52
+    ],
+    [
+     168.69,
+     67.8
+    ],
+    [
+     170.58,
+     69.42
+    ],
+    [
+     170.24,
+     100.38
+    ],
+    [
+     155.31,
+     114.39
+    ],
+    [
+     154.6,
+     116.35
+    ],
+    [
+     151.49,
+     119.44
+    ],
+    [
+     134.17,
+     132.47
+    ],
+    [
+     132.23,
+     132.64
+    ],
+    [
+     115.42,
+     126.04
+    ],
+    [
+     113.83,
+     126.3
+    ],
+    [
+     110.18,
+     129.32
+    ],
+    [
+     107.37,
+     129.4
+    ],
+    [
+     94.11,
+     120
+    ],
+    [
+     76.86,
+     115.02
+    ],
+    [
+     75.18,
+     113.65
+    ],
+    [
+     72.41,
+     105.65
+    ],
+    [
+     72.3,
+     86.52
+    ],
+    [
+     70.32,
+     79.24
+    ],
+    [
+     67.54,
+     76.64
+    ],
+    [
+     68.35,
+     73.14
+    ],
+    [
+     65.75,
+     63.7
+    ],
+    [
+     73.98,
+     54.89
+    ],
+    [
+     75.44,
+     51.84
+    ],
+    [
+     79.69,
+     52.39
+    ],
+    [
+     84.3,
+     50.85
+    ],
+    [
+     85.32,
+     49.55
+    ],
+    [
+     75.73,
+     38.79
+    ],
+    [
+     75.54,
+     36.79
+    ]
+   ],
+   "texture": "empty",
+   "keyRef": "c",
+   "confidence": 0.98,
+   "sourceLabel": {
+    "text": "Chloroplast Thylakoid membrane",
+    "ocrConfidence": 0.95
+   }
+  },
+  {
+   "id": "r-06",
+   "name": {
+    "en": "Region 6"
+   },
+   "polygon": [
+    [
+     108.01,
+     56.84
+    ],
+    [
+     122.54,
+     65.2
+    ],
+    [
+     125.32,
+     71.65
+    ],
+    [
+     120.93,
+     74.22
+    ],
+    [
+     121.17,
+     79.45
+    ],
+    [
+     127.86,
+     82.39
+    ],
+    [
+     130.05,
+     87.81
+    ],
+    [
+     129.28,
+     92.11
+    ],
+    [
+     126.94,
+     92.81
+    ],
+    [
+     124.8,
+     97.64
+    ],
+    [
+     121.38,
+     98.35
+    ],
+    [
+     113.18,
+     95.33
+    ],
+    [
+     111.57,
+     95.71
+    ],
+    [
+     111.68,
+     99.93
+    ],
+    [
+     110.74,
+     102.08
+    ],
+    [
+     105.59,
+     104.75
+    ],
+    [
+     103.92,
+     104.75
+    ],
+    [
+     102.43,
+     99.84
+    ],
+    [
+     100.27,
+     98.18
+    ],
+    [
+     98.71,
+     94.21
+    ],
+    [
+     93.42,
+     92.23
+    ],
+    [
+     89.79,
+     94.52
+    ],
+    [
+     86.51,
+     94.88
+    ],
+    [
+     84.29,
+     93.6
+    ],
+    [
+     80.54,
+     80.25
+    ],
+    [
+     81.28,
+     78.4
+    ],
+    [
+     90.45,
+     78.44
+    ],
+    [
+     93.01,
+     74.7
+    ],
+    [
+     93.16,
+     70.95
+    ],
+    [
+     96.19,
+     63.43
+    ],
+    [
+     105.64,
+     56.93
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "a",
+   "confidence": 0.5
+  },
+  {
+   "id": "r-03",
+   "name": {
+    "en": "Nucl Ucleus Nuclear Pore Nuclear Envelope"
+   },
+   "polygon": [
+    [
+     135.59,
+     106.92
+    ],
+    [
+     144.53,
+     116.29
+    ],
+    [
+     144.71,
+     118.05
+    ],
+    [
+     139.58,
+     124.47
+    ],
+    [
+     133.92,
+     126.56
+    ],
+    [
+     129.09,
+     126.32
+    ],
+    [
+     122,
+     124.32
+    ],
+    [
+     119.14,
+     122.16
+    ],
+    [
+     118.34,
+     119.7
+    ],
+    [
+     118.99,
+     115.45
+    ],
+    [
+     121.13,
+     112.47
+    ],
+    [
+     134.07,
+     106.52
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "e",
+   "confidence": 0.98,
+   "sourceLabel": {
+    "text": "Nucl ucleus Nuclear pore Nuclear envelope",
+    "ocrConfidence": 0.94
+   }
+  },
+  {
+   "id": "r-04",
+   "name": {
+    "en": "Region 4"
+   },
+   "polygon": [
+    [
+     165.49,
+     95.87
+    ],
+    [
+     166.92,
+     97.91
+    ],
+    [
+     164.95,
+     101.08
+    ],
+    [
+     154.83,
+     107.95
+    ],
+    [
+     154.74,
+     108.02
+    ],
+    [
+     152.49,
+     110.42
+    ],
+    [
+     150.24,
+     110.47
+    ],
+    [
+     145.46,
+     105.42
+    ],
+    [
+     145.68,
+     103.13
+    ],
+    [
+     149.56,
+     100.29
+    ],
+    [
+     149.65,
+     100.2
+    ],
+    [
+     154.75,
+     94.03
+    ],
+    [
+     156.54,
+     93.55
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "b",
+   "confidence": 0.5
+  },
+  {
+   "id": "r-01",
+   "name": {
+    "en": "Rough Endoplasmic Reticulum"
+   },
+   "polygon": [
+    [
+     104.01,
+     114.5
+    ],
+    [
+     104.8,
+     114.49
+    ],
+    [
+     108.44,
+     113.7
+    ],
+    [
+     108.63,
+     114.03
+    ],
+    [
+     107.75,
+     121.35
+    ],
+    [
+     107.48,
+     121.67
+    ],
+    [
+     97.01,
+     118.18
+    ],
+    [
+     96.93,
+     118.09
+    ],
+    [
+     98.56,
+     114
+    ],
+    [
+     99.78,
+     113.64
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "d",
+   "confidence": 0.98,
+   "sourceLabel": {
+    "text": "Rough endoplasmic reticulum",
+    "ocrConfidence": 0.96
+   }
+  }
+ ],
+ "lines": [
+  {
+   "id": "l-05",
+   "name": {
+    "en": "Line 5"
+   },
+   "path": [
+    [
+     91.95,
+     97.13
+    ],
+    [
+     59.77,
+     110.17
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "k"
+  },
+  {
+   "id": "l-07",
+   "name": {
+    "en": "Line 7"
+   },
+   "path": [
+    [
+     155.06,
+     88.58
+    ],
+    [
+     155.06,
+     53.93
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "m"
+  },
+  {
+   "id": "l-10",
+   "name": {
+    "en": "Line 10"
+   },
+   "path": [
+    [
+     49.09,
+     60.79
+    ],
+    [
+     81.94,
+     68.89
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "f"
+  },
+  {
+   "id": "l-06",
+   "name": {
+    "en": "Line 6"
+   },
+   "path": [
+    [
+     61.01,
+     60
+    ],
+    [
+     89.81,
+     67.54
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "g"
+  },
+  {
+   "id": "l-14",
+   "name": {
+    "en": "Line 14"
+   },
+   "path": [
+    [
+     102.98,
+     109.28
+    ],
+    [
+     128.29,
+     94.09
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "o"
+  },
+  {
+   "id": "l-15",
+   "name": {
+    "en": "Line 15"
+   },
+   "path": [
+    [
+     118.16,
+     74.06
+    ],
+    [
+     144.71,
+     85.88
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "j"
+  },
+  {
+   "id": "l-02",
+   "name": {
+    "en": "Line 2"
+   },
+   "path": [
+    [
+     71.81,
+     73.95
+    ],
+    [
+     100.28,
+     74.51
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "h"
+  },
+  {
+   "id": "l-08",
+   "name": {
+    "en": "Line 8"
+   },
+   "path": [
+    [
+     75.64,
+     113.55
+    ],
+    [
+     93.86,
+     99.94
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "n"
+  },
+  {
+   "id": "l-13",
+   "name": {
+    "en": "Line 13"
+   },
+   "path": [
+    [
+     103.31,
+     91.5
+    ],
+    [
+     117.49,
+     81.49
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "l"
+  },
+  {
+   "id": "l-04",
+   "name": {
+    "en": "Line 4"
+   },
+   "path": [
+    [
+     79.8,
+     78
+    ],
+    [
+     92.63,
+     77.55
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "i"
+  },
+  {
+   "id": "l-09",
+   "name": {
+    "en": "Line 9"
+   },
+   "path": [
+    [
+     154.39,
+     115.58
+    ],
+    [
+     162.94,
+     106.8
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "p"
+  }
+ ],
+ "relations": [
+  {
+   "from": "r-10",
+   "to": "r-06",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 1,
+   "source": "detected",
+   "via": "l-02"
+  },
+  {
+   "from": "r-06",
+   "to": "r-04",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.73,
+   "source": "detected",
+   "via": "l-15"
+  }
+ ],
+ "key": [
+  {
+   "ref": "a",
+   "regionId": "r-06",
+   "text": {
+    "en": "Region 6"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "b",
+   "regionId": "r-04",
+   "text": {
+    "en": "Region 4"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "c",
+   "regionId": "r-10",
+   "text": {
+    "en": "Chloroplast Thylakoid Membrane"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "d",
+   "regionId": "r-01",
+   "text": {
+    "en": "Rough Endoplasmic Reticulum"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "e",
+   "regionId": "r-03",
+   "text": {
+    "en": "Nucl Ucleus Nuclear Pore Nuclear Envelope"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "f",
+   "regionId": "l-10",
+   "text": {
+    "en": "Line 10"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "g",
+   "regionId": "l-06",
+   "text": {
+    "en": "Line 6"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "h",
+   "regionId": "l-02",
+   "text": {
+    "en": "Line 2"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "i",
+   "regionId": "l-04",
+   "text": {
+    "en": "Line 4"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "j",
+   "regionId": "l-15",
+   "text": {
+    "en": "Line 15"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "k",
+   "regionId": "l-05",
+   "text": {
+    "en": "Line 5"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "l",
+   "regionId": "l-13",
+   "text": {
+    "en": "Line 13"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "m",
+   "regionId": "l-07",
+   "text": {
+    "en": "Line 7"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "n",
+   "regionId": "l-08",
+   "text": {
+    "en": "Line 8"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "o",
+   "regionId": "l-14",
+   "text": {
+    "en": "Line 14"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "p",
+   "regionId": "l-09",
+   "text": {
+    "en": "Line 9"
+   },
+   "braille": {}
+  }
+ ],
+ "readingOrder": [
+  "r-06",
+  "r-04",
+  "r-10",
+  "r-01",
+  "r-03",
+  "l-10",
+  "l-06",
+  "l-02",
+  "l-04",
+  "l-15",
+  "l-05",
+  "l-13",
+  "l-07",
+  "l-08",
+  "l-14",
+  "l-09"
+ ],
+ "languages": {
+  "primary": "en",
+  "available": [
+   "en"
+  ]
+ },
+ "validation": {
+  "status": "fail",
+  "blocking": [
+   {
+    "rule": "R3",
+    "msg": "Detected: Line 2 connects Chloroplast Thylakoid Membrane to Region 6 (100%) — confirm or remove",
+    "ids": [
+     "r-10",
+     "r-06"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: Line 15 connects Region 6 to Region 4 (73%) — confirm or remove",
+    "ids": [
+     "r-06",
+     "r-04"
+    ]
+   }
+  ],
+  "advisory": [
+   {
+    "rule": "N1",
+    "msg": "r-06 has no label",
+    "ids": [
+     "r-06"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "r-04 has no label",
+    "ids": [
+     "r-04"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-05 has no label",
+    "ids": [
+     "l-05"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-07 has no label",
+    "ids": [
+     "l-07"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-10 has no label",
+    "ids": [
+     "l-10"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-06 has no label",
+    "ids": [
+     "l-06"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-14 has no label",
+    "ids": [
+     "l-14"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-15 has no label",
+    "ids": [
+     "l-15"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-02 has no label",
+    "ids": [
+     "l-02"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-08 has no label",
+    "ids": [
+     "l-08"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-13 has no label",
+    "ids": [
+     "l-13"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-04 has no label",
+    "ids": [
+     "l-04"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-09 has no label",
+    "ids": [
+     "l-09"
+    ]
+   }
+  ]
+ },
+ "provenance": {
+  "pipeline": "0.1",
+  "teacherReviewed": false,
+  "reviewedAt": null
+ }
+}

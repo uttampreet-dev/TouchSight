@@ -1,0 +1,1758 @@
+[
+  {
+    "name": "bio-digestive-01",
+    "difficulty": "hard",
+    "truth": true,
+    "understandMs": 2117,
+    "labels": [
+      "Mouth",
+      "Palate Uvula",
+      "Palate Uvula Tongue Teeth",
+      "Palate",
+      "we ts",
+      "Uvula",
+      "Pharynx",
+      "Salivary glands",
+      "Esophagus",
+      "Sublingual- Submandibular Parotid",
+      "Parotid",
+      "Liver",
+      "Stomach",
+      "Gallbladder Common bile duct",
+      "Gallbladder Common",
+      "Gallbladder",
+      "Pancreas",
+      "Pancreatic duct",
+      "duct",
+      "uct",
+      "ile",
+      "Small intestine",
+      "Large intestine",
+      "Transverse colon",
+      "Duodenum",
+      "Duodenum vm lleum",
+      "Ascending Cecum Descending",
+      "Ascending Cecum",
+      "colon",
+      "eum",
+      "ecum",
+      "Descendi escending colon",
+      "Appendix",
+      "Sigmoid colon",
+      "colon",
+      "Anus",
+      "Rectum"
+    ],
+    "regionsFound": 10,
+    "strokes": 275,
+    "timings": {
+      "segment": 401,
+      "ocr": 1286,
+      "lines": 182,
+      "total": 2080
+    },
+    "draft": {
+      "regions": 10,
+      "lines": 16,
+      "relations": [
+        [
+          "Eum",
+          "Esophagus",
+          1
+        ],
+        [
+          "Palate Uvula",
+          "Mouth",
+          0.99
+        ],
+        [
+          "Palate Uvula Tongue Teeth",
+          "Esophagus",
+          0.85
+        ],
+        [
+          "Esophagus",
+          "Large Intestine",
+          0.99
+        ],
+        [
+          "Gallbladder Common Bile Duct",
+          "Large Intestine",
+          1
+        ],
+        [
+          "Stomach",
+          "Esophagus",
+          1
+        ]
+      ]
+    },
+    "report": {
+      "dropped": [
+        {
+          "id": "l-05",
+          "why": "length 6.9 mm < 8"
+        },
+        {
+          "id": "l-11",
+          "why": "length 8.0 mm < 8"
+        },
+        {
+          "id": "r-01",
+          "why": "straddles the outline of r-08 with too little inside"
+        },
+        {
+          "id": "r-03",
+          "why": "too small once moved 3 mm clear of the outline of r-08"
+        },
+        {
+          "id": "r-06",
+          "why": "inner region too small once separated from r-09"
+        },
+        {
+          "id": "r-07",
+          "why": "inner region too small once separated from r-10"
+        },
+        {
+          "id": "l-07",
+          "why": "within 3 mm of l-01"
+        },
+        {
+          "id": "l-08",
+          "why": "within 3 mm of l-01"
+        },
+        {
+          "id": "l-02",
+          "why": "runs within 3 mm of r-02 without connecting"
+        },
+        {
+          "id": "l-13",
+          "why": "within 3 mm of l-06"
+        },
+        {
+          "id": "l-15",
+          "why": "within 3 mm of l-01"
+        },
+        {
+          "id": "l-16",
+          "why": "within 3 mm of l-03"
+        }
+      ],
+      "merged": 0,
+      "minGapBefore": 0.18,
+      "minGapAfter": 3.1,
+      "passes": 3,
+      "scaledBy": 0.892,
+      "textures": 3
+    },
+    "out": {
+      "regions": [
+        "Esophagus",
+        "Gallbladder Common Bile Duct",
+        "Palate Uvula Tongue Teeth",
+        "Palate Uvula",
+        "Large Intestine",
+        "Stomach"
+      ],
+      "lines": 8,
+      "relations": 4,
+      "key": 14
+    },
+    "validation": {
+      "status": "fail",
+      "blocking": [
+        "R3",
+        "R3",
+        "R3",
+        "R3"
+      ],
+      "advisory": [
+        "N1",
+        "N1",
+        "N1",
+        "N1",
+        "N1",
+        "N1",
+        "N1",
+        "N1"
+      ],
+      "msgs": [
+        "R3: Detected: Line 6 connects Palate Uvula Tongue Teeth to Esophagus (85%) — confirm or remove",
+        "R3: Detected: A stroke connects Esophagus to Large Intestine (99%) — confirm or remove",
+        "R3: Detected: Line 9 connects Gallbladder Common Bile Duct to Large Intestine (100%) — confirm or remove",
+        "R3: Detected: Line 10 connects Stomach to Esophagus (100%) — confirm or remove"
+      ]
+    },
+    "ms": {
+      "draft": 5,
+      "simplify": 21.5,
+      "validate": 1.4000000059604645,
+      "exports": 20.400000005960464
+    },
+    "exports": {
+      "svg": {
+        "ok": true,
+        "cells": 161,
+        "keyEntries": 14,
+        "keyFits": true
+      },
+      "stl": {
+        "ok": true,
+        "triangles": 12320,
+        "shells": 398,
+        "openEdges": 0,
+        "bbox": {
+          "x": 10,
+          "y": 10.2,
+          "z": 0,
+          "w": 166,
+          "h": 260.3,
+          "d": 3
+        },
+        "kb": 602
+      },
+      "alt": {
+        "ok": true,
+        "words": 134
+      },
+      "brf": {
+        "ok": true,
+        "pages": 1,
+        "cells": 192
+      }
+    },
+    "sem": {
+      "labelsPrinted": 30,
+      "labelsRead": 29,
+      "missing": [
+        [
+          "Jejunum",
+          "Mouth"
+        ]
+      ],
+      "regionsExpected": 7,
+      "regionsNamed": 3,
+      "relTruth": 4,
+      "relMatched": 1
+    },
+    "geomClean": true,
+    "r3": 4
+  },
+  {
+    "name": "bio-eye-01",
+    "difficulty": "medium",
+    "truth": true,
+    "understandMs": 2100,
+    "labels": [
+      "antetior chamber (aqueous humour) Posterior chamber Suspensory ligament of lens",
+      "Cornea",
+      "Anterior chamber (aqueous humour) Posterior osterior chamb chamber",
+      "Pupil",
+      "Uvea",
+      "Iris",
+      "Suspensory ligament of lens",
+      "Suspensor",
+      "Ciliary bodly",
+      "Cili",
+      "ili",
+      "of lens",
+      "Choroid",
+      "scl ciera",
+      "Sclera",
+      "Vitreou humou",
+      "Hyaloid canal",
+      "canal",
+      "Retinal Sy. vessels blood Vf",
+      "Retinal blood vessels",
+      "Retina",
+      "Macula",
+      "Say",
+      "Fovea",
+      "Optic disc",
+      "Optic nerve"
+    ],
+    "regionsFound": 6,
+    "strokes": 290,
+    "timings": {
+      "segment": 404,
+      "ocr": 1393,
+      "lines": 140,
+      "total": 2072
+    },
+    "draft": {
+      "regions": 6,
+      "lines": 16,
+      "relations": [
+        [
+          "Region 4",
+          "Antetior Chamber (aqueous Humour) Posterior Chamber Suspensory Ligament Of Lens",
+          0.93
+        ]
+      ]
+    },
+    "report": {
+      "dropped": [
+        {
+          "id": "l-01",
+          "why": "length 7.7 mm < 8"
+        },
+        {
+          "id": "l-05",
+          "why": "within 3 mm of l-03"
+        },
+        {
+          "id": "l-07",
+          "why": "within 3 mm of l-03"
+        },
+        {
+          "id": "l-10",
+          "why": "within 3 mm of l-03"
+        },
+        {
+          "id": "l-11",
+          "why": "within 3 mm of l-03"
+        },
+        {
+          "id": "l-13",
+          "why": "within 3 mm of l-02"
+        },
+        {
+          "id": "l-14",
+          "why": "within 3 mm of l-02"
+        },
+        {
+          "id": "l-15",
+          "why": "within 3 mm of l-03"
+        },
+        {
+          "id": "l-04",
+          "why": "within 3 mm of l-02"
+        }
+      ],
+      "merged": 0,
+      "minGapBefore": 0.85,
+      "minGapAfter": 3.11,
+      "passes": 1,
+      "scaledBy": 1,
+      "textures": 2
+    },
+    "out": {
+      "regions": [
+        "Antetior Chamber (aqueous Humour) Posterior Chamber Suspensory Ligament Of Lens",
+        "Region 4",
+        "Say",
+        "Region 2",
+        "Region 3",
+        "Anterior Chamber (aqueous Humour) Posterior Osterior Chamb Chamber"
+      ],
+      "lines": 7,
+      "relations": 1,
+      "key": 13
+    },
+    "validation": {
+      "status": "fail",
+      "blocking": [
+        "R3"
+      ],
+      "advisory": [
+        "N1",
+        "O1",
+        "N1",
+        "N1",
+        "N1",
+        "N1",
+        "N1",
+        "N1",
+        "N1",
+        "N1",
+        "N1"
+      ],
+      "msgs": [
+        "R3: Detected: Line 2 connects Region 4 to Antetior Chamber (aqueous Humour) Posterior Chamber Suspensory Ligament Of Lens (93%) — confirm or remove"
+      ]
+    },
+    "ms": {
+      "draft": 2.0999999940395355,
+      "simplify": 5.200000017881393,
+      "validate": 0.7999999821186066,
+      "exports": 34
+    },
+    "exports": {
+      "svg": {
+        "ok": true,
+        "cells": 142,
+        "keyEntries": 13,
+        "keyFits": true
+      },
+      "stl": {
+        "ok": true,
+        "triangles": 24684,
+        "shells": 866,
+        "openEdges": 0,
+        "bbox": {
+          "x": 10,
+          "y": 34.1,
+          "z": 0,
+          "w": 166,
+          "h": 233.4,
+          "d": 3
+        },
+        "kb": 1205
+      },
+      "alt": {
+        "ok": true,
+        "words": 115
+      },
+      "brf": {
+        "ok": true,
+        "pages": 1,
+        "cells": 251
+      }
+    },
+    "sem": {
+      "labelsPrinted": 19,
+      "labelsRead": 18,
+      "missing": [
+        [
+          "Ciliary body",
+          "Ciliary bodly"
+        ]
+      ],
+      "regionsExpected": 7,
+      "regionsNamed": 1,
+      "relTruth": 3,
+      "relMatched": 0
+    },
+    "geomClean": true,
+    "r3": 1
+  },
+  {
+    "name": "bio-flower-01",
+    "difficulty": "medium",
+    "truth": true,
+    "understandMs": 1019,
+    "labels": [
+      "Mature flower",
+      "ovules",
+      "pistil",
+      "stigma style",
+      "stigma",
+      "style",
+      "ovary",
+      "SIN",
+      "connective",
+      "petal/corolla sepal/calyx perianth",
+      "microsporangium filament",
+      "floral axis",
+      "nectary",
+      "stamen",
+      "pedicel"
+    ],
+    "regionsFound": 8,
+    "strokes": 264,
+    "timings": {
+      "segment": 230,
+      "ocr": 540,
+      "lines": 69,
+      "total": 987
+    },
+    "draft": {
+      "regions": 8,
+      "lines": 16,
+      "relations": [
+        [
+          "Sin",
+          "Region 1",
+          0.98
+        ],
+        [
+          "Stigma",
+          "Sin",
+          1
+        ],
+        [
+          "Stigma Style",
+          "Sin",
+          1
+        ]
+      ]
+    },
+    "report": {
+      "dropped": [
+        {
+          "id": "l-12",
+          "why": "length 7.7 mm < 8"
+        },
+        {
+          "id": "r-03",
+          "why": "too small once moved 3 mm clear of the outline of r-07"
+        },
+        {
+          "id": "r-06",
+          "why": "too small once moved 3 mm clear of the outline of r-08"
+        },
+        {
+          "id": "r-04",
+          "why": "area 58 mm² after redesign"
+        },
+        {
+          "id": "l-01",
+          "why": "runs within 3 mm of r-05 without connecting"
+        },
+        {
+          "id": "l-07",
+          "why": "runs within 3 mm of r-07 without connecting"
+        },
+        {
+          "id": "l-13",
+          "why": "within 3 mm of l-05"
+        },
+        {
+          "id": "l-14",
+          "why": "within 3 mm of l-05"
+        },
+        {
+          "id": "l-04",
+          "why": "within 3 mm of l-02"
+        },
+        {
+          "id": "l-16",
+          "why": "within 3 mm of l-02"
+        },
+        {
+          "id": "l-10",
+          "why": "within 3 mm of l-06"
+        },
+        {
+          "id": "l-03",
+          "why": "within 3 mm of l-02"
+        }
+      ],
+      "merged": 0,
+      "minGapBefore": 0.25,
+      "minGapAfter": 3.1,
+      "passes": 2,
+      "scaledBy": 1,
+      "textures": 2
+    },
+    "out": {
+      "regions": [
+        "Sin",
+        "Ovary",
+        "Ovules",
+        "Region 1",
+        "Region 2"
+      ],
+      "lines": 7,
+      "relations": 1,
+      "key": 12
+    },
+    "validation": {
+      "status": "fail",
+      "blocking": [
+        "R3"
+      ],
+      "advisory": [
+        "O1",
+        "O1",
+        "N1",
+        "N1",
+        "N1",
+        "N1",
+        "N1",
+        "N1",
+        "N1",
+        "N1",
+        "N1"
+      ],
+      "msgs": [
+        "R3: Detected: Line 5 connects Sin to Region 1 (98%) — confirm or remove"
+      ]
+    },
+    "ms": {
+      "draft": 2.5,
+      "simplify": 7,
+      "validate": 0.5,
+      "exports": 12.5
+    },
+    "exports": {
+      "svg": {
+        "ok": true,
+        "cells": 119,
+        "keyEntries": 12,
+        "keyFits": true
+      },
+      "stl": {
+        "ok": true,
+        "triangles": 8684,
+        "shells": 286,
+        "openEdges": 0,
+        "bbox": {
+          "x": 10,
+          "y": 16.9,
+          "z": 0,
+          "w": 142.3,
+          "h": 232.1,
+          "d": 3
+        },
+        "kb": 424
+      },
+      "alt": {
+        "ok": true,
+        "words": 83
+      },
+      "brf": {
+        "ok": true,
+        "pages": 1,
+        "cells": 112
+      }
+    },
+    "sem": {
+      "labelsPrinted": 17,
+      "labelsRead": 16,
+      "missing": [
+        [
+          "anther",
+          "Mature flower"
+        ]
+      ],
+      "regionsExpected": 6,
+      "regionsNamed": 1,
+      "relTruth": 5,
+      "relMatched": 0
+    },
+    "geomClean": true,
+    "r3": 1
+  },
+  {
+    "name": "bio-heart-01",
+    "difficulty": "hard",
+    "truth": true,
+    "understandMs": 1538,
+    "labels": [
+      "Superior Vena Cava",
+      "Aorta",
+      "Pulmonary Art",
+      "eS Ce",
+      "ery",
+      "Pulmonary Vein",
+      "Mitral Valve",
+      "Right trium",
+      "gone",
+      "Aortic Valve",
+      "Pulmonary Valve",
+      "Left",
+      "Ventri",
+      "ae ON",
+      "Tricuspid Valve",
+      "Inferior Vena Cava"
+    ],
+    "regionsFound": 9,
+    "strokes": 265,
+    "timings": {
+      "segment": 393,
+      "ocr": 936,
+      "lines": 74,
+      "total": 1508
+    },
+    "draft": {
+      "regions": 9,
+      "lines": 16,
+      "relations": [
+        [
+          "Region 5",
+          "Pulmonary Vein",
+          0.78
+        ],
+        [
+          "Region 5",
+          "Region 1",
+          0.89
+        ],
+        [
+          "Region 5",
+          "Region 2",
+          0.45
+        ],
+        [
+          "Aorta",
+          "Gone",
+          1
+        ],
+        [
+          "Pulmonary Vein",
+          "Gone",
+          0.92
+        ],
+        [
+          "Pulmonary Vein",
+          "Region 6",
+          0.98
+        ],
+        [
+          "Es Ce",
+          "Aorta",
+          0.76
+        ]
+      ]
+    },
+    "report": {
+      "dropped": [
+        {
+          "id": "r-06",
+          "why": "area 31 mm² < 60"
+        },
+        {
+          "id": "l-08",
+          "why": "length 5.9 mm < 8"
+        },
+        {
+          "id": "l-13",
+          "why": "length 7.8 mm < 8"
+        },
+        {
+          "id": "r-01",
+          "why": "too small once moved 3 mm clear of the outline of r-04"
+        },
+        {
+          "id": "l-01",
+          "why": "runs within 3 mm of r-05 without connecting"
+        },
+        {
+          "id": "l-04",
+          "why": "runs within 3 mm of r-02 without connecting"
+        },
+        {
+          "id": "l-09",
+          "why": "within 3 mm of l-07"
+        },
+        {
+          "id": "l-14",
+          "why": "within 3 mm of l-07"
+        },
+        {
+          "id": "l-15",
+          "why": "within 3 mm of l-02"
+        },
+        {
+          "id": "l-05",
+          "why": "runs within 3 mm of r-08 without connecting"
+        },
+        {
+          "id": "l-06",
+          "why": "runs within 3 mm of r-02 without connecting"
+        },
+        {
+          "id": "l-10",
+          "why": "within 3 mm of l-02"
+        },
+        {
+          "id": "l-11",
+          "why": "within 3 mm of l-07"
+        },
+        {
+          "id": "l-03",
+          "why": "runs within 3 mm of r-04 without connecting"
+        }
+      ],
+      "merged": 1,
+      "minGapBefore": 0.26,
+      "minGapAfter": 3.1,
+      "passes": 7,
+      "scaledBy": 1,
+      "textures": 2
+    },
+    "out": {
+      "regions": [
+        "Gone",
+        "Pulmonary Vein",
+        "Aorta",
+        "Es Ce",
+        "Region 2",
+        "Region 5"
+      ],
+      "lines": 4,
+      "relations": 5,
+      "key": 10
+    },
+    "validation": {
+      "status": "fail",
+      "blocking": [
+        "R3",
+        "R3",
+        "R3",
+        "R3",
+        "R3"
+      ],
+      "advisory": [
+        "O1",
+        "O1",
+        "O1",
+        "N1",
+        "N1",
+        "N1",
+        "N1",
+        "N1",
+        "N1"
+      ],
+      "msgs": [
+        "R3: Detected: A stroke connects Region 5 to Pulmonary Vein (78%) — confirm or remove",
+        "R3: Detected: A stroke connects Region 5 to Region 2 (45%) — confirm or remove",
+        "R3: Detected: A stroke connects Aorta to Gone (100%) — confirm or remove",
+        "R3: Detected: A stroke connects Pulmonary Vein to Gone (92%) — confirm or remove",
+        "R3: Detected: Line 16 connects Es Ce to Aorta (76%) — confirm or remove"
+      ]
+    },
+    "ms": {
+      "draft": 4.799999982118607,
+      "simplify": 32.80000001192093,
+      "validate": 6.9000000059604645,
+      "exports": 24.799999982118607
+    },
+    "exports": {
+      "svg": {
+        "ok": true,
+        "cells": 104,
+        "keyEntries": 10,
+        "keyFits": true
+      },
+      "stl": {
+        "ok": true,
+        "triangles": 16008,
+        "shells": 399,
+        "openEdges": 0,
+        "bbox": {
+          "x": 10,
+          "y": 17.6,
+          "z": 0,
+          "w": 172,
+          "h": 227,
+          "d": 3
+        },
+        "kb": 782
+      },
+      "alt": {
+        "ok": true,
+        "words": 112
+      },
+      "brf": {
+        "ok": true,
+        "pages": 1,
+        "cells": 103
+      }
+    },
+    "sem": {
+      "labelsPrinted": 14,
+      "labelsRead": 9,
+      "missing": [
+        [
+          "Pulmonary Artery",
+          "Pulmonary Art"
+        ],
+        [
+          "Left Atrium",
+          "Right trium"
+        ],
+        [
+          "Left Ventricle",
+          "Left"
+        ],
+        [
+          "Right Ventricle",
+          "Right trium"
+        ],
+        [
+          "Pericardium",
+          "Superior Vena Cava"
+        ]
+      ],
+      "regionsExpected": 4,
+      "regionsNamed": 0,
+      "relTruth": 4,
+      "relMatched": 0
+    },
+    "geomClean": true,
+    "r3": 5
+  },
+  {
+    "name": "bio-heart-02",
+    "difficulty": "easy",
+    "truth": true,
+    "understandMs": 774,
+    "labels": [
+      "Superior vena cava",
+      "Pulmonary artery",
+      "Aorta",
+      "Right atrium",
+      "Left atrium",
+      "Right ventricle",
+      "Left ventricle",
+      "Septum",
+      "Inferior vena cava"
+    ],
+    "regionsFound": 5,
+    "strokes": 184,
+    "timings": {
+      "segment": 45,
+      "ocr": 536,
+      "lines": 62,
+      "total": 745
+    },
+    "draft": {
+      "regions": 5,
+      "lines": 16,
+      "relations": [
+        [
+          "Right Ventricle",
+          "Left Atrium",
+          0.76
+        ],
+        [
+          "Right Atrium",
+          "Right Ventricle",
+          0.83
+        ],
+        [
+          "Left Atrium",
+          "Left Ventricle",
+          0.72
+        ],
+        [
+          "Left Ventricle",
+          "Superior Vena Cava",
+          0.78
+        ],
+        [
+          "Right Ventricle",
+          "Left Ventricle",
+          0.83
+        ],
+        [
+          "Right Atrium",
+          "Left Atrium",
+          0.76
+        ]
+      ]
+    },
+    "report": {
+      "dropped": [
+        {
+          "id": "l-05",
+          "why": "length 6.4 mm < 8"
+        },
+        {
+          "id": "l-09",
+          "why": "length 6.4 mm < 8"
+        },
+        {
+          "id": "l-13",
+          "why": "length 6.6 mm < 8"
+        },
+        {
+          "id": "l-14",
+          "why": "length 8.0 mm < 8"
+        },
+        {
+          "id": "l-01",
+          "why": "runs within 3 mm of r-02 without connecting"
+        },
+        {
+          "id": "l-15",
+          "why": "runs within 3 mm of r-02 without connecting"
+        },
+        {
+          "id": "l-06",
+          "why": "within 3 mm of l-03"
+        },
+        {
+          "id": "l-08",
+          "why": "runs within 3 mm of r-05 without connecting"
+        },
+        {
+          "id": "l-11",
+          "why": "within 3 mm of l-10"
+        },
+        {
+          "id": "l-07",
+          "why": "within 3 mm of l-02"
+        }
+      ],
+      "merged": 0,
+      "minGapBefore": 1.22,
+      "minGapAfter": 3.11,
+      "passes": 1,
+      "scaledBy": 1,
+      "textures": 3
+    },
+    "out": {
+      "regions": [
+        "Superior Vena Cava",
+        "Right Ventricle",
+        "Left Ventricle",
+        "Right Atrium",
+        "Left Atrium"
+      ],
+      "lines": 6,
+      "relations": 6,
+      "key": 11
+    },
+    "validation": {
+      "status": "fail",
+      "blocking": [
+        "R3",
+        "R3",
+        "R3",
+        "R3",
+        "R3",
+        "R3"
+      ],
+      "advisory": [
+        "N1",
+        "N1",
+        "N1",
+        "N1",
+        "N1",
+        "N1"
+      ],
+      "msgs": [
+        "R3: Detected: A stroke connects Right Ventricle to Left Atrium (76%) — confirm or remove",
+        "R3: Detected: Line 2 connects Right Atrium to Right Ventricle (83%) — confirm or remove",
+        "R3: Detected: Line 3 connects Left Atrium to Left Ventricle (72%) — confirm or remove",
+        "R3: Detected: A stroke connects Left Ventricle to Superior Vena Cava (78%) — confirm or remove",
+        "R3: Detected: Line 10 connects Right Ventricle to Left Ventricle (83%) — confirm or remove",
+        "R3: Detected: Line 12 connects Right Atrium to Left Atrium (76%) — confirm or remove"
+      ]
+    },
+    "ms": {
+      "draft": 1.800000011920929,
+      "simplify": 4.4000000059604645,
+      "validate": 0.29999998211860657,
+      "exports": 28
+    },
+    "exports": {
+      "svg": {
+        "ok": true,
+        "cells": 154,
+        "keyEntries": 11,
+        "keyFits": true
+      },
+      "stl": {
+        "ok": true,
+        "triangles": 22428,
+        "shells": 816,
+        "openEdges": 0,
+        "bbox": {
+          "x": 10,
+          "y": 23.5,
+          "z": 0,
+          "w": 148,
+          "h": 262.2,
+          "d": 3
+        },
+        "kb": 1095
+      },
+      "alt": {
+        "ok": true,
+        "words": 140
+      },
+      "brf": {
+        "ok": true,
+        "pages": 1,
+        "cells": 144
+      }
+    },
+    "sem": {
+      "labelsPrinted": 9,
+      "labelsRead": 9,
+      "missing": [],
+      "regionsExpected": 4,
+      "regionsNamed": 4,
+      "relTruth": 4,
+      "relMatched": 2
+    },
+    "geomClean": true,
+    "r3": 6
+  },
+  {
+    "name": "bio-plantcell-01",
+    "difficulty": "medium",
+    "truth": true,
+    "understandMs": 1663,
+    "labels": [
+      "Filamentous cytoskeleton",
+      "Plasmodesmata Plasma membrane",
+      "Plasmodesmata",
+      "Small membranous",
+      "WA SIRI",
+      "Plasma membrane",
+      "vesicles",
+      "Cell wall",
+      "Chloroplast Thylakoid membrane",
+      "Chloroplast",
+      "ins.",
+      "Starch grain",
+      "Smooth endoplasmic reticulum",
+      "Vacuole",
+      "facuole",
+      "Tonoplast Mitochondrion (mitochondria)",
+      "Tonoplast",
+      "Ribosomes",
+      "SS SOK Ss",
+      "Peroxi eroxisome",
+      "SOK",
+      "Cytoplasm",
+      "Nucleus",
+      "Nucl ucleus Nuclear pore Nuclear envelope",
+      "Nuclear envelope",
+      "Golgi vesicles",
+      "Nucleolus",
+      "Golgi body (Golgi apparatus)",
+      "Rough endoplasmic reticulum"
+    ],
+    "regionsFound": 10,
+    "strokes": 269,
+    "timings": {
+      "segment": 319,
+      "ocr": 1084,
+      "lines": 96,
+      "total": 1625
+    },
+    "draft": {
+      "regions": 10,
+      "lines": 16,
+      "relations": [
+        [
+          "Chloroplast Thylakoid Membrane",
+          "Region 6",
+          1
+        ],
+        [
+          "Region 4",
+          "Region 7",
+          0.53
+        ],
+        [
+          "Golgi Body (golgi Apparatus)",
+          "Region 6",
+          0.82
+        ],
+        [
+          "Region 6",
+          "Region 5",
+          0.28
+        ],
+        [
+          "Region 6",
+          "Region 4",
+          0.73
+        ]
+      ]
+    },
+    "report": {
+      "dropped": [
+        {
+          "id": "l-03",
+          "why": "length 5.6 mm < 8"
+        },
+        {
+          "id": "l-12",
+          "why": "length 7.7 mm < 8"
+        },
+        {
+          "id": "r-07",
+          "why": "straddles the outline of r-10 with too little inside"
+        },
+        {
+          "id": "r-05",
+          "why": "too small once moved 3 mm clear of the outline of r-10"
+        },
+        {
+          "id": "r-09",
+          "why": "too small once moved 3 mm clear of the outline of r-10"
+        },
+        {
+          "id": "r-08",
+          "why": "too small once moved 3 mm clear of the outline of r-10"
+        },
+        {
+          "id": "r-02",
+          "why": "too small once moved 3 mm clear of the outline of r-10"
+        },
+        {
+          "id": "l-11",
+          "why": "within 3 mm of l-07"
+        },
+        {
+          "id": "l-16",
+          "why": "within 3 mm of l-14"
+        },
+        {
+          "id": "l-01",
+          "why": "within 3 mm of l-15"
+        }
+      ],
+      "merged": 0,
+      "minGapBefore": 0.38,
+      "minGapAfter": 3.11,
+      "passes": 4,
+      "scaledBy": 1,
+      "textures": 2
+    },
+    "out": {
+      "regions": [
+        "Chloroplast Thylakoid Membrane",
+        "Region 6",
+        "Nucl Ucleus Nuclear Pore Nuclear Envelope",
+        "Region 4",
+        "Rough Endoplasmic Reticulum"
+      ],
+      "lines": 11,
+      "relations": 2,
+      "key": 16
+    },
+    "validation": {
+      "status": "fail",
+      "blocking": [
+        "R3",
+        "R3"
+      ],
+      "advisory": [
+        "N1",
+        "N1",
+        "N1",
+        "N1",
+        "N1",
+        "N1",
+        "N1",
+        "N1",
+        "N1",
+        "N1",
+        "N1",
+        "N1",
+        "N1"
+      ],
+      "msgs": [
+        "R3: Detected: Line 2 connects Chloroplast Thylakoid Membrane to Region 6 (100%) — confirm or remove",
+        "R3: Detected: Line 15 connects Region 6 to Region 4 (73%) — confirm or remove"
+      ]
+    },
+    "ms": {
+      "draft": 3,
+      "simplify": 8.400000005960464,
+      "validate": 0.5999999940395355,
+      "exports": 26.400000005960464
+    },
+    "exports": {
+      "svg": {
+        "ok": true,
+        "cells": 180,
+        "keyEntries": 16,
+        "keyFits": true
+      },
+      "stl": {
+        "ok": true,
+        "triangles": 19144,
+        "shells": 652,
+        "openEdges": 0,
+        "bbox": {
+          "x": 10,
+          "y": 30.7,
+          "z": 0,
+          "w": 166,
+          "h": 197,
+          "d": 3
+        },
+        "kb": 935
+      },
+      "alt": {
+        "ok": true,
+        "words": 127
+      },
+      "brf": {
+        "ok": true,
+        "pages": 1,
+        "cells": 233
+      }
+    },
+    "sem": {
+      "labelsPrinted": 22,
+      "labelsRead": 21,
+      "missing": [
+        [
+          "Small membranous vesicles",
+          "Small membranous"
+        ]
+      ],
+      "regionsExpected": 6,
+      "regionsNamed": 2,
+      "relTruth": 3,
+      "relMatched": 0
+    },
+    "geomClean": true,
+    "r3": 2
+  },
+  {
+    "name": "bio-plantcell-02",
+    "difficulty": "easy",
+    "truth": true,
+    "understandMs": 705,
+    "labels": [
+      "Cell wall",
+      "ucleus",
+      "Vacuole",
+      "Chloroplast",
+      "ondrion",
+      "Cytoplasm"
+    ],
+    "regionsFound": 9,
+    "strokes": 181,
+    "timings": {
+      "segment": 47,
+      "ocr": 456,
+      "lines": 57,
+      "total": 665
+    },
+    "draft": {
+      "regions": 9,
+      "lines": 16,
+      "relations": [
+        [
+          "Cell Wall",
+          "Chloroplast",
+          0.78
+        ]
+      ]
+    },
+    "report": {
+      "dropped": [
+        {
+          "id": "l-13",
+          "why": "length 7.4 mm < 8"
+        },
+        {
+          "id": "l-16",
+          "why": "length 6.9 mm < 8"
+        },
+        {
+          "id": "r-01",
+          "why": "inner region too small once separated from r-06"
+        },
+        {
+          "id": "r-08",
+          "why": "too small once moved 3 mm clear of the outline of r-04"
+        },
+        {
+          "id": "r-06",
+          "why": "too small once moved 3 mm clear of the outline of r-04"
+        },
+        {
+          "id": "r-02",
+          "why": "cannot be separated from r-07 at 3 mm"
+        },
+        {
+          "id": "l-03",
+          "why": "within 3 mm of l-02"
+        },
+        {
+          "id": "l-04",
+          "why": "within 3 mm of l-01"
+        },
+        {
+          "id": "l-07",
+          "why": "within 3 mm of l-06"
+        },
+        {
+          "id": "l-09",
+          "why": "within 3 mm of l-08"
+        },
+        {
+          "id": "l-05",
+          "why": "within 3 mm of l-08"
+        },
+        {
+          "id": "l-15",
+          "why": "within 3 mm of l-08"
+        },
+        {
+          "id": "l-11",
+          "why": "within 3 mm of l-08"
+        },
+        {
+          "id": "l-12",
+          "why": "within 3 mm of l-01"
+        }
+      ],
+      "merged": 0,
+      "minGapBefore": 0,
+      "minGapAfter": 3.09,
+      "passes": 6,
+      "scaledBy": 1,
+      "textures": 2
+    },
+    "out": {
+      "regions": [
+        "Cell Wall",
+        "Chloroplast",
+        "Region 3",
+        "Region 7",
+        "Region 5"
+      ],
+      "lines": 6,
+      "relations": 1,
+      "key": 11
+    },
+    "validation": {
+      "status": "fail",
+      "blocking": [
+        "R3"
+      ],
+      "advisory": [
+        "N1",
+        "N1",
+        "N1",
+        "N1",
+        "N1",
+        "N1",
+        "N1",
+        "N1",
+        "N1"
+      ],
+      "msgs": [
+        "R3: Detected: Line 1 connects Cell Wall to Chloroplast (78%) — confirm or remove"
+      ]
+    },
+    "ms": {
+      "draft": 1.800000011920929,
+      "simplify": 12.300000011920929,
+      "validate": 1.0999999940395355,
+      "exports": 18.900000005960464
+    },
+    "exports": {
+      "svg": {
+        "ok": true,
+        "cells": 125,
+        "keyEntries": 11,
+        "keyFits": true
+      },
+      "stl": {
+        "ok": true,
+        "triangles": 13556,
+        "shells": 433,
+        "openEdges": 0,
+        "bbox": {
+          "x": 10,
+          "y": 30.1,
+          "z": 0,
+          "w": 166,
+          "h": 208,
+          "d": 3
+        },
+        "kb": 662
+      },
+      "alt": {
+        "ok": true,
+        "words": 84
+      },
+      "brf": {
+        "ok": true,
+        "pages": 1,
+        "cells": 121
+      }
+    },
+    "sem": {
+      "labelsPrinted": 8,
+      "labelsRead": 6,
+      "missing": [
+        [
+          "Nucleolus",
+          "Cell wall"
+        ],
+        [
+          "Mitochondrion",
+          "Cell wall"
+        ]
+      ],
+      "regionsExpected": 9,
+      "regionsNamed": 4,
+      "relTruth": 2,
+      "relMatched": 0
+    },
+    "geomClean": true,
+    "r3": 1
+  },
+  {
+    "name": "geo-watercycle-01",
+    "difficulty": "hard",
+    "truth": true,
+    "understandMs": 1833,
+    "labels": [
+      "The",
+      "Af acer Cycie",
+      "akc",
+      "Volcanic steagi",
+      "Atmosphere",
+      "Condensation",
+      "Sublimation",
+      "Fe. ecipitation",
+      "Ice and",
+      "ice",
+      "snow",
+      "Desublimation",
+      "Evapotranspiration",
+      "Evaporation",
+      "Surface",
+      "OTT",
+      "Une",
+      "Fresh- SSN",
+      "Oceans",
+      "SEE",
+      "flow",
+      "Vents and volcanos",
+      "ator",
+      "Groundwater storage"
+    ],
+    "regionsFound": 14,
+    "strokes": 239,
+    "timings": {
+      "segment": 274,
+      "ocr": 1378,
+      "lines": 44,
+      "total": 1806
+    },
+    "draft": {
+      "regions": 14,
+      "lines": 16,
+      "relations": [
+        [
+          "Snow",
+          "Region 14",
+          1
+        ],
+        [
+          "Af Acer Cycie",
+          "Atmosphere",
+          0.94
+        ],
+        [
+          "Snow",
+          "Fe. Ecipitation",
+          1
+        ],
+        [
+          "Snow",
+          "Vents And Volcanos",
+          0.96
+        ]
+      ]
+    },
+    "report": {
+      "dropped": [
+        {
+          "id": "l-13",
+          "why": "length 7.7 mm < 8"
+        },
+        {
+          "id": "r-07",
+          "why": "overlaps r-13 and too little remains once separated"
+        },
+        {
+          "id": "l-08",
+          "why": "within 3 mm of l-07"
+        },
+        {
+          "id": "l-09",
+          "why": "within 3 mm of l-02"
+        },
+        {
+          "id": "l-12",
+          "why": "within 3 mm of l-07"
+        },
+        {
+          "id": "l-03",
+          "why": "within 3 mm of l-07"
+        },
+        {
+          "id": "l-10",
+          "why": "within 3 mm of l-02"
+        },
+        {
+          "id": "l-14",
+          "why": "within 3 mm of l-07"
+        },
+        {
+          "id": "l-11",
+          "why": "runs within 3 mm of r-02 without connecting"
+        },
+        {
+          "id": "l-05",
+          "why": "within 3 mm of l-07"
+        },
+        {
+          "id": "l-06",
+          "why": "runs within 3 mm of r-13 without connecting"
+        },
+        {
+          "id": "l-04",
+          "why": "within 3 mm of l-07"
+        }
+      ],
+      "merged": 0,
+      "minGapBefore": 0.18,
+      "minGapAfter": 3.09,
+      "passes": 1,
+      "scaledBy": 1,
+      "textures": 2
+    },
+    "out": {
+      "regions": [
+        "Condensation",
+        "Snow",
+        "Af Acer Cycie",
+        "Fe. Ecipitation",
+        "Region 14",
+        "Une",
+        "Region 8",
+        "Region 10",
+        "Region 11",
+        "Region 4",
+        "Ice And",
+        "Region 3",
+        "Vents And Volcanos"
+      ],
+      "lines": 5,
+      "relations": 3,
+      "key": 18
+    },
+    "validation": {
+      "status": "fail",
+      "blocking": [
+        "R3",
+        "R3",
+        "R3"
+      ],
+      "advisory": [
+        "O1",
+        "O1",
+        "N1",
+        "O1",
+        "N1",
+        "N1",
+        "N1",
+        "N1",
+        "N1",
+        "N1",
+        "N1",
+        "N1",
+        "N1",
+        "N1"
+      ],
+      "msgs": [
+        "R3: Detected: Line 1 connects Snow to Region 14 (100%) — confirm or remove",
+        "R3: Detected: A stroke connects Snow to Fe. Ecipitation (100%) — confirm or remove",
+        "R3: Detected: Line 16 connects Snow to Vents And Volcanos (96%) — confirm or remove"
+      ]
+    },
+    "ms": {
+      "draft": 5,
+      "simplify": 21.299999982118607,
+      "validate": 6,
+      "exports": 47
+    },
+    "exports": {
+      "svg": {
+        "ok": true,
+        "cells": 207,
+        "keyEntries": 18,
+        "keyFits": true
+      },
+      "stl": {
+        "ok": true,
+        "triangles": 35068,
+        "shells": 1146,
+        "openEdges": 0,
+        "bbox": {
+          "x": 10,
+          "y": 10,
+          "z": 0,
+          "w": 189.4,
+          "h": 232.7,
+          "d": 3
+        },
+        "kb": 1712
+      },
+      "alt": {
+        "ok": true,
+        "words": 145
+      },
+      "brf": {
+        "ok": true,
+        "pages": 1,
+        "cells": 209
+      }
+    },
+    "sem": {
+      "labelsPrinted": 24,
+      "labelsRead": 11,
+      "missing": [
+        [
+          "The Water Cycle",
+          "The"
+        ],
+        [
+          "Ice and snow",
+          "Ice and"
+        ],
+        [
+          "Fog drip",
+          "The"
+        ],
+        [
+          "Surface runoff",
+          "Surface"
+        ],
+        [
+          "Snowmelt runoff",
+          "The"
+        ],
+        [
+          "Dew",
+          "The"
+        ],
+        [
+          "Infiltration",
+          "The"
+        ],
+        [
+          "Streamflow",
+          "The"
+        ],
+        [
+          "Seepage",
+          "The"
+        ],
+        [
+          "Spring",
+          "The"
+        ],
+        [
+          "Plant uptake",
+          "The"
+        ],
+        [
+          "Freshwater",
+          "The"
+        ],
+        [
+          "Groundwater flow",
+          "flow"
+        ]
+      ],
+      "regionsExpected": 4,
+      "regionsNamed": 1,
+      "relTruth": 3,
+      "relMatched": 0
+    },
+    "geomClean": true,
+    "r3": 3
+  }
+]

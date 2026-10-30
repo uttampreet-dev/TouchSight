@@ -1,0 +1,829 @@
+{
+ "tdm": "0.1",
+ "id": "bio-eye-01",
+ "title": "bio-eye-01",
+ "subject": "bio",
+ "sheet": {
+  "w": 210,
+  "h": 297,
+  "margin": 15
+ },
+ "source": {
+  "kind": "upload",
+  "file": "bio-eye-01",
+  "captured": "2026-10-30T05:54:04.839Z"
+ },
+ "regions": [
+  {
+   "id": "r-05",
+   "name": {
+    "en": "Antetior Chamber (aqueous Humour) Posterior Chamber Suspensory Ligament Of Lens"
+   },
+   "polygon": [
+    [
+     97.95,
+     71.19
+    ],
+    [
+     99.13,
+     73.05
+    ],
+    [
+     98.54,
+     75.26
+    ],
+    [
+     98.54,
+     75.31
+    ],
+    [
+     100.15,
+     93.59
+    ],
+    [
+     98.95,
+     97.48
+    ],
+    [
+     98.95,
+     97.56
+    ],
+    [
+     99.65,
+     100.12
+    ],
+    [
+     86.66,
+     131.68
+    ],
+    [
+     85.48,
+     132.73
+    ],
+    [
+     82.03,
+     133.26
+    ],
+    [
+     81.91,
+     133.35
+    ],
+    [
+     78.02,
+     144.33
+    ],
+    [
+     76.24,
+     145.63
+    ],
+    [
+     74.77,
+     145.16
+    ],
+    [
+     51.89,
+     123.24
+    ],
+    [
+     49.67,
+     86.87
+    ],
+    [
+     50.31,
+     85.22
+    ],
+    [
+     66.73,
+     68.28
+    ],
+    [
+     66.77,
+     68.21
+    ],
+    [
+     67.07,
+     66.58
+    ],
+    [
+     67.03,
+     66.45
+    ],
+    [
+     65.19,
+     64.65
+    ],
+    [
+     65.59,
+     62.59
+    ],
+    [
+     69.21,
+     58.83
+    ],
+    [
+     71.82,
+     58.38
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "b",
+   "confidence": 0.94,
+   "sourceLabel": {
+    "text": "antetior chamber (aqueous humour) Posterior chamber Suspensory ligament of lens",
+    "ocrConfidence": 0.85
+   }
+  },
+  {
+   "id": "r-04",
+   "name": {
+    "en": "Region 4"
+   },
+   "polygon": [
+    [
+     108.51,
+     98.58
+    ],
+    [
+     110.36,
+     99.79
+    ],
+    [
+     109.78,
+     105.36
+    ],
+    [
+     109.79,
+     105.42
+    ],
+    [
+     112.59,
+     112.2
+    ],
+    [
+     112.62,
+     112.25
+    ],
+    [
+     117.33,
+     117.2
+    ],
+    [
+     117.57,
+     123.47
+    ],
+    [
+     109.65,
+     139.16
+    ],
+    [
+     104.4,
+     142.63
+    ],
+    [
+     97.69,
+     142.06
+    ],
+    [
+     95.89,
+     140.3
+    ],
+    [
+     95.85,
+     137.38
+    ],
+    [
+     103.05,
+     116.46
+    ],
+    [
+     103.05,
+     116.4
+    ],
+    [
+     102.7,
+     110.98
+    ],
+    [
+     102.68,
+     110.92
+    ],
+    [
+     100.73,
+     107.48
+    ],
+    [
+     102.98,
+     99.8
+    ],
+    [
+     104.92,
+     98.52
+    ]
+   ],
+   "texture": "diagonal-lines",
+   "keyRef": "c",
+   "confidence": 0.5
+  },
+  {
+   "id": "r-01",
+   "name": {
+    "en": "Say"
+   },
+   "polygon": [
+    [
+     131.14,
+     171.91
+    ],
+    [
+     131.29,
+     171.95
+    ],
+    [
+     141.17,
+     173.63
+    ],
+    [
+     142,
+     175.2
+    ],
+    [
+     139.05,
+     181.56
+    ],
+    [
+     137.43,
+     182.49
+    ],
+    [
+     122.88,
+     180.35
+    ],
+    [
+     111.52,
+     176.8
+    ],
+    [
+     100.96,
+     171.89
+    ],
+    [
+     99,
+     169.92
+    ],
+    [
+     99.12,
+     169.6
+    ],
+    [
+     107.68,
+     169.65
+    ],
+    [
+     107.81,
+     169.65
+    ],
+    [
+     120.04,
+     168.33
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "e",
+   "confidence": 0.78,
+   "sourceLabel": {
+    "text": "Say",
+    "ocrConfidence": 0.45
+   }
+  },
+  {
+   "id": "r-02",
+   "name": {
+    "en": "Region 2"
+   },
+   "polygon": [
+    [
+     144.27,
+     159.41
+    ],
+    [
+     146.72,
+     161.42
+    ],
+    [
+     147.16,
+     163.33
+    ],
+    [
+     144.52,
+     169.67
+    ],
+    [
+     143.16,
+     170.55
+    ],
+    [
+     132.12,
+     168.94
+    ],
+    [
+     128.28,
+     167.22
+    ],
+    [
+     128.88,
+     165.78
+    ],
+    [
+     142.59,
+     159.38
+    ]
+   ],
+   "texture": "diagonal-lines",
+   "keyRef": "f",
+   "confidence": 0.5
+  },
+  {
+   "id": "r-03",
+   "name": {
+    "en": "Region 3"
+   },
+   "polygon": [
+    [
+     122.71,
+     149.9
+    ],
+    [
+     125.82,
+     152.14
+    ],
+    [
+     125.86,
+     153.89
+    ],
+    [
+     124.37,
+     155.22
+    ],
+    [
+     111.13,
+     158.61
+    ],
+    [
+     101.71,
+     158.33
+    ],
+    [
+     99.88,
+     156.93
+    ],
+    [
+     100.28,
+     153.84
+    ],
+    [
+     102,
+     152.19
+    ],
+    [
+     104.67,
+     152.59
+    ],
+    [
+     107.59,
+     151.53
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "d",
+   "confidence": 0.5
+  },
+  {
+   "id": "r-06",
+   "name": {
+    "en": "Anterior Chamber (aqueous Humour) Posterior Osterior Chamb Chamber"
+   },
+   "polygon": [
+    [
+     100.64,
+     39.1
+    ],
+    [
+     106.5,
+     39.87
+    ],
+    [
+     106.89,
+     41.84
+    ],
+    [
+     105.73,
+     44.94
+    ],
+    [
+     103.7,
+     46.17
+    ],
+    [
+     89.57,
+     47.79
+    ],
+    [
+     87.37,
+     47.03
+    ],
+    [
+     87.71,
+     44.26
+    ],
+    [
+     90.83,
+     42.08
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "a",
+   "confidence": 0.98,
+   "sourceLabel": {
+    "text": "Anterior chamber (aqueous humour) Posterior osterior chamb chamber",
+    "ocrConfidence": 0.94
+   }
+  }
+ ],
+ "lines": [
+  {
+   "id": "l-03",
+   "name": {
+    "en": "Line 3"
+   },
+   "path": [
+    [
+     87.14,
+     145.53
+    ],
+    [
+     98.7,
+     115.42
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "l"
+  },
+  {
+   "id": "l-02",
+   "name": {
+    "en": "Line 2"
+   },
+   "path": [
+    [
+     102.6,
+     101.22
+    ],
+    [
+     105.92,
+     73.74
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "i"
+  },
+  {
+   "id": "l-06",
+   "name": {
+    "en": "Line 6"
+   },
+   "path": [
+    [
+     94.69,
+     137.98
+    ],
+    [
+     103.17,
+     114.73
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "j"
+  },
+  {
+   "id": "l-08",
+   "name": {
+    "en": "Line 8"
+   },
+   "path": [
+    [
+     78.89,
+     50.5
+    ],
+    [
+     102.02,
+     46.03
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "g"
+  },
+  {
+   "id": "l-09",
+   "name": {
+    "en": "Line 9"
+   },
+   "path": [
+    [
+     117.37,
+     139.12
+    ],
+    [
+     128.02,
+     118.4
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "k"
+  },
+  {
+   "id": "l-12",
+   "name": {
+    "en": "Line 12"
+   },
+   "path": [
+    [
+     92.63,
+     143.02
+    ],
+    [
+     114.16,
+     141.53
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "m"
+  },
+  {
+   "id": "l-16",
+   "name": {
+    "en": "Line 16"
+   },
+   "path": [
+    [
+     65.15,
+     64.81
+    ],
+    [
+     84.5,
+     65.15
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "h"
+  }
+ ],
+ "relations": [
+  {
+   "from": "r-04",
+   "to": "r-05",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.93,
+   "source": "detected",
+   "via": "l-02"
+  }
+ ],
+ "key": [
+  {
+   "ref": "a",
+   "regionId": "r-06",
+   "text": {
+    "en": "Anterior Chamber (aqueous Humour) Posterior Osterior Chamb Chamber"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "b",
+   "regionId": "r-05",
+   "text": {
+    "en": "Antetior Chamber (aqueous Humour) Posterior Chamber Suspensory Ligament Of Lens"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "c",
+   "regionId": "r-04",
+   "text": {
+    "en": "Region 4"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "d",
+   "regionId": "r-03",
+   "text": {
+    "en": "Region 3"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "e",
+   "regionId": "r-01",
+   "text": {
+    "en": "Say"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "f",
+   "regionId": "r-02",
+   "text": {
+    "en": "Region 2"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "g",
+   "regionId": "l-08",
+   "text": {
+    "en": "Line 8"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "h",
+   "regionId": "l-16",
+   "text": {
+    "en": "Line 16"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "i",
+   "regionId": "l-02",
+   "text": {
+    "en": "Line 2"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "j",
+   "regionId": "l-06",
+   "text": {
+    "en": "Line 6"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "k",
+   "regionId": "l-09",
+   "text": {
+    "en": "Line 9"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "l",
+   "regionId": "l-03",
+   "text": {
+    "en": "Line 3"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "m",
+   "regionId": "l-12",
+   "text": {
+    "en": "Line 12"
+   },
+   "braille": {}
+  }
+ ],
+ "readingOrder": [
+  "r-06",
+  "r-05",
+  "r-04",
+  "r-03",
+  "r-01",
+  "r-02",
+  "l-08",
+  "l-16",
+  "l-02",
+  "l-06",
+  "l-09",
+  "l-03",
+  "l-12"
+ ],
+ "languages": {
+  "primary": "en",
+  "available": [
+   "en"
+  ]
+ },
+ "validation": {
+  "status": "fail",
+  "blocking": [
+   {
+    "rule": "R3",
+    "msg": "Detected: Line 2 connects Region 4 to Antetior Chamber (aqueous Humour) Posterior Chamber Suspensory Ligament Of Lens (93%) — confirm or remove",
+    "ids": [
+     "r-04",
+     "r-05"
+    ]
+   }
+  ],
+  "advisory": [
+   {
+    "rule": "N1",
+    "msg": "r-04 has no label",
+    "ids": [
+     "r-04"
+    ]
+   },
+   {
+    "rule": "O1",
+    "msg": "Say: read at 45% confidence",
+    "ids": [
+     "r-01"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "r-02 has no label",
+    "ids": [
+     "r-02"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "r-03 has no label",
+    "ids": [
+     "r-03"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-03 has no label",
+    "ids": [
+     "l-03"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-02 has no label",
+    "ids": [
+     "l-02"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-06 has no label",
+    "ids": [
+     "l-06"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-08 has no label",
+    "ids": [
+     "l-08"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-09 has no label",
+    "ids": [
+     "l-09"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-12 has no label",
+    "ids": [
+     "l-12"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-16 has no label",
+    "ids": [
+     "l-16"
+    ]
+   }
+  ]
+ },
+ "provenance": {
+  "pipeline": "0.1",
+  "teacherReviewed": false,
+  "reviewedAt": null
+ }
+}

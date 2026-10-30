@@ -9,7 +9,8 @@
     "lint": "oxlint",
     "preview": "vite preview",
     "test": "vitest run",
-    "benchmark": "node scripts/run-understand.mjs ../benchmark/raw/*.png ../benchmark/raw/*.jpg && node scripts/score.mjs"
+    "benchmark": "node scripts/run-pipeline.mjs",
+    "benchmark:understand": "node scripts/run-understand.mjs ../benchmark/raw/*.png ../benchmark/raw/*.jpg && node scripts/score.mjs"
   },
   "dependencies": {
     "@techstark/opencv-js": "^5.0.0-release.1",

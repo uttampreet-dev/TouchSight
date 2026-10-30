@@ -1,0 +1,1060 @@
+{
+ "tdm": "0.1",
+ "id": "bio-digestive-01",
+ "title": "bio-digestive-01",
+ "subject": "bio",
+ "sheet": {
+  "w": 210,
+  "h": 297,
+  "margin": 15
+ },
+ "source": {
+  "kind": "upload",
+  "file": "bio-digestive-01",
+  "captured": "2026-10-30T05:54:02.142Z"
+ },
+ "regions": [
+  {
+   "id": "r-08",
+   "name": {
+    "en": "Esophagus"
+   },
+   "polygon": [
+    [
+     114.75,
+     102.23
+    ],
+    [
+     116.91,
+     104.39
+    ],
+    [
+     145.33,
+     108.06
+    ],
+    [
+     147.22,
+     110.26
+    ],
+    [
+     146.19,
+     117.46
+    ],
+    [
+     145.19,
+     118.93
+    ],
+    [
+     143.42,
+     119.21
+    ],
+    [
+     136.1,
+     116.68
+    ],
+    [
+     134.5,
+     117.1
+    ],
+    [
+     134.06,
+     121.02
+    ],
+    [
+     136.91,
+     123.52
+    ],
+    [
+     136.99,
+     125.3
+    ],
+    [
+     131.27,
+     128.65
+    ],
+    [
+     130.43,
+     130.09
+    ],
+    [
+     132.21,
+     131.47
+    ],
+    [
+     137.66,
+     130.43
+    ],
+    [
+     140.2,
+     131.74
+    ],
+    [
+     145.08,
+     142.69
+    ],
+    [
+     144.58,
+     144.84
+    ],
+    [
+     140.8,
+     148.67
+    ],
+    [
+     140.48,
+     150.29
+    ],
+    [
+     144.56,
+     152.29
+    ],
+    [
+     145.38,
+     155.12
+    ],
+    [
+     126.44,
+     178.49
+    ],
+    [
+     115.7,
+     179.26
+    ],
+    [
+     114.38,
+     180.26
+    ],
+    [
+     113.89,
+     182.88
+    ],
+    [
+     112.21,
+     183.93
+    ],
+    [
+     110.23,
+     182.56
+    ],
+    [
+     108.9,
+     175.27
+    ],
+    [
+     107.21,
+     174.04
+    ],
+    [
+     101.72,
+     174.63
+    ],
+    [
+     98.08,
+     172.06
+    ],
+    [
+     98.06,
+     169.31
+    ],
+    [
+     101.4,
+     166.44
+    ],
+    [
+     101.87,
+     164.85
+    ],
+    [
+     86.96,
+     159.18
+    ],
+    [
+     85.52,
+     157.43
+    ],
+    [
+     85.24,
+     150.65
+    ],
+    [
+     81.68,
+     148.63
+    ],
+    [
+     81.07,
+     146.87
+    ],
+    [
+     83,
+     144.65
+    ],
+    [
+     82.27,
+     139.9
+    ],
+    [
+     88.36,
+     134.94
+    ],
+    [
+     88.92,
+     133.38
+    ],
+    [
+     81.67,
+     126.82
+    ],
+    [
+     81.06,
+     125.21
+    ],
+    [
+     82.48,
+     123.35
+    ],
+    [
+     87.36,
+     123.31
+    ],
+    [
+     87.72,
+     116.87
+    ],
+    [
+     86.57,
+     115.37
+    ],
+    [
+     78.1,
+     113.15
+    ],
+    [
+     76.71,
+     111.32
+    ],
+    [
+     76.35,
+     107.7
+    ],
+    [
+     78.35,
+     105.35
+    ],
+    [
+     110.3,
+     104.26
+    ],
+    [
+     113,
+     101.97
+    ]
+   ],
+   "texture": "empty",
+   "keyRef": "c",
+   "confidence": 0.98,
+   "sourceLabel": {
+    "text": "Esophagus",
+    "ocrConfidence": 0.96
+   }
+  },
+  {
+   "id": "r-05",
+   "name": {
+    "en": "Gallbladder Common Bile Duct"
+   },
+   "polygon": [
+    [
+     113.37,
+     107.93
+    ],
+    [
+     113.73,
+     108.19
+    ],
+    [
+     113.99,
+     108.32
+    ],
+    [
+     114.33,
+     108.44
+    ],
+    [
+     118.53,
+     109.33
+    ],
+    [
+     114.15,
+     113.04
+    ],
+    [
+     113.98,
+     113.21
+    ],
+    [
+     113.88,
+     113.33
+    ],
+    [
+     113.77,
+     113.49
+    ],
+    [
+     112.44,
+     115.65
+    ],
+    [
+     112.27,
+     115.72
+    ],
+    [
+     109.53,
+     113.41
+    ],
+    [
+     108.61,
+     113.08
+    ],
+    [
+     107.95,
+     113.09
+    ],
+    [
+     107.05,
+     113.44
+    ],
+    [
+     105.43,
+     114.86
+    ],
+    [
+     105.18,
+     115.13
+    ],
+    [
+     105.02,
+     115.37
+    ],
+    [
+     104.84,
+     115.76
+    ],
+    [
+     103.69,
+     119.72
+    ],
+    [
+     101.07,
+     120.52
+    ],
+    [
+     100.85,
+     120.61
+    ],
+    [
+     100.69,
+     120.69
+    ],
+    [
+     100.45,
+     120.84
+    ],
+    [
+     95.74,
+     124.57
+    ],
+    [
+     94.42,
+     124.77
+    ],
+    [
+     91.86,
+     123.8
+    ],
+    [
+     92.71,
+     117.29
+    ],
+    [
+     92.72,
+     116.99
+    ],
+    [
+     92.7,
+     116.76
+    ],
+    [
+     92.63,
+     116.43
+    ],
+    [
+     91.48,
+     112.98
+    ],
+    [
+     93.9,
+     109.83
+    ],
+    [
+     110.48,
+     109.27
+    ],
+    [
+     110.84,
+     109.21
+    ],
+    [
+     111.07,
+     109.14
+    ],
+    [
+     111.36,
+     109.01
+    ],
+    [
+     113.32,
+     107.88
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "d",
+   "confidence": 0.98,
+   "sourceLabel": {
+    "text": "Gallbladder Common bile duct",
+    "ocrConfidence": 0.94
+   }
+  },
+  {
+   "id": "r-09",
+   "name": {
+    "en": "Palate Uvula Tongue Teeth"
+   },
+   "polygon": [
+    [
+     105.13,
+     23.92
+    ],
+    [
+     113.9,
+     31.92
+    ],
+    [
+     114.59,
+     33.66
+    ],
+    [
+     113.76,
+     36.53
+    ],
+    [
+     111.32,
+     36.59
+    ],
+    [
+     105.08,
+     34.49
+    ],
+    [
+     100.49,
+     36.17
+    ],
+    [
+     89.72,
+     32.51
+    ],
+    [
+     89.51,
+     30.61
+    ],
+    [
+     90.61,
+     28.59
+    ],
+    [
+     95.57,
+     23.66
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "b",
+   "confidence": 0.98,
+   "sourceLabel": {
+    "text": "Palate Uvula Tongue Teeth",
+    "ocrConfidence": 0.95
+   }
+  },
+  {
+   "id": "r-10",
+   "name": {
+    "en": "Palate Uvula"
+   },
+   "polygon": [
+    [
+     79.6,
+     15.21
+    ],
+    [
+     81.79,
+     17.37
+    ],
+    [
+     81.66,
+     21.4
+    ],
+    [
+     80.38,
+     23.34
+    ],
+    [
+     62.75,
+     23.54
+    ],
+    [
+     60.78,
+     22.3
+    ],
+    [
+     60.6,
+     17.18
+    ],
+    [
+     61.84,
+     15.24
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "a",
+   "confidence": 0.98,
+   "sourceLabel": {
+    "text": "Palate Uvula",
+    "ocrConfidence": 0.94
+   }
+  },
+  {
+   "id": "r-02",
+   "name": {
+    "en": "Large Intestine"
+   },
+   "polygon": [
+    [
+     129.21,
+     134.75
+    ],
+    [
+     130.13,
+     136.39
+    ],
+    [
+     124.73,
+     142.35
+    ],
+    [
+     116.11,
+     142.23
+    ],
+    [
+     114.32,
+     140.79
+    ],
+    [
+     115.01,
+     138.43
+    ],
+    [
+     119.67,
+     135.15
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "e",
+   "confidence": 0.98,
+   "sourceLabel": {
+    "text": "Large intestine",
+    "ocrConfidence": 0.96
+   }
+  },
+  {
+   "id": "r-04",
+   "name": {
+    "en": "Stomach"
+   },
+   "polygon": [
+    [
+     126.32,
+     109.12
+    ],
+    [
+     127.43,
+     110.59
+    ],
+    [
+     127.5,
+     115.62
+    ],
+    [
+     119.99,
+     119.48
+    ],
+    [
+     117.72,
+     119.07
+    ],
+    [
+     117.58,
+     115.96
+    ],
+    [
+     120,
+     112.15
+    ],
+    [
+     123.49,
+     109.52
+    ]
+   ],
+   "texture": "diagonal-lines",
+   "keyRef": "f",
+   "confidence": 0.98,
+   "sourceLabel": {
+    "text": "Stomach",
+    "ocrConfidence": 0.96
+   }
+  }
+ ],
+ "lines": [
+  {
+   "id": "l-01",
+   "name": {
+    "en": "Line 1"
+   },
+   "path": [
+    [
+     92.48,
+     159.64
+    ],
+    [
+     141.77,
+     152.71
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "m"
+  },
+  {
+   "id": "l-04",
+   "name": {
+    "en": "Line 4"
+   },
+   "path": [
+    [
+     109.33,
+     180.19
+    ],
+    [
+     139.69,
+     185.49
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "n"
+  },
+  {
+   "id": "l-06",
+   "name": {
+    "en": "Line 6"
+   },
+   "path": [
+    [
+     113.14,
+     43.86
+    ],
+    [
+     114.06,
+     68.45
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "i"
+  },
+  {
+   "id": "l-09",
+   "name": {
+    "en": "Line 9"
+   },
+   "path": [
+    [
+     107.25,
+     119.35
+    ],
+    [
+     109.22,
+     141.18
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "k"
+  },
+  {
+   "id": "l-03",
+   "name": {
+    "en": "Line 3"
+   },
+   "path": [
+    [
+     60.96,
+     19.5
+    ],
+    [
+     60.38,
+     41.32
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "h"
+  },
+  {
+   "id": "l-10",
+   "name": {
+    "en": "Line 10"
+   },
+   "path": [
+    [
+     121.1,
+     118.78
+    ],
+    [
+     142.23,
+     114.27
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "l"
+  },
+  {
+   "id": "l-12",
+   "name": {
+    "en": "Line 12"
+   },
+   "path": [
+    [
+     60.38,
+     15.23
+    ],
+    [
+     81.85,
+     15.23
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "g"
+  },
+  {
+   "id": "l-14",
+   "name": {
+    "en": "Line 14"
+   },
+   "path": [
+    [
+     106.33,
+     104
+    ],
+    [
+     126.87,
+     105.39
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "j"
+  }
+ ],
+ "relations": [
+  {
+   "from": "r-09",
+   "to": "r-08",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.85,
+   "source": "detected",
+   "via": "l-06"
+  },
+  {
+   "from": "r-08",
+   "to": "r-02",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.99,
+   "source": "detected",
+   "via": "l-07"
+  },
+  {
+   "from": "r-05",
+   "to": "r-02",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 1,
+   "source": "detected",
+   "via": "l-09"
+  },
+  {
+   "from": "r-04",
+   "to": "r-08",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 1,
+   "source": "detected",
+   "via": "l-10"
+  }
+ ],
+ "key": [
+  {
+   "ref": "a",
+   "regionId": "r-10",
+   "text": {
+    "en": "Palate Uvula"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "b",
+   "regionId": "r-09",
+   "text": {
+    "en": "Palate Uvula Tongue Teeth"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "c",
+   "regionId": "r-08",
+   "text": {
+    "en": "Esophagus"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "d",
+   "regionId": "r-05",
+   "text": {
+    "en": "Gallbladder Common Bile Duct"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "e",
+   "regionId": "r-02",
+   "text": {
+    "en": "Large Intestine"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "f",
+   "regionId": "r-04",
+   "text": {
+    "en": "Stomach"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "g",
+   "regionId": "l-12",
+   "text": {
+    "en": "Line 12"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "h",
+   "regionId": "l-03",
+   "text": {
+    "en": "Line 3"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "i",
+   "regionId": "l-06",
+   "text": {
+    "en": "Line 6"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "j",
+   "regionId": "l-14",
+   "text": {
+    "en": "Line 14"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "k",
+   "regionId": "l-09",
+   "text": {
+    "en": "Line 9"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "l",
+   "regionId": "l-10",
+   "text": {
+    "en": "Line 10"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "m",
+   "regionId": "l-01",
+   "text": {
+    "en": "Line 1"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "n",
+   "regionId": "l-04",
+   "text": {
+    "en": "Line 4"
+   },
+   "braille": {}
+  }
+ ],
+ "readingOrder": [
+  "r-10",
+  "r-09",
+  "r-08",
+  "r-05",
+  "r-02",
+  "r-04",
+  "l-12",
+  "l-03",
+  "l-06",
+  "l-14",
+  "l-09",
+  "l-10",
+  "l-01",
+  "l-04"
+ ],
+ "languages": {
+  "primary": "en",
+  "available": [
+   "en"
+  ]
+ },
+ "validation": {
+  "status": "fail",
+  "blocking": [
+   {
+    "rule": "R3",
+    "msg": "Detected: Line 6 connects Palate Uvula Tongue Teeth to Esophagus (85%) — confirm or remove",
+    "ids": [
+     "r-09",
+     "r-08"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: A stroke connects Esophagus to Large Intestine (99%) — confirm or remove",
+    "ids": [
+     "r-08",
+     "r-02"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: Line 9 connects Gallbladder Common Bile Duct to Large Intestine (100%) — confirm or remove",
+    "ids": [
+     "r-05",
+     "r-02"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: Line 10 connects Stomach to Esophagus (100%) — confirm or remove",
+    "ids": [
+     "r-04",
+     "r-08"
+    ]
+   }
+  ],
+  "advisory": [
+   {
+    "rule": "N1",
+    "msg": "l-01 has no label",
+    "ids": [
+     "l-01"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-04 has no label",
+    "ids": [
+     "l-04"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-06 has no label",
+    "ids": [
+     "l-06"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-09 has no label",
+    "ids": [
+     "l-09"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-03 has no label",
+    "ids": [
+     "l-03"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-10 has no label",
+    "ids": [
+     "l-10"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-12 has no label",
+    "ids": [
+     "l-12"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-14 has no label",
+    "ids": [
+     "l-14"
+    ]
+   }
+  ]
+ },
+ "provenance": {
+  "pipeline": "0.1",
+  "teacherReviewed": false,
+  "reviewedAt": null
+ }
+}

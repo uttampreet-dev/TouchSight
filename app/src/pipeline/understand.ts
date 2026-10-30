@@ -164,6 +164,7 @@ import { simplify as _simplify } from '../tdm/simplify'
 import { validate as _validate } from '../tdm/validate'
 import * as _edit from '../tdm/edit'
 import { serializeTdm as _serializeTdm } from '../tdm/io'
+import { exportSvg as _exportSvg, exportStl as _exportStl, checkStl as _checkStl, altText as _altText, exportBrf as _exportBrf } from '../export'
 if (typeof window !== 'undefined') {
-  window.__touchsight = { understand, draftTdm, segment: _segment, detectSegments: _detectSegments, readLabels: _readLabels, loadCv: _loadCv, loadImage, prepare, simplify: _simplify, validate: _validate, edit: _edit, serializeTdm: _serializeTdm }
+  window.__touchsight = { understand, draftTdm, segment: _segment, detectSegments: _detectSegments, readLabels: _readLabels, loadCv: _loadCv, loadImage, prepare, simplify: _simplify, validate: _validate, edit: _edit, serializeTdm: _serializeTdm, exportSvg: _exportSvg, exportStl: _exportStl, checkStl: _checkStl, altText: _altText, exportBrf: _exportBrf }
 }

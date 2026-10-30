@@ -1,0 +1,777 @@
+{
+ "tdm": "0.1",
+ "id": "bio-flower-01",
+ "title": "bio-flower-01",
+ "subject": "bio",
+ "sheet": {
+  "w": 210,
+  "h": 297,
+  "margin": 15
+ },
+ "source": {
+  "kind": "upload",
+  "file": "bio-flower-01",
+  "captured": "2026-10-30T05:54:06.447Z"
+ },
+ "regions": [
+  {
+   "id": "r-07",
+   "name": {
+    "en": "Sin"
+   },
+   "polygon": [
+    [
+     95.22,
+     39.21
+    ],
+    [
+     111.12,
+     46.12
+    ],
+    [
+     127.5,
+     47.7
+    ],
+    [
+     146.76,
+     67.76
+    ],
+    [
+     147.27,
+     69.33
+    ],
+    [
+     145.92,
+     71.95
+    ],
+    [
+     145.01,
+     78.15
+    ],
+    [
+     142.13,
+     78.01
+    ],
+    [
+     137.41,
+     72.98
+    ],
+    [
+     135.76,
+     72.53
+    ],
+    [
+     121.19,
+     76.69
+    ],
+    [
+     104.99,
+     89.27
+    ],
+    [
+     104.46,
+     90.84
+    ],
+    [
+     105.41,
+     94.5
+    ],
+    [
+     103.84,
+     96.22
+    ],
+    [
+     100.08,
+     97.22
+    ],
+    [
+     98.34,
+     106.06
+    ],
+    [
+     95.99,
+     110.96
+    ],
+    [
+     93.99,
+     112.11
+    ],
+    [
+     89.93,
+     108.24
+    ],
+    [
+     89.53,
+     106.41
+    ],
+    [
+     93.45,
+     94.64
+    ],
+    [
+     92.98,
+     91.11
+    ],
+    [
+     94.56,
+     88.37
+    ],
+    [
+     87.91,
+     71.42
+    ],
+    [
+     78.81,
+     61.28
+    ],
+    [
+     67.69,
+     62.94
+    ],
+    [
+     66.02,
+     61.94
+    ],
+    [
+     65.86,
+     60.22
+    ],
+    [
+     77.18,
+     43.69
+    ],
+    [
+     85.64,
+     40.92
+    ]
+   ],
+   "texture": "empty",
+   "keyRef": "e",
+   "confidence": 0.81,
+   "sourceLabel": {
+    "text": "SIN",
+    "ocrConfidence": 0.53
+   }
+  },
+  {
+   "id": "r-08",
+   "name": {
+    "en": "Ovary"
+   },
+   "polygon": [
+    [
+     44.52,
+     49.54
+    ],
+    [
+     43.93,
+     56.79
+    ],
+    [
+     39.61,
+     61.61
+    ],
+    [
+     36.56,
+     62.62
+    ],
+    [
+     32.06,
+     61.99
+    ],
+    [
+     28.12,
+     59.66
+    ],
+    [
+     23.93,
+     54.24
+    ],
+    [
+     21.27,
+     46.6
+    ],
+    [
+     18.25,
+     24.87
+    ],
+    [
+     19.44,
+     22.51
+    ],
+    [
+     20.9,
+     21.88
+    ],
+    [
+     23.13,
+     22.53
+    ],
+    [
+     31.24,
+     32.66
+    ],
+    [
+     33.44,
+     33.27
+    ],
+    [
+     41.13,
+     42.15
+    ]
+   ],
+   "texture": "empty",
+   "keyRef": "b",
+   "confidence": 0.98,
+   "sourceLabel": {
+    "text": "ovary",
+    "ocrConfidence": 0.96
+   }
+  },
+  {
+   "id": "r-05",
+   "name": {
+    "en": "Ovules"
+   },
+   "polygon": [
+    [
+     24.08,
+     28.84
+    ],
+    [
+     23.54,
+     31.99
+    ],
+    [
+     23.63,
+     33.19
+    ],
+    [
+     24.83,
+     36.71
+    ],
+    [
+     26.12,
+     38.13
+    ],
+    [
+     32.52,
+     41.09
+    ],
+    [
+     36.67,
+     45.52
+    ],
+    [
+     36.72,
+     46.04
+    ],
+    [
+     34.96,
+     46.98
+    ],
+    [
+     33.77,
+     48.46
+    ],
+    [
+     33.15,
+     50.63
+    ],
+    [
+     33.54,
+     52.77
+    ],
+    [
+     37.9,
+     58.56
+    ],
+    [
+     37.49,
+     58.85
+    ],
+    [
+     35.05,
+     59.23
+    ],
+    [
+     32.87,
+     58.69
+    ],
+    [
+     27.21,
+     53.01
+    ],
+    [
+     24.21,
+     44.03
+    ],
+    [
+     21.7,
+     26.37
+    ],
+    [
+     21.91,
+     26.12
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "a",
+   "confidence": 0.82,
+   "sourceLabel": {
+    "text": "ovules",
+    "ocrConfidence": 0.55
+   }
+  },
+  {
+   "id": "r-01",
+   "name": {
+    "en": "Region 1"
+   },
+   "polygon": [
+    [
+     101.39,
+     69.14
+    ],
+    [
+     106.78,
+     70.4
+    ],
+    [
+     108.42,
+     72.75
+    ],
+    [
+     107.73,
+     81.01
+    ],
+    [
+     106.18,
+     83.43
+    ],
+    [
+     103.37,
+     84.72
+    ],
+    [
+     98.33,
+     83.69
+    ],
+    [
+     95.59,
+     80.05
+    ],
+    [
+     96.72,
+     74.18
+    ],
+    [
+     98.54,
+     70.64
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "d",
+   "confidence": 0.5
+  },
+  {
+   "id": "r-02",
+   "name": {
+    "en": "Region 2"
+   },
+   "polygon": [
+    [
+     141.31,
+     66.57
+    ],
+    [
+     125.41,
+     61.42
+    ],
+    [
+     123.68,
+     59.36
+    ],
+    [
+     124.89,
+     57.53
+    ],
+    [
+     130.1,
+     54.89
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "c",
+   "confidence": 0.5
+  }
+ ],
+ "lines": [
+  {
+   "id": "l-05",
+   "name": {
+    "en": "Line 5"
+   },
+   "path": [
+    [
+     75.19,
+     85.88
+    ],
+    [
+     104.55,
+     78.56
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "j"
+  },
+  {
+   "id": "l-02",
+   "name": {
+    "en": "Line 2"
+   },
+   "path": [
+    [
+     103.2,
+     92.96
+    ],
+    [
+     121.88,
+     75.53
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "k"
+  },
+  {
+   "id": "l-06",
+   "name": {
+    "en": "Line 6"
+   },
+   "path": [
+    [
+     74.06,
+     42.34
+    ],
+    [
+     93.3,
+     52.91
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "f"
+  },
+  {
+   "id": "l-08",
+   "name": {
+    "en": "Line 8"
+   },
+   "path": [
+    [
+     90.83,
+     43.8
+    ],
+    [
+     109.5,
+     53.7
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "g"
+  },
+  {
+   "id": "l-11",
+   "name": {
+    "en": "Line 11"
+   },
+   "path": [
+    [
+     91.39,
+     72.83
+    ],
+    [
+     110.29,
+     72.49
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "h"
+  },
+  {
+   "id": "l-15",
+   "name": {
+    "en": "Line 15"
+   },
+   "path": [
+    [
+     68.21,
+     81.49
+    ],
+    [
+     83.06,
+     72.6
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "i"
+  },
+  {
+   "id": "l-09",
+   "name": {
+    "en": "Line 9"
+   },
+   "path": [
+    [
+     95.1,
+     114
+    ],
+    [
+     97.24,
+     105.11
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "l"
+  }
+ ],
+ "relations": [
+  {
+   "from": "r-07",
+   "to": "r-01",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.98,
+   "source": "detected",
+   "via": "l-05"
+  }
+ ],
+ "key": [
+  {
+   "ref": "a",
+   "regionId": "r-05",
+   "text": {
+    "en": "Ovules"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "b",
+   "regionId": "r-08",
+   "text": {
+    "en": "Ovary"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "c",
+   "regionId": "r-02",
+   "text": {
+    "en": "Region 2"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "d",
+   "regionId": "r-01",
+   "text": {
+    "en": "Region 1"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "e",
+   "regionId": "r-07",
+   "text": {
+    "en": "Sin"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "f",
+   "regionId": "l-06",
+   "text": {
+    "en": "Line 6"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "g",
+   "regionId": "l-08",
+   "text": {
+    "en": "Line 8"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "h",
+   "regionId": "l-11",
+   "text": {
+    "en": "Line 11"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "i",
+   "regionId": "l-15",
+   "text": {
+    "en": "Line 15"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "j",
+   "regionId": "l-05",
+   "text": {
+    "en": "Line 5"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "k",
+   "regionId": "l-02",
+   "text": {
+    "en": "Line 2"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "l",
+   "regionId": "l-09",
+   "text": {
+    "en": "Line 9"
+   },
+   "braille": {}
+  }
+ ],
+ "readingOrder": [
+  "r-05",
+  "r-08",
+  "r-02",
+  "r-01",
+  "r-07",
+  "l-06",
+  "l-08",
+  "l-11",
+  "l-15",
+  "l-05",
+  "l-02",
+  "l-09"
+ ],
+ "languages": {
+  "primary": "en",
+  "available": [
+   "en"
+  ]
+ },
+ "validation": {
+  "status": "fail",
+  "blocking": [
+   {
+    "rule": "R3",
+    "msg": "Detected: Line 5 connects Sin to Region 1 (98%) — confirm or remove",
+    "ids": [
+     "r-07",
+     "r-01"
+    ]
+   }
+  ],
+  "advisory": [
+   {
+    "rule": "O1",
+    "msg": "Sin: read at 53% confidence",
+    "ids": [
+     "r-07"
+    ]
+   },
+   {
+    "rule": "O1",
+    "msg": "Ovules: read at 55% confidence",
+    "ids": [
+     "r-05"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "r-01 has no label",
+    "ids": [
+     "r-01"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "r-02 has no label",
+    "ids": [
+     "r-02"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-05 has no label",
+    "ids": [
+     "l-05"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-02 has no label",
+    "ids": [
+     "l-02"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-06 has no label",
+    "ids": [
+     "l-06"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-08 has no label",
+    "ids": [
+     "l-08"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-11 has no label",
+    "ids": [
+     "l-11"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-15 has no label",
+    "ids": [
+     "l-15"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-09 has no label",
+    "ids": [
+     "l-09"
+    ]
+   }
+  ]
+ },
+ "provenance": {
+  "pipeline": "0.1",
+  "teacherReviewed": false,
+  "reviewedAt": null
+ }
+}
