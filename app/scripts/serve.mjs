@@ -45,7 +45,9 @@ const rooms = new Map() // code -> { roster: string[], published: Map<id, json>,
 const room = (code) => { if (!rooms.has(code)) rooms.set(code, { roster: [], published: new Map(), activity: [] }); return rooms.get(code) }
 const send = (c, obj) => c.readyState === 1 && c.send(JSON.stringify(obj))
 const toRoom = (code, obj, except) => { for (const c of wss.clients) if (c !== except && c.room === code) send(c, obj) }
+const stamp = () => new Date().toISOString().slice(11, 19)
 server.on('upgrade', (req, socket, head) => {
+  console.log(`${stamp()} upgrade ${req.url} from ${req.headers['cf-connecting-ip'] || req.socket.remoteAddress} host=${req.headers.host} ua=${(req.headers['user-agent'] || '').slice(0, 40)}`)
   if ((req.url || '').split('?')[0] !== '/relay') return socket.destroy()
   wss.handleUpgrade(req, socket, head, (ws) => wss.emit('connection', ws, req))
 })
@@ -59,6 +61,7 @@ wss.on('connection', (ws) => {
       const r = room(m.room)
       switch (m.op) {
         case 'join': {
+          console.log(`${stamp()} join room=${m.room} role=${m.role} student=${m.student || '-'}`)
           ws.room = m.room; ws.role = m.role; ws.student = m.student || null
           send(ws, { type: 'class', op: 'state', room: m.room, roster: r.roster, published: [...r.published.values()], activity: r.activity.slice(-500), phones: [...wss.clients].filter((c) => c.room === m.room && c.role === 'student').length })
           toRoom(m.room, { type: 'class', op: 'presence', room: m.room, phones: [...wss.clients].filter((c) => c.room === m.room && c.role === 'student').length, student: m.student || null, joined: true }, ws)
@@ -76,6 +79,6 @@ wss.on('connection', (ws) => {
     for (const c of wss.clients) if (c !== ws && c.readyState === 1 && !c.room) c.send(text)
     // a phone in a room still mirrors to a projector that has not joined any room
   })
-  ws.on('close', () => { if (ws.room) toRoom(ws.room, { type: 'class', op: 'presence', room: ws.room, phones: [...wss.clients].filter((c) => c !== ws && c.room === ws.room && c.role === 'student').length, student: ws.student, joined: false }) })
+  ws.on('close', () => { console.log(`${stamp()} close room=${ws.room || '-'} role=${ws.role || '-'}`) if (ws.room) toRoom(ws.room, { type: 'class', op: 'presence', room: ws.room, phones: [...wss.clients].filter((c) => c !== ws && c.room === ws.room && c.role === 'student').length, student: ws.student, joined: false }) })
 })
 server.listen(PORT, '0.0.0.0', () => console.log(`serving dist on http://0.0.0.0:${PORT} (relay at /relay)`))
