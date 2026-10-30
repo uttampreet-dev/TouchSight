@@ -1,5 +1,6 @@
 import type { Tdm, Texture } from '../tdm/types'
-import { centroid } from '../tdm/geometry'
+import { centroid, diagramBox } from '../tdm/geometry'
+export { diagramBox }
 
 /** The tactile model drawn as SVG in true millimetres. Shared by the console, the student app and the projector. */
 
@@ -64,14 +65,6 @@ export interface TdmCanvasProps {
   showRelations?: boolean
   /** extra SVG drawn last, in sheet millimetres (the projector's finger trail) */
   children?: React.ReactNode
-}
-
-export function diagramBox(tdm: Tdm, pad = 8) {
-  const pts = [...tdm.regions.flatMap((r) => r.polygon), ...tdm.lines.flatMap((l) => l.path)]
-  if (!pts.length) return { x: 0, y: 0, w: tdm.sheet.w, h: tdm.sheet.h }
-  const xs = pts.map((p) => p[0]), ys = pts.map((p) => p[1])
-  const x0 = Math.min(...xs) - pad, y0 = Math.min(...ys) - pad, x1 = Math.max(...xs) + pad, y1 = Math.max(...ys) + pad
-  return { x: x0, y: y0, w: x1 - x0, h: y1 - y0 }
 }
 
 export function TdmCanvas({ tdm, highlight = [], selected, onSelect, showRefs = true, showKey = false, marker, ink = '#17181a', paper = '#ffffff', accent = '#ff6f59', className, style, frame = 'diagram', showRelations = false, children }: TdmCanvasProps) {

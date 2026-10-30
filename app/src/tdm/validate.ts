@@ -1,6 +1,7 @@
 import type { Tdm, TdmValidation, ValidationFinding, Point } from './types'
 import { area, boundaryDistance, bbox, contains, intersectionArea, polylineLength, segmentsIntersect } from './geometry'
 import { RULES } from './simplify'
+import { keyLayout } from '../export/braille'
 
 /**
  * Stage 4 — Accessibility Validator. Deterministic rules with named, located failures.
@@ -13,7 +14,7 @@ export const VALIDATOR_RULES = [
   { rule: 'S2', blocking: true, text: `Regions at least ${RULES.minRegionArea} mm²; lines at least ${RULES.minLineLength} mm long` },
   { rule: 'S3', blocking: true, text: `Lines at least ${RULES.minLineWidth} mm wide` },
   { rule: 'T1', blocking: true, text: `Regions within ${RULES.adjacency} mm of each other use different textures` },
-  { rule: 'K1', blocking: true, text: 'Braille key fits on the sheet below the diagram and overlaps no raised element' },
+  { rule: 'K1', blocking: true, text: 'Braille key (10 mm line pitch, one or two columns) fits on the sheet below the diagram' },
   { rule: 'O1', blocking: false, text: 'Every label used was read with OCR confidence ≥ 0.75' },
   { rule: 'R1', blocking: true, text: 'Every relation references existing elements' },
   { rule: 'R2', blocking: true, text: 'Every region and line appears in the reading order exactly once' },
@@ -90,10 +91,8 @@ export function validate(tdm: Tdm): TdmValidation {
     const b = bbox(pts)
     const m = sheet.margin
     if (b.x0 < m || b.y0 < m || b.x1 > sheet.w - m || b.y1 > sheet.h - m) B('M1', `diagram extends outside the ${m} mm margins (${b.x0.toFixed(0)},${b.y0.toFixed(0)})–(${b.x1.toFixed(0)},${b.y1.toFixed(0)})`, [])
-    const keyRows = Math.ceil(tdm.key.length / 2)
-    const keyTop = b.y1 + RULES.keyGap
-    const keyBottom = keyTop + keyRows * RULES.keyRowHeight
-    if (keyBottom > sheet.h - m) B('K1', `braille key (${tdm.key.length} entries, ${keyRows} rows) needs ${(keyBottom - (sheet.h - m)).toFixed(0)} mm more sheet`, [])
+    const key = keyLayout(tdm)
+    if (!key.fits) B('K1', `braille key (${key.rows.length} entries in ${key.columns} column${key.columns > 1 ? 's' : ''}) needs ${(key.bottom - (sheet.h - m)).toFixed(0)} mm more sheet`, [])
   }
 
   // O1, N1 — label quality

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { listDiagrams, deleteDiagram } from '../../store/db'
 import { TdmCanvas } from '../../components/TdmCanvas'
 import type { Tdm } from '../../tdm/types'
+import { ExportPanel } from '../../components/ExportPanel'
 
 type Row = { id: string; tdm: Tdm; chapter: string; published: boolean; updatedAt: number }
 
@@ -41,6 +42,7 @@ export function Library() {
                     <Link className="btn" to={`/teacher/d/${r.id}`}>Open</Link>
                     <button className="btn ghost" style={{ color: 'var(--coral)' }} onClick={async () => { await deleteDiagram(r.id); load() }}>Delete</button>
                   </div>
+                  {r.published && <ExportPanel tdm={r.tdm} compact />}
                 </div>
               </div>
             ))}

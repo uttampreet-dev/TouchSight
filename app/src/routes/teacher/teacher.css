@@ -69,3 +69,15 @@
 .wb-rel-tools { display: flex; align-items: center; gap: 6px; }
 .wb-rel-tools .mono { font-size: 11px; color: var(--slate); flex: 1; }
 .wb-rel-tools .btn { padding: 4px 8px; font-size: 12px; }
+
+/* export panel */
+.xp { display: grid; gap: 6px; margin-top: 10px; }
+.xp-head { display: flex; align-items: center; gap: 10px; }
+.xp-head select { padding: 4px 8px; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); font-size: 12px; }
+.xp-braille { font-size: 11px; color: var(--muted); margin-left: auto; }
+.xp-row { display: grid; grid-template-columns: 150px 1fr; gap: 10px; align-items: center; }
+.xp-row .btn { padding: 7px 10px; font-size: 13px; justify-content: center; }
+.xp-facts { font-size: 11px; color: var(--slate); line-height: 1.35; }
+.xp-alt { font-size: 12px; line-height: 1.5; color: var(--slate); margin: 4px 0 0; max-height: 120px; overflow: auto; }
+.xp.compact { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--line); }
+.xp.compact .xp-row { grid-template-columns: 1fr; gap: 2px; }

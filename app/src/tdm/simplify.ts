@@ -18,7 +18,7 @@ export const RULES = {
   vertexSpacing: 1.5, // mm, no two vertices closer than this
   smoothRadius: 2.0, // mm, protrusions and notches narrower than twice this are rounded away
   adjacency: 5.0, // mm, regions this close must differ in texture
-  keyRowHeight: 7.0, // mm per braille key row
+  keyRowHeight: 10.0, // mm per braille key row (standard braille line pitch; the exporters use the same)
   keyGap: 10.0, // mm between diagram and key
 }
 
@@ -40,7 +40,13 @@ export interface SimplifyReport {
 
 const hasRealName = (r: TdmRegion) => !/^Region \d+$/.test(r.name.en)
 
-export function simplify(input: Tdm): { tdm: Tdm; report: SimplifyReport } {
+import { keyLayout } from '../export/braille'
+
+/**
+ * `reserveKeyMm` is set only by the solver itself: the first pass reserves a capped estimate for the braille key,
+ * and if the key the survivors actually need does not fit, one second pass re-fits with the measured height.
+ */
+export function simplify(input: Tdm, opts: { reserveKeyMm?: number } = {}): { tdm: Tdm; report: SimplifyReport } {
   const tdm: Tdm = JSON.parse(JSON.stringify(input))
   const dropped: SimplifyReport['dropped'] = []
   const merged: SimplifyReport['merged'] = []
@@ -56,7 +62,8 @@ export function simplify(input: Tdm): { tdm: Tdm; report: SimplifyReport } {
       const b = bbox(pts)
       const keyRows = Math.ceil((regions.length + lines.length) / 2)
       const availW = sheet.w - 2 * sheet.margin
-      const availH = sheet.h - 2 * sheet.margin - RULES.keyGap - keyRows * RULES.keyRowHeight
+      const keyReserve = opts.reserveKeyMm ?? Math.min(60, keyRows * RULES.keyRowHeight)
+      const availH = sheet.h - 2 * sheet.margin - RULES.keyGap - keyReserve
       const s = Math.min(1, availW / Math.max(1, b.x1 - b.x0), availH / Math.max(1, b.y1 - b.y0))
       const tx = sheet.margin - b.x0 * s + (availW - (b.x1 - b.x0) * s) / 2
       const ty = sheet.margin - b.y0 * s
@@ -212,7 +219,10 @@ export function simplify(input: Tdm): { tdm: Tdm; report: SimplifyReport } {
     }
     if (!moved) break
   }
-  return finish()
+  const result = finish()
+  const layout = keyLayout(result.tdm)
+  if (!layout.fits && opts.reserveKeyMm == null) return simplify(input, { reserveKeyMm: layout.bottom - layout.top + 2 })
+  return result
 
   function finish() {
     // final sweep: vertex thinning after a clip can shave a part under the minimum; nothing undersized leaves here

@@ -1,6 +1,6 @@
 import type { Tdm, TdmRegion, TdmLine, Point } from '../tdm/types'
 import { area, pointInPolygon, segDist, centroid } from '../tdm/geometry'
-import { diagramBox } from '../components/TdmCanvas'
+import { diagramBox } from '../tdm/geometry'
 import type { Position } from '../i18n'
 
 export type Hit = { kind: 'region'; el: TdmRegion } | { kind: 'line'; el: TdmLine } | null

@@ -70,6 +70,10 @@ for (const width of [1440, 1280]) {
   if (status === 'Ready to publish') {
     await page.click('button:has-text("Publish to students")')
     await page.waitForTimeout(400)
+    await page.waitForFunction(() => /liblouis|built-in/.test(document.querySelector('.xp-braille')?.textContent ?? ''), null, { timeout: 30_000 }).catch(() => {})
+    for (const label of ['Tactile SVG', '3-D relief STL', 'Braille key BRF', 'Alt-text']) { await page.click(`.xp button:has-text("${label}")`); await page.waitForTimeout(300) }
+    const facts = await page.locator('.xp-facts').allInnerTexts()
+    console.log(`${width}px: export facts — ${facts.filter(Boolean).join(' | ')}`)
     await page.screenshot({ path: `${OUT}/teacher-published-${width}.png` })
   }
   await page.goto('http://localhost:4173/teacher/library', { waitUntil: 'networkidle' })

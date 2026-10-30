@@ -152,4 +152,13 @@ export function simplifyPolygon(poly: Point[], tol: number, minSpacing: number):
   return out.length >= 3 ? out : poly
 }
 
+/** The drawing's bounding box plus padding, in sheet millimetres. */
+export function diagramBox(tdm: { regions: { polygon: Point[] }[]; lines: { path: Point[] }[]; sheet: { w: number; h: number } }, pad = 8) {
+  const pts = [...tdm.regions.flatMap((r) => r.polygon), ...tdm.lines.flatMap((l) => l.path)]
+  if (!pts.length) return { x: 0, y: 0, w: tdm.sheet.w, h: tdm.sheet.h }
+  const xs = pts.map((p) => p[0]), ys = pts.map((p) => p[1])
+  const x0 = Math.min(...xs) - pad, y0 = Math.min(...ys) - pad, x1 = Math.max(...xs) + pad, y1 = Math.max(...ys) + pad
+  return { x: x0, y: y0, w: x1 - x0, h: y1 - y0 }
+}
+
 export const polylineLength = (pts: Point[]) => pts.slice(1).reduce((s, p, i) => s + Math.hypot(p[0] - pts[i][0], p[1] - pts[i][1]), 0)

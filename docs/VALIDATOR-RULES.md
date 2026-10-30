@@ -13,7 +13,7 @@ All distances are millimetres at print size (A4 by default). The thresholds live
 | S2 | Minimum region area; minimum line length | ≥ 60 mm²; ≥ 8 mm | yes | A region smaller than a fingertip pad cannot be identified by texture; a stroke shorter than a fingertip width reads as a dot |
 | S3 | Minimum raised line width | ≥ 1.2 mm | yes | Swell-paper and embosser minimum reliable line |
 | T1 | Regions within the adjacency distance use different textures (`empty` is exempt) | 5.0 mm | yes | Two adjacent areas with the same fill read as one |
-| K1 | The braille key fits below the diagram inside the margins | 7 mm per key row, 10 mm gap | yes | Key rows at standard braille cell pitch |
+| K1 | The braille key fits below the diagram inside the margins, laid out exactly as the SVG/STL exporters print it | 10 mm line pitch, 6 mm cell pitch, one column or two, 10 mm gap | yes | Standard braille line and cell spacing; the exporters and the rule share one layout function |
 | M1 | Everything sits inside the sheet margins | 15 mm margin | yes | Embosser and swell-paper printable area |
 | R1 | Every relation references existing elements | — | yes | Audio tour and quiz follow relations |
 | R2 | Every region and line appears in the reading order exactly once | — | yes | The guided tour must cover everything, once |

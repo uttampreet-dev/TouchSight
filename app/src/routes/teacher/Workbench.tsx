@@ -7,7 +7,7 @@ import { rename, remove, merge, setTexture, moveInOrder, markReviewed, addRelati
 import { TdmCanvas, TEXTURE_LABEL } from '../../components/TdmCanvas'
 import { TEXTURES, RELATION_KINDS, type Tdm, type ValidationFinding, type TdmRelation } from '../../tdm/types'
 import { getDiagram, saveDiagram, saveImage, getImage } from '../../store/db'
-import { serializeTdm } from '../../tdm/io'
+import { ExportPanel } from '../../components/ExportPanel'
 import { area } from '../../tdm/geometry'
 
 type Step = 'capture' | 'understand' | 'review' | 'published'
@@ -224,8 +224,9 @@ export function Workbench() {
                 <label><span className="kicker">Chapter</span><input value={chapter} onChange={(e) => setChapter(e.target.value)} placeholder="Biology · Class 10" /></label>
                 {step === 'published' ? (
                   <div className="card tint-teal" style={{ padding: 12 }}>
-                    <b>Published.</b> Students can open it now, offline. Send the file to a phone that is not on this laptop's library.
-                    <div style={{ marginTop: 8, display: 'flex', gap: 8, flexWrap: 'wrap' }}><button className="btn primary" onClick={() => downloadTdm(tdm)}>Download .tdm.json</button><button className="btn" onClick={() => nav('/teacher/library')}>Library</button><button className="btn" onClick={() => { setStep('capture'); setTdm(null); setFile(null); setReport(null); setSelected(null) }}>New diagram</button></div>
+                    <b>Published.</b> Students can open it now, offline. The same model prints, embosses and reads aloud:
+                    <ExportPanel tdm={tdm} />
+                    <div style={{ marginTop: 8, display: 'flex', gap: 8, flexWrap: 'wrap' }}><button className="btn" onClick={() => nav('/teacher/library')}>Library</button><button className="btn" onClick={() => { setStep('capture'); setTdm(null); setFile(null); setReport(null); setSelected(null) }}>New diagram</button></div>
                   </div>
                 ) : (
                   <button className="btn primary" style={{ width: '100%', padding: 14, fontSize: 16 }} disabled={!canPublish} onClick={publish}>{canPublish ? 'Publish to students' : 'Fix blocking findings to publish'}</button>
@@ -237,15 +238,6 @@ export function Workbench() {
       </main>
     </div>
   )
-}
-
-function downloadTdm(t: Tdm) {
-  const blob = new Blob([serializeTdm(t)], { type: 'application/json' })
-  const a = document.createElement('a')
-  a.href = URL.createObjectURL(blob)
-  a.download = `${t.id}.tdm.json`
-  a.click()
-  setTimeout(() => URL.revokeObjectURL(a.href), 1000)
 }
 
 const KIND_WORD: Record<TdmRelation['kind'], string> = { 'flows-into': 'flows into', connects: 'connects to', contains: 'contains', 'part-of': 'is part of', 'points-to': 'points to', 'greater-than': 'is greater than' }
