@@ -1,3 +1,7 @@
+@font-face { font-family: 'Inter Variable'; font-style: normal; font-weight: 100 900; font-display: swap; src: url('/fonts/inter-latin-wght-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Montserrat Variable'; font-style: normal; font-weight: 100 900; font-display: swap; src: url('/fonts/montserrat-latin-wght-normal.woff2') format('woff2'); }
+@font-face { font-family: 'JetBrains Mono Variable'; font-style: normal; font-weight: 100 800; font-display: swap; src: url('/fonts/jetbrains-mono-latin-wght-normal.woff2') format('woff2'); }
+
 :root {
   --ink: #17181a;
   --slate: #3d4852;
@@ -5,6 +9,8 @@
   --line: #d5d9de;
   --panel: #f1f3f5;
   --paper: #ffffff;
+  --cream: #f4efe4;
+  --cream-2: #eae3d3;
   --deep: #0c2b2d;
   --deep-2: #164446;
   --teal: #0e7c7b;
@@ -16,9 +22,9 @@
   --blue-tint: #eaf1fb;
   --amber: #e9a23b;
   --green: #2e9e6a;
-  --head: 'Montserrat', 'Arial', system-ui, sans-serif;
-  --body: 'Inter', 'Calibri', system-ui, sans-serif;
-  --mono: 'JetBrains Mono', 'Courier New', ui-monospace, monospace;
+  --head: 'Montserrat Variable', 'Montserrat', 'Arial', system-ui, sans-serif;
+  --body: 'Inter Variable', 'Inter', 'Calibri', system-ui, sans-serif;
+  --mono: 'JetBrains Mono Variable', 'JetBrains Mono', 'Courier New', ui-monospace, monospace;
 }
 
 * { box-sizing: border-box; }
