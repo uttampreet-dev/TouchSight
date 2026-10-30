@@ -2,7 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
-import { Home } from './routes/Home'
+import { Landing } from './routes/landing/Landing'
 import { Teacher } from './routes/Teacher'
 import { Student } from './routes/Student'
 import { Stage } from './routes/Stage'
@@ -12,7 +12,7 @@ import { warmVoices } from './device/speech'
 warmVoices()
 
 const router = createBrowserRouter([
-  { path: '/', element: <Home /> },
+  { path: '/', element: <Landing /> },
   { path: '/teacher/*', element: <Teacher /> },
   { path: '/student/*', element: <Student /> },
   { path: '/stage', element: <Stage /> },
