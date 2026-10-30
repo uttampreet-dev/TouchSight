@@ -63,18 +63,24 @@ export function Understand() {
     <div className="insp">
       <div className="wb-pane">
         <div className="insp-bar">
-          <input type="file" accept="image/*" onChange={(e) => setFile(e.target.files?.[0] ?? null)} />
+          <span className="kicker" style={{ color: 'var(--teal)' }}>Pipeline inspector</span>
+          <label className="btn insp-pick"><input type="file" accept="image/*" hidden onChange={(e) => setFile(e.target.files?.[0] ?? null)} />{file ? file.name : 'Choose a figure…'}</label>
           <button className="btn primary" disabled={!file || (!!stage && stage !== 'done')} onClick={run}>Understand</button>
-          <span className="mono" style={{ fontSize: 12, color: 'var(--muted)' }}>{stage}</span>
+          <span className="mono insp-stage">{stage}</span>
+          <span style={{ flex: 1 }} />
           {(['regions', 'labels', 'segments', 'links'] as const).map((k) => (
             <label key={k} className="mono" style={{ fontSize: 12 }}><input type="checkbox" checked={show[k]} onChange={(e) => setShow({ ...show, [k]: e.target.checked })} /> {k}</label>
           ))}
         </div>
         {err && <div className="wb-err mono" style={{ padding: 12 }}>{err}</div>}
-        <canvas ref={canvasRef} data-testid="overlay" />
+        <div className="insp-body">
+          {!u && <div className="wb-ghost-sheet insp-ghost"><span className="mono">{stage && stage !== 'done' ? stage + '…' : 'choose a figure and press Understand · regions, labels, strokes and label links are drawn over it'}</span></div>}
+          <canvas ref={canvasRef} data-testid="overlay" style={{ display: u ? 'block' : 'none' }} />
+        </div>
       </div>
       <aside className="wb-pane insp-side">
         <div className="kicker" style={{ color: 'var(--teal)' }}>What was found</div>
+        {!u && <ol className="wb-rules-ghost mono">{[['regions', 'enclosed areas, colour or line-art'], ['labels', 'printed text, with OCR confidence'], ['strokes', 'straight segments and leader lines'], ['links', 'which label names which region'], ['time', 'segment · ocr · lines, in ms']].map(([k, t]) => <li key={k}><em>{k}</em><span>{t}</span></li>)}</ol>}
         {u && (
           <>
             <div className="insp-facts mono" data-testid="summary">
