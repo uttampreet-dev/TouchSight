@@ -30,7 +30,9 @@ export function ReliefViewer({ tdm, braille, className = '', autoRotate = true, 
       const w = el.clientWidth || 600, h = el.clientHeight || 420
       const cam = new THREE.PerspectiveCamera(32, w / h, 1, 2000)
       const span = Math.max(size.x, size.y)
-      cam.position.set(span * 0.55, -span * 0.95, span * 0.9); cam.up.set(0, 0, 1); cam.lookAt(0, 0, 0)
+      const fit = Math.max(size.y, size.x / cam.aspect) * 1.15
+      const dist = (fit / 2) / Math.tan((cam.fov * Math.PI) / 360)
+      cam.position.copy(new THREE.Vector3(0.42, -0.78, 0.62).normalize().multiplyScalar(dist)); cam.up.set(0, 0, 1); cam.lookAt(0, 0, 0)
       const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
       renderer.setPixelRatio(Math.min(2, window.devicePixelRatio || 1)); renderer.setSize(w, h); renderer.shadowMap.enabled = true
       el.appendChild(renderer.domElement)
@@ -47,7 +49,7 @@ export function ReliefViewer({ tdm, braille, className = '', autoRotate = true, 
       const rim = new THREE.DirectionalLight(0x7fd4cb, 0.5); rim.position.set(span, span, span * 0.3); scene.add(rim)
 
       const controls = new OrbitControls(cam, renderer.domElement)
-      controls.enableDamping = true; controls.autoRotate = autoRotate; controls.autoRotateSpeed = 1.2; controls.maxPolarAngle = Math.PI * 0.49; controls.minDistance = span * 0.5; controls.maxDistance = span * 3
+      controls.enableDamping = true; controls.autoRotate = autoRotate; controls.autoRotateSpeed = 1.2; controls.maxPolarAngle = Math.PI * 0.49; controls.minDistance = span * 0.4; controls.maxDistance = dist * 2.2
       const onResize = () => { const w2 = el.clientWidth, h2 = el.clientHeight; if (!w2 || !h2) return; cam.aspect = w2 / h2; cam.updateProjectionMatrix(); renderer.setSize(w2, h2) }
       const ro = new ResizeObserver(onResize); ro.observe(el)
       const loop = () => { if (!alive) return; controls.update(); renderer.render(scene, cam); raf = requestAnimationFrame(loop) }

@@ -21,6 +21,10 @@ export const lastPointerType = () => lastPointer
 
 export function speakFirstEnabled(): boolean { try { return localStorage.getItem(SPEAK_FIRST_KEY) !== 'off' } catch { return true } }
 export function setSpeakFirst(on: boolean) { try { localStorage.setItem(SPEAK_FIRST_KEY, on ? 'on' : 'off') } catch { /* ignore */ } }
+const CONTRAST_KEY = 'touchsight-contrast'
+export function contrastEnabled(): boolean { try { return localStorage.getItem(CONTRAST_KEY) === 'on' } catch { return false } }
+export function setContrast(on: boolean) { try { localStorage.setItem(CONTRAST_KEY, on ? 'on' : 'off') } catch { /* ignore */ } document.documentElement.classList.toggle('hc', on) }
+if (typeof document !== 'undefined' && contrastEnabled()) document.documentElement.classList.add('hc')
 export function introSeen(): boolean { try { return localStorage.getItem(INTRO_KEY) === '1' } catch { return true } }
 export function markIntroSeen() { try { localStorage.setItem(INTRO_KEY, '1') } catch { /* ignore */ } }
 

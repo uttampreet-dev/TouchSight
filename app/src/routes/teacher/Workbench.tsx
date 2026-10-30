@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { understand, draftTdm } from '../../pipeline/understand'
+import { understand, draftTdm, type Understanding } from '../../pipeline/understand'
+import { drawUnderstanding, SHOW_ALL } from '../../pipeline/overlay'
 import { simplify, type SimplifyReport } from '../../tdm/simplify'
 import { validate } from '../../tdm/validate'
 import { rename, remove, merge, setTexture, moveInOrder, markReviewed, addRelation, confirmRelation, removeRelation, setRelation } from '../../tdm/edit'
@@ -33,6 +34,10 @@ export function Workbench() {
   const [found, setFound] = useState<{ regions: number; labels: number; strokes: number; ms: number } | null>(null)
   const [phones, setPhones] = useState(0)
   const [view3d, setView3d] = useState(false)
+  const [u, setU] = useState<Understanding | null>(null)
+  const [overlay, setOverlay] = useState(true)
+  const [reveal, setReveal] = useState(1)
+  const overlayRef = useRef<HTMLCanvasElement>(null)
   useEffect(() => { if (step !== 'published') return; const t = setInterval(() => setPhones(classroom.phones), 600); return () => clearInterval(t) }, [step])
   const fileRef = useRef<HTMLInputElement>(null)
 
@@ -53,6 +58,10 @@ export function Workbench() {
     try {
       const u = await understand(file, setStage)
       setFound({ regions: u.regions.length, labels: u.labels.length, strokes: u.segments.length, ms: u.timings.total })
+      setU(u); setOverlay(true)
+      // what was read, drawn in over the photo while the solver works: regions, then labels, then strokes and links
+      setStage('what was read')
+      await new Promise<void>((done) => { const t0 = performance.now(); const tick = () => { const k = Math.min(1, (performance.now() - t0) / 1400); setReveal(k); if (k < 1) requestAnimationFrame(tick); else done() }; requestAnimationFrame(tick) })
       const id = (title || file.name.replace(/\.[^.]+$/, '')).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || `diagram-${Date.now()}`
       const { tdm: draft } = draftTdm(u, { id, title: title || file.name.replace(/\.[^.]+$/, ''), subject: chapter.split(' ')[0] || 'general', sourceKind: 'photo', file: file.name })
       setStage('redesigning for touch')
@@ -101,7 +110,13 @@ export function Workbench() {
   const STEPS: [Step, string, string][] = [['capture', 'Capture', 'photo or page'], ['understand', 'Understand', 'regions · labels · strokes'], ['review', 'Review & fix', 'validator · teacher'], ['published', 'Published', 'phone · print · projector']]
   const stepIdx = STEPS.findIndex((x) => x[0] === step)
   const blockingSel = highlight.length ? [...findings.blocking, ...findings.advisory].find((x) => selected && x.ids.includes(selected))?.at ?? null : null
-  const reset = () => { setStep('capture'); setTdm(null); setFile(null); setReport(null); setSelected(null); setFound(null); setImgUrl(null) }
+  const reset = () => { setStep('capture'); setTdm(null); setFile(null); setReport(null); setSelected(null); setFound(null); setImgUrl(null); setU(null) }
+  useEffect(() => {
+    const c = overlayRef.current
+    if (!c || !u) return
+    if (c.width !== u.prepared.width) { c.width = u.prepared.width; c.height = u.prepared.height }
+    drawUnderstanding(c.getContext('2d')!, u, overlay ? SHOW_ALL : { regions: false, labels: false, segments: false, links: false }, reveal)
+  }, [u, overlay, reveal, step])
 
   return (
     <div className="wb">
@@ -149,9 +164,10 @@ export function Workbench() {
                 <button className="btn primary wb-go" disabled={!file} onClick={run}>Understand this diagram →</button>
               </div>
             ) : (
-              <div className={`wb-photo ${step === 'understand' ? 'scanning' : ''}`}>
-                {imgUrl || file ? <img src={imgUrl ?? URL.createObjectURL(file!)} alt="" /> : <div className="wb-ghost mono">no source image stored</div>}
-                {step === 'understand' && <div className="wb-scan" aria-hidden />}
+              <div className={`wb-photo ${step === 'understand' && !u ? 'scanning' : ''}`}>
+                {u ? <canvas ref={overlayRef} className="wb-overlay" /> : imgUrl || file ? <img src={imgUrl ?? URL.createObjectURL(file!)} alt="" /> : <div className="wb-ghost mono">no source image stored</div>}
+                {step === 'understand' && !u && <div className="wb-scan" aria-hidden />}
+                {u && step !== 'understand' && <button className={`wb-ovl mono ${overlay ? 'on' : ''}`} onClick={() => setOverlay((v) => !v)}>{overlay ? 'overlays on' : 'overlays off'}</button>}
               </div>
             )}
           </div>

@@ -59,6 +59,14 @@ check(/Blank paper/i.test(spokenWhere), `two-finger double tap says where the fi
 await page.goto('http://localhost:4173/student', { waitUntil: 'networkidle' })
 await page.waitForTimeout(300)
 check(await page.locator('.st-start').count() === 0, 'the introduction does not return on the next visit')
+// low vision: high contrast on, then off again for the rest of the run
+await page.click('.st-settings button:has-text("High contrast")'); await page.waitForTimeout(200)
+check(await page.evaluate(() => document.documentElement.classList.contains('hc')), 'high-contrast mode switches on')
+await shot('library-contrast')
+await page.click('.st-card:has-text("heart")'); await page.waitForSelector('.st-canvas svg'); await page.waitForTimeout(200)
+await shot('explore-contrast')
+await page.goto('http://localhost:4173/student', { waitUntil: 'networkidle' }); await page.waitForTimeout(200)
+await page.click('.st-settings button:has-text("High contrast")'); await page.waitForTimeout(100)
 const cards = await page.locator('.st-card').count()
 check(cards >= 1, `library shows ${cards} diagram cards`)
 

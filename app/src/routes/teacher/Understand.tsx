@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import { understand, draftTdm, type Understanding } from '../../pipeline/understand'
 import { serializeTdm } from '../../tdm/io'
 import { saveDiagram, saveImage } from '../../store/db'
+import { drawUnderstanding } from '../../pipeline/overlay'
 
-const PALETTE = ['#0e7c7b', '#ff6f59', '#3d7dd8', '#e9a23b', '#2e9e6a', '#8e44ad', '#c0392b', '#16a085', '#d35400', '#2c3e50']
 
 /** Stage 1 inspection: run the pipeline on an image and draw what it found. */
 export function Understand() {
@@ -29,22 +29,8 @@ export function Understand() {
   useEffect(() => {
     const c = canvasRef.current
     if (!c || !u) return
-    const { prepared } = u
-    c.width = prepared.width; c.height = prepared.height
-    const ctx = c.getContext('2d')!
-    ctx.drawImage(prepared.canvas, 0, 0)
-    ctx.lineWidth = 2
-    if (show.regions) u.regions.forEach((r, i) => {
-      ctx.beginPath(); r.polygon.forEach((p, k) => (k ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]))); ctx.closePath()
-      ctx.fillStyle = PALETTE[i % PALETTE.length] + '55'; ctx.fill()
-      ctx.strokeStyle = PALETTE[i % PALETTE.length]; ctx.stroke()
-      ctx.fillStyle = '#000'; ctx.font = 'bold 13px monospace'; ctx.fillText(r.id, r.centroid[0], r.centroid[1])
-    })
-    if (show.segments) { ctx.strokeStyle = '#ff6f59'; ctx.lineWidth = 2; u.segments.forEach((s) => { ctx.beginPath(); ctx.moveTo(s.a[0], s.a[1]); ctx.lineTo(s.b[0], s.b[1]); ctx.stroke() }) }
-    if (show.labels) { ctx.strokeStyle = '#17181a'; ctx.lineWidth = 1.5; u.labels.forEach((l) => { ctx.strokeRect(l.bbox.x, l.bbox.y, l.bbox.w, l.bbox.h); ctx.fillStyle = '#17181a'; ctx.font = '11px monospace'; ctx.fillText(`${l.text} ${Math.round(l.confidence * 100)}`, l.bbox.x, l.bbox.y - 3) }) }
-    if (show.links) { ctx.strokeStyle = '#2e9e6a'; ctx.setLineDash([4, 3]); ctx.lineWidth = 1.5
-      u.associations.forEach((a) => { if (!a.regionId) return; const l = u.labels.find((x) => x.id === a.labelId)!; const r = u.regions.find((x) => x.id === a.regionId)!; ctx.beginPath(); ctx.moveTo(l.centre[0], l.centre[1]); ctx.lineTo(r.centroid[0], r.centroid[1]); ctx.stroke() })
-      ctx.setLineDash([]) }
+    c.width = u.prepared.width; c.height = u.prepared.height
+    drawUnderstanding(c.getContext('2d')!, u, show)
   }, [u, show])
 
   async function saveDraft() {

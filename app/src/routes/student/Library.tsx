@@ -15,6 +15,7 @@ import { classroom, studentProfile, setStudentProfile, type Incoming } from '../
 import { useTouchToAct, introSeen, markIntroSeen, speakFirstEnabled, setSpeakFirst } from '../../student/a11y'
 import { stopSpeech } from '../../device/speech'
 import { sound } from '../../device/sound'
+import { contrastEnabled, setContrast } from '../../student/a11y'
 
 type Score = { found: number; asked: number }
 
@@ -36,6 +37,7 @@ export function StudentLibrary() {
   const [intro, setIntro] = useState<'hidden' | 'waiting' | 'spoken'>(() => (introSeen() ? 'hidden' : 'waiting'))
   const [speakFirst, setSF] = useState(speakFirstEnabled)
   const [snd, setSnd] = useState(sound.state.on)
+  const [hc, setHc] = useState(contrastEnabled)
   const [, bump] = useState(0)
   const say = (text: string) => { stopSpeech(); speak(text, lang) }
   useEffect(() => { const t = setInterval(() => setLink(classroom.state), 700); return () => clearInterval(t) }, [])
@@ -160,6 +162,7 @@ export function StudentLibrary() {
       <div className="st-settings" role="group">
         <button className={speakFirst ? 'on' : ''} aria-pressed={speakFirst} onClick={() => { const v = !speakFirst; setSpeakFirst(v); setSF(v); bump((n) => n + 1); say(v ? s.speakFirstOn : s.speakFirstOff) }}>{s.speakFirst}</button>
         <button className={snd ? 'on' : ''} aria-pressed={snd} onClick={() => { const v = !snd; sound.setOn(v); setSnd(v); say(v ? s.soundOn : s.soundOff) }}>{s.sound}</button>
+        <button className={hc ? 'on' : ''} aria-pressed={hc} onClick={() => { const v = !hc; setContrast(v); setHc(v); say(v ? s.contrastOn : s.contrastOff) }}>{s.contrast}</button>
       </div>
 
       <section className="st-section">
