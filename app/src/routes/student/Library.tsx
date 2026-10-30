@@ -14,6 +14,7 @@ import { useSearchParams } from 'react-router-dom'
 import { classroom, studentProfile, setStudentProfile, type Incoming } from '../../class/classroom'
 import { useTouchToAct, introSeen, markIntroSeen, speakFirstEnabled, setSpeakFirst } from '../../student/a11y'
 import { stopSpeech } from '../../device/speech'
+import { sound } from '../../device/sound'
 
 type Score = { found: number; asked: number }
 
@@ -34,6 +35,7 @@ export function StudentLibrary() {
   const { handle, armed: armedCtl } = useTouchToAct(lang)
   const [intro, setIntro] = useState<'hidden' | 'waiting' | 'spoken'>(() => (introSeen() ? 'hidden' : 'waiting'))
   const [speakFirst, setSF] = useState(speakFirstEnabled)
+  const [snd, setSnd] = useState(sound.state.on)
   const [, bump] = useState(0)
   const say = (text: string) => { stopSpeech(); speak(text, lang) }
   useEffect(() => { const t = setInterval(() => setLink(classroom.state), 700); return () => clearInterval(t) }, [])
@@ -157,6 +159,7 @@ export function StudentLibrary() {
 
       <div className="st-settings" role="group">
         <button className={speakFirst ? 'on' : ''} aria-pressed={speakFirst} onClick={() => { const v = !speakFirst; setSpeakFirst(v); setSF(v); bump((n) => n + 1); say(v ? s.speakFirstOn : s.speakFirstOff) }}>{s.speakFirst}</button>
+        <button className={snd ? 'on' : ''} aria-pressed={snd} onClick={() => { const v = !snd; sound.setOn(v); setSnd(v); say(v ? s.soundOn : s.soundOff) }}>{s.sound}</button>
       </div>
 
       <section className="st-section">

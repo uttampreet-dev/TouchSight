@@ -14,6 +14,8 @@ import { BrailleKey } from './Key'
 import { mirror } from '../../student/mirror'
 import { classroom, studentProfile } from '../../class/classroom'
 import { useTouchToAct, useGestures, type Gesture } from '../../student/a11y'
+import { sound } from '../../device/sound'
+import { diagramBox } from '../../tdm/geometry'
 
 type Mode = 'explore' | 'tour' | 'quiz' | 'key'
 
@@ -46,10 +48,10 @@ export function Explore() {
   }, [id])
 
   // ---- the device's three outputs, each logged for the projector and the harness
-  const say = useCallback((text: string, l: Lang = lang) => { log('say', text); setCaption(text); mirror.post({ type: 'say', text }); return speak(text, l) ?? wait(Math.min(2500, 250 + text.length * 45)) }, [lang])
+  const say = useCallback((text: string, l: Lang = lang) => { log('say', text); setCaption(text); mirror.post({ type: 'say', text }); sound.duck(Math.min(6000, 500 + text.length * 60)); return speak(text, l) ?? wait(Math.min(2500, 250 + text.length * 45)) }, [lang])
   const buzz = useCallback((p: Pulse) => { log('pulse', JSON.stringify(p)); vibrate(p) }, [])
   const hush = useCallback(() => { if (pending.current) { clearTimeout(pending.current); pending.current = null } }, [])
-  useEffect(() => () => { hush(); stopSpeech(); stopVibration() }, [hush])
+  useEffect(() => () => { hush(); stopSpeech(); stopVibration(); sound.lift() }, [hush])
   useEffect(() => { mirror.post({ type: 'mode', mode }) }, [mode])
 
   // ---- quiz
@@ -168,10 +170,18 @@ export function Explore() {
     const d = dwell.current
     if (d.id && tdm && now - d.since > 250) { const el = tdm.regions.find((r) => r.id === d.id) ?? tdm.lines.find((l) => l.id === d.id); if (el) classroom.activity({ kind: 'explore', diagramId: tdm.id, partId: d.id, partName: el.name.en, ms: Math.round(now - d.since) }) }
   }
+  const tone = (p: Point | null) => {
+    if (!tdm) return
+    if (!p) { sound.lift(); return }
+    const box = diagramBox(tdm, 0)
+    const id = st.current.id
+    const r = id ? tdm.regions.find((x) => x.id === id) : null, l = id && !r ? tdm.lines.find((x) => x.id === id) : null
+    sound.move((p[0] - box.x) / box.w, (p[1] - box.y) / box.h, r ? r.texture : null, !!l)
+  }
   const apply = (acts: Action[]) => {
     for (const a of acts) {
       if (a.do === 'pulse') buzz(a.pulse)
-      else if (a.do === 'hush') hush()
+      else if (a.do === 'hush') { hush(); if (st.current.down) sound.tick() }
       else if (a.do === 'focus') { const now = performance.now(); leavePart(now); dwell.current = { id: a.id, since: now }; if (mode !== 'quiz') setFocus(a.id) }
       else if (a.do === 'say' && mode !== 'quiz') { hush(); pending.current = window.setTimeout(() => { pending.current = null; say(a.text) }, a.after) }
     }
@@ -185,6 +195,7 @@ export function Explore() {
     setFinger(p)
     mirror.post({ type: 'finger', p, id: st.current.id })
     apply(step(tdm, st.current, p, performance.now(), lang))
+    tone(p)
   }
   const onLift = (e: React.PointerEvent) => {
     if (!tdm || mode === 'tour') return
@@ -192,6 +203,7 @@ export function Explore() {
     const p = toMm(e)
     apply(step(tdm, st.current, null, performance.now(), lang))
     leavePart(performance.now()); dwell.current = { id: null, since: 0 }
+    tone(null)
     setFinger(null)
     mirror.post({ type: 'finger', p: null, id: null })
     if (mode === 'quiz' && !qDone) answer(last, p)
