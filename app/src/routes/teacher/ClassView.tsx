@@ -24,6 +24,7 @@ export function ClassView() {
   const [online, setOnline] = useState<Set<string>>(new Set())
   const [pushed, setPushed] = useState<Set<string>>(new Set())
   const [rows, setRows] = useState<Row[]>([])
+  const [fromRoom, setFromRoom] = useState<Tdm[]>([])
   const [acts, setActs] = useState<Activity[]>([])
   const [link, setLink] = useState(classroom.state)
   const seen = useRef(new Set<string>())
@@ -37,10 +38,10 @@ export function ClassView() {
     classroom.join(room, 'console')
     classroom.roster(roster)
     const off = classroom.on((m: Incoming) => {
-      if (m.op === 'state') { setPhones(m.phones); setPushed(new Set(m.published.map((t) => t.id))); for (const a of m.activity) remember(a) }
+      if (m.op === 'state') { setPhones(m.phones); setPushed(new Set(m.published.map((t) => t.id))); setFromRoom(m.published); for (const a of m.activity) remember(a) }
       if (m.op === 'presence') { setPhones(m.phones); if (m.student) setOnline((s) => { const n = new Set(s); if (m.joined) n.add(m.student!); else n.delete(m.student!); return n }) }
       if (m.op === 'activity') remember(m.event)
-      if (m.op === 'published') setPushed((s) => new Set(s).add(m.tdm.id))
+      if (m.op === 'published') { setPushed((s) => new Set(s).add(m.tdm.id)); setFromRoom((xs) => xs.some((t) => t.id === m.tdm.id) ? xs : [...xs, m.tdm]) }
     })
     const t = setInterval(() => setLink(classroom.state), 800)
     return () => { off(); clearInterval(t) }
@@ -56,7 +57,8 @@ export function ClassView() {
   }
   function saveRoster(names: string[]) { setRoster(names); try { localStorage.setItem(ROSTER_KEY, JSON.stringify(names)) } catch { /* ignore */ } classroom.roster(names) }
   function add() { const n = draft.trim(); if (!n || roster.includes(n)) return; saveRoster([...roster, n]); setDraft('') }
-  function push(t: Tdm) { classroom.publish(t); setPushed((s) => new Set(s).add(t.id)) }
+  function push(t: Tdm) { classroom.publish(t); setPushed((s) => new Set(s).add(t.id)); setFromRoom((xs) => xs.some((x) => x.id === t.id) ? xs : [...xs, t]) }
+  const shelf: Row[] = useMemo(() => [...rows, ...fromRoom.filter((t) => !rows.some((r) => r.id === t.id)).map((t) => ({ id: t.id, tdm: t, chapter: t.subject || 'From the room', published: true }))], [rows, fromRoom])
   function newCode() { const c = newRoomCode(); setTeacherRoom(c); setRoom(c); setPushed(new Set()); setActs([]); seen.current.clear() }
   async function forget() { await clearProgress(room); setActs([]); seen.current.clear(); classroom.reset() }
   useEffect(() => { (window as unknown as { __class?: unknown }).__class = { push, room, roster: saveRoster } }) // harness
@@ -114,10 +116,10 @@ export function ClassView() {
 
         {/* 02 · published */}
         <section className="wb-pane">
-          <header className="wb-pane-h"><span className="kicker">02 · On the phones</span><span className="mono">{pushed.size} of {rows.length} pushed</span></header>
+          <header className="wb-pane-h"><span className="kicker">02 · On the phones</span><span className="mono">{shelf.filter((r) => pushed.has(r.id)).length} of {shelf.length} pushed</span></header>
           <div className="wb-pane-b cl-pub">
-            {!rows.length && <div className="cl-empty mono">nothing published yet — publish from the console and it lands here</div>}
-            {rows.map((r) => (
+            {!shelf.length && <div className="cl-empty mono">nothing published yet — publish from the console and it lands here</div>}
+            {shelf.map((r) => (
               <div key={r.id} className={`cl-pub-row ${pushed.has(r.id) ? 'sent' : ''}`}>
                 <div className="cl-thumb"><TdmCanvas tdm={r.tdm} showRefs={false} paper="transparent" /></div>
                 <div className="cl-pub-t"><b>{r.tdm.title}</b><span className="mono">{r.chapter}</span><span className="mono">{r.tdm.regions.length} regions · {r.tdm.key.length} key</span></div>
@@ -125,7 +127,7 @@ export function ClassView() {
               </div>
             ))}
           </div>
-          <footer className="wb-pane-f mono"><span>{rows.length ? <button className="cl-linkbtn" onClick={() => rows.forEach((r) => push(r.tdm))}>push all</button> : 'phones keep every pushed diagram offline'}</span></footer>
+          <footer className="wb-pane-f mono"><span>phones keep every pushed diagram offline</span>{shelf.length > 0 && <span><button className="cl-linkbtn" onClick={() => shelf.forEach((r) => push(r.tdm))}>push all</button></span>}</footer>
         </section>
 
         {/* 03 · progress */}

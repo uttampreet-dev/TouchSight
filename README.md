@@ -53,6 +53,12 @@ Three surfaces, one codebase, no server:
   the braille key. English, Hindi and Punjabi.
 - **Projector view** (laptop): mirrors the student's finger live through a relay on the app's own origin,
   with a trail, boundary flashes, captions and a measured round trip.
+- **Classroom** (console + phones, no accounts): the console shows a four-letter room code and QR; a phone joins
+  once and from then on every publish lands on it and stays there offline. The teacher types the roster; the
+  student holding the phone picks their name by touch (each name is spoken, a second touch chooses). Their activity
+  flows back to the console's Class view: diagrams opened, time under the finger per part, quiz targets found and
+  tries per target, live and kept on the laptop. Activity recorded while the phone is offline is queued on the
+  phone and sent when the link returns.
 
 ## The Tactile Diagram Model
 
@@ -139,8 +145,10 @@ Teacher-correction counts and the eyes-closed location test are logged by hand i
   target.
 - **Haptics are Android-only** (iOS Safari has no Vibration API); audio, quiz and print work everywhere. A phone
   screen is for exploration; the raised print is the study artefact.
-- **The live projector mirror needs the phone and laptop on one link** (a hotspot and tunnel, or the same
-  machine); the student app itself needs no network.
+- **The live projector mirror and the classroom link need the phone and laptop on one link** (a hotspot and
+  tunnel, or the same machine); the student app itself needs no network. Room state lives in the relay's memory:
+  the console re-sends roster and published diagrams when it reconnects, phones keep theirs, progress is kept on
+  the laptop.
 - **Braille tables** (UEB grade 1, Bharati Hindi and Punjabi via liblouis) have not yet been checked by a braille
   reader.
 
@@ -155,7 +163,7 @@ node scripts/serve.mjs 4173        # app on http://localhost:4173, projector rel
 ```
 
 Open `/teacher` on the laptop, `/student` on an Android phone (add to home screen, then turn Wi-Fi off),
-`/stage` on the projector. For a phone on another network, expose the port over https
+`/stage` on the projector, `/teacher/class` for the room code the phones join. For a phone on another network, expose the port over https
 (`cloudflared tunnel --url http://localhost:4173`); the phone needs https for installation and vibration.
 
 Development: `npm run dev`. Tests: `npm test` (model, solver, validator, explorer, exports, 23 tests).
