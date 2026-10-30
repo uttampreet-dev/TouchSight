@@ -3,7 +3,7 @@
     "name": "bio-digestive-01",
     "difficulty": "hard",
     "truth": true,
-    "understandMs": 2117,
+    "understandMs": 2027,
     "labels": [
       "Mouth",
       "Palate Uvula",
@@ -46,10 +46,10 @@
     "regionsFound": 10,
     "strokes": 275,
     "timings": {
-      "segment": 401,
-      "ocr": 1286,
-      "lines": 182,
-      "total": 2080
+      "segment": 394,
+      "ocr": 1233,
+      "lines": 171,
+      "total": 1989
     },
     "draft": {
       "regions": 10,
@@ -185,9 +185,9 @@
     },
     "ms": {
       "draft": 5,
-      "simplify": 21.5,
-      "validate": 1.4000000059604645,
-      "exports": 20.400000005960464
+      "simplify": 21,
+      "validate": 1.2000000178813934,
+      "exports": 19.69999998807907
     },
     "exports": {
       "svg": {
@@ -242,7 +242,7 @@
     "name": "bio-eye-01",
     "difficulty": "medium",
     "truth": true,
-    "understandMs": 2100,
+    "understandMs": 1929,
     "labels": [
       "antetior chamber (aqueous humour) Posterior chamber Suspensory ligament of lens",
       "Cornea",
@@ -274,10 +274,10 @@
     "regionsFound": 6,
     "strokes": 290,
     "timings": {
-      "segment": 404,
-      "ocr": 1393,
-      "lines": 140,
-      "total": 2072
+      "segment": 399,
+      "ocr": 1216,
+      "lines": 136,
+      "total": 1890
     },
     "draft": {
       "regions": 6,
@@ -372,10 +372,10 @@
       ]
     },
     "ms": {
-      "draft": 2.0999999940395355,
-      "simplify": 5.200000017881393,
+      "draft": 1.9000000059604645,
+      "simplify": 5.4000000059604645,
       "validate": 0.7999999821186066,
-      "exports": 34
+      "exports": 32.70000001788139
     },
     "exports": {
       "svg": {
@@ -430,7 +430,7 @@
     "name": "bio-flower-01",
     "difficulty": "medium",
     "truth": true,
-    "understandMs": 1019,
+    "understandMs": 993,
     "labels": [
       "Mature flower",
       "ovules",
@@ -452,9 +452,9 @@
     "strokes": 264,
     "timings": {
       "segment": 230,
-      "ocr": 540,
-      "lines": 69,
-      "total": 987
+      "ocr": 522,
+      "lines": 63,
+      "total": 954
     },
     "draft": {
       "regions": 8,
@@ -573,7 +573,7 @@
       "draft": 2.5,
       "simplify": 7,
       "validate": 0.5,
-      "exports": 12.5
+      "exports": 12.100000023841858
     },
     "exports": {
       "svg": {
@@ -628,7 +628,7 @@
     "name": "bio-heart-01",
     "difficulty": "hard",
     "truth": true,
-    "understandMs": 1538,
+    "understandMs": 1481,
     "labels": [
       "Superior Vena Cava",
       "Aorta",
@@ -650,10 +650,10 @@
     "regionsFound": 9,
     "strokes": 265,
     "timings": {
-      "segment": 393,
-      "ocr": 936,
-      "lines": 74,
-      "total": 1508
+      "segment": 378,
+      "ocr": 908,
+      "lines": 72,
+      "total": 1458
     },
     "draft": {
       "regions": 9,
@@ -805,9 +805,9 @@
     },
     "ms": {
       "draft": 4.799999982118607,
-      "simplify": 32.80000001192093,
-      "validate": 6.9000000059604645,
-      "exports": 24.799999982118607
+      "simplify": 31.80000001192093,
+      "validate": 6.5,
+      "exports": 24.900000005960464
     },
     "exports": {
       "svg": {
@@ -878,7 +878,7 @@
     "name": "bio-heart-02",
     "difficulty": "easy",
     "truth": true,
-    "understandMs": 774,
+    "understandMs": 764,
     "labels": [
       "Superior vena cava",
       "Pulmonary artery",
@@ -894,9 +894,9 @@
     "strokes": 184,
     "timings": {
       "segment": 45,
-      "ocr": 536,
+      "ocr": 505,
       "lines": 62,
-      "total": 745
+      "total": 725
     },
     "draft": {
       "regions": 5,
@@ -1024,10 +1024,10 @@
       ]
     },
     "ms": {
-      "draft": 1.800000011920929,
+      "draft": 1,
       "simplify": 4.4000000059604645,
-      "validate": 0.29999998211860657,
-      "exports": 28
+      "validate": 0.19999998807907104,
+      "exports": 27.900000005960464
     },
     "exports": {
       "svg": {
@@ -1077,7 +1077,7 @@
     "name": "bio-plantcell-01",
     "difficulty": "medium",
     "truth": true,
-    "understandMs": 1663,
+    "understandMs": 1658,
     "labels": [
       "Filamentous cytoskeleton",
       "Plasmodesmata Plasma membrane",
@@ -1112,10 +1112,10 @@
     "regionsFound": 10,
     "strokes": 269,
     "timings": {
-      "segment": 319,
-      "ocr": 1084,
-      "lines": 96,
-      "total": 1625
+      "segment": 320,
+      "ocr": 1088,
+      "lines": 95,
+      "total": 1620
     },
     "draft": {
       "regions": 10,
@@ -1237,9 +1237,9 @@
       ]
     },
     "ms": {
-      "draft": 3,
-      "simplify": 8.400000005960464,
-      "validate": 0.5999999940395355,
+      "draft": 3.100000023841858,
+      "simplify": 8.299999982118607,
+      "validate": 0.800000011920929,
       "exports": 26.400000005960464
     },
     "exports": {
@@ -1295,7 +1295,7 @@
     "name": "bio-plantcell-02",
     "difficulty": "easy",
     "truth": true,
-    "understandMs": 705,
+    "understandMs": 702,
     "labels": [
       "Cell wall",
       "ucleus",
@@ -1307,10 +1307,10 @@
     "regionsFound": 9,
     "strokes": 181,
     "timings": {
-      "segment": 47,
-      "ocr": 456,
+      "segment": 50,
+      "ocr": 445,
       "lines": 57,
-      "total": 665
+      "total": 663
     },
     "draft": {
       "regions": 9,
@@ -1422,10 +1422,10 @@
       ]
     },
     "ms": {
-      "draft": 1.800000011920929,
-      "simplify": 12.300000011920929,
+      "draft": 1.7000000178813934,
+      "simplify": 12.099999994039536,
       "validate": 1.0999999940395355,
-      "exports": 18.900000005960464
+      "exports": 18.400000005960464
     },
     "exports": {
       "svg": {
@@ -1484,7 +1484,7 @@
     "name": "geo-watercycle-01",
     "difficulty": "hard",
     "truth": true,
-    "understandMs": 1833,
+    "understandMs": 1828,
     "labels": [
       "The",
       "Af acer Cycie",
@@ -1514,10 +1514,10 @@
     "regionsFound": 14,
     "strokes": 239,
     "timings": {
-      "segment": 274,
-      "ocr": 1378,
+      "segment": 278,
+      "ocr": 1360,
       "lines": 44,
-      "total": 1806
+      "total": 1791
     },
     "draft": {
       "regions": 14,
@@ -1653,10 +1653,10 @@
       ]
     },
     "ms": {
-      "draft": 5,
-      "simplify": 21.299999982118607,
+      "draft": 5.100000023841858,
+      "simplify": 21.5,
       "validate": 6,
-      "exports": 47
+      "exports": 46.599999994039536
     },
     "exports": {
       "svg": {

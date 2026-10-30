@@ -1,6 +1,6 @@
 # Benchmark results — 8 figures
 
-Measured 2026-10-30 at commit `450d0dc` by `app/scripts/run-pipeline.mjs`: headless Chromium, production build, no network, every figure in `benchmark/raw/` through understand → draft → simplify → validate → exports. Ground truth in `benchmark/truth/*.json`. Two tables on purpose: a figure can pass every geometric rule and still be semantically wrong, so what the pipeline *read* and what it *made* are scored apart.
+Measured 2026-10-30 at commit `d2e3fbe` by `app/scripts/run-pipeline.mjs`: headless Chromium, production build, no network, every figure in `benchmark/raw/` through understand → draft → simplify → validate → exports. Ground truth in `benchmark/truth/*.json`. Two tables on purpose: a figure can pass every geometric rule and still be semantically wrong, so what the pipeline *read* and what it *made* are scored apart.
 
 ## 1. Semantic — what the pipeline read
 
@@ -8,8 +8,8 @@ A label counts as read when every word matches within one dropped or misread cha
 
 | Figure | Difficulty | Labels read | Regions named | Relations proposed · match truth | Understand |
 |---|---|---|---|---|---|
-| bio-digestive-01 | hard | 29/30 (97%) | 3/7 (43%) | 6 · 1/4 | 2.1 s |
-| bio-eye-01 | medium | 18/19 (95%) | 1/7 (14%) | 1 · 0/3 | 2.1 s |
+| bio-digestive-01 | hard | 29/30 (97%) | 3/7 (43%) | 6 · 1/4 | 2.0 s |
+| bio-eye-01 | medium | 18/19 (95%) | 1/7 (14%) | 1 · 0/3 | 1.9 s |
 | bio-flower-01 | medium | 16/17 (94%) | 1/6 (17%) | 3 · 0/5 | 1.0 s |
 | bio-heart-01 | hard | 9/14 (64%) | 0/4 (0%) | 7 · 0/4 | 1.5 s |
 | bio-heart-02 | easy | 9/9 (100%) | 4/4 (100%) | 6 · 2/4 | 0.8 s |
@@ -25,14 +25,14 @@ First-run validator status before any teacher edit. R3 (a detected relation awai
 
 | Figure | Geometry clean | Blocking by rule | R3 awaiting teacher | Min gap before → after | Regions kept · dropped | Lines kept | Scale | Exports SVG · STL · BRF · alt | Redesign + validate + export |
 |---|---|---|---|---|---|---|---|---|---|
-| bio-digestive-01 | yes | — | 4 | 0.18 → 3.1 mm | 6 · 4 | 8 | ×0.892 | ✓ · ✓ · ✓ · ✓ (398 shells closed) | 23 + 20 ms |
-| bio-eye-01 | yes | — | 1 | 0.85 → 3.11 mm | 6 · 0 | 7 | 1 | ✓ · ✓ · ✓ · ✓ (866 shells closed) | 6 + 34 ms |
-| bio-flower-01 | yes | — | 1 | 0.25 → 3.1 mm | 5 · 3 | 7 | 1 | ✓ · ✓ · ✓ · ✓ (286 shells closed) | 8 + 13 ms |
-| bio-heart-01 | yes | — | 5 | 0.26 → 3.1 mm | 6 · 2 | 4 | 1 | ✓ · ✓ · ✓ · ✓ (399 shells closed) | 40 + 25 ms |
+| bio-digestive-01 | yes | — | 4 | 0.18 → 3.1 mm | 6 · 4 | 8 | ×0.892 | ✓ · ✓ · ✓ · ✓ (398 shells closed) | 22 + 20 ms |
+| bio-eye-01 | yes | — | 1 | 0.85 → 3.11 mm | 6 · 0 | 7 | 1 | ✓ · ✓ · ✓ · ✓ (866 shells closed) | 6 + 33 ms |
+| bio-flower-01 | yes | — | 1 | 0.25 → 3.1 mm | 5 · 3 | 7 | 1 | ✓ · ✓ · ✓ · ✓ (286 shells closed) | 8 + 12 ms |
+| bio-heart-01 | yes | — | 5 | 0.26 → 3.1 mm | 6 · 2 | 4 | 1 | ✓ · ✓ · ✓ · ✓ (399 shells closed) | 38 + 25 ms |
 | bio-heart-02 | yes | — | 6 | 1.22 → 3.11 mm | 5 · 0 | 6 | 1 | ✓ · ✓ · ✓ · ✓ (816 shells closed) | 5 + 28 ms |
 | bio-plantcell-01 | yes | — | 2 | 0.38 → 3.11 mm | 5 · 5 | 11 | 1 | ✓ · ✓ · ✓ · ✓ (652 shells closed) | 9 + 26 ms |
-| bio-plantcell-02 | yes | — | 1 | 0 → 3.09 mm | 5 · 4 | 6 | 1 | ✓ · ✓ · ✓ · ✓ (433 shells closed) | 13 + 19 ms |
-| geo-watercycle-01 | yes | — | 3 | 0.18 → 3.09 mm | 13 · 1 | 5 | 1 | ✓ · ✓ · ✓ · ✓ (1146 shells closed) | 27 + 47 ms |
+| bio-plantcell-02 | yes | — | 1 | 0 → 3.09 mm | 5 · 4 | 6 | 1 | ✓ · ✓ · ✓ · ✓ (433 shells closed) | 13 + 18 ms |
+| geo-watercycle-01 | yes | — | 3 | 0.18 → 3.09 mm | 13 · 1 | 5 | 1 | ✓ · ✓ · ✓ · ✓ (1146 shells closed) | 28 + 47 ms |
 
 Geometry clean on first run: **8/8**. Every export succeeded on **8/8** figures. End to end (photo in → four files out, no teacher): median **1.7 s**, mean 1.5 s.
 
