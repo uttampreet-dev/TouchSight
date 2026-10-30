@@ -11,12 +11,15 @@ import { classroom, teacherRoom, setTeacherRoom, newRoomCode, type Activity, typ
  */
 
 const ROSTER_KEY = 'touchsight-roster'
+const PUBLIC_KEY = 'touchsight-public-url'
 const loadRoster = (): string[] => { try { return JSON.parse(localStorage.getItem(ROSTER_KEY) || '[]') } catch { return [] } }
 
 type Row = { id: string; tdm: Tdm; chapter: string; published: boolean }
 
 export function ClassView() {
   const [room, setRoom] = useState(teacherRoom)
+  const [pub, setPub] = useState(() => { try { return localStorage.getItem(PUBLIC_KEY) || '' } catch { return '' } })
+  const savePub = (v: string) => { setPub(v); try { localStorage.setItem(PUBLIC_KEY, v) } catch { /* ignore */ } }
   const [qr, setQr] = useState<string | null>(null)
   const [roster, setRoster] = useState<string[]>(loadRoster)
   const [draft, setDraft] = useState('')
@@ -29,7 +32,8 @@ export function ClassView() {
   const [link, setLink] = useState(classroom.state)
   const seen = useRef(new Set<string>())
 
-  const joinUrl = `${location.origin}/student?room=${room}`
+  const base = (pub.trim() ? pub.trim().replace(/\/+$/, '').replace(/^(?!https?:\/\/)/, 'https://') : location.origin)
+  const joinUrl = `${base}/student?room=${room}`
   useEffect(() => { QRCode.toDataURL(joinUrl, { margin: 1, width: 240, color: { dark: '#0c2b2d', light: '#ffffff' } }).then(setQr).catch(() => {}) }, [joinUrl])
   useEffect(() => { listDiagrams(true).then((r) => setRows(r as Row[])) }, [])
   useEffect(() => { listProgress(room).then((p) => { for (const r of p) seen.current.add(`${r.student}|${r.at}`); setActs(p.map((r) => ({ ...(r.event as Activity), student: r.student, at: r.at }))) }) }, [room])
@@ -96,6 +100,7 @@ export function ClassView() {
               <span className="kicker">Room code</span>
               <b className="cl-code">{room}</b>
               <span className="mono cl-join">phones join at <em>{joinUrl.replace(/^https?:\/\//, '')}</em></span>
+              <input className="cl-pub-url mono" value={pub} onChange={(e) => savePub(e.target.value)} placeholder="public address for phones, e.g. https://xxxx.trycloudflare.com" aria-label="public address for phones" />
               {qr && <img className="cl-qr" src={qr} alt={`QR code to join room ${room}`} />}
               <button className="btn cl-newcode" onClick={newCode}>new code</button>
             </div>

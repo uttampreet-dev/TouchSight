@@ -133,6 +133,8 @@
 .cl-code-wrap .kicker { color: var(--teal); }
 .cl-code { font-family: var(--head); font-weight: 800; font-size: 72px; letter-spacing: .18em; line-height: 1; color: var(--ink); padding-left: .18em; }
 .cl-join { font-size: 11px; color: var(--muted); } .cl-join em { font-style: normal; color: var(--slate); }
+.cl-pub-url { width: 100%; max-width: 360px; padding: 7px 10px; border: 1px dashed rgba(14,124,123,.5); border-radius: 8px; background: #fff; font-size: 11px; color: var(--ink); text-align: center; }
+.cl-pub-url::placeholder { color: var(--muted); }
 .cl-qr { width: 150px; height: 150px; border-radius: 10px; border: 1px solid var(--line); background: #fff; padding: 6px; margin-top: 6px; }
 .cl-newcode { padding: 6px 10px; font-size: 12px; }
 .cl-roster { padding: 14px 16px; display: grid; align-content: start; gap: 8px; }
