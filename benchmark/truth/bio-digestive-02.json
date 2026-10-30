@@ -1,0 +1,25 @@
+{
+  "id": "bio-digestive-02",
+  "subject": "biology",
+  "class": 10,
+  "source": "Wikimedia Commons, Digestive system diagram en.svg, Mariana Ruiz and Jmarchn, public domain; https://commons.wikimedia.org/wiki/File:Digestive_system_diagram_en.svg",
+  "image": "raw/bio-digestive-02.png",
+  "regions": ["Mouth", "Salivary glands", "Esophagus", "Stomach", "Liver", "Pancreas", "Small intestine", "Large intestine"],
+  "lines": ["Esophagus", "Common bile duct", "Pancreatic duct", "Small intestine", "Large intestine"],
+  "labels": [
+    "Mouth", "Palate", "Uvula", "Tongue", "Teeth", "Salivary glands", "Sublingual", "Submandibular",
+    "Parotid", "Pharynx", "Esophagus", "Liver", "Gallbladder", "Common bile duct", "Stomach",
+    "Pancreas", "Pancreatic duct", "Small intestine", "Duodenum", "Jejunum", "Ileum",
+    "Large intestine", "Transverse colon", "Ascending colon", "Cecum", "Descending colon",
+    "Sigmoid colon", "Rectum", "Appendix", "Anus"
+  ],
+  "labelsPrinted": 30,
+  "relations": [
+    ["Mouth", "connects-to", "Esophagus"],
+    ["Esophagus", "connects-to", "Stomach"],
+    ["Small intestine", "inside", "Large intestine"],
+    ["Liver", "drains-through", "Common bile duct"]
+  ],
+  "difficulty": "hard",
+  "notes": "Group headings and sublabels are each counted as printed labels."
+}

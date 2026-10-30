@@ -1,0 +1,22 @@
+{
+  "id": "phy-circuit-schematic-01",
+  "subject": "physics",
+  "class": 10,
+  "source": "Wikimedia Commons, Circuit diagram – pictorial and schematic.png, United States Department of the Air Force, public domain; https://commons.wikimedia.org/wiki/File:Circuit_diagram_%E2%80%93_pictorial_and_schematic.png",
+  "image": "raw/phy-circuit-schematic-01.png",
+  "regions": ["Pictorial circuit", "Schematic circuit", "Battery", "Ammeter", "Voltmeter", "Resistor"],
+  "lines": ["Circuit wire", "Ammeter branch", "Voltmeter branch"],
+  "labels": [
+    "AMMETER", "BATTERY", "RESISTOR", "VOLTMETER", "1", "PICTORIAL DIAGRAM OF CIRCUIT",
+    "A", "I=4 AMPERES", "R=3 OHMS", "+", "V", "-", "E=12 VOLTS", "2",
+    "SCHEMATIC OF CIRCUIT", "Figure 48. Diagram of a basic electric circuit."
+  ],
+  "labelsPrinted": 16,
+  "relations": [
+    ["Ammeter", "in-series-with", "Resistor"],
+    ["Voltmeter", "in-parallel-with", "Resistor"],
+    ["Battery", "supplies", "Circuit"]
+  ],
+  "difficulty": "hard",
+  "notes": "Upper panel is pictorial; lower panel is a schematic. Printed component names, meter symbols, values, panel numbering, polarity marks, and caption are counted."
+}

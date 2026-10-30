@@ -1,0 +1,19 @@
+{
+  "id": "bio-brain-fr-01",
+  "subject": "biology",
+  "class": 11,
+  "source": "Wikimedia Commons, Brain diagram fr.svg, Mysid (French translation by JDifool), public domain; https://commons.wikimedia.org/wiki/File:Brain_diagram_fr.svg",
+  "image": "raw/bio-brain-fr-01.png",
+  "regions": ["Lobe frontal", "Lobe pariétal", "Lobe temporal", "Lobe occipital", "Cervelet", "Tronc cérébral"],
+  "lines": ["Tronc cérébral leader line"],
+  "labels": ["Lobe frontal", "Lobe pariétal", "Lobe temporal", "Lobe occipital", "Cervelet", "Tronc cérébral"],
+  "labelsPrinted": 6,
+  "relations": [
+    ["Lobe frontal", "part-of", "Cerveau"],
+    ["Lobe pariétal", "part-of", "Cerveau"],
+    ["Lobe temporal", "part-of", "Cerveau"],
+    ["Lobe occipital", "part-of", "Cerveau"]
+  ],
+  "difficulty": "easy",
+  "notes": "The source diagram is labelled in French; the visible French terms are kept verbatim."
+}

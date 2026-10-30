@@ -1,0 +1,18 @@
+{
+  "id": "math-triangleproof-01",
+  "subject": "mathematics",
+  "class": 9,
+  "source": "Wikimedia Commons, Diagram of proof of congruence condition of right triangle.svg, CC0; https://commons.wikimedia.org/wiki/File:Diagram_of_proof_of_congruence_condition_of_right_triangle.svg",
+  "image": "raw/math-triangleproof-01.png",
+  "regions": ["Triangle ABC", "Triangle DEF", "Triangle ABE"],
+  "lines": ["Altitude from A", "Altitude from A(D)"],
+  "labels": ["A", "B", "C", "D", "E", "F", "A (D)", "C (F)"],
+  "labelsPrinted": 8,
+  "relations": [
+    ["Triangle ABC", "congruent-to", "Triangle DEF"],
+    ["A", "corresponds-to", "D"],
+    ["C", "corresponds-to", "F"]
+  ],
+  "difficulty": "medium",
+  "notes": "CC0 public-domain dedication; parenthesized vertex correspondences are treated as distinct printed labels."
+}

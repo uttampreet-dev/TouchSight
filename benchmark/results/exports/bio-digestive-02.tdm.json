@@ -1,0 +1,1126 @@
+{
+ "tdm": "0.1",
+ "id": "bio-digestive-02",
+ "title": "bio-digestive-02",
+ "subject": "bio",
+ "sheet": {
+  "w": 210,
+  "h": 297,
+  "margin": 15
+ },
+ "source": {
+  "kind": "upload",
+  "file": "bio-digestive-02",
+  "captured": "2026-10-30T09:27:06.357Z"
+ },
+ "regions": [
+  {
+   "id": "r-07",
+   "name": {
+    "en": "Mouth Palate Uvula Tongue Teeth"
+   },
+   "polygon": [
+    [
+     99.68,
+     39.24
+    ],
+    [
+     100.57,
+     40.63
+    ],
+    [
+     108.14,
+     103.3
+    ],
+    [
+     109.44,
+     104.61
+    ],
+    [
+     142.17,
+     108.84
+    ],
+    [
+     144.06,
+     111.04
+    ],
+    [
+     142.83,
+     119.67
+    ],
+    [
+     139.35,
+     124.42
+    ],
+    [
+     125.6,
+     131.8
+    ],
+    [
+     124.81,
+     133.26
+    ],
+    [
+     126.64,
+     134.59
+    ],
+    [
+     133.33,
+     133.15
+    ],
+    [
+     135.53,
+     134.58
+    ],
+    [
+     142.5,
+     159.09
+    ],
+    [
+     142.05,
+     161.25
+    ],
+    [
+     133.61,
+     171.42
+    ],
+    [
+     133.43,
+     173.07
+    ],
+    [
+     137.27,
+     174.82
+    ],
+    [
+     138.28,
+     176.49
+    ],
+    [
+     137.14,
+     178.51
+    ],
+    [
+     123.35,
+     184.73
+    ],
+    [
+     121,
+     187.29
+    ],
+    [
+     108.83,
+     188.05
+    ],
+    [
+     107.51,
+     189.05
+    ],
+    [
+     106.74,
+     192.78
+    ],
+    [
+     105.08,
+     193.86
+    ],
+    [
+     103.05,
+     192.47
+    ],
+    [
+     101.34,
+     183.43
+    ],
+    [
+     99.66,
+     182.22
+    ],
+    [
+     93.29,
+     182.94
+    ],
+    [
+     89.12,
+     179.86
+    ],
+    [
+     89.15,
+     177.06
+    ],
+    [
+     93.28,
+     173.71
+    ],
+    [
+     93.79,
+     172.14
+    ],
+    [
+     73.99,
+     164.7
+    ],
+    [
+     66.54,
+     157.18
+    ],
+    [
+     66,
+     155.49
+    ],
+    [
+     66.7,
+     154.04
+    ],
+    [
+     72.29,
+     149.81
+    ],
+    [
+     72.83,
+     148.24
+    ],
+    [
+     70.84,
+     145.41
+    ],
+    [
+     85.69,
+     133.48
+    ],
+    [
+     86.26,
+     131.92
+    ],
+    [
+     79.29,
+     128.79
+    ],
+    [
+     77.83,
+     126.97
+    ],
+    [
+     77.64,
+     117.76
+    ],
+    [
+     67.24,
+     114.64
+    ],
+    [
+     65.69,
+     113.05
+    ],
+    [
+     65.06,
+     108.17
+    ],
+    [
+     65.69,
+     106.49
+    ],
+    [
+     67.06,
+     105.79
+    ],
+    [
+     101.97,
+     104.6
+    ],
+    [
+     103.4,
+     102.88
+    ],
+    [
+     95.97,
+     51.87
+    ],
+    [
+     93.74,
+     48.53
+    ],
+    [
+     96.61,
+     40.25
+    ],
+    [
+     97.84,
+     39.04
+    ]
+   ],
+   "texture": "empty",
+   "keyRef": "f",
+   "confidence": 0.98,
+   "sourceLabel": {
+    "text": "Mouth Palate Uvula Tongue Teeth",
+    "ocrConfidence": 0.95
+   }
+  },
+  {
+   "id": "r-05",
+   "name": {
+    "en": "Region 5"
+   },
+   "polygon": [
+    [
+     106.76,
+     113.74
+    ],
+    [
+     106.24,
+     114.26
+    ],
+    [
+     104.7,
+     116.29
+    ],
+    [
+     101.73,
+     114.67
+    ],
+    [
+     99.4,
+     114.49
+    ],
+    [
+     98.37,
+     115.12
+    ],
+    [
+     96.58,
+     116.84
+    ],
+    [
+     95.74,
+     118.42
+    ],
+    [
+     95.17,
+     121.72
+    ],
+    [
+     95.05,
+     121.8
+    ],
+    [
+     92.48,
+     122.13
+    ],
+    [
+     91.1,
+     122.7
+    ],
+    [
+     85.91,
+     126.66
+    ],
+    [
+     85.48,
+     126.71
+    ],
+    [
+     81.67,
+     125.23
+    ],
+    [
+     81.37,
+     124.84
+    ],
+    [
+     81.38,
+     121.32
+    ],
+    [
+     82.74,
+     118.37
+    ],
+    [
+     82.98,
+     116.82
+    ],
+    [
+     82.69,
+     114.47
+    ],
+    [
+     85.44,
+     110.99
+    ],
+    [
+     88.41,
+     108.88
+    ],
+    [
+     113.5,
+     108.48
+    ]
+   ],
+   "texture": "diagonal-lines",
+   "keyRef": "b",
+   "confidence": 0.5
+  },
+  {
+   "id": "r-02",
+   "name": {
+    "en": "Large Intestine"
+   },
+   "polygon": [
+    [
+     124.66,
+     137.32
+    ],
+    [
+     124.76,
+     137.36
+    ],
+    [
+     127.23,
+     137.88
+    ],
+    [
+     127.34,
+     137.88
+    ],
+    [
+     132.68,
+     136.86
+    ],
+    [
+     134.23,
+     142.47
+    ],
+    [
+     132.18,
+     145.77
+    ],
+    [
+     130.73,
+     145.6
+    ],
+    [
+     128.5,
+     139.32
+    ],
+    [
+     128.17,
+     139.15
+    ],
+    [
+     126.4,
+     139.67
+    ],
+    [
+     126.3,
+     139.73
+    ],
+    [
+     118.74,
+     146.84
+    ],
+    [
+     107.87,
+     146.58
+    ],
+    [
+     106.56,
+     145.89
+    ],
+    [
+     106.81,
+     143.36
+    ],
+    [
+     113.21,
+     139.32
+    ],
+    [
+     117.74,
+     139.01
+    ],
+    [
+     117.89,
+     138.95
+    ],
+    [
+     120.9,
+     136.58
+    ],
+    [
+     123.28,
+     136.32
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "d",
+   "confidence": 0.98,
+   "sourceLabel": {
+    "text": "Large intestine",
+    "ocrConfidence": 0.96
+   }
+  },
+  {
+   "id": "r-03",
+   "name": {
+    "en": "Region 3"
+   },
+   "polygon": [
+    [
+     127.45,
+     120.71
+    ],
+    [
+     127.47,
+     123.43
+    ],
+    [
+     126.5,
+     124.52
+    ],
+    [
+     107.2,
+     132.41
+    ],
+    [
+     106.16,
+     132.31
+    ],
+    [
+     105.27,
+     130.4
+    ],
+    [
+     105.6,
+     129.95
+    ],
+    [
+     107.65,
+     129.43
+    ],
+    [
+     107.65,
+     129.44
+    ],
+    [
+     111.17,
+     128.59
+    ],
+    [
+     112.11,
+     127.8
+    ],
+    [
+     113.81,
+     123.93
+    ],
+    [
+     120.23,
+     121.1
+    ],
+    [
+     126.31,
+     119.83
+    ]
+   ],
+   "texture": "diagonal-lines",
+   "keyRef": "c",
+   "confidence": 0.5
+  },
+  {
+   "id": "r-06",
+   "name": {
+    "en": "Region 6"
+   },
+   "polygon": [
+    [
+     89.13,
+     15.45
+    ],
+    [
+     93.64,
+     19.04
+    ],
+    [
+     99.65,
+     19.63
+    ],
+    [
+     105.19,
+     22.72
+    ],
+    [
+     107.1,
+     26
+    ],
+    [
+     106.39,
+     28.27
+    ],
+    [
+     104.03,
+     28.48
+    ],
+    [
+     101.85,
+     26.98
+    ],
+    [
+     94.62,
+     25.77
+    ],
+    [
+     90.59,
+     22.5
+    ],
+    [
+     85.37,
+     20.39
+    ],
+    [
+     84.35,
+     18.68
+    ],
+    [
+     84.99,
+     17.04
+    ],
+    [
+     86.62,
+     15.67
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "a",
+   "confidence": 0.5
+  },
+  {
+   "id": "r-04",
+   "name": {
+    "en": "Region 4"
+   },
+   "polygon": [
+    [
+     124.83,
+     110.84
+    ],
+    [
+     124.62,
+     111.61
+    ],
+    [
+     121.92,
+     113.74
+    ],
+    [
+     121.58,
+     114.64
+    ],
+    [
+     121.95,
+     116.83
+    ],
+    [
+     113.43,
+     120.71
+    ],
+    [
+     111.98,
+     120.49
+    ],
+    [
+     111.44,
+     118.62
+    ],
+    [
+     114.74,
+     113.61
+    ],
+    [
+     118.11,
+     111.26
+    ],
+    [
+     122.99,
+     109.6
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "e",
+   "confidence": 0.5
+  },
+  {
+   "id": "r-01",
+   "name": {
+    "en": "Duodenum"
+   },
+   "polygon": [
+    [
+     85.49,
+     162.5
+    ],
+    [
+     83.99,
+     165.15
+    ],
+    [
+     76.53,
+     162.35
+    ],
+    [
+     75.49,
+     159.6
+    ],
+    [
+     77.47,
+     154.03
+    ],
+    [
+     83.44,
+     152.92
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "g",
+   "confidence": 0.96,
+   "sourceLabel": {
+    "text": "Duodenum",
+    "ocrConfidence": 0.91
+   }
+  }
+ ],
+ "lines": [
+  {
+   "id": "l-04",
+   "name": {
+    "en": "Line 4"
+   },
+   "path": [
+    [
+     113.03,
+     183.94
+    ],
+    [
+     137.7,
+     186.51
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "m"
+  },
+  {
+   "id": "l-05",
+   "name": {
+    "en": "Line 5"
+   },
+   "path": [
+    [
+     65.11,
+     123.43
+    ],
+    [
+     88.62,
+     131.01
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "h"
+  },
+  {
+   "id": "l-08",
+   "name": {
+    "en": "Line 8"
+   },
+   "path": [
+    [
+     106.6,
+     125.87
+    ],
+    [
+     110.84,
+     147.59
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "j"
+  },
+  {
+   "id": "l-16",
+   "name": {
+    "en": "Line 16"
+   },
+   "path": [
+    [
+     133.46,
+     171.09
+    ],
+    [
+     135.51,
+     151.82
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "k"
+  },
+  {
+   "id": "l-01",
+   "name": {
+    "en": "Line 1"
+   },
+   "path": [
+    [
+     106.73,
+     190.63
+    ],
+    [
+     118.17,
+     192.93
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "l"
+  },
+  {
+   "id": "l-02",
+   "name": {
+    "en": "Line 2"
+   },
+   "path": [
+    [
+     99.41,
+     121.24
+    ],
+    [
+     102.11,
+     130.24
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "i"
+  }
+ ],
+ "relations": [
+  {
+   "from": "r-05",
+   "to": "r-03",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.91,
+   "source": "detected",
+   "via": "l-02"
+  },
+  {
+   "from": "r-07",
+   "to": "r-05",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.94,
+   "source": "detected",
+   "via": "l-05"
+  },
+  {
+   "from": "r-03",
+   "to": "r-07",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 1,
+   "source": "detected",
+   "via": "l-06"
+  },
+  {
+   "from": "r-04",
+   "to": "r-07",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 1,
+   "source": "detected",
+   "via": "l-07"
+  },
+  {
+   "from": "r-05",
+   "to": "r-02",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.99,
+   "source": "detected",
+   "via": "l-08"
+  },
+  {
+   "from": "r-07",
+   "to": "r-02",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.65,
+   "source": "detected",
+   "via": "l-16"
+  }
+ ],
+ "key": [
+  {
+   "ref": "a",
+   "regionId": "r-06",
+   "text": {
+    "en": "Region 6"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "b",
+   "regionId": "r-05",
+   "text": {
+    "en": "Region 5"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "c",
+   "regionId": "r-03",
+   "text": {
+    "en": "Region 3"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "d",
+   "regionId": "r-02",
+   "text": {
+    "en": "Large Intestine"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "e",
+   "regionId": "r-04",
+   "text": {
+    "en": "Region 4"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "f",
+   "regionId": "r-07",
+   "text": {
+    "en": "Mouth Palate Uvula Tongue Teeth"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "g",
+   "regionId": "r-01",
+   "text": {
+    "en": "Duodenum"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "h",
+   "regionId": "l-05",
+   "text": {
+    "en": "Line 5"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "i",
+   "regionId": "l-02",
+   "text": {
+    "en": "Line 2"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "j",
+   "regionId": "l-08",
+   "text": {
+    "en": "Line 8"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "k",
+   "regionId": "l-16",
+   "text": {
+    "en": "Line 16"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "l",
+   "regionId": "l-01",
+   "text": {
+    "en": "Line 1"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "m",
+   "regionId": "l-04",
+   "text": {
+    "en": "Line 4"
+   },
+   "braille": {}
+  }
+ ],
+ "readingOrder": [
+  "r-06",
+  "r-05",
+  "r-03",
+  "r-02",
+  "r-04",
+  "r-07",
+  "r-01",
+  "l-05",
+  "l-02",
+  "l-08",
+  "l-16",
+  "l-01",
+  "l-04"
+ ],
+ "languages": {
+  "primary": "en",
+  "available": [
+   "en"
+  ]
+ },
+ "validation": {
+  "status": "fail",
+  "blocking": [
+   {
+    "rule": "R3",
+    "msg": "Detected: Line 2 connects Region 5 to Region 3 (91%) — confirm or remove",
+    "ids": [
+     "r-05",
+     "r-03"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: Line 5 connects Mouth Palate Uvula Tongue Teeth to Region 5 (94%) — confirm or remove",
+    "ids": [
+     "r-07",
+     "r-05"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: A stroke connects Region 3 to Mouth Palate Uvula Tongue Teeth (100%) — confirm or remove",
+    "ids": [
+     "r-03",
+     "r-07"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: A stroke connects Region 4 to Mouth Palate Uvula Tongue Teeth (100%) — confirm or remove",
+    "ids": [
+     "r-04",
+     "r-07"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: Line 8 connects Region 5 to Large Intestine (99%) — confirm or remove",
+    "ids": [
+     "r-05",
+     "r-02"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: Line 16 connects Mouth Palate Uvula Tongue Teeth to Large Intestine (65%) — confirm or remove",
+    "ids": [
+     "r-07",
+     "r-02"
+    ]
+   }
+  ],
+  "advisory": [
+   {
+    "rule": "N1",
+    "msg": "r-05 has no label",
+    "ids": [
+     "r-05"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "r-03 has no label",
+    "ids": [
+     "r-03"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "r-06 has no label",
+    "ids": [
+     "r-06"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "r-04 has no label",
+    "ids": [
+     "r-04"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-04 has no label",
+    "ids": [
+     "l-04"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-05 has no label",
+    "ids": [
+     "l-05"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-08 has no label",
+    "ids": [
+     "l-08"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-16 has no label",
+    "ids": [
+     "l-16"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-01 has no label",
+    "ids": [
+     "l-01"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-02 has no label",
+    "ids": [
+     "l-02"
+    ]
+   }
+  ]
+ },
+ "provenance": {
+  "pipeline": "0.1",
+  "teacherReviewed": false,
+  "reviewedAt": null
+ }
+}
