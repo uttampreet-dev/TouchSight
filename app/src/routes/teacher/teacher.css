@@ -164,3 +164,11 @@
 .cl-bars li { display: grid; grid-template-columns: 120px 1fr 44px; gap: 8px; align-items: center; font-size: 12px; } .cl-bars li span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .cl-bars li i { display: block; height: 8px; border-radius: 4px; background: var(--teal); opacity: .85; transition: width .4s; } .cl-bars li em { font-style: normal; font-size: 10.5px; color: var(--muted); text-align: right; }
 @media (max-width: 1100px) { .cl { height: auto; } }
+
+/* relief viewer */
+.wb-seg { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.wb-seg button { border: 0; background: transparent; padding: 4px 10px; font: inherit; font-size: 11px; color: var(--muted); cursor: pointer; } .wb-seg button.on { background: var(--teal); color: #fff; }
+.wb-canvas-body.relief { padding: 0; place-items: stretch; background: radial-gradient(120% 90% at 50% 30%, #1a4a4c, #0c2b2d); }
+.rv { display: grid; grid-template-rows: minmax(0, 1fr) auto; height: 100%; min-height: 0; }
+.rv-stage { min-height: 0; cursor: grab; } .rv-stage canvas { display: block; }
+.rv-cap { display: flex; justify-content: space-between; gap: 12px; padding: 8px 14px; font-size: 10.5px; color: #8fb0ae; border-top: 1px solid rgba(127,212,203,.2); background: rgba(12,43,45,.6); }

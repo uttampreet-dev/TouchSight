@@ -72,6 +72,13 @@ for (const width of [1440, 1280]) {
     await page.waitForTimeout(400)
     await page.waitForFunction(() => /liblouis|built-in/.test(document.querySelector('.xp-braille')?.textContent ?? ''), null, { timeout: 30_000 }).catch(() => {})
     for (const label of ['Tactile SVG', '3-D relief STL', 'Braille key BRF', 'Alt-text']) { await page.click(`.xp button:has-text("${label}")`); await page.waitForTimeout(300) }
+    // the relief viewer on the sheet pane
+    await page.click('.wb-seg button:has-text("3-D")')
+    await page.waitForFunction(() => window.__tsRelief, null, { timeout: 20_000 }).catch(() => {})
+    const relief = await page.evaluate(() => window.__tsRelief)
+    console.log(`${width}px: relief viewer ${relief ? `${relief.triangles} triangles, ${relief.size.join('×')} mm` : 'DID NOT RENDER'}`)
+    await page.screenshot({ path: `${OUT}/teacher-relief-${width}.png` })
+    await page.click('.wb-seg button:has-text("sheet")')
     const facts = await page.locator('.xp-facts').allInnerTexts()
     console.log(`${width}px: export facts — ${facts.filter(Boolean).join(' | ')}`)
     await page.screenshot({ path: `${OUT}/teacher-published-${width}.png` })

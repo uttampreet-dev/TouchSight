@@ -43,6 +43,11 @@ for (const [label, opts] of [['1440', { viewport: { width: 1440, height: 900 } }
   // scroll every section into view so reveals and counters run
   const ids = await page.evaluate(() => [...document.querySelectorAll('section[id]')].map((s) => s.id))
   for (const id of ids) { await page.evaluate((i) => document.getElementById(i).scrollIntoView({ block: 'start' }), id); await page.waitForTimeout(650) }
+  await page.evaluate(() => document.querySelector('#compile').scrollIntoView({ block: 'center' }))
+  await page.waitForFunction(() => window.__tsRelief, null, { timeout: 20_000 }).catch(() => {})
+  const relief = await page.evaluate(() => window.__tsRelief)
+  check(!!relief && relief.triangles > 1000, `${label}: 3-D relief rendered from the real STL (${relief?.triangles} triangles)`)
+  if (label === '1440') await page.screenshot({ path: `${OUT}/home-1440-relief.png` })
   await page.evaluate(() => document.querySelector('#validator').scrollIntoView({ block: 'center' }))
   await page.waitForSelector('.vr-gap b.ok', { timeout: 15_000 }).catch(() => {})
   await page.evaluate(() => document.querySelector('#measured').scrollIntoView({ block: 'center' }))

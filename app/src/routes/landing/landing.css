@@ -171,3 +171,7 @@
   .ts-say { grid-template-columns: 1fr; } .ts-lang { justify-self: start; } .ts-key { grid-template-columns: 1fr 1fr; } .ts-key-row { border-bottom: 1px solid var(--line); }
   .ld-stats { grid-template-columns: 1fr; } .ld-stats > div { border-right: 0; border-bottom: 1px solid var(--line); }
 }
+
+.ld-rv { min-height: 460px; height: 100%; background: radial-gradient(120% 90% at 50% 30%, #1a4a4c, #0c2b2d); border-radius: 14px; overflow: hidden; }
+.ld-rv .rv { height: 100%; min-height: 460px; } .ld-rv .rv-stage { min-height: 460px; cursor: grab; }
+.ld-paper .ld-cmp.relief { background: transparent; }

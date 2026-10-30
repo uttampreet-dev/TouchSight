@@ -8,6 +8,7 @@ import { TdmCanvas, TEXTURE_LABEL } from '../../components/TdmCanvas'
 import { TEXTURES, RELATION_KINDS, type Tdm, type ValidationFinding, type TdmRelation } from '../../tdm/types'
 import { getDiagram, saveDiagram, saveImage, getImage } from '../../store/db'
 import { ExportPanel } from '../../components/ExportPanel'
+import { ReliefViewer } from '../../components/ReliefViewer'
 import { area } from '../../tdm/geometry'
 import { classroom, teacherRoom } from '../../class/classroom'
 
@@ -31,6 +32,7 @@ export function Workbench() {
   const [imgUrl, setImgUrl] = useState<string | null>(null)
   const [found, setFound] = useState<{ regions: number; labels: number; strokes: number; ms: number } | null>(null)
   const [phones, setPhones] = useState(0)
+  const [view3d, setView3d] = useState(false)
   useEffect(() => { if (step !== 'published') return; const t = setInterval(() => setPhones(classroom.phones), 600); return () => clearInterval(t) }, [step])
   const fileRef = useRef<HTMLInputElement>(null)
 
@@ -160,9 +162,9 @@ export function Workbench() {
 
         {/* 02 · sheet */}
         <section className="wb-pane wb-sheet">
-          <header className="wb-pane-h"><span className="kicker">02 · Tactile sheet</span><span className="mono">A4 · 210 × 297 mm</span></header>
-          <div className="wb-pane-b wb-canvas-body">
-            {tdm && step !== 'understand' ? (
+          <header className="wb-pane-h"><span className="kicker">02 · {view3d ? 'Relief' : 'Tactile sheet'}</span>{tdm && step !== 'understand' ? <span className="wb-seg mono"><button className={!view3d ? 'on' : ''} onClick={() => setView3d(false)}>sheet</button><button className={view3d ? 'on' : ''} onClick={() => setView3d(true)}>3-D</button></span> : <span className="mono">A4 · 210 × 297 mm</span>}</header>
+          <div className={`wb-pane-b wb-canvas-body ${view3d ? 'relief' : ''}`}>
+            {tdm && step !== 'understand' && view3d ? <ReliefViewer tdm={tdm} /> : tdm && step !== 'understand' ? (
               <TdmCanvas tdm={tdm} selected={selected} highlight={highlight} onSelect={onPick} showKey showRelations paper="#fbf8f1" marker={blockingSel} />
             ) : (
               <div className="wb-ghost-sheet"><span className="mono">{step === 'understand' ? (stage || 'redesigning for a fingertip') + '…' : 'the redesigned sheet appears here'}</span></div>

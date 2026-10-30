@@ -5,7 +5,7 @@ import { ValidatorReplay, useDraftFacts } from './ValidatorReplay'
 import { BrailleLine, Count } from './BrailleLine'
 import { useReveal, useActiveSection } from './useReveal'
 import { BrailleCells } from '../../components/BrailleCells'
-import { Relief3D } from './Relief3D'
+import { ReliefViewer } from '../../components/ReliefViewer'
 import type { Tdm } from '../../tdm/types'
 import heartJson from '../../samples/sample-heart.tdm.json'
 import heartPhoto from '../../opener/heart.png'
@@ -34,7 +34,6 @@ function untilt(e: React.PointerEvent<HTMLElement>) { e.currentTarget.style.setP
 export function Landing() {
   const root = useRef<HTMLElement>(null)
   const [active, setActive] = useState('top')
-  const [sheetFocus, setSheetFocus] = useState<string | null>(null)
   const facts = useDraftFacts()
   useReveal(root)
   useActiveSection(IDS, useCallback((id: string) => setActive(id), []))
@@ -71,7 +70,7 @@ export function Landing() {
         </div>
         <div className="ld-hero-sheet" data-rv style={{ ['--d' as string]: '.12s' }}>
           <div className="ld-sheet-label mono"><span>the student app · live</span><span>{heart.regions.length} parts · {textures} textures · {heart.key.length}-entry key</span></div>
-          <TouchSheet tdm={heart} onFocus={setSheetFocus} />
+          <TouchSheet tdm={heart} />
         </div>
       </section>
 
@@ -92,7 +91,7 @@ export function Landing() {
             <li><b>validate</b><span>{facts.findings.length} findings → 0</span></li>
             <li><b>teacher</b><span>confirms · publishes</span></li>
           </ol>
-          <figure className="ld-cmp relief" data-rv style={{ ['--d' as string]: '.18s' }}><Relief3D tdm={heart} highlight={sheetFocus ? [sheetFocus] : []} /><figcaption><span className="mono">after</span><b>The tactile relief</b><span className="mono">{heart.regions.length} regions · {textures} textures · braille key · A4 · prints as STL</span></figcaption></figure>
+          <figure className="ld-cmp relief" data-rv style={{ ['--d' as string]: '.18s' }}><div className="ld-rv"><ReliefViewer tdm={heart} caption={false} /></div><figcaption><span className="mono">after</span><b>The tactile relief, as it prints</b><span className="mono">{heart.regions.length} regions · {textures} textures · braille domes · drag to turn</span></figcaption></figure>
         </div>
       </section>
 
