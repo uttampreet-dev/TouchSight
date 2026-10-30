@@ -1,0 +1,56 @@
+{
+  "id": "bio-heart-02",
+  "subject": "biology",
+  "class": 10,
+  "source": "Synthetic line-art schematic drawn for the benchmark (NCERT-style: outlines, four chambers, vessels, leader-lined labels)",
+  "image": "raw/bio-heart-02.png",
+  "regions": [
+    "Right atrium",
+    "Right ventricle",
+    "Left atrium",
+    "Left ventricle"
+  ],
+  "lines": [
+    "Aorta",
+    "Pulmonary artery",
+    "Superior vena cava",
+    "Inferior vena cava",
+    "Septum"
+  ],
+  "labels": [
+    "Right atrium",
+    "Right ventricle",
+    "Left atrium",
+    "Left ventricle",
+    "Aorta",
+    "Pulmonary artery",
+    "Superior vena cava",
+    "Inferior vena cava",
+    "Septum"
+  ],
+  "labelsPrinted": 9,
+  "relations": [
+    [
+      "Right atrium",
+      "flows-into",
+      "Right ventricle"
+    ],
+    [
+      "Left atrium",
+      "flows-into",
+      "Left ventricle"
+    ],
+    [
+      "Left ventricle",
+      "flows-into",
+      "Aorta"
+    ],
+    [
+      "Right ventricle",
+      "flows-into",
+      "Pulmonary artery"
+    ]
+  ],
+  "difficulty": "easy",
+  "notes": "clean black-on-white line drawing; what a photocopied textbook figure looks like"
+}

@@ -74,7 +74,7 @@ function contoursToRegions(cv: CV, contours: InstanceType<CV['MatVector']>, imgA
     const area = cv.contourArea(c)
     if (area < imgArea * MIN_AREA_FRAC || area > imgArea * MAX_AREA_FRAC) { c.delete(); continue }
     const approx = new cv.Mat()
-    cv.approxPolyDP(c, approx, 0.008 * cv.arcLength(c, true), true)
+    cv.approxPolyDP(c, approx, 0.004 * cv.arcLength(c, true), true)
     const polygon: Px[] = []
     for (let k = 0; k < approx.rows; k++) polygon.push([approx.data32S[k * 2], approx.data32S[k * 2 + 1]])
     const r = cv.boundingRect(c)

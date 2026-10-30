@@ -1,5 +1,5 @@
 import type { Tdm, TdmRegion, TdmLine, Texture, Point } from './types'
-import { area, boundaryDistance, bbox, centroid, contains, intersectionArea, offset, union, difference, simplifyPolygon, simplifyPolyline, polylineLength, segmentsIntersect } from './geometry'
+import { area, boundaryDistance, bbox, centroid, contains, intersectionArea, intersection, offset, union, difference, simplifyPolygon, simplifyPolyline, polylineLength, segmentsIntersect } from './geometry'
 
 /**
  * Stage 3 — Simplify. Turns a draft model into one a fingertip can read.
@@ -16,6 +16,7 @@ export const RULES = {
   minLineWidth: 1.2, // mm
   outlineTolerance: 0.6, // mm, Douglas–Peucker
   vertexSpacing: 1.5, // mm, no two vertices closer than this
+  smoothRadius: 2.0, // mm, protrusions and notches narrower than twice this are rounded away
   adjacency: 5.0, // mm, regions this close must differ in texture
   keyRowHeight: 7.0, // mm per braille key row
   keyGap: 10.0, // mm between diagram and key
@@ -68,8 +69,16 @@ export function simplify(input: Tdm): { tdm: Tdm; report: SimplifyReport } {
     }
   }
 
-  // 1. clean outlines
-  regions = regions.map((r) => ({ ...r, polygon: simplifyPolygon(r.polygon, RULES.outlineTolerance, RULES.vertexSpacing) }))
+  // 1. clean outlines: round off spikes and notches a fingertip cannot resolve, then thin the vertices
+  const smooth = (poly: Point[]): Point[] => {
+    const opened = offset(poly, -RULES.smoothRadius)
+    const o2 = opened ? offset(opened, RULES.smoothRadius) : null
+    const closed = o2 ? offset(o2, RULES.smoothRadius * 0.75) : null
+    const c2 = closed ? offset(closed, -RULES.smoothRadius * 0.75) : null
+    const out = c2 && area(c2) >= RULES.minRegionArea * 0.5 ? c2 : poly
+    return simplifyPolygon(out, RULES.outlineTolerance, RULES.vertexSpacing)
+  }
+  regions = regions.map((r) => ({ ...r, polygon: smooth(r.polygon) }))
   lines = lines.map((l) => ({ ...l, path: simplifyPolyline(l.path, RULES.outlineTolerance), width: Math.max(l.width, RULES.minLineWidth) }))
 
   // 2. slivers
@@ -84,22 +93,53 @@ export function simplify(input: Tdm): { tdm: Tdm; report: SimplifyReport } {
     return ok
   })
 
-  // 3. duplicates and heavy overlaps: a nested near-copy is dropped; a big overlap merges into the better-named one
+  // 2b. containers: a region holding two or more other parts is a silhouette or outline, not a part of its own.
+  //     It keeps its outline, takes no texture, and is left out of the separation loop below.
+  //     "Holding" is measured by area, not strict geometry: a chamber's outline sits on the wall it shares with the
+  //     silhouette, so after smoothing it can poke a fraction of a millimetre outside and still be inside the part.
   regions.sort((a, b) => area(b.polygon) - area(a.polygon))
+  const mostlyInside = (outer: Point[], part: Point[]) => intersectionArea(outer, part) >= 0.9 * area(part)
+  const containerIds = new Set<string>()
+  for (const r of regions) {
+    const held = regions.filter((o) => o !== r && area(o.polygon) < 0.8 * area(r.polygon) && mostlyInside(r.polygon, o.polygon))
+    if (held.length >= 2) { containerIds.add(r.id); r.texture = 'empty' }
+  }
+  const isContainer = (r: TdmRegion) => containerIds.has(r.id)
+
+  // 3. duplicates and heavy overlaps: a nested near-copy is dropped; a big overlap merges into the better-named one
   for (let i = 0; i < regions.length; i++) {
     for (let j = regions.length - 1; j > i; j--) {
       const A = regions[i], B = regions[j]
+      if (isContainer(A) || isContainer(B)) {
+        // a part straddling its outline is clipped to the outline's inside, a gap away from it
+        const [outer, partIdx] = isContainer(A) ? [A, j] : [B, i]
+        const part = regions[partIdx]
+        if (isContainer(part) || contains(outer.polygon, part.polygon) || !intersectionArea(outer.polygon, part.polygon)) continue
+        const inside = offset(outer.polygon, -(RULES.minGap + 0.1))
+        const clipped = inside ? intersection(part.polygon, inside) : null
+        if (clipped && area(clipped) >= RULES.minRegionArea) regions[partIdx] = { ...part, polygon: simplifyPolygon(clipped, RULES.outlineTolerance, RULES.vertexSpacing) }
+        else { dropped.push({ id: part.id, why: `straddles the outline of ${outer.id} with too little inside` }); regions.splice(partIdx, 1); j = regions.length }
+        continue
+      }
       const aA = area(A.polygon), aB = area(B.polygon)
       const inter = intersectionArea(A.polygon, B.polygon)
       if (!inter) continue
-      const nestedCopy = contains(A.polygon, B.polygon) && aB / aA > 0.85
-      const heavy = inter / Math.min(aA, aB) > 0.6 && !contains(A.polygon, B.polygon)
+      const nestedIn = mostlyInside(A.polygon, B.polygon)
+      const nestedCopy = nestedIn && aB / aA > 0.85
+      const heavy = inter / Math.min(aA, aB) > 0.6 && !nestedIn
       if (nestedCopy) {
         const keep = hasRealName(B) && !hasRealName(A) ? B : A
         const drop = keep === A ? B : A
         if (keep === B) { regions[i] = { ...B, polygon: A.polygon }; }
         dropped.push({ id: drop.id, why: `near-duplicate outline of ${keep.id}` })
         regions.splice(j, 1)
+      } else if (nestedIn) {
+        // a part inside another part (a nucleus in a cell): both stay, the inner one keeps a gap from the outer outline
+        if (contains(A.polygon, B.polygon)) continue
+        const inside = offset(A.polygon, -(RULES.minGap + 0.1))
+        const clipped = inside ? intersection(B.polygon, inside) : null
+        if (clipped && area(clipped) >= RULES.minRegionArea) regions[j] = { ...B, polygon: simplifyPolygon(clipped, RULES.outlineTolerance, RULES.vertexSpacing) }
+        else { dropped.push({ id: B.id, why: `inside ${A.id} with too little left once a gap is kept from its outline` }); regions.splice(j, 1) }
       } else if (heavy && (!hasRealName(A) || !hasRealName(B))) {
         const keep = hasRealName(B) ? B : A
         const absorbed = keep === A ? B : A
@@ -136,6 +176,16 @@ export function simplify(input: Tdm): { tdm: Tdm; report: SimplifyReport } {
         if (d >= RULES.minGap) continue
         const deficit = RULES.minGap - d + 0.1
         const nested = contains(A.polygon, B.polygon) || contains(B.polygon, A.polygon)
+        if (nested && (isContainer(A) || isContainer(B))) {
+          // part inside its outline: shrink the part away from the outline, never drop it
+          const inner = isContainer(A) ? j : i
+          const outerIdx = inner === i ? j : i
+          const shrunk = offset(regions[inner].polygon, -deficit)
+          if (shrunk && area(shrunk) >= RULES.minRegionArea) { regions[inner] = { ...regions[inner], polygon: shrunk }; moved = true; continue }
+          dropped.push({ id: regions[inner].id, why: `too small once moved ${RULES.minGap} mm clear of the outline of ${regions[outerIdx].id}` })
+          regions.splice(inner, 1)
+          continue outer
+        }
         if (nested) {
           // keep the outer, shrink the inner
           const inner = contains(A.polygon, B.polygon) ? j : i
@@ -165,6 +215,8 @@ export function simplify(input: Tdm): { tdm: Tdm; report: SimplifyReport } {
   return finish()
 
   function finish() {
+    // final sweep: vertex thinning after a clip can shave a part under the minimum; nothing undersized leaves here
+    regions = regions.filter((r) => { const ok = area(r.polygon) >= RULES.minRegionArea; if (!ok) dropped.push({ id: r.id, why: `area ${area(r.polygon).toFixed(0)} mm² after redesign` }); return ok })
   // 5a. lines (after the regions have settled): the stroke detector returns duplicates and crowds. Keep a line when it is unique and either stands
   //     clear of everything or connects to something; between two crowded lines the shorter goes.
   lines.sort((a, b) => polylineLength(b.path) - polylineLength(a.path))
@@ -193,14 +245,15 @@ export function simplify(input: Tdm): { tdm: Tdm; report: SimplifyReport } {
     const order = [...Array(n).keys()].sort((a, b) => adj[b].size - adj[a].size)
     const tex: Texture[] = Array(n)
     for (const i of order) {
-      const used = new Set([...adj[i]].map((k) => tex[k]).filter(Boolean))
+      if (isContainer(regions[i])) { tex[i] = 'empty'; continue }
+      const used = new Set<Texture>([...adj[i]].map((k) => tex[k]).filter((t): t is Texture => !!t && t !== 'empty'))
       tex[i] = TEXTURE_ORDER.find((t) => !used.has(t)) ?? TEXTURE_ORDER[i % TEXTURE_ORDER.length]
     }
     regions = regions.map((r, i) => ({ ...r, texture: tex[i] }))
 
-    // 7. reading order: top-left serial scan in 20 mm bands, then follow relations
-    const items = [...regions.map((r) => ({ id: r.id, c: centroid(r.polygon) })), ...lines.map((l) => ({ id: l.id, c: l.path[0] }))]
-    items.sort((a, b) => Math.floor(a.c[1] / 20) - Math.floor(b.c[1] / 20) || a.c[0] - b.c[0])
+    // 7. reading order: the parts first, then the lines; each group is a top-left serial scan in 20 mm bands, then relations
+    const band = (a: { c: Point }, b: { c: Point }) => Math.floor(a.c[1] / 20) - Math.floor(b.c[1] / 20) || a.c[0] - b.c[0]
+    const items = [...regions.map((r) => ({ id: r.id, c: centroid(r.polygon) })).sort(band), ...lines.map((l) => ({ id: l.id, c: l.path[0] })).sort(band)]
     const seen = new Set<string>()
     const readingOrder: string[] = []
     const push = (id: string) => { if (!seen.has(id)) { seen.add(id); readingOrder.push(id) } }

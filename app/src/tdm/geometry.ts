@@ -93,6 +93,18 @@ export function union(polys: Point[][]): Point[] | null {
   return fromClip(out[0])
 }
 
+/** A ∩ B; returns the largest piece. */
+export function intersection(a: Point[], b: Point[]): Point[] | null {
+  const c = new ClipperLib.Clipper()
+  c.AddPath(toClip(a), ClipperLib.PolyType.ptSubject, true)
+  c.AddPath(toClip(b), ClipperLib.PolyType.ptClip, true)
+  const out: ClipperLib.Paths = []
+  c.Execute(ClipperLib.ClipType.ctIntersection, out, ClipperLib.PolyFillType.pftNonZero, ClipperLib.PolyFillType.pftNonZero)
+  if (!out.length) return null
+  out.sort((p, q) => Math.abs(ClipperLib.Clipper.Area(q)) - Math.abs(ClipperLib.Clipper.Area(p)))
+  return fromClip(out[0])
+}
+
 /** A minus B; returns the largest remaining piece. */
 export function difference(a: Point[], b: Point[]): Point[] | null {
   const c = new ClipperLib.Clipper()

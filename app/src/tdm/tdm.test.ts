@@ -123,6 +123,8 @@ describe('Stage 3+4 on real drafts from the understand stage', () => {
       const v = validate(tdm)
       const ms = Math.round(performance.now() - t0)
       const geomBlocking = v.blocking.filter((b) => ['S1', 'S2', 'S3', 'T1', 'M1', 'R1', 'R2'].includes(b.rule))
+      for (const d of report.dropped) rows.push(`    dropped ${d.id}: ${d.why}`)
+      for (const m of report.merged) rows.push(`    merged ${m.absorbed} into ${m.kept}`)
       rows.push(`${f.replace('.draft.tdm.json', '')}: regions ${report.regionsIn}→${report.regionsOut}, lines ${report.linesIn}→${report.linesOut}, gap ${report.minGapBefore}→${report.minGapAfter} mm, passes ${report.separationPasses}, textures ${report.textures}, scale ${report.scaledBy}, ${ms} ms, blocking ${v.blocking.length} (${v.blocking.map((b) => b.rule).join(',')}), advisory ${v.advisory.length}`)
       expect(geomBlocking.map((b) => `${b.rule}: ${b.msg}`), f).toEqual([])
     }

@@ -41,6 +41,10 @@ export function associate(labels: Label[], regions: RegionCandidate[], segments:
   const out: Association[] = []
   const leaderPad = 22 * scalePx
   const nearestMax = 70 * scalePx
+  const leaderReach = 45 * scalePx
+  const centre = (r: RegionCandidate): Px => { const n = r.polygon.length; return [r.polygon.reduce((a, p) => a + p[0], 0) / n, r.polygon.reduce((a, p) => a + p[1], 0) / n] }
+  // a region holding two or more smaller regions is an outline, not a part of its own
+  const isSilhouette = (r: RegionCandidate) => regions.filter((o) => o !== r && o.area < 0.8 * r.area && pointInPolygon(centre(o), r.polygon)).length >= 2
   for (const lb of labels) {
     // smallest region containing the label centre
     const containing = regions.filter((r) => pointInPolygon(lb.centre, r.polygon)).sort((a, b) => a.area - b.area)[0]
@@ -52,8 +56,14 @@ export function associate(labels: Label[], regions: RegionCandidate[], segments:
       const aNear = nearBox(s.a, lb.bbox, leaderPad), bNear = nearBox(s.b, lb.bbox, leaderPad)
       if (!aNear && !bNear) continue
       const far = aNear ? s.b : s.a
-      const hit = regions.filter((r) => pointInPolygon(far, r.polygon)).sort((a, b) => a.area - b.area)[0]
-      const target = hit ?? regions.map((r) => ({ r, d: distToPolygon(far, r.polygon) })).filter((x) => x.d < 25 * scalePx).sort((a, b) => a.d - b.d)[0]?.r
+      let hit = regions.filter((r) => pointInPolygon(far, r.polygon)).sort((a, b) => a.area - b.area)[0]
+      if (hit && isSilhouette(hit)) {
+        // the leader ends on the wall of a part drawn inside the outline: the part it touches is the target, not the outline
+        const wall = regions.filter((r) => r !== hit && r.area < hit.area).map((r) => ({ r, d: distToPolygon(far, r.polygon) })).filter((x) => x.d < leaderReach).sort((a, b) => a.d - b.d)[0]
+        if (wall) hit = wall.r
+      }
+      // a leader that stops short of its part (the stroke detector clips ends): nearest part within reach, outlines last
+      const target = hit ?? regions.map((r) => ({ r, d: distToPolygon(far, r.polygon) })).filter((x) => x.d < leaderReach).sort((a, b) => Number(isSilhouette(a.r)) - Number(isSilhouette(b.r)) || a.d - b.d)[0]?.r
       if (target) { found = { labelId: lb.id, regionId: target.id, how: 'leader', leaderId: s.id, distance: 0 }; break }
     }
     if (found) { out.push(found); continue }

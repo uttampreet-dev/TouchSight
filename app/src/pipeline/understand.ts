@@ -2,7 +2,7 @@ import { loadImage, prepare, fitToSheet, toMm, type Prepared, type SheetFit } fr
 import { segment, type RegionCandidate } from './segment'
 import { readLabels, type Label } from './ocr'
 import { detectSegments, type Segment } from './lines'
-import { associate, type Association } from './associate'
+import { associate, pointInPolygon, distToPolygon, type Association } from './associate'
 import type { Tdm, TdmRegion, TdmLine, Texture } from '../tdm/types'
 import { TEXTURES } from '../tdm/types'
 
@@ -68,10 +68,16 @@ export function draftTdm(u: Understanding, meta: { id: string; title: string; su
       sourceLabel: lb ? { text: lb.text, ocrConfidence: lb.confidence } : undefined,
     }
   })
-  const minLine = 60 * (Math.max(u.prepared.width, u.prepared.height) / 1000)
+  // A stroke is content (a vessel, wire, axis or connector) when it joins two parts or is long; a short stroke
+  // with a free end is a label leader, and leaders are not drawn on a tactile graphic — the key replaces them.
+  const px = Math.max(u.prepared.width, u.prepared.height)
+  const longStroke = 0.25 * px
+  const near = 6 * (px / 1000)
+  const touchesRegion = (p: [number, number]) => u.regions.some((r) => pointInPolygon(p, r.polygon) || distToPolygon(p, r.polygon) <= near)
   const lines: TdmLine[] = u.segments
-    .filter((s) => !leaderIds.has(s.id) && s.length >= minLine)
-    .slice(0, 24)
+    .filter((s) => !leaderIds.has(s.id) && s.length >= 30 * (px / 1000))
+    .filter((s) => s.length >= longStroke || (touchesRegion(s.a) && touchesRegion(s.b)))
+    .slice(0, 16)
     .map((s, i) => ({
       id: `l-${String(i + 1).padStart(2, '0')}`,
       name: { en: `Line ${i + 1}` },

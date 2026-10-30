@@ -1,19 +1,27 @@
-import { Link, Route, Routes } from 'react-router-dom'
+import { Link, NavLink, Route, Routes } from 'react-router-dom'
 import { Brand } from '../components/Brand'
 import { Understand } from './teacher/Understand'
+import { Workbench } from './teacher/Workbench'
+import { Library } from './teacher/Library'
+import './teacher/teacher.css'
 
 export function Teacher() {
   return (
-    <main>
-      <header style={{ display: 'flex', alignItems: 'center', gap: 20, padding: '14px 20px', borderBottom: '1px solid var(--line)' }}>
+    <main className="tc">
+      <header className="tc-head">
         <Link to="/" style={{ textDecoration: 'none' }}><Brand /></Link>
         <span className="kicker">Teacher console</span>
-        <nav style={{ display: 'flex', gap: 14, marginLeft: 'auto' }} className="mono">
-          <Link to="/teacher/understand">understand</Link>
+        <nav className="tc-nav mono">
+          <NavLink to="/teacher" end>new</NavLink>
+          <NavLink to="/teacher/library">library</NavLink>
+          <NavLink to="/teacher/inspect">inspect</NavLink>
         </nav>
       </header>
       <Routes>
-        <Route index element={<p style={{ padding: 20, color: 'var(--slate)' }}>Capture → review → validate → publish.</p>} />
+        <Route index element={<Workbench />} />
+        <Route path="d/:id" element={<Workbench />} />
+        <Route path="library" element={<Library />} />
+        <Route path="inspect" element={<Understand />} />
         <Route path="understand" element={<Understand />} />
       </Routes>
     </main>
