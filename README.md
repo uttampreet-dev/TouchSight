@@ -1,0 +1,176 @@
+# TouchSight
+
+**A textbook can have a braille edition. A blackboard can't.**
+
+Every diagram a teacher draws, photocopies or projects is invisible to a blind student on the day it is taught.
+TouchSight is an **accessibility compiler for diagrams**: it reads a diagram's structure, redesigns that
+structure for a fingertip, and renders one verified model as touch, audio, quiz and print.
+
+![React](https://img.shields.io/badge/React-19-20232a?logo=react&logoColor=61dafb)
+![Vite](https://img.shields.io/badge/Vite-8-646cff?logo=vite&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-7-3178c6?logo=typescript&logoColor=white)
+![OpenCV.js](https://img.shields.io/badge/OpenCV.js-5-5c3ee8?logo=opencv&logoColor=white)
+![Tesseract.js](https://img.shields.io/badge/Tesseract.js-7-2b6cb0)
+![liblouis](https://img.shields.io/badge/liblouis-3.2-0e7c7b)
+
+It is not an image describer, a braille translator or a model that draws a new picture. Those exist. The
+compiler and its validator are the contribution.
+
+## Why a fingertip needs a compiler, not a filter
+
+| Physical fact | What it forces |
+|---|---|
+| A fingertip resolves ~1–2 mm; raised lines closer than ~3 mm merge into one ridge | Geometry is re-spaced, not scaled |
+| Touch reads serially, one region at a time; vision reads in parallel | Detail is cut to what survives serial reading |
+| Colour, shading, gradients and hairlines carry no tactile information | Meaning moves into texture, outline and a braille key |
+
+So the middle stage, **Simplify**, is a constraint solver over real geometry at print size, and a deterministic
+**validator** refuses to publish anything a fingertip could not read.
+
+## What is in the box
+
+```
+photo / page ─► UNDERSTAND ─► draft TDM ─► SIMPLIFY ─► VALIDATE ─► teacher review ─► PUBLISH
+                regions,                   re-space,    S1 S2 S3 T1   confirm relations,      │
+                labels (OCR),              textures,    K1 M1 R1 R2   rename, merge, remove   │
+                strokes, relations         key, order   R3                                     ▼
+                                                              ┌──────── one Tactile Diagram Model ────────┐
+                                                              ▼              ▼            ▼              ▼
+                                                      STUDENT APP       PROJECTOR      EXPORTS        LIBRARY
+                                                      haptic explore,   finger trail,  tactile SVG,   per chapter,
+                                                      audio tour,       captions,      STL relief,    offline,
+                                                      quiz, braille key round trip     BRF key, alt   on the phone
+```
+
+Three surfaces, one codebase, no server:
+
+- **Teacher console** (laptop): photograph or drop a figure → regions, labels and strokes are read in the
+  browser (OpenCV.js + Tesseract.js) → the solver redesigns it → the validator lists every blocking finding by
+  rule → the teacher confirms detected relations, renames, merges, removes → publish → export.
+- **Student app** (Android phone, installed from the browser, works with Wi-Fi off): a finger on the screen
+  feels a tick at every boundary and a different rhythm per texture, hears the part's name when it rests, can
+  take an audio tour in reading order, be quizzed ("find the left ventricle", the finger is the answer), and read
+  the braille key. English, Hindi and Punjabi.
+- **Projector view** (laptop): mirrors the student's finger live through a relay on the app's own origin,
+  with a trail, boundary flashes, captions and a measured round trip.
+
+## The Tactile Diagram Model
+
+Everything downstream reads one JSON document, in millimetres on an A4 sheet:
+
+```json
+{
+  "tdm": "0.1", "id": "heart", "title": "The human heart", "sheet": { "w": 210, "h": 297, "margin": 15 },
+  "regions": [{ "id": "r-la", "name": { "en": "Left atrium", "hi": "बायाँ आलिंद" }, "polygon": [[106,53],[146,53],[146,95],[106,95]],
+                "texture": "dots", "keyRef": "c", "confidence": 0.96, "meaning": "receives oxygenated blood from the lungs" }],
+  "lines":   [{ "id": "l-01", "name": { "en": "Aorta" }, "path": [[120,20],[150,40]], "width": 1.2, "style": "single", "arrow": "end", "keyRef": "f" }],
+  "relations": [{ "from": "r-la", "to": "r-lv", "kind": "flows-into", "direction": "forward", "source": "teacher" }],
+  "key": [{ "ref": "c", "regionId": "r-la", "text": { "en": "Left atrium" }, "braille": { "en": "⠠⠇⠑⠋⠞ ⠁⠞⠗⠊⠥⠍" } }],
+  "readingOrder": ["r-ra", "r-rv", "r-la", "r-lv", "l-01"],
+  "validation": { "status": "pass", "blocking": [], "advisory": [] },
+  "provenance": { "pipeline": "0.1", "teacherReviewed": true, "reviewedAt": "2026-10-30T09:12:00+05:30" }
+}
+```
+
+Full schema: [docs/TDM-SPEC.md](docs/TDM-SPEC.md).
+
+## The validator
+
+Deterministic, located, named. A model with any blocking finding cannot be published.
+
+| Rule | Checks | Threshold | Blocks |
+|---|---|---|---|
+| S1 | Separation between raised elements | ≥ 3.0 mm (BANA 2010) | yes |
+| S2 | Minimum region area; minimum line length | ≥ 60 mm²; ≥ 8 mm | yes |
+| S3 | Minimum raised line width | ≥ 1.2 mm | yes |
+| T1 | Neighbouring regions use different textures | within 5 mm | yes |
+| K1 | Braille key fits the sheet, laid out exactly as it prints | 10 mm line pitch, 6 mm cells | yes |
+| M1 | Everything inside the sheet margins | 15 mm | yes |
+| R1 | Relations reference existing elements | — | yes |
+| R2 | Every element in the reading order exactly once | — | yes |
+| R3 | Every relation the pipeline detected is confirmed or removed by a teacher | — | yes |
+| O1 | OCR confidence of every label used | ≥ 0.75 | advisory |
+| N1 | Every element has a real name | — | advisory |
+
+A finding looks like `S1: Left atrium and Right atrium are 1.8 mm apart (min 3)` with the ids and the spot on
+the sheet. Rules, thresholds and sources: [docs/VALIDATOR-RULES.md](docs/VALIDATOR-RULES.md).
+
+## Measured
+
+From [benchmark/RESULTS.md](benchmark/RESULTS.md): eight figures (six from Wikimedia Commons, two synthetic
+line-art schematics), headless Chromium, production build, no network, every figure through understand →
+redesign → validate → exports with no teacher. Two tables on purpose: a figure can pass every geometric rule and
+still be semantically wrong.
+
+**Semantic, what it read**
+
+| Figure | Difficulty | Labels read | Regions named | Relations proposed · match truth |
+|---|---|---|---|---|
+| bio-digestive-01 | hard | 29/30 (97%) | 3/7 (43%) | 6 · 1/4 |
+| bio-eye-01 | medium | 18/19 (95%) | 1/7 (14%) | 1 · 0/3 |
+| bio-flower-01 | medium | 16/17 (94%) | 1/6 (17%) | 3 · 0/5 |
+| bio-heart-01 | hard | 9/14 (64%) | 0/4 (0%) | 7 · 0/4 |
+| bio-heart-02 | easy | 9/9 (100%) | 4/4 (100%) | 6 · 2/4 |
+| bio-plantcell-01 | medium | 21/22 (95%) | 2/6 (33%) | 5 · 0/3 |
+| bio-plantcell-02 | easy | 6/8 (75%) | 4/9 (44%) | 1 · 0/2 |
+| geo-watercycle-01 | hard | 11/24 (46%) | 1/4 (25%) | 4 · 0/3 |
+
+Mean label recall **83%**, mean region recall **35%** (100% on clean line art, which is what a photocopied
+textbook figure looks like; 0–44% on shaded colour figures).
+
+**Geometric, what it made**
+
+| First-run validator geometry clean | Min gap before → after | All four exports | End to end, median |
+|---|---|---|---|
+| 8/8 | 0.0–1.2 mm → 3.1 mm on every figure | 8/8 (every STL shell closed) | 1.7 s |
+
+Teacher-correction counts and the eyes-closed location test are logged by hand in
+[benchmark/CORRECTIONS.md](benchmark/CORRECTIONS.md) and [benchmark/USABILITY.md](benchmark/USABILITY.md).
+
+## What it cannot do yet
+
+- **Naming regions on colour figures is the weak link** (region recall 35% across the set, 100% on clean line
+  art). Labels are read well; tying a label to the right enclosed area fails over gradients, broken leader lines
+  and white pockets between organs. The teacher renames in the console.
+- **Relations are proposed from stroke adjacency only.** They are often wrong, which is why rule R3 blocks
+  every one until a teacher confirms it.
+- **3-D shaded colour figures** read at 64% and **low-resolution paintings** at 46% label recall.
+- **Hand-drawn chalk on a blackboard** is not supported. Clean printed, photocopied or projected figures are the
+  target.
+- **Haptics are Android-only** (iOS Safari has no Vibration API); audio, quiz and print work everywhere. A phone
+  screen is for exploration; the raised print is the study artefact.
+- **The live projector mirror needs the phone and laptop on one link** (a hotspot and tunnel, or the same
+  machine); the student app itself needs no network.
+- **Braille tables** (UEB grade 1, Bharati Hindi and Punjabi via liblouis) have not yet been checked by a braille
+  reader.
+
+Full list: [benchmark/LIMITS.md](benchmark/LIMITS.md).
+
+## Run it
+
+```bash
+cd app && npm install
+npm run build
+node scripts/serve.mjs 4173        # app on http://localhost:4173, projector relay at /relay
+```
+
+Open `/teacher` on the laptop, `/student` on an Android phone (add to home screen, then turn Wi-Fi off),
+`/stage` on the projector. For a phone on another network, expose the port over https
+(`cloudflared tunnel --url http://localhost:4173`); the phone needs https for installation and vibration.
+
+Development: `npm run dev`. Tests: `npm test` (model, solver, validator, explorer, exports, 23 tests).
+Benchmark: `npm run benchmark` rewrites `benchmark/RESULTS.md` from a full headless run; a partial run never
+overwrites it.
+
+## Repository
+
+```
+app/            the web app: src/pipeline (understand), src/tdm (model, solver, validator, edits),
+                src/export (SVG, STL, BRF, alt-text), src/student (explorer, braille), src/routes (screens),
+                scripts/ (static server + relay, headless harnesses, benchmark runner)
+docs/           TDM-SPEC.md, VALIDATOR-RULES.md
+benchmark/      raw figures and sources, truth files, RESULTS.md, LIMITS.md, results/ (overlays, exports, screens)
+examples/       a hand-authored heart model
+```
+
+Figure sources and licences: [benchmark/raw/SOURCES.md](benchmark/raw/SOURCES.md).
