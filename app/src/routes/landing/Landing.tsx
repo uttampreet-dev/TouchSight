@@ -78,11 +78,11 @@ export function Landing() {
       <div className="ld-ticker" aria-hidden><div className="ld-ticker-in mono">{[...facts.findings.slice(0, 12), ...facts.findings.slice(0, 12)].map((f, i) => <span key={i}><em>{f.rule}</em> {f.msg}</span>)}</div></div>
 
       {/* compiled */}
-      <section className="ld-sec" id="compile">
+      <section className="ld-sec ld-paper" id="compile">
         <div className="ld-sec-head">
           <p className="ld-eyebrow mono" data-rv>⠼⠁ 01 · compiled, not described</p>
           <h2 className="ld-h2" data-rv>What the teacher drew. What the fingertip gets.</h2>
-          <BrailleLine text="What the teacher drew. What the fingertip gets." className="light" />
+          <BrailleLine text="What the teacher drew. What the fingertip gets." />
         </div>
         <div className="ld-compare">
           <figure className="ld-cmp" data-rv><img src={heartPhoto} alt="A textbook line drawing of the heart with nine printed labels" /><figcaption><span className="mono">before</span><b>The textbook page</b><span className="mono">9 labels · 16 strokes · 0.8 s to read</span></figcaption></figure>
@@ -137,7 +137,7 @@ export function Landing() {
         </div>
       </section>
 
-      <section className="ld-close">
+      <section className="ld-close ld-paper">
         <h2 className="ld-h2 center" data-rv>Photograph a diagram.<br />Hand the phone to a student.</h2>
         <div className="ld-dock center" data-rv><Link className="ld-btn solid" to="/teacher">Open the teacher console →</Link><Link className="ld-btn" to="/student">Student app</Link><Link className="ld-btn" to="/stage">Projector</Link></div>
       </section>
