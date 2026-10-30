@@ -79,6 +79,6 @@ wss.on('connection', (ws) => {
     for (const c of wss.clients) if (c !== ws && c.readyState === 1 && !c.room) c.send(text)
     // a phone in a room still mirrors to a projector that has not joined any room
   })
-  ws.on('close', () => { console.log(`${stamp()} close room=${ws.room || '-'} role=${ws.role || '-'}`) if (ws.room) toRoom(ws.room, { type: 'class', op: 'presence', room: ws.room, phones: [...wss.clients].filter((c) => c !== ws && c.room === ws.room && c.role === 'student').length, student: ws.student, joined: false }) })
+  ws.on('close', () => { console.log(`${stamp()} close room=${ws.room || '-'} role=${ws.role || '-'}`); if (ws.room) toRoom(ws.room, { type: 'class', op: 'presence', room: ws.room, phones: [...wss.clients].filter((c) => c !== ws && c.room === ws.room && c.role === 'student').length, student: ws.student, joined: false }) })
 })
 server.listen(PORT, '0.0.0.0', () => console.log(`serving dist on http://0.0.0.0:${PORT} (relay at /relay)`))
