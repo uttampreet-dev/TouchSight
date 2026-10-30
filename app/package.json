@@ -15,6 +15,8 @@
     "@techstark/opencv-js": "^5.0.0-release.1",
     "clipper-lib": "^6.4.2",
     "idb": "^8.0.4",
+    "liblouis": "^0.4.0",
+    "liblouis-build": "^3.2.0-rc",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "react-router-dom": "^7.18.5",

@@ -122,6 +122,10 @@ import { segment as _segment } from './segment'
 import { detectSegments as _detectSegments } from './lines'
 import { readLabels as _readLabels } from './ocr'
 import { loadCv as _loadCv } from './cv'
+import { simplify as _simplify } from '../tdm/simplify'
+import { validate as _validate } from '../tdm/validate'
+import * as _edit from '../tdm/edit'
+import { serializeTdm as _serializeTdm } from '../tdm/io'
 if (typeof window !== 'undefined') {
-  window.__touchsight = { understand, draftTdm, segment: _segment, detectSegments: _detectSegments, readLabels: _readLabels, loadCv: _loadCv, loadImage, prepare }
+  window.__touchsight = { understand, draftTdm, segment: _segment, detectSegments: _detectSegments, readLabels: _readLabels, loadCv: _loadCv, loadImage, prepare, simplify: _simplify, validate: _validate, edit: _edit, serializeTdm: _serializeTdm }
 }

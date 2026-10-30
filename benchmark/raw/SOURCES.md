@@ -10,5 +10,7 @@ Development fixtures from Wikimedia Commons, used only to measure the pipeline. 
 | bio-digestive-01.png | Digestive system diagram en.svg | Mariana Ruiz, Jmarchn | Public domain |
 | bio-eye-01.png | Schematic diagram of the human eye en.svg | Rhcastilhos, Jmarchn | CC BY-SA 3.0 |
 | bio-flower-01.png | Mature flower diagram.svg | Mariana Ruiz (LadyofHats) | Public domain |
+| bio-heart-02.png | Synthetic clean line-art heart drawn for the benchmark | — | — |
+| bio-plantcell-02.png | Synthetic clean line-art plant cell, `benchmark/scripts/draw-plantcell-02.py` | — | — |
 
 NCERT-style figures gathered for the benchmark set are listed in `truth/<name>.json` with their own provenance.

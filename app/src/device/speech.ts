@@ -30,8 +30,12 @@ export function speak(text: string, lang: Lang = 'en', opts: { rate?: number; in
   current = u
   window.speechSynthesis.speak(u)
   return new Promise<void>((resolve) => {
-    u.onend = () => resolve()
-    u.onerror = () => resolve()
+    let done = false
+    const finish = () => { if (!done) { done = true; clearTimeout(guard); resolve() } }
+    u.onend = finish
+    u.onerror = finish
+    // some engines never report the end of an utterance; a listener-paced guard keeps a tour moving
+    const guard = setTimeout(finish, Math.min(12_000, 600 + text.length * 70))
   })
 }
 

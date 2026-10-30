@@ -1,0 +1,348 @@
+{
+  "tdm": "0.1",
+  "id": "sample-plant-cell",
+  "title": "Plant cell",
+  "subject": "Biology · Class 9 · The fundamental unit of life",
+  "sheet": {
+    "w": 210,
+    "h": 297,
+    "margin": 15
+  },
+  "source": {
+    "kind": "upload",
+    "file": "bio-plantcell-01.png",
+    "captured": "2026-10-29T15:55:52.974Z"
+  },
+  "regions": [
+    {
+      "id": "r-10",
+      "name": {
+        "en": "Chloroplast Thylakoid Membrane"
+      },
+      "polygon": [
+        [
+          77.91,
+          35.68
+        ],
+        [
+          104.08,
+          43.78
+        ],
+        [
+          133.34,
+          44.09
+        ],
+        [
+          149.63,
+          50.75
+        ],
+        [
+          150.81,
+          52.01
+        ],
+        [
+          150.31,
+          54.14
+        ],
+        [
+          145.91,
+          58.22
+        ],
+        [
+          146.83,
+          70.16
+        ],
+        [
+          148.59,
+          71.52
+        ],
+        [
+          168.69,
+          67.8
+        ],
+        [
+          170.58,
+          69.42
+        ],
+        [
+          170.24,
+          100.38
+        ],
+        [
+          155.31,
+          114.39
+        ],
+        [
+          154.6,
+          116.35
+        ],
+        [
+          151.49,
+          119.44
+        ],
+        [
+          134.17,
+          132.47
+        ],
+        [
+          132.23,
+          132.64
+        ],
+        [
+          115.42,
+          126.04
+        ],
+        [
+          113.83,
+          126.3
+        ],
+        [
+          110.18,
+          129.32
+        ],
+        [
+          107.37,
+          129.4
+        ],
+        [
+          94.11,
+          120
+        ],
+        [
+          76.86,
+          115.02
+        ],
+        [
+          75.18,
+          113.65
+        ],
+        [
+          72.41,
+          105.65
+        ],
+        [
+          72.3,
+          86.52
+        ],
+        [
+          70.32,
+          79.24
+        ],
+        [
+          67.54,
+          76.64
+        ],
+        [
+          68.35,
+          73.14
+        ],
+        [
+          65.75,
+          63.7
+        ],
+        [
+          73.98,
+          54.89
+        ],
+        [
+          75.44,
+          51.84
+        ],
+        [
+          79.69,
+          52.39
+        ],
+        [
+          84.3,
+          50.85
+        ],
+        [
+          85.32,
+          49.55
+        ],
+        [
+          75.73,
+          38.79
+        ],
+        [
+          75.54,
+          36.79
+        ]
+      ],
+      "texture": "empty",
+      "keyRef": "a",
+      "confidence": 0.98,
+      "sourceLabel": {
+        "text": "Chloroplast Thylakoid membrane",
+        "ocrConfidence": 0.95
+      }
+    },
+    {
+      "id": "r-03",
+      "name": {
+        "en": "Nucl Ucleus Nuclear Pore Nuclear Envelope"
+      },
+      "polygon": [
+        [
+          135.59,
+          106.92
+        ],
+        [
+          144.53,
+          116.29
+        ],
+        [
+          144.71,
+          118.05
+        ],
+        [
+          139.58,
+          124.47
+        ],
+        [
+          133.92,
+          126.56
+        ],
+        [
+          129.09,
+          126.32
+        ],
+        [
+          122,
+          124.32
+        ],
+        [
+          119.14,
+          122.16
+        ],
+        [
+          118.34,
+          119.7
+        ],
+        [
+          118.99,
+          115.45
+        ],
+        [
+          121.13,
+          112.47
+        ],
+        [
+          134.07,
+          106.52
+        ]
+      ],
+      "texture": "dots",
+      "keyRef": "c",
+      "confidence": 0.98,
+      "sourceLabel": {
+        "text": "Nucl ucleus Nuclear pore Nuclear envelope",
+        "ocrConfidence": 0.94
+      }
+    },
+    {
+      "id": "r-01",
+      "name": {
+        "en": "Rough Endoplasmic Reticulum"
+      },
+      "polygon": [
+        [
+          104.01,
+          114.5
+        ],
+        [
+          104.8,
+          114.49
+        ],
+        [
+          108.44,
+          113.7
+        ],
+        [
+          108.63,
+          114.03
+        ],
+        [
+          107.75,
+          121.35
+        ],
+        [
+          107.48,
+          121.67
+        ],
+        [
+          97.01,
+          118.18
+        ],
+        [
+          96.93,
+          118.09
+        ],
+        [
+          98.56,
+          114
+        ],
+        [
+          99.78,
+          113.64
+        ]
+      ],
+      "texture": "dots",
+      "keyRef": "b",
+      "confidence": 0.98,
+      "sourceLabel": {
+        "text": "Rough endoplasmic reticulum",
+        "ocrConfidence": 0.96
+      }
+    }
+  ],
+  "lines": [],
+  "relations": [],
+  "key": [
+    {
+      "ref": "a",
+      "regionId": "r-10",
+      "text": {
+        "en": "Chloroplast Thylakoid Membrane"
+      },
+      "braille": {}
+    },
+    {
+      "ref": "b",
+      "regionId": "r-01",
+      "text": {
+        "en": "Rough Endoplasmic Reticulum"
+      },
+      "braille": {}
+    },
+    {
+      "ref": "c",
+      "regionId": "r-03",
+      "text": {
+        "en": "Nucl Ucleus Nuclear Pore Nuclear Envelope"
+      },
+      "braille": {}
+    }
+  ],
+  "readingOrder": [
+    "r-10",
+    "r-01",
+    "r-03"
+  ],
+  "languages": {
+    "primary": "en",
+    "available": [
+      "en"
+    ]
+  },
+  "validation": {
+    "status": "pass",
+    "blocking": [],
+    "advisory": []
+  },
+  "provenance": {
+    "pipeline": "0.1",
+    "teacherReviewed": true,
+    "reviewedAt": "2026-10-29T15:55:52.989Z"
+  }
+}

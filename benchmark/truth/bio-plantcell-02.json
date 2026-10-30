@@ -1,0 +1,12 @@
+{
+  "id": "bio-plantcell-02",
+  "subject": "biology",
+  "class": 9,
+  "source": "Synthetic line-art schematic drawn for the benchmark (NCERT-style: cell wall, vacuole, nucleus with nucleolus, three chloroplasts, mitochondrion, leader-lined labels); benchmark/scripts/draw-plantcell-02.py",
+  "image": "raw/bio-plantcell-02.png",
+  "regions": ["Cell wall", "Vacuole", "Nucleus", "Nucleolus", "Chloroplast", "Chloroplast", "Chloroplast", "Mitochondrion", "Cytoplasm"],
+  "lines": [],
+  "labels": ["Cell wall", "Vacuole", "Chloroplast", "Cytoplasm", "Nucleus", "Nucleolus", "Mitochondrion", "Chloroplast"],
+  "labelsPrinted": 8,
+  "relations": [["Nucleolus", "part-of", "Nucleus"], ["Nucleus", "part-of", "Cytoplasm"]]
+}
