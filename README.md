@@ -45,12 +45,19 @@ photo / page ─► UNDERSTAND ─► draft TDM ─► SIMPLIFY ─► VALIDATE 
 Three surfaces, one codebase, no server:
 
 - **Teacher console** (laptop): photograph or drop a figure → regions, labels and strokes are read in the
-  browser (OpenCV.js + Tesseract.js) → the solver redesigns it → the validator lists every blocking finding by
-  rule → the teacher confirms detected relations, renames, merges, removes → publish → export.
+  browser (OpenCV.js + Tesseract.js) and drawn over the photo as they arrive → the solver redesigns it → the
+  validator lists every blocking finding by rule → the teacher confirms detected relations, renames, merges,
+  removes → publish → export. The published relief is shown in 3-D from the very STL that is exported, lit so
+  dots and ridges throw shadows.
 - **Student app** (Android phone, installed from the browser, works with Wi-Fi off): a finger on the screen
   feels a tick at every boundary and a different rhythm per texture, hears the part's name when it rests, can
   take an audio tour in reading order, be quizzed ("find the left ventricle", the finger is the answer), and read
-  the braille key. English, Hindi and Punjabi.
+  the braille key. English, Hindi and Punjabi. Built to be driven without sight: every control speaks on the
+  first touch and acts on the second; two-finger swipe changes mode, two-finger double-tap says where the finger
+  is, three-finger tap changes language; a spoken introduction plays on first launch. A sound layer doubles the
+  haptics on phones without a motor: a tone under the finger whose pitch follows height on the sheet, a timbre per
+  texture, a click at every boundary, panned with position. A high-contrast mode (larger type, thicker lines)
+  serves low vision.
 - **Projector view** (laptop): mirrors the student's finger live through a relay on the app's own origin,
   with a trail, boundary flashes, captions and a measured round trip.
 - **Classroom** (console + phones, no accounts): the console shows a four-letter room code and QR; a phone joins
