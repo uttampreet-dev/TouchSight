@@ -1,0 +1,16 @@
+{
+  "id": "bio-heart-01",
+  "subject": "biology",
+  "class": 10,
+  "source": "NCERT Science Class 10, Fig 6.x — describe where it came from",
+  "image": "raw/bio-heart-01.jpg",
+  "regions": ["Right atrium", "Right ventricle", "Left atrium", "Left ventricle"],
+  "lines": ["Aorta", "Pulmonary artery", "Pulmonary vein", "Vena cava"],
+  "labelsPrinted": 14,
+  "relations": [
+    ["Right atrium", "flows-into", "Right ventricle"],
+    ["Left ventricle", "flows-into", "Aorta"]
+  ],
+  "difficulty": "medium",
+  "notes": "colour-coded, arrows show blood flow, labels have leader lines"
+}

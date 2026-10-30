@@ -1,0 +1,14 @@
+node_modules
+dist
+.vite
+*.log
+.DS_Store
+.env
+.env.*
+# agent/build-process files never ship
+CLAUDE.md
+PRD.md
+BUILD-PLAN.md
+TEAM-TASKS.md
+CHECKLIST.md
+.hyperframes
