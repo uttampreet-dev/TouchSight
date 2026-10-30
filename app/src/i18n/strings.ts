@@ -23,6 +23,8 @@ type Dict = {
   textures: Record<Texture, string>
   samples: string; mine: string; nothingYet: string; importFile: string; tapToOpen: string
   bestScore: (found: number, total: number) => string
+  classRoom: string; joinClass: string; roomCode: string; whoAreYou: string; thisIsMe: string; notMe: string; waitingRoster: string; joinedRoom: (room: string) => string; youAre: (name: string) => string
+  codeHint: string; connected: string; notConnected: string; leaveClass: string; fromClass: (n: number) => string; newDiagram: (title: string) => string; removedDiagram: string
 }
 
 export type Position = 'top left' | 'top' | 'top right' | 'left' | 'centre' | 'right' | 'bottom left' | 'bottom' | 'bottom right'
@@ -46,8 +48,10 @@ const en: Dict = {
   hintMove: (d) => `Move ${d}.`,
   positions: { 'top left': 'top left', top: 'top', 'top right': 'top right', left: 'left', centre: 'centre', right: 'right', 'bottom left': 'bottom left', bottom: 'bottom', 'bottom right': 'bottom right' },
   textures: { dots: 'dots', 'diagonal-lines': 'diagonal lines', 'horizontal-lines': 'horizontal lines', grid: 'grid', solid: 'solid', empty: 'outline' },
-  samples: 'Sample diagrams', mine: 'From my teacher', nothingYet: 'Nothing from your teacher yet. Open a file they sent you, or start with a sample.', importFile: 'Open a diagram file', tapToOpen: 'Tap to open',
+  samples: 'Sample diagrams', mine: 'From my teacher', nothingYet: 'Nothing from your teacher yet. Join the class with the code on the board, or start with a sample.', importFile: 'Open a diagram file', tapToOpen: 'Tap to open',
   bestScore: (f, t) => `best ${f} of ${t}`,
+  classRoom: 'Class', joinClass: 'Join my class', roomCode: 'Room code', whoAreYou: 'Who is holding this phone? Touch a name to hear it. Touch it again to choose.', thisIsMe: 'This is me', notMe: 'Not me', waitingRoster: 'Waiting for the teacher to add names.', joinedRoom: (r) => `Joined class ${r.split('').join(' ')}.`, youAre: (n) => `${n}. Welcome.`,
+  codeHint: 'Four letters, read out by your teacher.', connected: 'connected', notConnected: 'not connected · saved diagrams still work', leaveClass: 'Leave', fromClass: (n) => `${n} from this class`, newDiagram: (t) => `New diagram from your teacher: ${t}.`, removedDiagram: 'Your teacher took a diagram back.',
 }
 
 const hi: Dict = {
@@ -69,8 +73,10 @@ const hi: Dict = {
   hintMove: (d) => ({ up: 'ऊपर जाओ।', down: 'नीचे जाओ।', left: 'बाएँ जाओ।', right: 'दाएँ जाओ।' })[d],
   positions: { 'top left': 'ऊपर बाएँ', top: 'ऊपर', 'top right': 'ऊपर दाएँ', left: 'बाएँ', centre: 'बीच में', right: 'दाएँ', 'bottom left': 'नीचे बाएँ', bottom: 'नीचे', 'bottom right': 'नीचे दाएँ' },
   textures: { dots: 'बिंदु', 'diagonal-lines': 'तिरछी रेखाएँ', 'horizontal-lines': 'आड़ी रेखाएँ', grid: 'जाली', solid: 'भरा हुआ', empty: 'रूपरेखा' },
-  samples: 'नमूना आरेख', mine: 'मेरे शिक्षक से', nothingYet: 'शिक्षक से अभी कुछ नहीं आया। भेजी गई फ़ाइल खोलें, या नमूने से शुरू करें।', importFile: 'आरेख फ़ाइल खोलें', tapToOpen: 'खोलने के लिए छुएँ',
+  samples: 'नमूना आरेख', mine: 'मेरे शिक्षक से', nothingYet: 'शिक्षक से अभी कुछ नहीं आया। बोर्ड पर लिखे कोड से कक्षा से जुड़ें, या नमूने से शुरू करें।', importFile: 'आरेख फ़ाइल खोलें', tapToOpen: 'खोलने के लिए छुएँ',
   bestScore: (f, t) => `सर्वश्रेष्ठ ${t} में से ${f}`,
+  classRoom: 'कक्षा', joinClass: 'कक्षा से जुड़ें', roomCode: 'कक्षा कोड', whoAreYou: 'यह फ़ोन किसके पास है? नाम सुनने के लिए छुएँ। चुनने के लिए फिर छुएँ।', thisIsMe: 'यह मैं हूँ', notMe: 'मैं नहीं', waitingRoster: 'शिक्षक के नाम जोड़ने की प्रतीक्षा है।', joinedRoom: (r) => `कक्षा ${r.split('').join(' ')} से जुड़ गए।`, youAre: (n) => `${n}। स्वागत है।`,
+  codeHint: 'चार अक्षर, जो शिक्षक बोलकर बताते हैं।', connected: 'जुड़ा हुआ', notConnected: 'जुड़ा नहीं · सहेजे आरेख काम करते हैं', leaveClass: 'छोड़ें', fromClass: (n) => `इस कक्षा से ${n}`, newDiagram: (t) => `शिक्षक से नया आरेख: ${t}।`, removedDiagram: 'शिक्षक ने एक आरेख वापस ले लिया।',
 }
 
 const pa: Dict = {
@@ -92,8 +98,10 @@ const pa: Dict = {
   hintMove: (d) => ({ up: 'ਉੱਪਰ ਜਾਓ।', down: 'ਹੇਠਾਂ ਜਾਓ।', left: 'ਖੱਬੇ ਜਾਓ।', right: 'ਸੱਜੇ ਜਾਓ।' })[d],
   positions: { 'top left': 'ਉੱਪਰ ਖੱਬੇ', top: 'ਉੱਪਰ', 'top right': 'ਉੱਪਰ ਸੱਜੇ', left: 'ਖੱਬੇ', centre: 'ਵਿਚਕਾਰ', right: 'ਸੱਜੇ', 'bottom left': 'ਹੇਠਾਂ ਖੱਬੇ', bottom: 'ਹੇਠਾਂ', 'bottom right': 'ਹੇਠਾਂ ਸੱਜੇ' },
   textures: { dots: 'ਬਿੰਦੀਆਂ', 'diagonal-lines': 'ਤਿਰਛੀਆਂ ਲਕੀਰਾਂ', 'horizontal-lines': 'ਲੇਟਵੀਆਂ ਲਕੀਰਾਂ', grid: 'ਜਾਲੀ', solid: 'ਭਰਿਆ ਹੋਇਆ', empty: 'ਰੂਪ-ਰੇਖਾ' },
-  samples: 'ਨਮੂਨਾ ਚਿੱਤਰ', mine: 'ਮੇਰੇ ਅਧਿਆਪਕ ਤੋਂ', nothingYet: 'ਅਧਿਆਪਕ ਤੋਂ ਹਾਲੇ ਕੁਝ ਨਹੀਂ ਆਇਆ। ਭੇਜੀ ਫ਼ਾਈਲ ਖੋਲ੍ਹੋ, ਜਾਂ ਨਮੂਨੇ ਤੋਂ ਸ਼ੁਰੂ ਕਰੋ।', importFile: 'ਚਿੱਤਰ ਫ਼ਾਈਲ ਖੋਲ੍ਹੋ', tapToOpen: 'ਖੋਲ੍ਹਣ ਲਈ ਛੂਹੋ',
+  samples: 'ਨਮੂਨਾ ਚਿੱਤਰ', mine: 'ਮੇਰੇ ਅਧਿਆਪਕ ਤੋਂ', nothingYet: 'ਅਧਿਆਪਕ ਤੋਂ ਹਾਲੇ ਕੁਝ ਨਹੀਂ ਆਇਆ। ਬੋਰਡ ਉੱਤੇ ਲਿਖੇ ਕੋਡ ਨਾਲ ਜਮਾਤ ਨਾਲ ਜੁੜੋ, ਜਾਂ ਨਮੂਨੇ ਤੋਂ ਸ਼ੁਰੂ ਕਰੋ।', importFile: 'ਚਿੱਤਰ ਫ਼ਾਈਲ ਖੋਲ੍ਹੋ', tapToOpen: 'ਖੋਲ੍ਹਣ ਲਈ ਛੂਹੋ',
   bestScore: (f, t) => `ਵਧੀਆ ${t} ਵਿੱਚੋਂ ${f}`,
+  classRoom: 'ਜਮਾਤ', joinClass: 'ਜਮਾਤ ਨਾਲ ਜੁੜੋ', roomCode: 'ਜਮਾਤ ਕੋਡ', whoAreYou: 'ਇਹ ਫ਼ੋਨ ਕਿਸ ਕੋਲ ਹੈ? ਨਾਮ ਸੁਣਨ ਲਈ ਛੂਹੋ। ਚੁਣਨ ਲਈ ਫਿਰ ਛੂਹੋ।', thisIsMe: 'ਇਹ ਮੈਂ ਹਾਂ', notMe: 'ਮੈਂ ਨਹੀਂ', waitingRoster: 'ਅਧਿਆਪਕ ਦੇ ਨਾਮ ਜੋੜਨ ਦੀ ਉਡੀਕ ਹੈ।', joinedRoom: (r) => `ਜਮਾਤ ${r.split('').join(' ')} ਨਾਲ ਜੁੜ ਗਏ।`, youAre: (n) => `${n}। ਜੀ ਆਇਆਂ ਨੂੰ।`,
+  codeHint: 'ਚਾਰ ਅੱਖਰ, ਜੋ ਅਧਿਆਪਕ ਬੋਲ ਕੇ ਦੱਸਦੇ ਹਨ।', connected: 'ਜੁੜਿਆ ਹੋਇਆ', notConnected: 'ਜੁੜਿਆ ਨਹੀਂ · ਸੰਭਾਲੇ ਚਿੱਤਰ ਕੰਮ ਕਰਦੇ ਹਨ', leaveClass: 'ਛੱਡੋ', fromClass: (n) => `ਇਸ ਜਮਾਤ ਤੋਂ ${n}`, newDiagram: (t) => `ਅਧਿਆਪਕ ਤੋਂ ਨਵਾਂ ਚਿੱਤਰ: ${t}।`, removedDiagram: 'ਅਧਿਆਪਕ ਨੇ ਇੱਕ ਚਿੱਤਰ ਵਾਪਸ ਲੈ ਲਿਆ।',
 }
 
 export const STRINGS: Record<Lang, Dict> = { en, hi, pa }

@@ -12,6 +12,7 @@ import { nameIn, t, LANG_NAME } from '../../i18n'
 import { useLang } from '../Student'
 import { BrailleKey } from './Key'
 import { mirror } from '../../student/mirror'
+import { classroom, studentProfile } from '../../class/classroom'
 
 type Mode = 'explore' | 'tour' | 'quiz' | 'key'
 
@@ -37,7 +38,7 @@ export function Explore() {
 
   useEffect(() => {
     let live = true
-    getDiagram(id).then((row) => { const d = row?.tdm ?? sampleById(id) ?? null; if (live) { setTdm(d); if (d) { window.__tsTdm = d; mirror.hello(d) } } })
+    getDiagram(id).then((row) => { const d = row?.tdm ?? sampleById(id) ?? null; if (live) { setTdm(d); if (d) { window.__tsTdm = d; mirror.hello(d); const pr = studentProfile(); if (pr?.room && pr.name) { classroom.join(pr.room, 'student', pr.name); classroom.activity({ kind: 'open', diagramId: d.id, title: d.title }) } } } })
     return () => { live = false }
   }, [id])
 
@@ -60,6 +61,7 @@ export function Explore() {
   const [qAttempts, setQAttempts] = useState(0)
   const qStart = useRef(0)
   const qBusy = useRef(false)
+  const tries = useRef(0)
   const qDone = mode === 'quiz' && qi >= targets.length
 
   const askCurrent = useCallback((i: number, list = targets) => {
@@ -88,6 +90,8 @@ export function Explore() {
     if (hitId === target) {
       buzz(CORRECT_PULSE)
       setFocus(target)
+      classroom.activity({ kind: 'quiz', diagramId: tdm.id, target, targetName: tr.name.en, found: true, attempts: tries.current + 1, seconds: +((Date.now() - qStart.current) / 1000).toFixed(1) })
+      tries.current = 0
       await recordQuiz(tdm.id, target, true, (Date.now() - qStart.current) / 1000)
       await say(s.correct(nameIn(tr.name, lang)))
       const next = qi + 1
@@ -95,6 +99,7 @@ export function Explore() {
       if (next < targets.length) askCurrent(next)
       else { mirror.post({ type: 'quiz', target: null }); say(s.quizDone(qFound + 1, targets.length)) }
     } else {
+      tries.current++
       buzz(WRONG_PULSE)
       const hit = hitId ? tdm.regions.find((x) => x.id === hitId) ?? tdm.lines.find((x) => x.id === hitId) : null
       const hint = at ? s.hintMove(directionTo(tdm, at, target)) : ''
@@ -104,6 +109,9 @@ export function Explore() {
   }
   async function skip() {
     if (!tdm || qi >= targets.length) return
+    const tr = tdm.regions.find((x) => x.id === targets[qi])
+    classroom.activity({ kind: 'quiz', diagramId: tdm.id, target: targets[qi], targetName: tr?.name.en ?? targets[qi], found: false, attempts: tries.current, seconds: +((Date.now() - qStart.current) / 1000).toFixed(1) })
+    tries.current = 0
     await recordQuiz(tdm.id, targets[qi], false, (Date.now() - qStart.current) / 1000)
     const next = qi + 1
     setQi(next)
@@ -119,6 +127,7 @@ export function Explore() {
 
   async function playFrom(i: number) {
     if (!tdm) return
+    if (i < 0) classroom.activity({ kind: 'tour', diagramId: tdm.id })
     const run = ++tourRun.current
     setPlaying(true)
     if (i < 0) { setTi(-1); setFocus(null); await say(s.tourIntro(nameIn({ en: tdm.title }, lang), tdm.regions.length, tdm.lines.length)); i = 0 }
@@ -151,11 +160,16 @@ export function Explore() {
     const pt = new DOMPoint(e.clientX, e.clientY).matrixTransform(ctm.inverse())
     return [pt.x, pt.y]
   }
+  const dwell = useRef<{ id: string | null; since: number }>({ id: null, since: 0 })
+  const leavePart = (now: number) => {
+    const d = dwell.current
+    if (d.id && tdm && now - d.since > 250) { const el = tdm.regions.find((r) => r.id === d.id) ?? tdm.lines.find((l) => l.id === d.id); if (el) classroom.activity({ kind: 'explore', diagramId: tdm.id, partId: d.id, partName: el.name.en, ms: Math.round(now - d.since) }) }
+  }
   const apply = (acts: Action[]) => {
     for (const a of acts) {
       if (a.do === 'pulse') buzz(a.pulse)
       else if (a.do === 'hush') hush()
-      else if (a.do === 'focus') { if (mode !== 'quiz') setFocus(a.id) }
+      else if (a.do === 'focus') { const now = performance.now(); leavePart(now); dwell.current = { id: a.id, since: now }; if (mode !== 'quiz') setFocus(a.id) }
       else if (a.do === 'say' && mode !== 'quiz') { hush(); pending.current = window.setTimeout(() => { pending.current = null; say(a.text) }, a.after) }
     }
   }
@@ -173,6 +187,7 @@ export function Explore() {
     const last = st.current.id
     const p = toMm(e)
     apply(step(tdm, st.current, null, performance.now(), lang))
+    leavePart(performance.now()); dwell.current = { id: null, since: 0 }
     setFinger(null)
     mirror.post({ type: 'finger', p: null, id: null })
     if (mode === 'quiz' && !qDone) answer(last, p)

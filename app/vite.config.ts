@@ -31,6 +31,6 @@ export default defineConfig({
       },
     }),
   ],
-  server: { host: true, port: 5173 },
+  server: { host: true, port: 5173, proxy: { '/relay': { target: 'ws://localhost:4173', ws: true } } },
   build: { target: 'es2022' },
 })

@@ -34,10 +34,17 @@ const server = createServer(async (req, res) => {
   }
 })
 
-// /relay — one room for the jury table: every message fans out to every other client; the last `hello`
-// (the diagram) is replayed to anyone who joins late, so the projector can open after the phone.
+// /relay — two kinds of traffic on one socket.
+//   stage: every message without a room fans out to every other client; the last `hello` (the diagram) is replayed
+//          to late joiners so the projector can open after the phone.
+//   class: messages with {type:'class', room} belong to a classroom. The server keeps each room's roster, published
+//          diagrams and student activity in memory, replays them to whoever joins, and fans out changes.
 const wss = new WebSocketServer({ noServer: true })
 let lastHello = null
+const rooms = new Map() // code -> { roster: string[], published: Map<id, json>, activity: [] }
+const room = (code) => { if (!rooms.has(code)) rooms.set(code, { roster: [], published: new Map(), activity: [] }); return rooms.get(code) }
+const send = (c, obj) => c.readyState === 1 && c.send(JSON.stringify(obj))
+const toRoom = (code, obj, except) => { for (const c of wss.clients) if (c !== except && c.room === code) send(c, obj) }
 server.on('upgrade', (req, socket, head) => {
   if ((req.url || '').split('?')[0] !== '/relay') return socket.destroy()
   wss.handleUpgrade(req, socket, head, (ws) => wss.emit('connection', ws, req))
@@ -46,8 +53,29 @@ wss.on('connection', (ws) => {
   if (lastHello) ws.send(lastHello)
   ws.on('message', (data) => {
     const text = data.toString()
+    if (text.startsWith('{"type":"class"')) {
+      let m; try { m = JSON.parse(text) } catch { return }
+      if (!m.room) return
+      const r = room(m.room)
+      switch (m.op) {
+        case 'join': {
+          ws.room = m.room; ws.role = m.role; ws.student = m.student || null
+          send(ws, { type: 'class', op: 'state', room: m.room, roster: r.roster, published: [...r.published.values()], activity: r.activity.slice(-500), phones: [...wss.clients].filter((c) => c.room === m.room && c.role === 'student').length })
+          toRoom(m.room, { type: 'class', op: 'presence', room: m.room, phones: [...wss.clients].filter((c) => c.room === m.room && c.role === 'student').length, student: m.student || null, joined: true }, ws)
+          return
+        }
+        case 'roster': r.roster = Array.isArray(m.names) ? m.names.slice(0, 60) : []; toRoom(m.room, { type: 'class', op: 'roster', room: m.room, names: r.roster }, ws); return
+        case 'publish': if (m.tdm && m.tdm.id) { r.published.set(m.tdm.id, m.tdm); toRoom(m.room, { type: 'class', op: 'published', room: m.room, tdm: m.tdm }, ws) } return
+        case 'unpublish': r.published.delete(m.id); toRoom(m.room, { type: 'class', op: 'unpublished', room: m.room, id: m.id }, ws); return
+        case 'activity': { const ev = { ...m.event, student: m.student, at: m.at || Date.now() }; r.activity.push(ev); if (r.activity.length > 5000) r.activity.splice(0, 1000); toRoom(m.room, { type: 'class', op: 'activity', room: m.room, event: ev }, ws); return }
+        case 'reset': r.activity = []; toRoom(m.room, { type: 'class', op: 'state', room: m.room, roster: r.roster, published: [...r.published.values()], activity: [], phones: 0 }, ws); return
+      }
+      return
+    }
     if (text.startsWith('{"type":"hello"')) lastHello = text
-    for (const c of wss.clients) if (c !== ws && c.readyState === 1) c.send(text)
+    for (const c of wss.clients) if (c !== ws && c.readyState === 1 && !c.room) c.send(text)
+    // a phone in a room still mirrors to a projector that has not joined any room
   })
+  ws.on('close', () => { if (ws.room) toRoom(ws.room, { type: 'class', op: 'presence', room: ws.room, phones: [...wss.clients].filter((c) => c !== ws && c.room === ws.room && c.role === 'student').length, student: ws.student, joined: false }) })
 })
 server.listen(PORT, '0.0.0.0', () => console.log(`serving dist on http://0.0.0.0:${PORT} (relay at /relay)`))

@@ -9,6 +9,7 @@ import { TEXTURES, RELATION_KINDS, type Tdm, type ValidationFinding, type TdmRel
 import { getDiagram, saveDiagram, saveImage, getImage } from '../../store/db'
 import { ExportPanel } from '../../components/ExportPanel'
 import { area } from '../../tdm/geometry'
+import { classroom, teacherRoom } from '../../class/classroom'
 
 type Step = 'capture' | 'understand' | 'review' | 'published'
 
@@ -79,6 +80,7 @@ export function Workbench() {
     if (!tdm || !canPublish) return
     const t = markReviewed({ ...tdm, title: title || tdm.title })
     await saveDiagram(t, chapter || 'General', true)
+    classroom.join(teacherRoom(), 'console'); classroom.publish(t)
     setTdm(t); setStep('published')
   }
 
@@ -242,7 +244,7 @@ export function Workbench() {
           <footer className="wb-pane-f wb-publish">
             {step === 'published' && tdm ? (
               <div className="wb-published">
-                <div className="wb-pub-row"><b>Published</b><span className="mono">students can open it now, offline</span><button className="btn" onClick={() => nav('/teacher/library')}>Library</button><button className="btn" onClick={reset}>New</button></div>
+                <div className="wb-pub-row"><b>Published</b><span className="mono">pushed to class {teacherRoom()} · phones keep it offline</span><button className="btn" onClick={() => nav('/teacher/library')}>Library</button><button className="btn" onClick={reset}>New</button></div>
                 <ExportPanel tdm={tdm} />
               </div>
             ) : tdm && step === 'review' ? (
