@@ -66,5 +66,13 @@ const md = [
   ...scored.flatMap((x) => x.missing.map((m) => `- ${x.name}: "${m[0]}" not read (closest: "${m[1]}")`)),
   '',
 ].join('\n')
-writeFileSync(resolve('../benchmark/RESULTS.md'), md)
-console.log(`\nwrote benchmark/RESULTS.md (mean ${mean}%)`)
+// The file a judge reads is the number we quote: a run over part of the set never overwrites it.
+const truthCount = readdirSync(TRUTH).filter((f) => f.endsWith('.json') && !f.startsWith('_')).length
+const force = process.argv.includes('--force')
+if (scored.length < truthCount && !force) {
+  writeFileSync(resolve('../benchmark/RESULTS.partial.md'), md.replace('# Understand stage', `# PARTIAL RUN (${scored.length} of ${truthCount} figures) — Understand stage`))
+  console.log(`\nonly ${scored.length} of ${truthCount} figures with truth files were run: wrote benchmark/RESULTS.partial.md, left RESULTS.md untouched (pass --force to overwrite)`)
+} else {
+  writeFileSync(resolve('../benchmark/RESULTS.md'), md)
+  console.log(`\nwrote benchmark/RESULTS.md (mean ${mean}% over ${scored.length}/${truthCount} figures)`)
+}

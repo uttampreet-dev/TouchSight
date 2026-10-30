@@ -191,7 +191,7 @@
     ],
     "linked": 37,
     "strokes": 275,
-    "time": 1966,
+    "time": 1948,
     "wallMs": 2218,
     "mode": "colour"
   },
@@ -332,8 +332,8 @@
     ],
     "linked": 10,
     "strokes": 290,
-    "time": 1867,
-    "wallMs": 2185,
+    "time": 1845,
+    "wallMs": 2191,
     "mode": "colour"
   },
   {
@@ -418,8 +418,8 @@
     ],
     "linked": 11,
     "strokes": 264,
-    "time": 946,
-    "wallMs": 1007,
+    "time": 936,
+    "wallMs": 923,
     "mode": "colour"
   },
   {
@@ -509,8 +509,8 @@
     ],
     "linked": 12,
     "strokes": 265,
-    "time": 1454,
-    "wallMs": 1647,
+    "time": 1446,
+    "wallMs": 1649,
     "mode": "colour"
   },
   {
@@ -566,7 +566,7 @@
     "linked": 6,
     "strokes": 184,
     "time": 712,
-    "wallMs": 861,
+    "wallMs": 823,
     "mode": "line-art"
   },
   {
@@ -721,8 +721,8 @@
     ],
     "linked": 28,
     "strokes": 269,
-    "time": 1615,
-    "wallMs": 1653,
+    "time": 1614,
+    "wallMs": 1666,
     "mode": "colour"
   },
   {
@@ -762,8 +762,8 @@
     ],
     "linked": 6,
     "strokes": 181,
-    "time": 661,
-    "wallMs": 841,
+    "time": 660,
+    "wallMs": 851,
     "mode": "line-art"
   },
   {
@@ -893,8 +893,8 @@
     ],
     "linked": 24,
     "strokes": 239,
-    "time": 1800,
-    "wallMs": 2046,
+    "time": 1759,
+    "wallMs": 2028,
     "mode": "colour"
   }
 ]
