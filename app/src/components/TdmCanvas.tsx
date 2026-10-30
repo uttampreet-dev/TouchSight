@@ -77,14 +77,14 @@ export function TdmCanvas({ tdm, highlight = [], selected, onSelect, showRefs = 
   const keyTop = diagramBox(tdm, 0).y + diagramBox(tdm, 0).h + 10
 
   return (
-    <svg viewBox={`${vb.x} ${vb.y} ${vb.w} ${vb.h}`} className={className} style={{ width: '100%', height: '100%', display: 'block', ...style }} onClick={() => onSelect?.(null)}>
+    <svg viewBox={`${vb.x} ${vb.y} ${vb.w} ${vb.h}`} className={className} style={{ width: '100%', height: '100%', display: 'block', ...style }} onClick={onSelect ? () => onSelect(null) : undefined}>
       <Patterns ink={ink} scale={1} />
       <rect x={vb.x} y={vb.y} width={vb.w} height={vb.h} fill={paper} />
       {tdm.regions.map((r) => {
         const d = r.polygon.map((p, i) => `${i ? 'L' : 'M'}${p[0]} ${p[1]}`).join(' ') + ' Z'
         const c = centroid(r.polygon)
         return (
-          <g key={r.id} onClick={(e) => { e.stopPropagation(); onSelect?.(r.id) }} style={{ cursor: onSelect ? 'pointer' : 'default' }}>
+          <g key={r.id} onClick={onSelect ? (e) => { e.stopPropagation(); onSelect(r.id) } : undefined} style={{ cursor: onSelect ? 'pointer' : 'default' }}>
             <path d={d} fill={r.texture === 'empty' ? 'none' : r.texture === 'solid' ? ink : `url(#tx-${r.texture})`} fillOpacity={r.texture === 'solid' ? 0.85 : 1} stroke={stroke(r.id)} strokeWidth={sw(r.id)} strokeLinejoin="round" />
             {(selected === r.id || hl.includes(r.id)) && <path d={d} fill={accent} fillOpacity={0.18} stroke="none" />}
             {showRefs && (
@@ -100,7 +100,7 @@ export function TdmCanvas({ tdm, highlight = [], selected, onSelect, showRefs = 
         const d = l.path.map((p, i) => `${i ? 'L' : 'M'}${p[0]} ${p[1]}`).join(' ')
         const dash = l.style === 'dashed' ? '3 2' : undefined
         return (
-          <g key={l.id} onClick={(e) => { e.stopPropagation(); onSelect?.(l.id) }} style={{ cursor: onSelect ? 'pointer' : 'default' }}>
+          <g key={l.id} onClick={onSelect ? (e) => { e.stopPropagation(); onSelect(l.id) } : undefined} style={{ cursor: onSelect ? 'pointer' : 'default' }}>
             {l.style === 'double' && <path d={d} fill="none" stroke={paper} strokeWidth={l.width * 2.6} strokeLinecap="round" strokeLinejoin="round" />}
             <path d={d} fill="none" stroke={stroke(l.id)} strokeWidth={l.style === 'double' ? l.width * 3.4 : l.width} strokeDasharray={dash} strokeLinecap="round" strokeLinejoin="round" markerEnd={l.arrow === 'end' || l.arrow === 'both' ? 'url(#arrow-end)' : undefined} />
             {l.style === 'double' && <path d={d} fill="none" stroke={paper} strokeWidth={l.width * 1.4} strokeLinecap="round" strokeLinejoin="round" />}

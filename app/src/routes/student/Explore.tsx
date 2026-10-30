@@ -13,6 +13,7 @@ import { useLang } from '../Student'
 import { BrailleKey } from './Key'
 import { mirror } from '../../student/mirror'
 import { classroom, studentProfile } from '../../class/classroom'
+import { useTouchToAct, useGestures, type Gesture } from '../../student/a11y'
 
 type Mode = 'explore' | 'tour' | 'quiz' | 'key'
 
@@ -33,6 +34,8 @@ export function Explore() {
   const [finger, setFinger] = useState<Point | null>(null)
   const [caption, setCaption] = useState('')
   const wrap = useRef<HTMLDivElement>(null)
+  const mainRef = useRef<HTMLElement>(null)
+  const { handle, armed } = useTouchToAct(lang)
   const st = useRef(createState())
   const pending = useRef<number | null>(null)
 
@@ -175,6 +178,7 @@ export function Explore() {
   }
   const onPointer = (e: React.PointerEvent) => {
     if (!tdm || mode === 'tour') return
+    if (rec.current.fingers > 1 || !e.isPrimary) { if (st.current.id !== null) apply(step(tdm, st.current, null, performance.now(), lang)); setFinger(null); return }
     if (e.type === 'pointerdown') { (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId); if (mode === 'explore') stopSpeech() }
     const p = toMm(e)
     if (!p) return
@@ -194,21 +198,37 @@ export function Explore() {
   }
   const whereAmI = () => { if (!tdm) return; const f = focus ?? st.current.id; say(f ? describeFully(tdm, f, lang) : s.blank) }
 
+  // ---- two and three finger gestures: nothing on the screen has to be found
+  const MODES: Mode[] = ['explore', 'tour', 'quiz', 'key']
+  const gestureRef = useRef<(g: Gesture) => void>(() => {})
+  gestureRef.current = (g) => {
+    if (!tdm) return
+    if (g === 'swipe-left' || g === 'swipe-right') {
+      const i = MODES.indexOf(mode); const m = MODES[(i + (g === 'swipe-left' ? 1 : MODES.length - 1)) % MODES.length]
+      log('gesture', `${g} → ${m}`)
+      if (m === 'quiz') startQuiz(); else { pauseTour(); hush(); setMode(m); setFocus(null); say(s.modeIs(s[m])) }
+    } else if (g === 'double-tap-2') { log('gesture', 'where am I'); whereAmI() }
+    else if (g === 'tap-3') { const n: Lang = lang === 'en' ? 'hi' : lang === 'hi' ? 'pa' : 'en'; log('gesture', `language ${n}`); setLang(n); speak(LANG_NAME[n], n) }
+  }
+  const rec = useGestures(mainRef, (g) => gestureRef.current(g))
+  useEffect(() => { (window as unknown as { __tsGesture?: (g: Gesture) => void }).__tsGesture = (g) => gestureRef.current(g) }, [])
+
   if (!tdm) return <main className="st"><p className="st-empty">…</p></main>
   const focusEl = focus ? tdm.regions.find((r) => r.id === focus) ?? tdm.lines.find((l) => l.id === focus) : null
   const target = mode === 'quiz' && !qDone ? tdm.regions.find((r) => r.id === targets[qi]) : null
 
   return (
-    <main className="st st-explore">
+    <main className="st st-explore" ref={mainRef}>
       <header className="st-head">
         <Link to="/student" className="st-back" aria-label={s.library}>‹</Link>
+        <button className="st-help" aria-label={s.help} onClick={() => say(s.gestures)}>?</button>
         <div className="st-title"><b>{nameIn({ en: tdm.title }, lang)}</b><span className="mono">{tdm.subject}</span></div>
         <button className="st-lang" onClick={() => { const n: Lang = lang === 'en' ? 'hi' : lang === 'hi' ? 'pa' : 'en'; setLang(n); speak(LANG_NAME[n], n) }} aria-label={s.language}>{LANG_NAME[lang]}</button>
       </header>
 
       <nav className="st-modes" role="tablist">
         {(['explore', 'tour', 'quiz', 'key'] as Mode[]).map((m) => (
-          <button key={m} role="tab" aria-selected={mode === m} className={mode === m ? 'on' : ''} onClick={() => { if (m === 'quiz') startQuiz(); else { pauseTour(); hush(); setMode(m); setFocus(null) } }}>{s[m]}</button>
+          <button key={m} role="tab" aria-selected={mode === m} className={`${mode === m ? 'on' : ''} ${armed === `mode-${m}` ? 'armed' : ''}`} onClick={handle(`mode-${m}`, s[m], () => { if (m === 'quiz') startQuiz(); else { pauseTour(); hush(); setMode(m); setFocus(null) } })}>{s[m]}</button>
         ))}
       </nav>
 
@@ -233,9 +253,9 @@ export function Explore() {
             <div className="st-now">{focusEl ? `${focusEl.keyRef}. ${nameIn(focusEl.name, lang)}` : nameIn({ en: tdm.title }, lang)}</div>
             <div className="st-caption mono">{ti >= 0 ? `${ti + 1} / ${order.length}` : `${tdm.regions.length} + ${tdm.lines.length}`} · {caption}</div>
             <div className="st-actions three">
-              <button onClick={() => jump(-1)} disabled={ti <= 0}>{s.previous}</button>
-              <button className="primary" onClick={() => (playing ? pauseTour() : playFrom(ti < 0 ? -1 : ti))}>{playing ? s.pause : s.play}</button>
-              <button onClick={() => jump(1)} disabled={ti >= order.length - 1}>{s.next}</button>
+              <button className={armed === 'prev' ? 'armed' : ''} onClick={handle('prev', s.previous, () => jump(-1))} disabled={ti <= 0}>{s.previous}</button>
+              <button className={`primary ${armed === 'play' ? 'armed' : ''}`} onClick={handle('play', playing ? s.pause : s.play, () => (playing ? pauseTour() : playFrom(ti < 0 ? -1 : ti)))}>{playing ? s.pause : s.play}</button>
+              <button className={armed === 'next' ? 'armed' : ''} onClick={handle('next', s.next, () => jump(1))} disabled={ti >= order.length - 1}>{s.next}</button>
             </div>
           </>
         )}
@@ -245,7 +265,7 @@ export function Explore() {
             <div className="st-caption mono">{qi + 1} / {targets.length} · {qFound} ✓ · {qAttempts} tries</div>
             <div className="st-actions">
               <button onClick={() => askCurrent(qi)}>{s.repeat}</button>
-              <button onClick={skip}>{s.skip}</button>
+              <button className={armed === 'skip' ? 'armed' : ''} onClick={handle('skip', s.skip, skip)}>{s.skip}</button>
             </div>
           </>
         )}
@@ -254,7 +274,7 @@ export function Explore() {
             <div className="st-now">{s.quizDone(qFound, targets.length)}</div>
             <div className="st-caption mono">{qAttempts} tries</div>
             <div className="st-actions">
-              <button className="primary" onClick={startQuiz}>{s.again}</button>
+              <button className={`primary ${armed === 'again' ? 'armed' : ''}`} onClick={handle('again', s.again, startQuiz)}>{s.again}</button>
               <Link to="/student" className="st-btn-link">{s.library}</Link>
             </div>
           </>

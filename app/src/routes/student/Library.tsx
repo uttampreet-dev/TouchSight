@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Brand } from '../../components/Brand'
 import { TdmCanvas } from '../../components/TdmCanvas'
 import { listDiagrams, saveDiagram, quizResults } from '../../store/db'
@@ -12,6 +12,8 @@ import { speak } from '../../device/speech'
 import { vibrate, CORRECT_PULSE } from '../../device/haptics'
 import { useSearchParams } from 'react-router-dom'
 import { classroom, studentProfile, setStudentProfile, type Incoming } from '../../class/classroom'
+import { useTouchToAct, introSeen, markIntroSeen, speakFirstEnabled, setSpeakFirst } from '../../student/a11y'
+import { stopSpeech } from '../../device/speech'
 
 type Score = { found: number; asked: number }
 
@@ -28,6 +30,12 @@ export function StudentLibrary() {
   const [code, setCode] = useState('')
   const armedAt = useRef(0)
   const [link, setLink] = useState(classroom.state)
+  const nav = useNavigate()
+  const { handle, armed: armedCtl } = useTouchToAct(lang)
+  const [intro, setIntro] = useState<'hidden' | 'waiting' | 'spoken'>(() => (introSeen() ? 'hidden' : 'waiting'))
+  const [speakFirst, setSF] = useState(speakFirstEnabled)
+  const [, bump] = useState(0)
+  const say = (text: string) => { stopSpeech(); speak(text, lang) }
   useEffect(() => { const t = setInterval(() => setLink(classroom.state), 700); return () => clearInterval(t) }, [])
 
   // a QR link carries the room; the teacher scanned it once on this phone
@@ -89,7 +97,7 @@ export function StudentLibrary() {
   }
 
   const Card = ({ d, sample }: { d: Tdm; sample?: boolean }) => (
-    <Link to={`/student/d/${d.id}`} className="st-card" aria-label={`${d.title}. ${s.tapToOpen}`}>
+    <Link to={`/student/d/${d.id}`} className={`st-card ${armedCtl === d.id ? 'armed' : ''}`} aria-label={`${d.title}. ${s.tapToOpen}`} onClick={handle(d.id, `${nameIn({ en: d.title }, lang)}. ${s.parts(d.regions.length)}. ${s.tapToOpen}.`, () => nav(`/student/d/${d.id}`))}>
       <div className="st-thumb"><TdmCanvas tdm={d} showRefs={false} /></div>
       <div className="st-card-body">
         <b>{nameIn({ en: d.title }, lang)}</b>
@@ -101,10 +109,21 @@ export function StudentLibrary() {
 
   return (
     <main className="st">
+      {intro !== 'hidden' && (
+        <div className="st-start" role="dialog" aria-label={s.touchToStart} onPointerDown={() => { if (intro === 'waiting') { say(s.intro); setIntro('spoken') } else { stopSpeech(); markIntroSeen(); setIntro('hidden') } }}>
+          <Brand size={1.4} />
+          <b>{intro === 'waiting' ? s.touchToStart : s.intro}</b>
+          <span className="mono">{intro === 'waiting' ? 'TouchSight' : s.touchToStart}</span>
+          <div className="st-langs st-start-langs" onPointerDown={(e) => e.stopPropagation()}>
+            {(['en', 'hi', 'pa'] as Lang[]).map((l) => <button key={l} className={l === lang ? 'on' : ''} onClick={() => { setLang(l); speak(LANG_NAME[l], l) }}>{LANG_NAME[l]}</button>)}
+          </div>
+        </div>
+      )}
       <header className="st-head">
         <Brand />
         <span className="kicker">{s.library}</span>
         <span style={{ flex: 1 }} />
+        <button className="st-help" aria-label={s.help} onClick={() => say(s.intro)}>?</button>
         <div className="st-langs" role="group" aria-label={s.language}>
           {(['en', 'hi', 'pa'] as Lang[]).map((l) => (
             <button key={l} className={l === lang ? 'on' : ''} onClick={() => { setLang(l); speak(LANG_NAME[l], l) }} aria-pressed={l === lang}>{LANG_NAME[l]}</button>
@@ -136,10 +155,14 @@ export function StudentLibrary() {
         </form>
       )}
 
+      <div className="st-settings" role="group">
+        <button className={speakFirst ? 'on' : ''} aria-pressed={speakFirst} onClick={() => { const v = !speakFirst; setSpeakFirst(v); setSF(v); bump((n) => n + 1); say(v ? s.speakFirstOn : s.speakFirstOff) }}>{s.speakFirst}</button>
+      </div>
+
       <section className="st-section">
         <div className="st-section-head"><span className="kicker">{s.mine}</span><span className="mono">{mine.length}</span></div>
         {mine.length ? <div className="st-grid">{mine.map((d) => <Card key={d.id} d={d} />)}</div> : <p className="st-empty">{s.nothingYet}</p>}
-        <button className="st-import" onClick={() => file.current?.click()}>{s.importFile}</button>
+        <button className={`st-import ${armedCtl === 'import' ? 'armed' : ''}`} onClick={handle('import', s.importFile, () => file.current?.click())}>{s.importFile}</button>
         <input ref={file} type="file" accept="application/json,.json" hidden onChange={(e) => importFile(e.target.files?.[0])} />
       </section>
 

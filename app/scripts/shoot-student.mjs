@@ -12,7 +12,8 @@ const ctx = await browser.newContext({ ...devices['Pixel 7'], locale: 'en-IN' })
 const page = await ctx.newPage()
 // headless Chromium never ends an utterance; a fast fake voice lets the tour's sequencing be checked
 await page.addInitScript(() => {
-  const fake = { speaking: false, speak(u) { fake.speaking = true; setTimeout(() => { fake.speaking = false; u.onend && u.onend() }, 80 + u.text.length * 3) }, cancel() { fake.speaking = false }, getVoices: () => [], onvoiceschanged: null }
+  window.__spoken = []
+  const fake = { speaking: false, speak(u) { window.__spoken.push(u.text); fake.speaking = true; setTimeout(() => { fake.speaking = false; u.onend && u.onend() }, 80 + u.text.length * 3) }, cancel() { fake.speaking = false }, getVoices: () => [], onvoiceschanged: null }
   Object.defineProperty(window, 'speechSynthesis', { value: fake, configurable: true })
 })
 const errors = []
@@ -25,11 +26,43 @@ const check = (cond, msg) => { console.log(`${cond ? 'ok ' : 'BAD'} ${msg}`); if
 
 await page.goto('http://localhost:4173/student', { waitUntil: 'networkidle' })
 await page.waitForTimeout(400)
+// first run: a spoken introduction, started by a touch, dismissed by a second touch
+check(await page.locator('.st-start').count() === 1, 'first run shows the touch-to-start screen')
+await shot('start')
+await page.touchscreen.tap(200, 820); await page.waitForTimeout(200)
+const spoken1 = await page.evaluate(() => window.__spoken.at(-1) ?? '')
+check(/Touch anything once to hear/.test(spoken1), `first touch speaks the introduction ("${spoken1.slice(0, 60)}…")`)
+await page.touchscreen.tap(200, 820); await page.waitForTimeout(200)
+check(await page.locator('.st-start').count() === 0, 'second touch dismisses it')
 await shot('library')
+// touch to hear, touch again to open
+const heartCard = page.locator('.st-card:has-text("heart")').first()
+const hb = await heartCard.boundingBox()
+await page.touchscreen.tap(hb.x + hb.width / 2, hb.y + hb.height / 2); await page.waitForTimeout(250)
+const spokenCard = await page.evaluate(() => window.__spoken.at(-1) ?? '')
+check((await page.locator('.st-card.armed').count()) === 1 && /human heart.*5 parts/i.test(spokenCard), `one touch speaks the card and arms it ("${spokenCard}")`)
+check(await page.locator('.st-canvas').count() === 0, 'and does not open it yet')
+await page.touchscreen.tap(hb.x + hb.width / 2, hb.y + hb.height / 2)
+await page.waitForSelector('.st-canvas svg', { timeout: 5000 })
+check(true, 'second touch opens the diagram')
+// gestures, through the same handler the touch recogniser calls
+await page.evaluate(() => window.__tsGesture('swipe-left')); await page.waitForTimeout(150)
+check((await page.locator('.st-modes button.on').innerText()) === 'Tour', 'two-finger swipe left moves to the next mode (Tour)')
+await page.evaluate(() => window.__tsGesture('swipe-right')); await page.waitForTimeout(150)
+check((await page.locator('.st-modes button.on').innerText()) === 'Explore', 'swipe right moves back (Explore)')
+await page.evaluate(() => window.__tsGesture('tap-3')); await page.waitForTimeout(150)
+check(/हिन्दी/.test(await page.locator('.st-lang').innerText()), 'three-finger tap changes the language to Hindi')
+await page.evaluate(() => window.__tsGesture('tap-3')); await page.evaluate(() => window.__tsGesture('tap-3')); await page.waitForTimeout(150)
+await page.evaluate(() => window.__tsGesture('double-tap-2')); await page.waitForTimeout(200)
+const spokenWhere = await page.evaluate(() => window.__spoken.at(-1) ?? '')
+check(/Blank paper/i.test(spokenWhere), `two-finger double tap says where the finger is ("${spokenWhere}")`)
+await page.goto('http://localhost:4173/student', { waitUntil: 'networkidle' })
+await page.waitForTimeout(300)
+check(await page.locator('.st-start').count() === 0, 'the introduction does not return on the next visit')
 const cards = await page.locator('.st-card').count()
 check(cards >= 1, `library shows ${cards} diagram cards`)
 
-// open the heart sample
+// open the heart sample (a mouse acts at once: sighted use)
 await page.click('.st-card:has-text("heart")')
 await page.waitForSelector('.st-canvas svg')
 await page.waitForTimeout(300)
