@@ -28,7 +28,7 @@ export function Workbench() {
   const [chapter, setChapter] = useState('')
   const [title, setTitle] = useState('')
   const [imgUrl, setImgUrl] = useState<string | null>(null)
-  const [showSource, setShowSource] = useState(false)
+  const [found, setFound] = useState<{ regions: number; labels: number; strokes: number; ms: number } | null>(null)
   const fileRef = useRef<HTMLInputElement>(null)
 
   // reopen a saved diagram
@@ -47,6 +47,7 @@ export function Workbench() {
     setErr(''); setStep('understand')
     try {
       const u = await understand(file, setStage)
+      setFound({ regions: u.regions.length, labels: u.labels.length, strokes: u.segments.length, ms: u.timings.total })
       const id = (title || file.name.replace(/\.[^.]+$/, '')).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || `diagram-${Date.now()}`
       const { tdm: draft } = draftTdm(u, { id, title: title || file.name.replace(/\.[^.]+$/, ''), subject: chapter.split(' ')[0] || 'general', sourceKind: 'photo', file: file.name })
       setStage('redesigning for touch')
@@ -89,153 +90,170 @@ export function Workbench() {
   const nameOf = (id: string) => tdm?.regions.find((r) => r.id === id)?.name.en ?? tdm?.lines.find((l) => l.id === id)?.name.en ?? id
   useEffect(() => { (window as unknown as { __wb?: Tdm | null }).__wb = tdm }, [tdm])
 
+  const STEPS: [Step, string, string][] = [['capture', 'Capture', 'photo or page'], ['understand', 'Understand', 'regions · labels · strokes'], ['review', 'Review & fix', 'validator · teacher'], ['published', 'Published', 'phone · print · projector']]
+  const stepIdx = STEPS.findIndex((x) => x[0] === step)
+  const blockingSel = highlight.length ? [...findings.blocking, ...findings.advisory].find((x) => selected && x.ids.includes(selected))?.at ?? null : null
+  const reset = () => { setStep('capture'); setTdm(null); setFile(null); setReport(null); setSelected(null); setFound(null); setImgUrl(null) }
+
   return (
     <div className="wb">
-      <aside className="wb-rail">
-        {(['capture', 'understand', 'review', 'published'] as Step[]).map((s, i) => (
-          <div key={s} className={`wb-step ${step === s ? 'on' : ''} ${['capture', 'understand', 'review', 'published'].indexOf(step) > i ? 'done' : ''}`}>
-            <span className="mono">0{i + 1}</span>
-            <b>{s === 'capture' ? 'Capture' : s === 'understand' ? 'Understand' : s === 'review' ? 'Review & fix' : 'Published'}</b>
-          </div>
-        ))}
-        {report && (
-          <div className="wb-report mono">
-            <div className="kicker" style={{ marginBottom: 6 }}>Redesign report</div>
-            <div>regions {report.regionsIn} → {report.regionsOut}</div>
-            <div>lines {report.linesIn} → {report.linesOut}</div>
-            <div>min gap {report.minGapBefore === Infinity ? '—' : report.minGapBefore + ' mm'} → {report.minGapAfter === Infinity ? '—' : report.minGapAfter + ' mm'}</div>
-            <div>textures {report.textures} · passes {report.separationPasses}</div>
-            {report.scaledBy !== 1 && <div>scaled ×{report.scaledBy}</div>}
-            {report.dropped.length > 0 && <div style={{ color: 'var(--coral)' }}>{report.dropped.length} dropped</div>}
-          </div>
-        )}
-      </aside>
+      <div className="wb-steps">
+        <ol>
+          {STEPS.map(([s, label, note], i) => (
+            <li key={s} className={`${step === s ? 'on' : ''} ${stepIdx > i ? 'done' : ''}`}>
+              <span className="mono wb-step-n">{stepIdx > i ? '✓' : `0${i + 1}`}</span>
+              <span className="wb-step-t"><b>{label}</b><span className="mono">{note}</span></span>
+            </li>
+          ))}
+        </ol>
+        <div className="wb-report mono">
+          {report ? <>
+            <span>regions <b>{report.regionsIn} → {report.regionsOut}</b></span>
+            <span>lines <b>{report.linesIn} → {report.linesOut}</b></span>
+            <span>min gap <b>{report.minGapBefore === Infinity ? '—' : report.minGapBefore} → {report.minGapAfter === Infinity ? '—' : report.minGapAfter} mm</b></span>
+            <span>textures <b>{report.textures}</b> · passes <b>{report.separationPasses}</b>{report.dropped.length > 0 && <> · <em>{report.dropped.length} dropped</em></>}</span>
+          </> : <span>{step === 'capture' ? 'one model · touch · voice · quiz · print' : stage || 'working'}</span>}
+        </div>
+      </div>
 
-      <main className="wb-main">
-        {step === 'capture' && (
-          <div className="wb-capture">
-            <div className="kicker">New diagram</div>
-            <h1 className="h1" style={{ margin: '6px 0 18px' }}>Photograph it, or drop the page here.</h1>
-            <div className="wb-drop" onClick={() => fileRef.current?.click()} onDragOver={(e) => e.preventDefault()} onDrop={(e) => { e.preventDefault(); const f = e.dataTransfer.files?.[0]; if (f) setFile(f) }}>
-              <input ref={fileRef} type="file" accept="image/*" capture="environment" hidden onChange={(e) => setFile(e.target.files?.[0] ?? null)} />
-              {file ? <img src={URL.createObjectURL(file)} alt="" style={{ maxHeight: 360, maxWidth: '100%', borderRadius: 10 }} /> : (
-                <div style={{ textAlign: 'center', color: 'var(--slate)' }}>
-                  <div style={{ fontSize: 44, marginBottom: 8 }}>▣</div>
-                  <div style={{ fontWeight: 600 }}>Tap to use the camera or choose a file</div>
-                  <div className="mono" style={{ fontSize: 12, marginTop: 6 }}>textbook page · worksheet · slide · board photo</div>
+      <div className="wb-table">
+        {/* 01 · source */}
+        <section className="wb-pane wb-source">
+          <header className="wb-pane-h"><span className="kicker">01 · Source</span><span className="mono">{file ? file.name : routeId ? routeId : 'photo · worksheet · slide · board'}</span></header>
+          <div className="wb-pane-b">
+            {step === 'capture' ? (
+              <div className="wb-capture">
+                <div className="wb-drop" onClick={() => fileRef.current?.click()} onDragOver={(e) => e.preventDefault()} onDrop={(e) => { e.preventDefault(); const f = e.dataTransfer.files?.[0]; if (f) setFile(f) }}>
+                  <input ref={fileRef} type="file" accept="image/*" capture="environment" hidden onChange={(e) => setFile(e.target.files?.[0] ?? null)} />
+                  {file ? <img src={URL.createObjectURL(file)} alt="" /> : (
+                    <div className="wb-drop-empty">
+                      <svg viewBox="0 0 48 48" width="52" height="52" aria-hidden><rect x="6" y="10" width="36" height="28" rx="4" fill="none" stroke="currentColor" strokeWidth="2" /><circle cx="24" cy="24" r="7" fill="none" stroke="currentColor" strokeWidth="2" /><path d="M16 10l3-4h10l3 4" fill="none" stroke="currentColor" strokeWidth="2" /></svg>
+                      <b>Photograph it, or drop the page here</b>
+                      <span className="mono">tap for the camera · or choose a file</span>
+                    </div>
+                  )}
                 </div>
-              )}
-            </div>
-            <div className="wb-fields">
-              <label><span className="kicker">Title</span><input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="The human heart" /></label>
-              <label><span className="kicker">Chapter</span><input value={chapter} onChange={(e) => setChapter(e.target.value)} placeholder="Biology · Class 10 · Life processes" /></label>
-            </div>
-            {err && <div className="card tint-coral" style={{ padding: 12, marginTop: 12 }}>{err}</div>}
-            <button className="btn primary" style={{ marginTop: 16, padding: '14px 22px', fontSize: 16 }} disabled={!file} onClick={run}>Understand this diagram</button>
-          </div>
-        )}
-
-        {step === 'understand' && (
-          <div className="wb-capture" style={{ alignItems: 'center', textAlign: 'center' }}>
-            <div className="wb-pulse" />
-            <div className="kicker" style={{ marginTop: 18 }}>Working</div>
-            <div className="h2" style={{ marginTop: 6 }}>{stage || 'starting'}</div>
-            <div className="mono" style={{ color: 'var(--muted)', fontSize: 12, marginTop: 8 }}>regions · labels · strokes · redesign for a fingertip · validate</div>
-          </div>
-        )}
-
-        {(step === 'review' || step === 'published') && tdm && (
-          <div className="wb-review">
-            <div className="wb-canvas">
-              <div className="wb-canvas-bar">
-                <span className="kicker">{showSource ? 'Source' : 'Tactile layout'} · {tdm.sheet.w}×{tdm.sheet.h} mm</span>
-                <span style={{ flex: 1 }} />
-                <button className="btn ghost" onClick={() => setShowSource((v) => !v)}>{showSource ? 'show layout' : 'show source'}</button>
+                <div className="wb-fields">
+                  <label><span className="kicker">Title</span><input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="The human heart" /></label>
+                  <label><span className="kicker">Chapter</span><input value={chapter} onChange={(e) => setChapter(e.target.value)} placeholder="Biology · Class 10 · Life processes" /></label>
+                </div>
+                {err && <div className="wb-err mono">{err}</div>}
+                <button className="btn primary wb-go" disabled={!file} onClick={run}>Understand this diagram →</button>
               </div>
-              <div className="wb-canvas-body">
-                {showSource && imgUrl ? <img src={imgUrl} alt="" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} /> : (
-                  <TdmCanvas tdm={tdm} selected={selected} highlight={highlight} onSelect={onPick} showKey showRelations marker={highlight.length ? [...findings.blocking, ...findings.advisory].find((x) => selected && x.ids.includes(selected))?.at ?? null : null} />
-                )}
+            ) : (
+              <div className={`wb-photo ${step === 'understand' ? 'scanning' : ''}`}>
+                {imgUrl || file ? <img src={imgUrl ?? URL.createObjectURL(file!)} alt="" /> : <div className="wb-ghost mono">no source image stored</div>}
+                {step === 'understand' && <div className="wb-scan" aria-hidden />}
               </div>
-            </div>
+            )}
+          </div>
+          <footer className="wb-pane-f mono">
+            {found ? <><span>{found.regions} regions</span><span>{found.labels} labels</span><span>{found.strokes} strokes</span><span>{(found.ms / 1000).toFixed(1)} s</span></> : <span>{step === 'understand' ? stage || 'reading' : 'what the pipeline read appears here'}</span>}
+          </footer>
+        </section>
 
-            <aside className="wb-inspector">
-              <section>
+        {/* 02 · sheet */}
+        <section className="wb-pane wb-sheet">
+          <header className="wb-pane-h"><span className="kicker">02 · Tactile sheet</span><span className="mono">A4 · 210 × 297 mm</span></header>
+          <div className="wb-pane-b wb-canvas-body">
+            {tdm && step !== 'understand' ? (
+              <TdmCanvas tdm={tdm} selected={selected} highlight={highlight} onSelect={onPick} showKey showRelations paper="#fbf8f1" marker={blockingSel} />
+            ) : (
+              <div className="wb-ghost-sheet"><span className="mono">{step === 'understand' ? (stage || 'redesigning for a fingertip') + '…' : 'the redesigned sheet appears here'}</span></div>
+            )}
+          </div>
+          <footer className="wb-pane-f mono">
+            {tdm ? <><span>{tdm.regions.length} regions</span><span>{tdm.lines.length} lines</span><span>{tdm.key.length} key</span><span>{tdm.relations.length} relations</span></> : <span>regions re-spaced to ≥ 3 mm · textures · braille key · reading order</span>}
+          </footer>
+        </section>
+
+        {/* 03 · checks and edits */}
+        <section className="wb-pane wb-inspector">
+          <header className="wb-pane-h"><span className="kicker">03 · Checks & edits</span><span className="mono">{tdm ? `${findings.blocking.length} blocking · ${findings.advisory.length} advisory` : 'S1 S2 S3 T1 K1 M1 R1 R2 R3 · O1 N1'}</span></header>
+          <div className="wb-pane-b wb-checks">
+            {!tdm || step === 'understand' ? (
+              <ol className="wb-rules-ghost mono">
+                {[['S1', 'separation ≥ 3 mm'], ['S2', 'area ≥ 60 mm² · length ≥ 8 mm'], ['S3', 'line width ≥ 1.2 mm'], ['T1', 'neighbours differ in texture'], ['K1', 'braille key fits the sheet'], ['M1', 'inside the 15 mm margin'], ['R1', 'relations reference parts'], ['R2', 'reading order complete'], ['R3', 'detected relations confirmed'], ['O1', 'OCR confidence ≥ 0.75'], ['N1', 'every part named']].map(([r, t]) => <li key={r}><em>{r}</em><span>{t}</span></li>)}
+              </ol>
+            ) : (
+              <>
                 <div className="wb-status" data-status={findings.status}>
                   <b>{findings.status === 'pass' ? 'Ready to publish' : `${findings.blocking.length} blocking`}</b>
                   <span className="mono">{findings.advisory.length} advisory</span>
                 </div>
-                {[...findings.blocking.map((f) => ({ ...f, blocking: true })), ...findings.advisory.map((f) => ({ ...f, blocking: false }))].map((f, i) => (
-                  <Finding key={i} f={f} blocking={f.blocking} onClick={() => setSelected(f.ids[0] ?? null)} active={!!selected && f.ids.includes(selected)} />
-                ))}
-              </section>
-
-              {sel && (
-                <section className="card" style={{ padding: 12 }}>
-                  <div className="kicker">{sel.id} · key {sel.keyRef}</div>
-                  <input className="wb-name" value={sel.name.en} onChange={(e) => saveDraft(rename(tdm, sel.id, 'en', e.target.value))} />
-                  {'polygon' in sel && (
-                    <>
-                      <div className="mono" style={{ fontSize: 12, color: 'var(--muted)', margin: '6px 0' }}>{area(sel.polygon).toFixed(0)} mm² · {sel.polygon.length} vertices{sel.sourceLabel ? ` · read "${sel.sourceLabel.text}" at ${Math.round(sel.sourceLabel.ocrConfidence * 100)}%` : ''}</div>
-                      <div className="wb-textures">
-                        {TEXTURES.filter((t) => t !== 'empty').map((t) => (
-                          <button key={t} className={`btn ${sel.texture === t ? 'primary' : ''}`} onClick={() => saveDraft(setTexture(tdm, sel.id, t))}>{TEXTURE_LABEL[t]}</button>
-                        ))}
-                      </div>
-                    </>
-                  )}
-                  <div style={{ display: 'flex', gap: 8, marginTop: 10, flexWrap: 'wrap' }}>
-                    <button className="btn" onClick={() => saveDraft(moveInOrder(tdm, sel.id, -1))}>↑ earlier</button>
-                    <button className="btn" onClick={() => saveDraft(moveInOrder(tdm, sel.id, 1))}>↓ later</button>
-                    {'polygon' in sel && <button className={`btn ${mergeWith ? 'coral' : ''}`} onClick={() => { setRelateFrom(null); setMergeWith(mergeWith ? null : sel.id) }}>{mergeWith ? 'click the other region…' : 'merge with…'}</button>}
-                    <button className={`btn ${relateFrom ? 'coral' : ''}`} onClick={() => { setMergeWith(null); setRelateFrom(relateFrom ? null : sel.id) }}>{relateFrom ? 'click the target…' : 'relate to…'}</button>
-                    <button className="btn" style={{ color: 'var(--coral)' }} onClick={() => { saveDraft(remove(tdm, sel.id)); setSelected(null) }}>remove</button>
-                  </div>
-                </section>
-              )}
-
-              <section>
-                <div className="kicker" style={{ marginBottom: 6 }}>Relations · {tdm.relations.length}{tdm.relations.some((r) => r.source === 'detected') ? ` · ${tdm.relations.filter((r) => r.source === 'detected').length} to confirm` : ''}</div>
-                {!tdm.relations.length && <div className="mono" style={{ fontSize: 12, color: 'var(--muted)' }}>none yet — select a part, then "relate to…" and click the target</div>}
-                <ul className="wb-rels">
-                  {tdm.relations.map((rel, i) => (
-                    <RelationRow key={`${rel.from}-${rel.to}-${i}`} rel={rel} from={nameOf(rel.from)} to={nameOf(rel.to)} active={!!selected && (rel.from === selected || rel.to === selected)}
-                      onKind={(k) => saveDraft(setRelation(tdm, i, { kind: k }))}
-                      onDirection={() => saveDraft(setRelation(tdm, i, { direction: rel.direction === 'forward' ? 'backward' : rel.direction === 'backward' ? 'both' : 'forward' }))}
-                      onConfirm={() => saveDraft(confirmRelation(tdm, i))}
-                      onRemove={() => saveDraft(removeRelation(tdm, i))}
-                      onSelect={() => setSelected(rel.from)} />
+                <div className="wb-findings">
+                  {[...findings.blocking.map((f) => ({ ...f, blocking: true })), ...findings.advisory.map((f) => ({ ...f, blocking: false }))].map((f, i) => (
+                    <Finding key={i} f={f} blocking={f.blocking} onClick={() => setSelected(f.ids[0] ?? null)} active={!!selected && f.ids.includes(selected)} />
                   ))}
-                </ul>
-              </section>
+                </div>
 
-              <section>
-                <div className="kicker" style={{ marginBottom: 6 }}>Reading order · {tdm.readingOrder.length} elements</div>
-                <ol className="wb-order">
-                  {tdm.readingOrder.map((id) => {
-                    const el = tdm.regions.find((r) => r.id === id) ?? tdm.lines.find((l) => l.id === id)
-                    if (!el) return null
-                    return <li key={id} className={selected === id ? 'on' : ''} onClick={() => setSelected(id)}><span className="mono">{el.keyRef}</span>{el.name.en}<em>{'polygon' in el ? TEXTURE_LABEL[el.texture] : `line · ${el.style}`}</em></li>
-                  })}
-                </ol>
-              </section>
-
-              <section className="wb-publish">
-                <label><span className="kicker">Chapter</span><input value={chapter} onChange={(e) => setChapter(e.target.value)} placeholder="Biology · Class 10" /></label>
-                {step === 'published' ? (
-                  <div className="card tint-teal" style={{ padding: 12 }}>
-                    <b>Published.</b> Students can open it now, offline. The same model prints, embosses and reads aloud:
-                    <ExportPanel tdm={tdm} />
-                    <div style={{ marginTop: 8, display: 'flex', gap: 8, flexWrap: 'wrap' }}><button className="btn" onClick={() => nav('/teacher/library')}>Library</button><button className="btn" onClick={() => { setStep('capture'); setTdm(null); setFile(null); setReport(null); setSelected(null) }}>New diagram</button></div>
-                  </div>
-                ) : (
-                  <button className="btn primary" style={{ width: '100%', padding: 14, fontSize: 16 }} disabled={!canPublish} onClick={publish}>{canPublish ? 'Publish to students' : 'Fix blocking findings to publish'}</button>
+                {sel && (
+                  <section className="wb-sel">
+                    <div className="kicker">{sel.id} · key {sel.keyRef}</div>
+                    <input className="wb-name" value={sel.name.en} onChange={(e) => saveDraft(rename(tdm, sel.id, 'en', e.target.value))} />
+                    {'polygon' in sel && (
+                      <>
+                        <div className="mono wb-sel-facts">{area(sel.polygon).toFixed(0)} mm² · {sel.polygon.length} vertices{sel.sourceLabel ? ` · read "${sel.sourceLabel.text}" at ${Math.round(sel.sourceLabel.ocrConfidence * 100)}%` : ''}</div>
+                        <div className="wb-textures">
+                          {TEXTURES.filter((t) => t !== 'empty').map((t) => (
+                            <button key={t} className={`btn ${sel.texture === t ? 'primary' : ''}`} onClick={() => saveDraft(setTexture(tdm, sel.id, t))}>{TEXTURE_LABEL[t]}</button>
+                          ))}
+                        </div>
+                      </>
+                    )}
+                    <div className="wb-sel-tools">
+                      <button className="btn" onClick={() => saveDraft(moveInOrder(tdm, sel.id, -1))}>↑ earlier</button>
+                      <button className="btn" onClick={() => saveDraft(moveInOrder(tdm, sel.id, 1))}>↓ later</button>
+                      {'polygon' in sel && <button className={`btn ${mergeWith ? 'coral' : ''}`} onClick={() => { setRelateFrom(null); setMergeWith(mergeWith ? null : sel.id) }}>{mergeWith ? 'click the other region…' : 'merge with…'}</button>}
+                      <button className={`btn ${relateFrom ? 'coral' : ''}`} onClick={() => { setMergeWith(null); setRelateFrom(relateFrom ? null : sel.id) }}>{relateFrom ? 'click the target…' : 'relate to…'}</button>
+                      <button className="btn wb-remove" onClick={() => { saveDraft(remove(tdm, sel.id)); setSelected(null) }}>remove</button>
+                    </div>
+                  </section>
                 )}
-              </section>
-            </aside>
+
+                <section>
+                  <div className="kicker wb-k">Relations · {tdm.relations.length}{tdm.relations.some((r) => r.source === 'detected') ? ` · ${tdm.relations.filter((r) => r.source === 'detected').length} to confirm` : ''}</div>
+                  {!tdm.relations.length && <div className="mono wb-hint">none yet — select a part, then "relate to…" and click the target</div>}
+                  <ul className="wb-rels">
+                    {tdm.relations.map((rel, i) => (
+                      <RelationRow key={`${rel.from}-${rel.to}-${i}`} rel={rel} from={nameOf(rel.from)} to={nameOf(rel.to)} active={!!selected && (rel.from === selected || rel.to === selected)}
+                        onKind={(k) => saveDraft(setRelation(tdm, i, { kind: k }))}
+                        onDirection={() => saveDraft(setRelation(tdm, i, { direction: rel.direction === 'forward' ? 'backward' : rel.direction === 'backward' ? 'both' : 'forward' }))}
+                        onConfirm={() => saveDraft(confirmRelation(tdm, i))}
+                        onRemove={() => saveDraft(removeRelation(tdm, i))}
+                        onSelect={() => setSelected(rel.from)} />
+                    ))}
+                  </ul>
+                </section>
+
+                <section>
+                  <div className="kicker wb-k">Reading order · {tdm.readingOrder.length} elements</div>
+                  <ol className="wb-order">
+                    {tdm.readingOrder.map((id) => {
+                      const el = tdm.regions.find((r) => r.id === id) ?? tdm.lines.find((l) => l.id === id)
+                      if (!el) return null
+                      return <li key={id} className={selected === id ? 'on' : ''} onClick={() => setSelected(id)}><span className="mono">{el.keyRef}</span>{el.name.en}<em>{'polygon' in el ? TEXTURE_LABEL[el.texture] : `line · ${el.style}`}</em></li>
+                    })}
+                  </ol>
+                </section>
+              </>
+            )}
           </div>
-        )}
-      </main>
+          <footer className="wb-pane-f wb-publish">
+            {step === 'published' && tdm ? (
+              <div className="wb-published">
+                <div className="wb-pub-row"><b>Published</b><span className="mono">students can open it now, offline</span><button className="btn" onClick={() => nav('/teacher/library')}>Library</button><button className="btn" onClick={reset}>New</button></div>
+                <ExportPanel tdm={tdm} />
+              </div>
+            ) : tdm && step === 'review' ? (
+              <>
+                <label className="wb-chapter"><span className="kicker">Chapter</span><input value={chapter} onChange={(e) => setChapter(e.target.value)} placeholder="Biology · Class 10" /></label>
+                <button className="btn primary wb-go" disabled={!canPublish} onClick={publish}>{canPublish ? 'Publish to students →' : 'Fix blocking findings to publish'}</button>
+              </>
+            ) : <span className="mono">publishing needs zero blocking findings</span>}
+          </footer>
+        </section>
+      </div>
     </div>
   )
 }

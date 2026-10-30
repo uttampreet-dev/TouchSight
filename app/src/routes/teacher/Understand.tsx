@@ -60,9 +60,9 @@ export function Understand() {
   const linked = u ? u.associations.filter((a) => a.regionId).length : 0
 
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) 360px', gap: 20, padding: 20 }}>
-      <div>
-        <div style={{ display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap', marginBottom: 12 }}>
+    <div className="insp">
+      <div className="wb-pane">
+        <div className="insp-bar">
           <input type="file" accept="image/*" onChange={(e) => setFile(e.target.files?.[0] ?? null)} />
           <button className="btn primary" disabled={!file || (!!stage && stage !== 'done')} onClick={run}>Understand</button>
           <span className="mono" style={{ fontSize: 12, color: 'var(--muted)' }}>{stage}</span>
@@ -70,27 +70,27 @@ export function Understand() {
             <label key={k} className="mono" style={{ fontSize: 12 }}><input type="checkbox" checked={show[k]} onChange={(e) => setShow({ ...show, [k]: e.target.checked })} /> {k}</label>
           ))}
         </div>
-        {err && <div className="card tint-coral" style={{ padding: 12 }}>{err}</div>}
-        <canvas ref={canvasRef} data-testid="overlay" style={{ maxWidth: '100%', border: '1px solid var(--line)', borderRadius: 10 }} />
+        {err && <div className="wb-err mono" style={{ padding: 12 }}>{err}</div>}
+        <canvas ref={canvasRef} data-testid="overlay" />
       </div>
-      <aside style={{ display: 'grid', gap: 12, alignContent: 'start' }}>
-        <div className="kicker">What was found</div>
+      <aside className="wb-pane insp-side">
+        <div className="kicker" style={{ color: 'var(--teal)' }}>What was found</div>
         {u && (
           <>
-            <div className="card" style={{ padding: 12 }} data-testid="summary">
-              <div className="mono" style={{ fontSize: 13, lineHeight: 1.7 }}>
+            <div className="insp-facts mono" data-testid="summary">
+              <div>
                 regions <b>{u.regions.length}</b> ({u.colourful ? 'colour' : 'line-art'})<br />
                 labels <b>{u.labels.length}</b> · linked <b>{linked}</b><br />
                 strokes <b>{u.segments.length}</b><br />
                 time <b>{u.timings.total} ms</b> (seg {u.timings.segment} · ocr {u.timings.ocr} · lines {u.timings.lines})
               </div>
             </div>
-            <div className="card" style={{ padding: 12, maxHeight: 420, overflow: 'auto' }}>
-              <table className="mono" style={{ fontSize: 12, width: '100%', borderCollapse: 'collapse' }} data-testid="labels">
+            <div style={{ maxHeight: 420, overflow: 'auto' }}>
+              <table className="mono" data-testid="labels">
                 <tbody>
                   {u.labels.map((l) => { const a = u.associations.find((x) => x.labelId === l.id)!; return (
-                    <tr key={l.id} style={{ borderBottom: '1px solid var(--line)' }}>
-                      <td style={{ padding: '4px 0' }}>{l.text}</td>
+                    <tr key={l.id}>
+                      <td>{l.text}</td>
                       <td style={{ color: 'var(--muted)' }}>{Math.round(l.confidence * 100)}</td>
                       <td style={{ color: a.regionId ? 'var(--green)' : 'var(--coral)' }}>{a.regionId ?? '—'} <small>{a.how}</small></td>
                     </tr>) })}

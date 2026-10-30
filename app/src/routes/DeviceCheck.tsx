@@ -3,6 +3,7 @@ import { Brand } from '../components/Brand'
 import { hapticsSupported, vibrate, TEXTURE_PULSE, CORRECT_PULSE } from '../device/haptics'
 import { speechSupported, speak } from '../device/speech'
 import { db } from '../store/db'
+import './device.css'
 
 const LANGS: [string, string][] = [['en', 'English'], ['hi', 'Hindi'], ['pa', 'Punjabi']]
 
@@ -32,21 +33,19 @@ export function DeviceCheck() {
   }, [])
 
   const Row = ({ label, ok, note }: { label: string; ok: boolean | null; note?: string }) => (
-    <div className="card" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px 14px' }}>
+    <div className="dc-row">
       <div>
-        <div style={{ fontWeight: 600 }}>{label}</div>
-        {note && <div className="mono" style={{ fontSize: 12, color: 'var(--muted)' }}>{note}</div>}
+        <div className="dc-label">{label}</div>
+        {note && <div className="mono dc-note">{note}</div>}
       </div>
-      <span className="mono" style={{ fontWeight: 700, color: ok === null ? 'var(--muted)' : ok ? 'var(--green)' : 'var(--coral)' }}>
-        {ok === null ? '…' : ok ? 'PASS' : 'FAIL'}
-      </span>
+      <span className={`mono dc-res ${ok === null ? 'wait' : ok ? 'pass' : 'fail'}`}>{ok === null ? '…' : ok ? 'PASS' : 'FAIL'}</span>
     </div>
   )
 
   return (
-    <main style={{ padding: 20, display: 'grid', gap: 12, maxWidth: 560 }}>
-      <Brand />
-      <div className="kicker">Device check</div>
+    <main className="dc">
+      <header className="dc-head"><Brand /><span className="kicker">Device check</span></header>
+      <div className="dc-body">
       <Row label="Opened from home-screen icon" ok={standalone} note={standalone ? 'display-mode: standalone' : 'open the installed app, not a browser tab'} />
       <Row label="Offline capable (service worker)" ok={sw === 'checking' ? null : sw === 'active'} note={`network: ${online ? 'online' : 'offline'}`} />
       <Row label="Local store (IndexedDB)" ok={dbOk === 'checking' ? null : dbOk === 'ok'} />
@@ -56,7 +55,8 @@ export function DeviceCheck() {
         const found = voices.filter((v) => v.lang.toLowerCase().replace('_', '-').startsWith(code))
         return <Row key={code} label={`Voice · ${label}`} ok={voices.length === 0 ? null : found.length > 0} note={found.length ? found.map((v) => v.name).slice(0, 3).join(', ') : `no ${code}-* voice installed; the app falls back to the default voice`} />
       })}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, marginTop: 8 }}>
+      </div>
+      <div className="dc-body dc-buttons">
         {Object.entries(TEXTURE_PULSE).filter(([, p]) => p !== 0).map(([name, p]) => (
           <button key={name} className="btn" onClick={() => vibrate(p)}>
             buzz · {name}
@@ -67,7 +67,7 @@ export function DeviceCheck() {
         <button className="btn" onClick={() => speak('बायाँ निलय', 'hi')}>speak · हिन्दी</button>
         <button className="btn" onClick={() => speak('ਖੱਬਾ ਨਿਲਯ', 'pa')}>speak · ਪੰਜਾਬੀ</button>
       </div>
-      <p className="mono" style={{ fontSize: 12, color: 'var(--muted)' }}>
+      <p className="mono dc-gate">
         Gate: every row PASS with Wi-Fi off, and every buzz button is felt. A missing Hindi or Punjabi voice is a phone setting (Settings → Text-to-speech → install the language), not an app fault.
       </p>
     </main>

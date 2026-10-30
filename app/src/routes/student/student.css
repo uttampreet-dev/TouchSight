@@ -52,3 +52,8 @@
 .st-key .cells { grid-column: 2; font-size: 24px; line-height: 1; letter-spacing: 0.08em; color: #fff; min-height: 26px; }
 .st-key .cells.wait { color: #9fb8b8; font-size: 12px; font-family: var(--mono); }
 .st-key .feel { grid-column: 2; font-family: var(--mono); font-size: 11px; color: #9fb8b8; }
+
+/* the language switch must never widen the phone page */
+.st-head { flex-wrap: wrap; row-gap: 10px; }
+.st-langs { flex-basis: 100%; min-width: 0; }
+.st-langs button { flex: 1; font-size: 13px; padding: 7px 8px; }

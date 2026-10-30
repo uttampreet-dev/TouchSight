@@ -116,10 +116,12 @@ export function TdmCanvas({ tdm, highlight = [], selected, onSelect, showRefs = 
       {showKey && tdm.key.map((k, i) => {
         const col = i % 2, row = Math.floor(i / 2)
         const x = box.x + 4 + col * (box.w / 2), y = keyTop + row * 7
+        const maxChars = Math.max(6, Math.floor((box.w / 2 - 12) / 2.3))
+        const label = k.text.en.length > maxChars ? k.text.en.slice(0, maxChars - 1).trimEnd() + '…' : k.text.en
         return (
           <g key={k.ref}>
             <text x={x} y={y + 4.5} fontSize={4.5} fontFamily="JetBrains Mono, monospace" fontWeight={700} fill={ink}>{k.ref}</text>
-            <text x={x + 7} y={y + 4.5} fontSize={4.2} fontFamily="Inter, Arial, sans-serif" fill={ink}>{k.text.en}</text>
+            <text x={x + 7} y={y + 4.5} fontSize={4.2} fontFamily="Inter, Arial, sans-serif" fill={ink}>{label}</text>
           </g>
         )
       })}
