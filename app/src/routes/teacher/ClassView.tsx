@@ -38,17 +38,20 @@ export function ClassView() {
   useEffect(() => { listDiagrams(true).then((r) => setRows(r as Row[])) }, [])
   useEffect(() => { listProgress(room).then((p) => { for (const r of p) seen.current.add(`${r.student}|${r.at}`); setActs(p.map((r) => ({ ...(r.event as Activity), student: r.student, at: r.at }))) }) }, [room])
 
+  const rosterRef = useRef(roster); rosterRef.current = roster
+  const pushedRef = useRef<Tdm[]>([])
   useEffect(() => {
     classroom.join(room, 'console')
     classroom.roster(roster)
+    classroom.onOpen = () => { classroom.roster(rosterRef.current); for (const t of pushedRef.current) classroom.publish(t) }
     const off = classroom.on((m: Incoming) => {
-      if (m.op === 'state') { setPhones(m.phones); setPushed(new Set(m.published.map((t) => t.id))); setFromRoom(m.published); for (const a of m.activity) remember(a) }
+      if (m.op === 'state') { setPhones(m.phones); const known = new Map([...pushedRef.current, ...m.published].map((t) => [t.id, t])); pushedRef.current = [...known.values()]; setPushed(new Set(known.keys())); setFromRoom([...known.values()]); for (const a of m.activity) remember(a) }
       if (m.op === 'presence') { setPhones(m.phones); if (m.student) setOnline((s) => { const n = new Set(s); if (m.joined) n.add(m.student!); else n.delete(m.student!); return n }) }
       if (m.op === 'activity') remember(m.event)
       if (m.op === 'published') { setPushed((s) => new Set(s).add(m.tdm.id)); setFromRoom((xs) => xs.some((t) => t.id === m.tdm.id) ? xs : [...xs, m.tdm]) }
     })
     const t = setInterval(() => setLink(classroom.state), 800)
-    return () => { off(); clearInterval(t) }
+    return () => { off(); clearInterval(t); classroom.onOpen = () => {} }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [room])
 
@@ -61,7 +64,7 @@ export function ClassView() {
   }
   function saveRoster(names: string[]) { setRoster(names); try { localStorage.setItem(ROSTER_KEY, JSON.stringify(names)) } catch { /* ignore */ } classroom.roster(names) }
   function add() { const n = draft.trim(); if (!n || roster.includes(n)) return; saveRoster([...roster, n]); setDraft('') }
-  function push(t: Tdm) { classroom.publish(t); setPushed((s) => new Set(s).add(t.id)); setFromRoom((xs) => xs.some((x) => x.id === t.id) ? xs : [...xs, t]) }
+  function push(t: Tdm) { classroom.publish(t); setPushed((s) => new Set(s).add(t.id)); setFromRoom((xs) => xs.some((x) => x.id === t.id) ? xs : [...xs, t]); if (!pushedRef.current.some((x) => x.id === t.id)) pushedRef.current.push(t) }
   const shelf: Row[] = useMemo(() => [...rows, ...fromRoom.filter((t) => !rows.some((r) => r.id === t.id)).map((t) => ({ id: t.id, tdm: t, chapter: t.subject || 'From the room', published: true }))], [rows, fromRoom])
   function newCode() { const c = newRoomCode(); setTeacherRoom(c); setRoom(c); setPushed(new Set()); setActs([]); seen.current.clear() }
   async function forget() { await clearProgress(room); setActs([]); seen.current.clear(); classroom.reset() }

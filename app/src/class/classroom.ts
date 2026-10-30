@@ -52,6 +52,8 @@ class ClassLink {
   student: string | null = null
   state: 'off' | 'connecting' | 'open' = 'off'
   phones = 0
+  /** runs after every (re)connect, once the join is sent: the console re-announces its roster and pushed diagrams so a relay restart loses nothing */
+  onOpen: () => void = () => {}
 
   on(h: Handler) { this.handlers.add(h); return () => { this.handlers.delete(h) } }
 
@@ -73,6 +75,7 @@ class ClassLink {
         if (this.room) ws.send(JSON.stringify({ type: 'class', op: 'join', room: this.room, role: this.role, student: this.student }))
         for (const t of this.outbox.splice(0)) ws.send(t)
         this.flush()
+        this.onOpen()
       }
       ws.onmessage = (e) => { try { const m = JSON.parse(e.data); if (m.type === 'class' && m.room === this.room) { if (m.op === 'presence' || m.op === 'state') this.phones = m.phones; this.handlers.forEach((h) => h(m)) } } catch { /* not ours */ } }
       ws.onclose = () => { this.ws = null; this.state = 'off'; setTimeout(() => this.connect(), this.backoff); this.backoff = Math.min(10_000, this.backoff * 2) }
