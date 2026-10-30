@@ -23,7 +23,7 @@ for (const width of [1440, 1280]) {
   await page.click('button:has-text("Understand this diagram")')
   await page.waitForTimeout(1500)
   await page.screenshot({ path: `${OUT}/teacher-working-${width}.png` })
-  await page.waitForSelector('.wb-inspector', { timeout: 180_000 })
+  await page.waitForSelector('.wb-canvas-body svg', { timeout: 180_000 })
   await page.waitForTimeout(500)
   await page.screenshot({ path: `${OUT}/teacher-review-${width}.png` })
   // select the first element in the reading order to open the editor

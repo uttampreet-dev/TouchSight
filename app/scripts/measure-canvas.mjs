@@ -9,7 +9,7 @@ for (const [width, height] of [[1440, 900], [1280, 720], [1366, 768]]) {
   await page.goto('http://localhost:4173/teacher', { waitUntil: 'networkidle' })
   await page.setInputFiles('input[type=file]', img)
   await page.click('button:has-text("Understand this diagram")')
-  await page.waitForSelector('.wb-inspector', { timeout: 180_000 })
+  await page.waitForSelector('.wb-canvas-body svg', { timeout: 180_000 })
   await page.waitForTimeout(300)
   const m = await page.evaluate(() => {
     const body = document.querySelector('.wb-canvas-body').getBoundingClientRect()
