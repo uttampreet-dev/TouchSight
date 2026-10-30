@@ -71,6 +71,7 @@ class ClassLink {
       ws.onopen = () => {
         this.state = 'open'; this.backoff = 1000
         if (this.room) ws.send(JSON.stringify({ type: 'class', op: 'join', room: this.room, role: this.role, student: this.student }))
+        for (const t of this.outbox.splice(0)) ws.send(t)
         this.flush()
       }
       ws.onmessage = (e) => { try { const m = JSON.parse(e.data); if (m.type === 'class' && m.room === this.room) { if (m.op === 'presence' || m.op === 'state') this.phones = m.phones; this.handlers.forEach((h) => h(m)) } } catch { /* not ours */ } }
@@ -79,11 +80,14 @@ class ClassLink {
     } catch { this.ws = null; this.state = 'off' }
   }
 
+  private outbox: string[] = []
+  /** Sends now, or holds the message until the socket opens (roster, publish, reset must never be dropped). */
   private send(obj: Record<string, unknown>) {
     const text = JSON.stringify({ type: 'class', room: this.room, ...obj })
-    if (this.ws?.readyState === 1) this.ws.send(text)
-    else { this.connect(); return false }
-    return true
+    if (this.ws?.readyState === 1) { this.ws.send(text); return true }
+    this.outbox.push(text); if (this.outbox.length > 50) this.outbox.shift()
+    this.connect()
+    return false
   }
 
   roster(names: string[]) { this.send({ op: 'roster', names }) }
@@ -95,7 +99,9 @@ class ClassLink {
   activity(event: ClassEvent) {
     if (!this.room || !this.student) return
     const item = { op: 'activity', student: this.student, event, at: Date.now() }
-    if (!this.send(item)) { const q = this.queue(); q.push(item); try { localStorage.setItem(QUEUE_KEY, JSON.stringify(q.slice(-500))) } catch { /* ignore */ } }
+    if (this.ws?.readyState === 1) { this.send(item); return }
+    const q = this.queue(); q.push(item); try { localStorage.setItem(QUEUE_KEY, JSON.stringify(q.slice(-500))) } catch { /* ignore */ }
+    this.connect()
   }
   private queue(): Record<string, unknown>[] { try { return JSON.parse(localStorage.getItem(QUEUE_KEY) || '[]') } catch { return [] } }
   private flush() { const q = this.queue(); if (!q.length) return; for (const item of q) this.send(item); try { localStorage.removeItem(QUEUE_KEY) } catch { /* ignore */ } }

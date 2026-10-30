@@ -143,6 +143,7 @@
 .cl-add { display: grid; grid-template-columns: 1fr auto; gap: 8px; margin-top: 6px; }
 .cl-add input { padding: 9px 12px; border: 1px solid var(--line); border-radius: 10px; background: #fff; } .cl-add .btn { padding: 8px 14px; }
 .cl-empty { font-size: 12px; color: var(--muted); padding: 10px 2px; line-height: 1.5; }
+.cl-roster li.cl-empty { display: block; background: transparent; border: 0; }
 .cl-pub { padding: 12px 16px; display: grid; gap: 8px; align-content: start; }
 .cl-pub-row { display: grid; grid-template-columns: 64px 1fr auto; gap: 12px; align-items: center; padding: 10px; border-radius: 12px; background: #fff; border: 1px solid var(--line); }
 .cl-pub-row.sent { border-color: rgba(14,124,123,.4); }
