@@ -42,8 +42,8 @@ export function ClassView() {
   const pushedRef = useRef<Tdm[]>([])
   useEffect(() => {
     classroom.join(room, 'console')
-    classroom.roster(roster)
-    classroom.onOpen = () => { classroom.roster(rosterRef.current); for (const t of pushedRef.current) classroom.publish(t) }
+    if (roster.length) classroom.roster(roster)
+    classroom.onOpen = () => { if (rosterRef.current.length) classroom.roster(rosterRef.current); for (const t of pushedRef.current) classroom.publish(t) }
     const off = classroom.on((m: Incoming) => {
       if (m.op === 'state') { setPhones(m.phones); if (!rosterRef.current.length && m.roster.length) { rosterRef.current = m.roster; setRoster(m.roster); try { localStorage.setItem(ROSTER_KEY, JSON.stringify(m.roster)) } catch { /* ignore */ } } const known = new Map([...pushedRef.current, ...m.published].map((t) => [t.id, t])); pushedRef.current = [...known.values()]; setPushed(new Set(known.keys())); setFromRoom([...known.values()]); for (const a of m.activity) remember(a) }
       if (m.op === 'presence') { setPhones(m.phones); if (m.student) setOnline((s) => { const n = new Set(s); if (m.joined) n.add(m.student!); else n.delete(m.student!); return n }) }
