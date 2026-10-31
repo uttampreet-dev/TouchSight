@@ -175,6 +175,8 @@ app/            the web app: src/pipeline (understand), src/tdm (model, solver, 
                 src/export (SVG, STL, BRF, alt-text), src/student (explorer, braille), src/routes (screens),
                 scripts/ (static server + relay, headless harnesses, benchmark runner)
 docs/           TDM-SPEC.md, VALIDATOR-RULES.md
+packages/       standalone Node CLIs that take a .tdm.json and write the tactile SVG, STL, braille key and alt-text
+                without the app (npm install at the root, then npm run export:svg examples/bio-heart-01.tdm.json)
 benchmark/      raw figures and sources, truth files, RESULTS.md, LIMITS.md, results/ (overlays, exports, screens)
 examples/       a hand-authored heart model
 ```
