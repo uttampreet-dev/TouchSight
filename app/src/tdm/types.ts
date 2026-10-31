@@ -12,6 +12,10 @@ export interface TdmRegion {
   id: string
   name: LocalText
   meaning?: string
+  /** the same function in the student's languages; `meaning` stays the English fallback */
+  meanings?: Partial<Record<Lang, string>>
+  /** who wrote it: the teacher, or the built-in glossary until a teacher confirms */
+  meaningSource?: 'teacher' | 'glossary'
   polygon: Point[]
   texture: Texture
   keyRef: string

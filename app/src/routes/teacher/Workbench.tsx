@@ -4,7 +4,7 @@ import { understand, draftTdm, type Understanding } from '../../pipeline/underst
 import { drawUnderstanding, SHOW_ALL } from '../../pipeline/overlay'
 import { simplify, type SimplifyReport } from '../../tdm/simplify'
 import { validate } from '../../tdm/validate'
-import { rename, remove, merge, setTexture, moveInOrder, markReviewed, addRelation, confirmRelation, removeRelation, setRelation } from '../../tdm/edit'
+import { rename, remove, merge, setTexture, moveInOrder, markReviewed, addRelation, confirmRelation, removeRelation, setRelation, setMeaning, confirmMeaning, prefillMeanings } from '../../tdm/edit'
 import { TdmCanvas, TEXTURE_LABEL } from '../../components/TdmCanvas'
 import { TEXTURES, RELATION_KINDS, type Tdm, type ValidationFinding, type TdmRelation } from '../../tdm/types'
 import { getDiagram, saveDiagram, saveImage, getImage } from '../../store/db'
@@ -66,7 +66,9 @@ export function Workbench() {
       const { tdm: draft } = draftTdm(u, { id, title: title || file.name.replace(/\.[^.]+$/, ''), subject: chapter.split(' ')[0] || 'general', sourceKind: 'photo', file: file.name })
       setStage('redesigning for touch')
       await new Promise((r) => setTimeout(r, 30)) // let the stage paint before the solver takes the thread
-      const { tdm: simplified, report } = simplify(draft)
+      const { tdm: solved, report } = simplify(draft)
+      const { tdm: simplified, filled } = prefillMeanings(solved)
+      if (filled) setStage(`${filled} parts explained from the glossary`)
       simplified.validation = validate(simplified)
       setImgUrl(URL.createObjectURL(file))
       setTdm(simplified); setReport(report); setTitle(simplified.title); setStep('review'); setStage('')
@@ -226,6 +228,13 @@ export function Workbench() {
                         </div>
                       </>
                     )}
+                    {'polygon' in sel && (
+                      <label className="wb-meaning">
+                        <span className="kicker">What it does <em className={`mono ${sel.meaningSource ?? 'none'}`}>{sel.meaningSource === 'glossary' ? '· from glossary, confirm or rewrite' : sel.meaningSource === 'teacher' ? '· teacher' : '· spoken after the name when the finger rests'}</em></span>
+                        <textarea rows={2} value={sel.meaning ?? ''} placeholder="Receives deoxygenated blood from the body…" onChange={(e) => saveDraft(setMeaning(tdm, sel.id, e.target.value))} />
+                        {sel.meaningSource === 'glossary' && <div className="wb-meaning-row"><span className="mono">हिं · ਪੰ translations ready</span><button className="btn primary ok" onClick={() => saveDraft(confirmMeaning(tdm, sel.id))}>✓ confirm</button></div>}
+                      </label>
+                    )}
                     <div className="wb-sel-tools">
                       <button className="btn" onClick={() => saveDraft(moveInOrder(tdm, sel.id, -1))}>↑ earlier</button>
                       <button className="btn" onClick={() => saveDraft(moveInOrder(tdm, sel.id, 1))}>↓ later</button>
@@ -257,7 +266,7 @@ export function Workbench() {
                     {tdm.readingOrder.map((id) => {
                       const el = tdm.regions.find((r) => r.id === id) ?? tdm.lines.find((l) => l.id === id)
                       if (!el) return null
-                      return <li key={id} className={selected === id ? 'on' : ''} onClick={() => setSelected(id)}><span className="mono">{el.keyRef}</span>{el.name.en}<em>{'polygon' in el ? TEXTURE_LABEL[el.texture] : `line · ${el.style}`}</em></li>
+                      return <li key={id} className={selected === id ? 'on' : ''} onClick={() => setSelected(id)}><span className="mono">{el.keyRef}</span><span>{el.name.en}{'polygon' in el && el.meaning && <i className={`wb-dot ${el.meaningSource}`} title={el.meaningSource === 'glossary' ? 'explained from the glossary' : 'explained by the teacher'} />}</span><em>{'polygon' in el ? TEXTURE_LABEL[el.texture] : `line · ${el.style}`}</em></li>
                     })}
                   </ol>
                 </section>

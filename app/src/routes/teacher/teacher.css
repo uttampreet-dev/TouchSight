@@ -176,3 +176,10 @@
 .wb-overlay { max-width: 100%; max-height: 100%; width: auto; height: auto; border-radius: 8px; box-shadow: 0 10px 30px rgba(12,43,45,.15); }
 .wb-ovl { position: absolute; right: 24px; top: 24px; border: 1px solid var(--line); background: #fff; color: var(--muted); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; padding: 5px 9px; border-radius: 8px; cursor: pointer; }
 .wb-ovl.on { color: var(--teal); border-color: rgba(14,124,123,.5); }
+
+/* what a part does */
+.wb-meaning { display: grid; gap: 6px; } .wb-meaning .kicker { display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; color: var(--teal); }
+.wb-meaning em { font-style: normal; text-transform: none; letter-spacing: 0; font-size: 10.5px; color: var(--muted); } .wb-meaning em.glossary { color: var(--amber); } .wb-meaning em.teacher { color: var(--green); }
+.wb-meaning textarea { width: 100%; padding: 9px 11px; border: 1px solid var(--line); border-radius: 10px; background: #fff; font: inherit; font-size: 13px; line-height: 1.45; resize: vertical; }
+.wb-meaning-row { display: flex; justify-content: space-between; align-items: center; gap: 8px; } .wb-meaning-row .mono { font-size: 10.5px; color: var(--muted); } .wb-meaning-row .btn { padding: 5px 10px; font-size: 12px; }
+.wb-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-left: 7px; vertical-align: middle; background: var(--amber); } .wb-dot.teacher { background: var(--green); }

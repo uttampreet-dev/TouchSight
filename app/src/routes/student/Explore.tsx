@@ -40,6 +40,7 @@ export function Explore() {
   const { handle, armed } = useTouchToAct(lang)
   const st = useRef(createState())
   const pending = useRef<number | null>(null)
+  const pending2 = useRef<number | null>(null)
 
   useEffect(() => {
     let live = true
@@ -48,9 +49,9 @@ export function Explore() {
   }, [id])
 
   // ---- the device's three outputs, each logged for the projector and the harness
-  const say = useCallback((text: string, l: Lang = lang) => { log('say', text); setCaption(text); mirror.post({ type: 'say', text }); sound.duck(Math.min(6000, 500 + text.length * 60)); return speak(text, l) ?? wait(Math.min(2500, 250 + text.length * 45)) }, [lang])
+  const say = useCallback((text: string, l: Lang = lang, interrupt = true) => { log('say', text); setCaption(text); mirror.post({ type: 'say', text }); sound.duck(Math.min(6000, 500 + text.length * 60)); return speak(text, l, { interrupt }) ?? wait(Math.min(2500, 250 + text.length * 45)) }, [lang])
   const buzz = useCallback((p: Pulse) => { log('pulse', JSON.stringify(p)); vibrate(p) }, [])
-  const hush = useCallback(() => { if (pending.current) { clearTimeout(pending.current); pending.current = null } }, [])
+  const hush = useCallback(() => { if (pending.current) { clearTimeout(pending.current); pending.current = null } if (pending2.current) { clearTimeout(pending2.current); pending2.current = null } }, [])
   useEffect(() => () => { hush(); stopSpeech(); stopVibration(); sound.lift() }, [hush])
   useEffect(() => { mirror.post({ type: 'mode', mode }) }, [mode])
 
@@ -184,6 +185,7 @@ export function Explore() {
       else if (a.do === 'hush') { hush(); if (st.current.down) sound.tick() }
       else if (a.do === 'focus') { const now = performance.now(); leavePart(now); dwell.current = { id: a.id, since: now }; if (mode !== 'quiz') setFocus(a.id) }
       else if (a.do === 'say' && mode !== 'quiz') { hush(); pending.current = window.setTimeout(() => { pending.current = null; say(a.text) }, a.after) }
+      else if (a.do === 'explain' && mode === 'explore') { if (pending2.current) clearTimeout(pending2.current); pending2.current = window.setTimeout(() => { pending2.current = null; log('explain', a.text); say(a.text, lang, false) }, a.after) }
     }
   }
   const onPointer = (e: React.PointerEvent) => {

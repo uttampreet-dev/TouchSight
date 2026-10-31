@@ -99,6 +99,10 @@ const sndRA = await page.evaluate(() => window.__tsSound)
 await page.mouse.move(la.x, la.y, { steps: 12 })
 await page.waitForTimeout(350)
 const sndLA = await page.evaluate(() => window.__tsSound)
+// keep resting: the name is followed by what the part does
+await page.waitForTimeout(1700)
+const Lx = await log()
+check(Lx.some((e) => /^explain: .*oxygen/i.test(e)), `a resting finger hears the function after the name (${Lx.filter((e) => e.startsWith('explain')).slice(-1)[0] ?? 'none'})`)
 await page.mouse.up()
 // the sound layer: a voice per texture, a click per boundary, pan with position
 check(sndRA?.type === 'sawtooth' && sndLA?.type === 'sine', `tone timbre follows texture (diagonal → ${sndRA?.type}, dots → ${sndLA?.type})`)

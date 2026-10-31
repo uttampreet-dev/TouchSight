@@ -2,6 +2,7 @@ import type { Tdm, Point, Lang } from '../tdm/types'
 import { TEXTURE_PULSE, EDGE_PULSE, LINE_PULSE, enterPulse, type Pulse } from '../device/haptics'
 import { hitAt, positionOf, type Hit } from './hit'
 import { nameIn, t } from '../i18n'
+import { meaningIn } from '../i18n/meanings'
 
 /**
  * The haptic explorer as a pure step function: the finger position in sheet millimetres goes in, the actions the
@@ -10,10 +11,12 @@ import { nameIn, t } from '../i18n'
 
 export const DWELL_MS = 320      // the finger rests this long in a part before its name is spoken
 export const REPEAT_MS = 750     // while the finger keeps moving inside a part, its rhythm repeats at this interval
+export const EXPLAIN_MS = 1500   // a finger that keeps resting after the name hears what the part does
 
 export type Action =
   | { do: 'pulse'; pulse: Pulse }
   | { do: 'say'; text: string; after: number }
+  | { do: 'explain'; text: string; after: number }
   | { do: 'hush' }
   | { do: 'focus'; id: string | null }
 
@@ -49,6 +52,8 @@ export function step(tdm: Tdm, st: ExploreState, p: Point | null, now: number, l
   st.id = id; st.kind = hit?.kind ?? null; st.since = now; st.lastPulse = now
   if (hit) {
     out.push({ do: 'pulse', pulse: enterPulse(feelOf(hit)) }, { do: 'focus', id }, { do: 'say', text: nameIn(hit.el.name, lang), after: DWELL_MS })
+    const m = hit.kind === 'region' ? meaningIn(hit.el, lang) : undefined
+    if (m) out.push({ do: 'explain', text: m, after: DWELL_MS + EXPLAIN_MS })
   } else {
     out.push({ do: 'pulse', pulse: EDGE_PULSE }, { do: 'focus', id: null })
   }
@@ -66,7 +71,8 @@ export function describeFully(tdm: Tdm, id: string, lang: Lang): string {
   const parts: string[] = [nameIn(el.name, lang)]
   parts.push(r ? s.textures[r.texture] : s.line)
   parts.push(s.positions[positionOf(tdm, id)])
-  if (r?.meaning) parts.push(r.meaning.replace(/[.।]\s*$/, ''))
+  const m = r ? meaningIn(r, lang) : undefined
+  if (m) parts.push(m.replace(/[.।]\s*$/, ''))
   const find = (x: string) => tdm.regions.find((e) => e.id === x) ?? tdm.lines.find((e) => e.id === x)
   for (const rel of tdm.relations) {
     if (rel.from !== id && rel.to !== id) continue

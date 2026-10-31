@@ -1,3 +1,4 @@
+import { glossaryMeaning } from '../i18n/meanings'
 import type { Tdm, Texture, Lang, TdmRegion, TdmLine, TdmRelation } from './types'
 import { cloneTdm } from './io'
 import { union, simplifyPolygon } from './geometry'
@@ -15,6 +16,11 @@ export function rename(tdm: Tdm, id: string, lang: Lang, name: string): Tdm {
   el.name = { ...el.name, [lang]: name }
   const k = t.key.find((k) => k.regionId === id)
   if (k) k.text = { ...k.text, [lang]: name }
+  if (lang === 'en' && 'polygon' in el && el.meaningSource !== 'teacher') {
+    const m = glossaryMeaning(name)
+    if (m) { el.meaning = m.en; el.meanings = { en: m.en, hi: m.hi, pa: m.pa }; el.meaningSource = 'glossary' }
+    else { delete el.meaning; delete el.meanings; delete el.meaningSource }
+  }
   return revalidate(t)
 }
 
@@ -106,4 +112,35 @@ export function markReviewed(tdm: Tdm): Tdm {
   const t = cloneTdm(tdm)
   t.provenance = { ...t.provenance, teacherReviewed: true, reviewedAt: new Date().toISOString() }
   return revalidate(t)
+}
+
+/** The teacher writes what a part does (English); other languages are kept only when they came from the glossary. */
+export function setMeaning(tdm: Tdm, id: string, text: string): Tdm {
+  const t = cloneTdm(tdm)
+  const r = t.regions.find((x) => x.id === id)
+  if (!r) return tdm
+  const clean = text.trim()
+  if (!clean) { delete r.meaning; delete r.meanings; delete r.meaningSource; return t }
+  r.meaning = clean; r.meanings = { en: clean }; r.meaningSource = 'teacher'
+  return t
+}
+/** A glossary sentence stands until the teacher confirms it. */
+export function confirmMeaning(tdm: Tdm, id: string): Tdm {
+  const t = cloneTdm(tdm)
+  const r = t.regions.find((x) => x.id === id)
+  if (!r || !r.meaning) return tdm
+  r.meaningSource = 'teacher'
+  return t
+}
+/** Fill every unexplained region from the glossary by its name; returns how many were filled. */
+export function prefillMeanings(tdm: Tdm): { tdm: Tdm; filled: number } {
+  const t = cloneTdm(tdm)
+  let filled = 0
+  for (const r of t.regions) {
+    if (r.meaning && r.meaningSource !== 'glossary') continue
+    const m = glossaryMeaning(r.name.en)
+    if (m) { r.meaning = m.en; r.meanings = { en: m.en, hi: m.hi, pa: m.pa }; r.meaningSource = 'glossary'; filled++ }
+    else if (r.meaningSource === 'glossary') { delete r.meaning; delete r.meanings; delete r.meaningSource }
+  }
+  return { tdm: t, filled }
 }
