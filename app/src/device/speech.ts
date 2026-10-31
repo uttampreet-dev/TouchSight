@@ -21,7 +21,7 @@ function pickVoice(lang: Lang): SpeechSynthesisVoice | undefined {
 
 export function speak(text: string, lang: Lang = 'en', opts: { rate?: number; interrupt?: boolean } = {}) {
   if (!speechSupported() || !text) return
-  if (opts.interrupt !== false) window.speechSynthesis.cancel()
+  if (opts.interrupt !== false && (window.speechSynthesis.speaking || window.speechSynthesis.pending)) window.speechSynthesis.cancel()
   const u = new SpeechSynthesisUtterance(text)
   u.lang = LANG_TAG[lang]
   const v = pickVoice(lang)
@@ -30,10 +30,13 @@ export function speak(text: string, lang: Lang = 'en', opts: { rate?: number; in
   current = u
   window.speechSynthesis.speak(u)
   return new Promise<void>((resolve) => {
-    let done = false
-    const finish = () => { if (!done) { done = true; clearTimeout(guard); resolve() } }
+    let done = false, started = false
+    const finish = () => { if (!done) { done = true; clearTimeout(guard); clearTimeout(retry); resolve() } }
+    u.onstart = () => { started = true }
     u.onend = finish
     u.onerror = finish
+    // Android Chrome sometimes drops the first utterance after a cancel; one quiet retry
+    const retry = setTimeout(() => { if (!started && !done && current === u) { try { window.speechSynthesis.speak(u) } catch { /* ignore */ } } }, 700)
     // some engines never report the end of an utterance; a listener-paced guard keeps a tour moving
     const guard = setTimeout(finish, Math.min(12_000, 600 + text.length * 70))
   })

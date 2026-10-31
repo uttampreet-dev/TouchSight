@@ -114,13 +114,23 @@ export function StudentLibrary() {
   return (
     <main className="st">
       {intro !== 'hidden' && (
-        <div className="st-start" role="dialog" aria-label={s.touchToStart} onPointerDown={() => { if (intro === 'waiting') { say(s.intro); setIntro('spoken') } else { stopSpeech(); markIntroSeen(); setIntro('hidden') } }}>
-          <Brand size={1.4} />
-          <b>{intro === 'waiting' ? s.touchToStart : s.intro}</b>
-          <span className="mono">{intro === 'waiting' ? 'TouchSight' : s.touchToStart}</span>
-          <div className="st-langs st-start-langs" onPointerDown={(e) => e.stopPropagation()}>
+        <div className="st-start" role="dialog" aria-label={s.touchToStart} onClick={() => { if (intro === 'waiting') { say(s.intro); setIntro('spoken') } else { stopSpeech(); markIntroSeen(); setIntro('hidden') } }}>
+          <div className="st-langs st-start-langs" onClick={(e) => e.stopPropagation()}>
             {(['en', 'hi', 'pa'] as Lang[]).map((l) => <button key={l} className={l === lang ? 'on' : ''} onClick={() => { setLang(l); speak(LANG_NAME[l], l) }}>{LANG_NAME[l]}</button>)}
           </div>
+          <div className="st-start-brand">
+            <span className="st-start-mark" aria-hidden><i /><i /><i /><i /></span>
+            <b>TouchSight</b>
+            <span className="st-start-brl" aria-hidden>⠠⠞⠕⠥⠉⠓⠠⠎⠊⠛⠓⠞</span>
+            <p>{s.tagline}</p>
+          </div>
+          <ul className={`st-gestures ${intro === 'spoken' ? 'lit' : ''}`}>
+            <li><Fingers n={1} /><span>{s.g1}</span></li>
+            <li><Fingers n={2} swipe /><span>{s.g2}</span></li>
+            <li><Fingers n={2} tap /><span>{s.g3}</span></li>
+            <li><Fingers n={3} /><span>{s.g4}</span></li>
+          </ul>
+          <div className="st-start-cta"><i className="st-ring" aria-hidden /><b>{intro === 'waiting' ? s.touchToStart : s.touchAgain}</b></div>
         </div>
       )}
       <header className="st-head">
@@ -141,7 +151,7 @@ export function StudentLibrary() {
           <p className="st-pick-q">{s.whoAreYou}</p>
           {roster.length ? (
             <div className="st-pick-grid">
-              {roster.map((n) => <button key={n} className={`st-pick-card ${armed === n ? 'armed' : ''}`} onPointerDown={() => touchName(n)} aria-label={n}><b>{n}</b><span className="mono">{armed === n ? s.thisIsMe : ''}</span></button>)}
+              {roster.map((n) => <button key={n} className={`st-pick-card ${armed === n ? 'armed' : ''}`} onClick={() => touchName(n)} aria-label={n}><b>{n}</b><span className="mono">{armed === n ? s.thisIsMe : ''}</span></button>)}
             </div>
           ) : <p className="st-empty">{s.waitingRoster}</p>}
         </section>
@@ -177,5 +187,17 @@ export function StudentLibrary() {
         <div className="st-grid">{SAMPLES.map((d) => <Card key={d.id} d={d} sample />)}</div>
       </section>
     </main>
+  )
+}
+
+/** Finger glyphs for the gesture cards. */
+function Fingers({ n, swipe = false, tap = false }: { n: number; swipe?: boolean; tap?: boolean }) {
+  const xs = n === 1 ? [20] : n === 2 ? [13, 27] : [8, 20, 32]
+  return (
+    <svg viewBox="0 0 40 40" width="44" height="44" aria-hidden>
+      {xs.map((x) => <g key={x}><circle cx={x} cy={18} r={4.2} fill="currentColor" /><rect x={x - 2.4} y={18} width={4.8} height={12} rx={2.4} fill="currentColor" opacity=".55" /></g>)}
+      {swipe && <path d="M6 36 H34 M30 32 l4 4 -4 4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />}
+      {tap && <g fill="none" stroke="currentColor" strokeWidth="1.6" opacity=".7"><circle cx={20} cy={18} r={12} /><circle cx={20} cy={18} r={16} opacity=".45" /></g>}
+    </svg>
   )
 }
