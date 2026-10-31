@@ -1,5 +1,5 @@
-import { readFile, mkdir, writeFile, stat } from 'node:fs/promises'
-import { dirname, join } from 'node:path'
+import { lstat, mkdir, readFile, realpath, stat, writeFile } from 'node:fs/promises'
+import { dirname, join, relative, sep } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 export const LIMITS = Object.freeze({
@@ -15,6 +15,8 @@ export const LIMITS = Object.freeze({
   textLength: 2_000,
   totalTextLength: 100_000,
   coordinateAbs: 1_000,
+  jsonDepth: 32,
+  jsonNodes: 100_000,
 })
 
 const LANGS = ['en', 'hi', 'pa']
@@ -62,8 +64,12 @@ function orientation(a, b, c) {
 function segmentsCross(a, b, c, d) {
   const o1 = orientation(a, b, c), o2 = orientation(a, b, d)
   const o3 = orientation(c, d, a), o4 = orientation(c, d, b)
-  return ((o1 > 1e-8 && o2 < -1e-8) || (o1 < -1e-8 && o2 > 1e-8)) &&
-    ((o3 > 1e-8 && o4 < -1e-8) || (o3 < -1e-8 && o4 > 1e-8))
+  const onSegment = (p, q, r) => q[0] >= Math.min(p[0], r[0]) - 1e-8 && q[0] <= Math.max(p[0], r[0]) + 1e-8 &&
+    q[1] >= Math.min(p[1], r[1]) - 1e-8 && q[1] <= Math.max(p[1], r[1]) + 1e-8
+  if (((o1 > 1e-8 && o2 < -1e-8) || (o1 < -1e-8 && o2 > 1e-8)) &&
+      ((o3 > 1e-8 && o4 < -1e-8) || (o3 < -1e-8 && o4 > 1e-8))) return true
+  return (Math.abs(o1) <= 1e-8 && onSegment(a, c, b)) || (Math.abs(o2) <= 1e-8 && onSegment(a, d, b)) ||
+    (Math.abs(o3) <= 1e-8 && onSegment(c, a, d)) || (Math.abs(o4) <= 1e-8 && onSegment(c, b, d))
 }
 
 function polygon(value, label, sheet, budget) {
@@ -88,7 +94,27 @@ function polygon(value, label, sheet, budget) {
   return points
 }
 
+function guardJsonComplexity(input) {
+  const pending = [[input, 0]]
+  const visited = new WeakSet()
+  let nodes = 0, textLength = 0
+  while (pending.length) {
+    const [value, depth] = pending.pop()
+    if (++nodes > LIMITS.jsonNodes) invalid(`JSON node count exceeds ${LIMITS.jsonNodes}`)
+    if (depth > LIMITS.jsonDepth) invalid(`JSON nesting exceeds ${LIMITS.jsonDepth} levels`)
+    if (typeof value === 'string') {
+      textLength += value.length
+      if (value.length > LIMITS.textLength || textLength > LIMITS.totalTextLength) invalid('JSON text exceeds configured limits')
+    } else if (value && typeof value === 'object') {
+      if (visited.has(value)) invalid('document contains a cyclic object')
+      visited.add(value)
+      for (const child of Object.values(value)) pending.push([child, depth + 1])
+    }
+  }
+}
+
 export function assertTdm(input) {
+  guardJsonComplexity(input)
   const d = object(input, 'document')
   if (d.tdm !== '0.1') invalid(`unsupported schema version ${String(d.tdm)}`)
   string(d.id, 'id', 64)
@@ -104,6 +130,7 @@ export function assertTdm(input) {
   if (!['photo', 'upload', 'pdf', 'authored'].includes(source.kind)) invalid('source.kind is unsupported')
   if (own(source, 'file')) string(source.file, 'source.file', 512, false)
   string(source.captured, 'source.captured', 64)
+  if (!Number.isFinite(Date.parse(source.captured))) invalid('source.captured must be a valid timestamp')
 
   for (const [name, max] of [['regions', LIMITS.regions], ['lines', LIMITS.lines], ['relations', LIMITS.relations], ['key', LIMITS.keyEntries], ['readingOrder', LIMITS.readingOrder]]) {
     if (!Array.isArray(d[name])) invalid(`${name} must be an array`)
@@ -111,8 +138,15 @@ export function assertTdm(input) {
   }
 
   const ids = new Set()
+  const keyRefs = new Set()
   const budget = { count: 0 }
   let totalText = d.title.length + d.subject.length
+  const addKeyRef = (ref, label) => {
+    string(ref, label, 1)
+    if (!/^[a-z]$/.test(ref) || keyRefs.has(ref)) invalid(`${label} must be a unique lowercase leader letter`)
+    keyRefs.add(ref)
+    totalText += ref.length
+  }
   const addId = (id, label) => {
     string(id, `${label}.id`, 64)
     if (!/^[A-Za-z0-9][A-Za-z0-9._-]*$/.test(id) || ids.has(id)) invalid(`${label} has invalid or duplicate id ${id}`)
@@ -124,7 +158,7 @@ export function assertTdm(input) {
     if (own(region, 'meaning')) string(region.meaning, `${label}.meaning`, LIMITS.textLength, false)
     region.polygon = polygon(region.polygon, `${label}.polygon`, sheet, budget)
     if (!TEXTURES.includes(region.texture)) invalid(`${label}.texture is unsupported`)
-    string(region.keyRef, `${label}.keyRef`, 8)
+    addKeyRef(region.keyRef, `${label}.keyRef`)
     finite(region.confidence, `${label}.confidence`, 0, 1)
     if (own(region, 'sourceLabel')) {
       object(region.sourceLabel, `${label}.sourceLabel`)
@@ -144,7 +178,7 @@ export function assertTdm(input) {
     finite(line.width, `${label}.width`, 1.2, 20)
     if (!['single', 'double', 'dashed'].includes(line.style)) invalid(`${label}.style is unsupported`)
     if (!['none', 'start', 'end', 'both'].includes(line.arrow)) invalid(`${label}.arrow is unsupported`)
-    string(line.keyRef, `${label}.keyRef`, 8)
+    addKeyRef(line.keyRef, `${label}.keyRef`)
     totalText += JSON.stringify(line.name).length
   }
   for (const [i, relation] of d.relations.entries()) {
@@ -154,19 +188,27 @@ export function assertTdm(input) {
     if (!['forward', 'backward', 'both'].includes(relation.direction)) invalid(`${label}.direction is unsupported`)
     if (own(relation, 'confidence')) finite(relation.confidence, `${label}.confidence`, 0, 1)
     if (own(relation, 'source') && !['detected', 'teacher'].includes(relation.source)) invalid(`${label}.source is unsupported`)
-    if (own(relation, 'via')) string(relation.via, `${label}.via`, 64)
+    if (relation.source === 'detected' && !own(relation, 'confidence')) invalid(`${label}.confidence is required for detected relations`)
+    if (own(relation, 'via')) {
+      string(relation.via, `${label}.via`, 64)
+      if (!d.lines.some((line) => line.id === relation.via)) invalid(`${label}.via must reference a line`)
+    }
+    totalText += relation.from.length + relation.to.length + relation.kind.length + relation.direction.length + (relation.source?.length ?? 0) + (relation.via?.length ?? 0)
   }
   const refs = new Set()
   for (const [i, entry] of d.key.entries()) {
     const label = `key[${i}]`; object(entry, label)
-    string(entry.ref, `${label}.ref`, 8)
-    if (refs.has(entry.ref) || !ids.has(entry.regionId)) invalid(`${label} has duplicate ref or unknown regionId`)
+    string(entry.ref, `${label}.ref`, 1)
+    if (!/^[a-z]$/.test(entry.ref) || refs.has(entry.ref) || !ids.has(entry.regionId)) invalid(`${label} has invalid or duplicate ref or unknown regionId`)
+    const element = [...d.regions, ...d.lines].find((item) => item.id === entry.regionId)
+    if (element.keyRef !== entry.ref) invalid(`${label}.ref does not match ${entry.regionId}.keyRef`)
     refs.add(entry.ref)
     localized(entry.text, `${label}.text`)
     object(entry.braille, `${label}.braille`)
     for (const lang of LANGS) if (own(entry.braille, lang)) string(entry.braille[lang], `${label}.braille.${lang}`, LIMITS.textLength, false)
-    totalText += JSON.stringify(entry.text).length + JSON.stringify(entry.braille).length
+    totalText += JSON.stringify(entry.text).length + JSON.stringify(entry.braille).length + entry.regionId.length + entry.ref.length
   }
+  if (refs.size !== ids.size) invalid('key must include every region and line exactly once')
   const order = new Set()
   for (const [i, id] of d.readingOrder.entries()) {
     string(id, `readingOrder[${i}]`, 64)
@@ -185,12 +227,17 @@ export function assertTdm(input) {
     string(finding.rule, `${label}.rule`, 32); string(finding.msg, `${label}.msg`)
     if (!Array.isArray(finding.ids) || finding.ids.length > 100) invalid(`${label}.ids is invalid`)
     finding.ids.forEach((id, j) => string(id, `${label}.ids[${j}]`, 64))
-    if (own(finding, 'at')) point(finding.at, `${label}.at`, sheet)
+    if (own(finding, 'at')) { point(finding.at, `${label}.at`, sheet); budget.count += 1 }
   }
+  if (budget.count > LIMITS.coordinatePairs) invalid(`coordinate count exceeds ${LIMITS.coordinatePairs}`)
   const provenance = object(d.provenance, 'provenance')
   string(provenance.pipeline, 'provenance.pipeline', 64)
   if (typeof provenance.teacherReviewed !== 'boolean') invalid('provenance.teacherReviewed must be boolean')
   if (provenance.reviewedAt !== null) string(provenance.reviewedAt, 'provenance.reviewedAt', 64)
+  if (provenance.reviewedAt !== null && !Number.isFinite(Date.parse(provenance.reviewedAt))) invalid('provenance.reviewedAt must be a valid timestamp or null')
+  if (totalText > LIMITS.totalTextLength) invalid(`total text exceeds ${LIMITS.totalTextLength} characters`)
+  totalText += source.captured.length + (source.file?.length ?? 0) + JSON.stringify(validation).length + JSON.stringify(languages).length
+  totalText += provenance.pipeline.length + (provenance.reviewedAt?.length ?? 0)
   if (totalText > LIMITS.totalTextLength) invalid(`total text exceeds ${LIMITS.totalTextLength} characters`)
   return d
 }
@@ -199,6 +246,7 @@ export async function readTdm(filePath) {
   const fileStat = await stat(filePath)
   if (fileStat.size > LIMITS.fileBytes) throw new Error(`TDM file exceeds ${LIMITS.fileBytes} bytes`)
   const source = await readFile(filePath, 'utf8')
+  if (Buffer.byteLength(source) > LIMITS.fileBytes) throw new Error(`TDM file exceeds ${LIMITS.fileBytes} bytes`)
   let input
   try { input = JSON.parse(source) } catch (error) { throw new Error(`TDM is not valid JSON: ${error.message}`) }
   return assertTdm(input)
@@ -210,12 +258,29 @@ export function safeFileStem(id) {
 
 export async function writePackageOutput(cliUrl, fileName, contents) {
   if (!/^[A-Za-z0-9._-]+$/.test(fileName) || fileName.startsWith('.')) throw new Error('Unsafe output filename')
-  const outputDir = join(dirname(fileURLToPath(cliUrl)), 'out')
+  const bytes = typeof contents === 'string' ? Buffer.byteLength(contents) : contents.byteLength
+  if (bytes > 50_000_000) throw new Error('Generated output exceeds 50000000 bytes')
+  const packageDir = await realpath(dirname(fileURLToPath(cliUrl)))
+  const outputDir = join(packageDir, 'out')
   await mkdir(outputDir, { recursive: true })
-  await writeFile(join(outputDir, fileName), contents)
-  return join(outputDir, fileName)
+  const resolvedOutputDir = await realpath(outputDir)
+  const outputRelative = relative(packageDir, resolvedOutputDir)
+  if (outputRelative !== 'out' && outputRelative !== `out${sep}` && !outputRelative.startsWith(`out${sep}`)) throw new Error('Package output directory resolves outside its package')
+  const outputPath = join(resolvedOutputDir, fileName)
+  try {
+    const existing = await lstat(outputPath)
+    if (existing.isSymbolicLink() || !existing.isFile()) throw new Error('Refusing to overwrite a non-regular package output file')
+  } catch (error) {
+    if (error.code !== 'ENOENT') throw error
+  }
+  await writeFile(outputPath, contents)
+  return outputPath
 }
 
 export function cleanText(value) {
-  return value.normalize('NFC').replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, '').slice(0, LIMITS.textLength)
+  return [...value.normalize('NFC')].filter((char) => {
+    const code = char.codePointAt(0)
+    return code === 0x9 || code === 0xa || code === 0xd ||
+      (code >= 0x20 && code <= 0xd7ff) || (code >= 0xe000 && code <= 0xfffd) || (code >= 0x10000 && code <= 0x10ffff)
+  }).join('').slice(0, LIMITS.textLength)
 }

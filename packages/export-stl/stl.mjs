@@ -2,12 +2,14 @@ import { createRequire } from 'node:module'
 import * as THREE from 'three'
 import { STLExporter } from 'three/addons/exporters/STLExporter.js'
 import { fillBrailleFields, toBraille } from '../braille/braille.mjs'
+import { assertTdm } from '../tdm-runtime/tdm.mjs'
 
 const require = createRequire(import.meta.url)
 const ClipperLib = require('clipper-lib')
 const SCALE = 1_000
 const PLATE = 2
 const MAX_FEATURES = 30_000
+const MAX_TRIANGLES = 250_000
 const MAX_STL_BYTES = 50_000_000
 const MATERIAL = new THREE.MeshBasicMaterial()
 
@@ -134,19 +136,27 @@ function addKey(scene, tdm, addGeometry, addDome) {
 }
 
 export function exportStl(inputTdm) {
-  const tdm = fillBrailleFields(structuredClone(inputTdm))
+  const tdm = fillBrailleFields(structuredClone(assertTdm(inputTdm)))
   const scene = new THREE.Scene()
   let features = 0
+  let triangles = 0
   const addGeometry = (geometry) => {
     if (++features > MAX_FEATURES) throw new Error(`Relief exceeds ${MAX_FEATURES} geometry features`)
+    triangles += geometry.getAttribute('position').count / 3
+    if (triangles > MAX_TRIANGLES) throw new Error(`Relief exceeds ${MAX_TRIANGLES} triangles`)
     scene.add(new THREE.Mesh(geometry, MATERIAL))
   }
   const addSolid = (polygon, z, height, holes = []) => {
-    if (polygon?.length >= 3) addGeometry(extrudedGeometry(polygon, holes, z, height))
+    if (!polygon || polygon.length < 3) return
+    if (polygon.some(([x, y]) => x < 0 || y < 0 || x > tdm.sheet.w || y > tdm.sheet.h)) throw new Error('Relief geometry extends beyond the TDM sheet')
+    addGeometry(extrudedGeometry(polygon, holes, z, height))
   }
   const addDome = (x, y, radius, height) => {
+    if (x - radius < 0 || y - radius < 0 || x + radius > tdm.sheet.w || y + radius > tdm.sheet.h) throw new Error('Braille dome extends beyond the TDM sheet')
     if (++features > MAX_FEATURES) throw new Error(`Relief exceeds ${MAX_FEATURES} geometry features`)
     const geometry = domeGeometry(radius, height)
+    triangles += geometry.getAttribute('position').count / 3
+    if (triangles > MAX_TRIANGLES) throw new Error(`Relief exceeds ${MAX_TRIANGLES} triangles`)
     geometry.translate(x, y, PLATE)
     scene.add(new THREE.Mesh(geometry, MATERIAL))
   }

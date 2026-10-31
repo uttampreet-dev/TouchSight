@@ -2,6 +2,7 @@
   "name": "touchsight-exports",
   "private": true,
   "type": "module",
+  "engines": { "node": ">=20" },
   "scripts": {
     "export:svg": "node packages/export-svg/cli.mjs",
     "export:stl": "node packages/export-stl/cli.mjs",
