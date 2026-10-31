@@ -15,6 +15,8 @@ import { mirror } from '../../student/mirror'
 import { classroom, studentProfile } from '../../class/classroom'
 import { useTouchToAct, useGestures, type Gesture } from '../../student/a11y'
 import { sound } from '../../device/sound'
+import { listenOnce, matchCommand, voiceSupported } from '../../device/voice'
+import { useNavigate } from 'react-router-dom'
 import { diagramBox } from '../../tdm/geometry'
 
 type Mode = 'explore' | 'tour' | 'quiz' | 'key'
@@ -38,6 +40,8 @@ export function Explore() {
   const wrap = useRef<HTMLDivElement>(null)
   const mainRef = useRef<HTMLElement>(null)
   const { handle, armed } = useTouchToAct(lang)
+  const nav = useNavigate()
+  const [listening, setListening] = useState(false)
   const st = useRef(createState())
   const pending = useRef<number | null>(null)
   const pending2 = useRef<number | null>(null)
@@ -222,9 +226,48 @@ export function Explore() {
       log('gesture', `${g} → ${m}`)
       if (m === 'quiz') startQuiz(); else { pauseTour(); hush(); setMode(m); setFocus(null); say(s.modeIs(s[m])) }
     } else if (g === 'double-tap-2') { log('gesture', 'where am I'); whereAmI() }
+    else if (g === 'hold-2') { log('gesture', 'hold → listen'); listen() }
     else if (g === 'tap-3') { const n: Lang = lang === 'en' ? 'hi' : lang === 'hi' ? 'pa' : 'en'; log('gesture', `language ${n}`); setLang(n); speak(LANG_NAME[n], n) }
   }
-  const rec = useGestures(mainRef, (g) => gestureRef.current(g))
+  const rec = useGestures(mainRef, (g) => gestureRef.current(g), !!tdm)
+
+  // ---- spoken commands: hold two fingers, or the mic button
+  const runCommand = (c: ReturnType<typeof matchCommand>) => {
+    if (!tdm) return
+    switch (c) {
+      case 'where': whereAmI(); break
+      case 'explain': { const f = focus ?? st.current.id; const r = f ? tdm.regions.find((x) => x.id === f) : null; const m = r ? (r.meanings?.[lang] ?? r.meaning) : null; say(m ?? (f ? describeFully(tdm, f, lang) : s.blank)); break }
+      case 'explore': case 'tour': case 'key': pauseTour(); hush(); setMode(c); setFocus(null); say(s.modeIs(s[c])); break
+      case 'quiz': startQuiz(); break
+      case 'repeat': if (caption) say(caption); break
+      case 'next': jump(1); break
+      case 'previous': jump(-1); break
+      case 'play': if (mode === 'tour') playFrom(ti < 0 ? -1 : ti); break
+      case 'pause': pauseTour(); break
+      case 'skip': if (mode === 'quiz') skip(); break
+      case 'library': nav('/student'); break
+      case 'help': say(s.voiceHelp); break
+      case 'lang-en': setLang('en'); speak(LANG_NAME.en, 'en'); break
+      case 'lang-hi': setLang('hi'); speak(LANG_NAME.hi, 'hi'); break
+      case 'lang-pa': setLang('pa'); speak(LANG_NAME.pa, 'pa'); break
+      default: say(s.notHeard)
+    }
+  }
+  const listen = async () => {
+    if (listening) return
+    if (!voiceSupported()) { say(s.voiceHelp); return }
+    if (!navigator.onLine) { say(s.voiceNeedsNet); return }
+    stopSpeech(); hush(); sound.lift(); setListening(true); vibrate([20, 40, 20])
+    log('voice', 'listening')
+    const heard = await listenOnce(lang, (st2) => setListening(st2 === 'listening'))
+    setListening(false)
+    log('voice', heard ?? '(nothing)')
+    if (!heard) { say(s.notHeard); return }
+    const c = matchCommand(heard)
+    log('voice', `→ ${c ?? 'no match'}`)
+    runCommand(c)
+  }
+  useEffect(() => { (window as unknown as { __tsVoice?: (phrase: string) => void }).__tsVoice = (phrase) => runCommand(matchCommand(phrase)) })
   useEffect(() => { (window as unknown as { __tsGesture?: (g: Gesture) => void }).__tsGesture = (g) => gestureRef.current(g) }, [])
 
   if (!tdm) return <main className="st"><p className="st-empty">…</p></main>
@@ -236,6 +279,9 @@ export function Explore() {
       <header className="st-head">
         <Link to="/student" className="st-back" aria-label={s.library}>‹</Link>
         <button className="st-help" aria-label={s.help} onClick={() => say(s.gestures)}>?</button>
+        <button className={`st-mic ${listening ? 'on' : ''} ${armed === 'mic' ? 'armed' : ''}`} aria-label={s.listening} onClick={handle('mic', s.voiceHelp, listen)}>
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden><rect x="9" y="3" width="6" height="11" rx="3" fill="currentColor" /><path d="M6 11a6 6 0 0 0 12 0M12 17v4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>
+        </button>
         <div className="st-title"><b>{nameIn({ en: tdm.title }, lang)}</b><span className="mono">{tdm.subject}</span></div>
         <button className="st-lang" onClick={() => { const n: Lang = lang === 'en' ? 'hi' : lang === 'hi' ? 'pa' : 'en'; setLang(n); speak(LANG_NAME[n], n) }} aria-label={s.language}>{LANG_NAME[lang]}</button>
       </header>

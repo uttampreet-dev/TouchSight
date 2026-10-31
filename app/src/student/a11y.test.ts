@@ -23,3 +23,16 @@ describe('gestures', () => {
     g.start(two(100, 100), 0); g.move(two(110, 300)); g.end(1, 200); expect(g.end(0, 210)).toBeNull()
   })
 })
+
+import { matchCommand } from '../device/voice'
+describe('spoken commands', () => {
+  it('matches English, Hindi, Punjabi and romanised phrases', () => {
+    expect(matchCommand('where am I')).toBe('where')
+    expect(matchCommand('मैं कहाँ हूँ')).toBe('where')
+    expect(matchCommand('main kahan hoon')).toBe('where')
+    expect(matchCommand('what does it do')).toBe('explain')
+    expect(matchCommand('ਕੁਇਜ਼ ਸ਼ੁਰੂ ਕਰੋ')).toBe('quiz')
+    expect(matchCommand('switch to hindi')).toBe('lang-hi')
+    expect(matchCommand('banana')).toBeNull()
+  })
+})

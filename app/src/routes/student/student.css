@@ -113,3 +113,7 @@ html.hc .st-card.armed, html.hc .st-import.armed, html.hc .st-modes button.armed
 .st-ring::after { content: ''; position: absolute; inset: -3px; border-radius: 50%; border: 3px solid var(--coral); animation: st-ring 1.8s ease-out infinite; }
 @keyframes st-ring { 0% { transform: scale(1); opacity: .9 } 100% { transform: scale(1.7); opacity: 0 } }
 @media (max-height: 700px) { .st-start-mark { width: 48px; height: 62px } .st-start-brand b { font-size: 34px } .st-gestures li { padding: 9px; font-size: 11.5px } }
+
+.st-mic { width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(127,212,203,.4); background: transparent; color: var(--teal-soft); display: grid; place-items: center; }
+.st-mic.on { background: var(--coral); border-color: var(--coral); color: #fff; animation: st-mic 1s ease-in-out infinite; } .st-mic.armed { outline: 3px solid var(--coral); outline-offset: 2px; }
+@keyframes st-mic { 50% { box-shadow: 0 0 0 10px rgba(255,111,89,.25) } }

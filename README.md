@@ -54,7 +54,8 @@ Three surfaces, one codebase, no server:
   take an audio tour in reading order, be quizzed ("find the left ventricle", the finger is the answer), and read
   the braille key. English, Hindi and Punjabi. Built to be driven without sight: every control speaks on the
   first touch and acts on the second; two-finger swipe changes mode, two-finger double-tap says where the finger
-  is, three-finger tap changes language; a spoken introduction plays on first launch. A sound layer doubles the
+  is, two fingers held still take a spoken command (where am I, what does it do, tour, quiz, key, repeat, next,
+  library, a language), three-finger tap changes language; a spoken introduction plays on first launch. A sound layer doubles the
   haptics on phones without a motor: a tone under the finger whose pitch follows height on the sheet, a timbre per
   texture, a click at every boundary, panned with position. A high-contrast mode (larger type, thicker lines)
   serves low vision.
@@ -146,6 +147,8 @@ are protocols with no recorded runs yet.
   the laptop.
 - **Braille tables** (UEB grade 1, Bharati Hindi and Punjabi via liblouis) have not yet been checked by a braille
   reader.
+- **Spoken commands need a network.** Android's speech recognition runs on a server; the touch gestures do the same
+  jobs offline, so voice is a convenience over them, not the only way.
 
 Full list: [benchmark/LIMITS.md](benchmark/LIMITS.md).
 
