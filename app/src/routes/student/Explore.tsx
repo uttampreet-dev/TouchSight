@@ -16,6 +16,7 @@ import { classroom, studentProfile } from '../../class/classroom'
 import { useTouchToAct, useGestures, type Gesture } from '../../student/a11y'
 import { sound } from '../../device/sound'
 import { listenOnce, matchCommand, voiceSupported } from '../../device/voice'
+import { answer as answerQuestion } from '../../student/qa'
 import { useNavigate } from 'react-router-dom'
 import { diagramBox } from '../../tdm/geometry'
 
@@ -263,11 +264,20 @@ export function Explore() {
     setListening(false)
     log('voice', heard ?? '(nothing)')
     if (!heard) { say(s.notHeard); return }
-    const c = matchCommand(heard)
-    log('voice', `→ ${c ?? 'no match'}`)
-    runCommand(c)
+    handlePhrase(heard)
   }
-  useEffect(() => { (window as unknown as { __tsVoice?: (phrase: string) => void }).__tsVoice = (phrase) => runCommand(matchCommand(phrase)) })
+  const handlePhrase = (heard: string) => {
+    if (!tdm) return
+    const phrase = heard.split(' | ')[0]
+    const partNamed = tdm.regions.some((r) => [r.name.en, r.name.hi, r.name.pa].filter(Boolean).some((n) => phrase.toLowerCase().includes(n!.toLowerCase())))
+    const c = partNamed ? null : matchCommand(phrase)
+    const isQuestion = /\b(what|which|where is|how many|who|kya|kaun|kahan hai|kitne|क्या|कौन|कहाँ है|कितने|ਕੀ|ਕਿਹੜਾ|ਕਿੱਥੇ ਹੈ|ਕਿੰਨੇ)\b/i.test(phrase) && c !== 'where' && c !== 'explain'
+    if (c && !isQuestion) { log('voice', `→ ${c}`); runCommand(c); return }
+    const a = answerQuestion(tdm, phrase, lang, focus ?? st.current.id)
+    log('voice', `? ${phrase} → ${a}`)
+    say(a)
+  }
+  useEffect(() => { (window as unknown as { __tsVoice?: (phrase: string) => void }).__tsVoice = (phrase) => handlePhrase(phrase) })
   useEffect(() => { (window as unknown as { __tsGesture?: (g: Gesture) => void }).__tsGesture = (g) => gestureRef.current(g) }, [])
 
   if (!tdm) return <main className="st"><p className="st-empty">…</p></main>
