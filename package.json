@@ -1,0 +1,18 @@
+{
+  "name": "touchsight-exports",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "export:svg": "node packages/export-svg/cli.mjs",
+    "export:stl": "node packages/export-stl/cli.mjs",
+    "export:braille": "node packages/braille/cli.mjs",
+    "export:alt-text": "node packages/alt-text/cli.mjs",
+    "test:exports": "node --test packages/**/*.test.mjs"
+  },
+  "dependencies": {
+    "clipper-lib": "^6.4.2",
+    "liblouis": "^0.4.0",
+    "three": "^0.180.0"
+  }
+}
