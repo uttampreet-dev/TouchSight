@@ -1,0 +1,22 @@
+{
+  "id": "math-keplertriangle-01",
+  "subject": "mathematics",
+  "class": 11,
+  "source": "Wikimedia Commons, Kepler triangle labeled in terms of sqrt(phi).svg, Croppy Peace Sign, CC0; https://commons.wikimedia.org/wiki/File:Kepler_triangle_labeled_in_terms_of_sqrt(phi).svg",
+  "image": "raw/math-keplertriangle-01.png",
+  "regions": ["Kepler triangle", "Colored parallel segments"],
+  "lines": ["Triangle sides", "Horizontal parallel segments", "Vertical reference line"],
+  "labels": [
+    "√φ^(-10) ≈ .090", "√φ^(-8) ≈ .145", "√φ^(-9) ≈ .114", "√φ^(-7) ≈ .185",
+    "√φ^(-6) ≈ .236", "√φ^(-5) ≈ .300", "√φ^(-4) ≈ .381", "√φ^(-3) ≈ .485",
+    "√φ^(-3) ≈ .485", "√φ^(-2) ≈ .618", "√φ^(-2) ≈ .618", "√φ^(-1) ≈ .786",
+    "√φ^(0) =1.", "√φ^(1) ≈1.272", "√φ^(2) ≈1.618"
+  ],
+  "labelsPrinted": 15,
+  "relations": [
+    ["Colored parallel segments", "parallel-to", "Triangle base"],
+    ["φ", "defines", "Labeled side lengths"]
+  ],
+  "difficulty": "hard",
+  "notes": "CC0 public-domain dedication; formulas and duplicate annotations are transcribed as visible."
+}

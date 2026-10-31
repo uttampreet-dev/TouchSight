@@ -1,0 +1,18 @@
+{
+  "id": "chem-distillation-01",
+  "subject": "chemistry",
+  "class": 11,
+  "source": "Wikimedia Commons, Simple distillation apparatus.svg, original PNG by Quantockgoblin and SVG adaptation by Slashme, public domain; https://commons.wikimedia.org/wiki/File:Simple_distillation_apparatus.svg",
+  "image": "raw/chem-distillation-01.png",
+  "regions": ["Heating assembly", "Boiling flask", "Thermometer", "Condenser", "Receiving flask", "Cooling bath"],
+  "lines": ["Vapor path", "Cooling-water jacket", "Distillate path"],
+  "labels": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"],
+  "labelsPrinted": 16,
+  "relations": [
+    ["Boiling flask", "feeds-vapor-to", "Condenser"],
+    ["Condenser", "delivers-to", "Receiving flask"],
+    ["Cooling water", "flows-through", "Condenser"]
+  ],
+  "difficulty": "medium",
+  "notes": "The figure uses numeric callouts without a key in the crop; all sixteen visible callout numbers are counted."
+}

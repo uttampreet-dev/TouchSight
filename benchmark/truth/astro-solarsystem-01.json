@@ -1,0 +1,23 @@
+{
+  "id": "astro-solarsystem-01",
+  "subject": "astronomy",
+  "class": 9,
+  "source": "Wikimedia Commons, Solar System graphic by NASA.png, NASA, public domain; https://commons.wikimedia.org/wiki/File:Solar_System_graphic_by_NASA.png",
+  "image": "raw/astro-solarsystem-01.png",
+  "regions": ["Inner solar system", "Outer solar system", "Asteroid belt", "Kuiper belt"],
+  "lines": ["Planetary orbits"],
+  "labels": [
+    "Sun", "Mercury", "Venus", "Earth", "Moon", "Mars", "Asteroid Belt", "Ceres",
+    "Jupiter", "Saturn", "Uranus", "Neptune", "Eris", "Kuiper Belt Objects", "Pluto",
+    "Makemake", "Comets"
+  ],
+  "labelsPrinted": 17,
+  "relations": [
+    ["Mercury", "orbits", "Sun"],
+    ["Earth", "orbits", "Sun"],
+    ["Moon", "orbits", "Earth"],
+    ["Kuiper Belt Objects", "beyond", "Neptune"]
+  ],
+  "difficulty": "medium",
+  "notes": "NASA comparison graphic; labels are printed on a black background."
+}

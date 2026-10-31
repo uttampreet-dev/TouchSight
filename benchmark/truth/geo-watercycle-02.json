@@ -1,0 +1,24 @@
+{
+  "id": "geo-watercycle-02",
+  "subject": "geography",
+  "class": 9,
+  "source": "Wikimedia Commons, The Water Cycle (SVS30580).png, NASA Scientific Visualization Studio, public domain; https://commons.wikimedia.org/wiki/File:The_Water_Cycle_(SVS30580).png",
+  "image": "raw/geo-watercycle-02.png",
+  "regions": ["Ocean", "Land surface", "Atmosphere", "Groundwater"],
+  "lines": ["Precipitation arrows", "Evaporation arrows", "Surface runoff", "Ground-water flow", "River discharge"],
+  "labels": [
+    "CLOUDS AND WATER VAPOR", "PRECIPITATION", "EVAPORATION", "OCEAN", "SEA ICE",
+    "CLOUDS and WATER VAPOR", "TRANSPORT", "SNOW, GLACIERS and ICE SHEETS", "PRECIPITATION",
+    "EVAPOTRANSPIRATION", "PERMAFROST", "INFILTRATION", "SOIL MOISTURE", "SURFACE RUNOFF",
+    "RIVERS and LAKES", "PERCOLATION", "RIVER DISCHARGE", "GROUNDWATER", "GROUND-WATER FLOW"
+  ],
+  "labelsPrinted": 19,
+  "relations": [
+    ["Evaporation", "transports-water-to", "Clouds and water vapor"],
+    ["Precipitation", "reaches", "Land surface"],
+    ["Surface runoff", "flows-to", "Rivers and lakes"],
+    ["Ground-water flow", "feeds", "Groundwater"]
+  ],
+  "difficulty": "hard",
+  "notes": "NASA graphic; capitalization is retained and the two precipitation labels count as separate printed instances."
+}

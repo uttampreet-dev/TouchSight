@@ -1,0 +1,811 @@
+{
+ "tdm": "0.1",
+ "id": "astro-solarsystem-01",
+ "title": "astro-solarsystem-01",
+ "subject": "astro",
+ "sheet": {
+  "w": 210,
+  "h": 297,
+  "margin": 15
+ },
+ "source": {
+  "kind": "upload",
+  "file": "astro-solarsystem-01",
+  "captured": "2026-10-30T09:26:38.540Z"
+ },
+ "regions": [
+  {
+   "id": "r-06",
+   "name": {
+    "en": "Pluto"
+   },
+   "polygon": [
+    [
+     172.55,
+     63.88
+    ],
+    [
+     176.26,
+     65.72
+    ],
+    [
+     176.71,
+     69.77
+    ],
+    [
+     179.25,
+     71.7
+    ],
+    [
+     179.98,
+     74.75
+    ],
+    [
+     183.94,
+     80.13
+    ],
+    [
+     183.09,
+     83.33
+    ],
+    [
+     183.44,
+     87.63
+    ],
+    [
+     185.94,
+     93.03
+    ],
+    [
+     183.24,
+     97.36
+    ],
+    [
+     178.57,
+     99.93
+    ],
+    [
+     176.83,
+     99.17
+    ],
+    [
+     175.61,
+     97.24
+    ],
+    [
+     172.3,
+     77.89
+    ],
+    [
+     169.21,
+     68.18
+    ],
+    [
+     170.25,
+     64.96
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "b",
+   "confidence": 0.97,
+   "sourceLabel": {
+    "text": "Pluto",
+    "ocrConfidence": 0.93
+   }
+  },
+  {
+   "id": "r-04",
+   "name": {
+    "en": "Region 4"
+   },
+   "polygon": [
+    [
+     83.45,
+     96.98
+    ],
+    [
+     83.58,
+     103.11
+    ],
+    [
+     79.99,
+     104.86
+    ],
+    [
+     78,
+     104.27
+    ],
+    [
+     76.2,
+     95.49
+    ],
+    [
+     72.19,
+     87.08
+    ],
+    [
+     71.57,
+     81.67
+    ],
+    [
+     73.11,
+     80.23
+    ],
+    [
+     74.98,
+     79.83
+    ],
+    [
+     77.28,
+     81.41
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "d",
+   "confidence": 0.5
+  },
+  {
+   "id": "r-02",
+   "name": {
+    "en": "Nee"
+   },
+   "polygon": [
+    [
+     164.87,
+     128.02
+    ],
+    [
+     179.6,
+     128.18
+    ],
+    [
+     182.96,
+     129.48
+    ],
+    [
+     183.72,
+     131.45
+    ],
+    [
+     182.88,
+     133.18
+    ],
+    [
+     180.68,
+     134.24
+    ],
+    [
+     164.25,
+     134.08
+    ],
+    [
+     162.55,
+     133.05
+    ],
+    [
+     161.91,
+     130.23
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "h",
+   "confidence": 0.78,
+   "sourceLabel": {
+    "text": "nee",
+    "ocrConfidence": 0.46
+   }
+  },
+  {
+   "id": "r-08",
+   "name": {
+    "en": "Region 8"
+   },
+   "polygon": [
+    [
+     173.31,
+     36.46
+    ],
+    [
+     175.32,
+     38.55
+    ],
+    [
+     178.87,
+     39.89
+    ],
+    [
+     179.93,
+     41.95
+    ],
+    [
+     178.72,
+     44.07
+    ],
+    [
+     174.66,
+     45.09
+    ],
+    [
+     173.43,
+     46.32
+    ],
+    [
+     174.5,
+     51.46
+    ],
+    [
+     172.58,
+     52.82
+    ],
+    [
+     169.02,
+     51.29
+    ],
+    [
+     167,
+     44.7
+    ],
+    [
+     170.72,
+     37.11
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "a",
+   "confidence": 0.5
+  },
+  {
+   "id": "r-05",
+   "name": {
+    "en": "Region 5"
+   },
+   "polygon": [
+    [
+     54.33,
+     91.3
+    ],
+    [
+     56.7,
+     96.79
+    ],
+    [
+     60.26,
+     99.83
+    ],
+    [
+     61.72,
+     105.6
+    ],
+    [
+     60.5,
+     109.19
+    ],
+    [
+     58.54,
+     109.43
+    ],
+    [
+     56.42,
+     107.73
+    ],
+    [
+     53.21,
+     99.71
+    ],
+    [
+     49.37,
+     95.76
+    ],
+    [
+     50.65,
+     91.89
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "f",
+   "confidence": 0.5
+  },
+  {
+   "id": "r-03",
+   "name": {
+    "en": "Region 3"
+   },
+   "polygon": [
+    [
+     43.88,
+     102.27
+    ],
+    [
+     46.58,
+     105.8
+    ],
+    [
+     48.22,
+     116.8
+    ],
+    [
+     46.62,
+     119.31
+    ],
+    [
+     44.48,
+     119.25
+    ],
+    [
+     42.57,
+     118
+    ],
+    [
+     39.6,
+     105.47
+    ],
+    [
+     40.49,
+     102.77
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "e",
+   "confidence": 0.5
+  },
+  {
+   "id": "r-01",
+   "name": {
+    "en": "Comets"
+   },
+   "polygon": [
+    [
+     135.3,
+     132.02
+    ],
+    [
+     145.28,
+     132.39
+    ],
+    [
+     147.45,
+     133.75
+    ],
+    [
+     148.11,
+     136.04
+    ],
+    [
+     146.12,
+     137.87
+    ],
+    [
+     138.6,
+     138.44
+    ],
+    [
+     133.84,
+     137.76
+    ],
+    [
+     131.9,
+     136
+    ],
+    [
+     131.84,
+     134.02
+    ],
+    [
+     133.2,
+     132.43
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "g",
+   "confidence": 0.88,
+   "sourceLabel": {
+    "text": "Comets",
+    "ocrConfidence": 0.7
+   }
+  },
+  {
+   "id": "r-07",
+   "name": {
+    "en": "Region 7"
+   },
+   "polygon": [
+    [
+     148.14,
+     68.97
+    ],
+    [
+     150.76,
+     70.83
+    ],
+    [
+     153.29,
+     80.23
+    ],
+    [
+     152.64,
+     83.11
+    ],
+    [
+     150.52,
+     84.38
+    ],
+    [
+     148.1,
+     82.78
+    ],
+    [
+     144.63,
+     71.97
+    ],
+    [
+     145.22,
+     69.72
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "c",
+   "confidence": 0.5
+  }
+ ],
+ "lines": [
+  {
+   "id": "l-03",
+   "name": {
+    "en": "Line 3"
+   },
+   "path": [
+    [
+     168.9,
+     35.25
+    ],
+    [
+     178.8,
+     97.13
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "i"
+  },
+  {
+   "id": "l-04",
+   "name": {
+    "en": "Line 4"
+   },
+   "path": [
+    [
+     17.02,
+     143.03
+    ],
+    [
+     15.68,
+     92.63
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "m"
+  },
+  {
+   "id": "l-08",
+   "name": {
+    "en": "Line 8"
+   },
+   "path": [
+    [
+     43.8,
+     120.3
+    ],
+    [
+     55.27,
+     87.23
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "l"
+  },
+  {
+   "id": "l-05",
+   "name": {
+    "en": "Line 5"
+   },
+   "path": [
+    [
+     177.9,
+     61.8
+    ],
+    [
+     182.85,
+     83.4
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "j"
+  },
+  {
+   "id": "l-13",
+   "name": {
+    "en": "Line 13"
+   },
+   "path": [
+    [
+     53.25,
+     104.78
+    ],
+    [
+     61.58,
+     105.9
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "k"
+  }
+ ],
+ "relations": [
+  {
+   "from": "r-08",
+   "to": "r-06",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 1,
+   "source": "detected",
+   "via": "l-01"
+  },
+  {
+   "from": "r-03",
+   "to": "r-05",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.99,
+   "source": "detected",
+   "via": "l-08"
+  }
+ ],
+ "key": [
+  {
+   "ref": "a",
+   "regionId": "r-08",
+   "text": {
+    "en": "Region 8"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "b",
+   "regionId": "r-06",
+   "text": {
+    "en": "Pluto"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "c",
+   "regionId": "r-07",
+   "text": {
+    "en": "Region 7"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "d",
+   "regionId": "r-04",
+   "text": {
+    "en": "Region 4"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "e",
+   "regionId": "r-03",
+   "text": {
+    "en": "Region 3"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "f",
+   "regionId": "r-05",
+   "text": {
+    "en": "Region 5"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "g",
+   "regionId": "r-01",
+   "text": {
+    "en": "Comets"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "h",
+   "regionId": "r-02",
+   "text": {
+    "en": "Nee"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "i",
+   "regionId": "l-03",
+   "text": {
+    "en": "Line 3"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "j",
+   "regionId": "l-05",
+   "text": {
+    "en": "Line 5"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "k",
+   "regionId": "l-13",
+   "text": {
+    "en": "Line 13"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "l",
+   "regionId": "l-08",
+   "text": {
+    "en": "Line 8"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "m",
+   "regionId": "l-04",
+   "text": {
+    "en": "Line 4"
+   },
+   "braille": {}
+  }
+ ],
+ "readingOrder": [
+  "r-08",
+  "r-06",
+  "r-07",
+  "r-04",
+  "r-03",
+  "r-05",
+  "r-01",
+  "r-02",
+  "l-03",
+  "l-05",
+  "l-13",
+  "l-08",
+  "l-04"
+ ],
+ "languages": {
+  "primary": "en",
+  "available": [
+   "en"
+  ]
+ },
+ "validation": {
+  "status": "fail",
+  "blocking": [
+   {
+    "rule": "R3",
+    "msg": "Detected: A stroke connects Region 8 to Pluto (100%) — confirm or remove",
+    "ids": [
+     "r-08",
+     "r-06"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: Line 8 connects Region 3 to Region 5 (99%) — confirm or remove",
+    "ids": [
+     "r-03",
+     "r-05"
+    ]
+   }
+  ],
+  "advisory": [
+   {
+    "rule": "N1",
+    "msg": "r-04 has no label",
+    "ids": [
+     "r-04"
+    ]
+   },
+   {
+    "rule": "O1",
+    "msg": "Nee: read at 46% confidence",
+    "ids": [
+     "r-02"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "r-08 has no label",
+    "ids": [
+     "r-08"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "r-05 has no label",
+    "ids": [
+     "r-05"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "r-03 has no label",
+    "ids": [
+     "r-03"
+    ]
+   },
+   {
+    "rule": "O1",
+    "msg": "Comets: read at 70% confidence",
+    "ids": [
+     "r-01"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "r-07 has no label",
+    "ids": [
+     "r-07"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-03 has no label",
+    "ids": [
+     "l-03"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-04 has no label",
+    "ids": [
+     "l-04"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-08 has no label",
+    "ids": [
+     "l-08"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-05 has no label",
+    "ids": [
+     "l-05"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-13 has no label",
+    "ids": [
+     "l-13"
+    ]
+   }
+  ]
+ },
+ "provenance": {
+  "pipeline": "0.1",
+  "teacherReviewed": false,
+  "reviewedAt": null
+ }
+}

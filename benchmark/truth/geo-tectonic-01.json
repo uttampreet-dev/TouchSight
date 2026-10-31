@@ -1,0 +1,23 @@
+{
+  "id": "geo-tectonic-01",
+  "subject": "geography",
+  "class": 9,
+  "source": "Wikimedia Commons, Tectonic plates.png, map by Muriel Gottrop, public domain; https://commons.wikimedia.org/wiki/File:Tectonic_plates.png",
+  "image": "raw/geo-tectonic-01.png",
+  "regions": ["North American Plate", "South American Plate", "African Plate", "Eurasian Plate", "Pacific Plate", "Antarctic Plate", "Australian Plate"],
+  "lines": ["Plate boundaries", "Equator"],
+  "labels": [
+    "EURASIAN PLATE", "NORTH AMERICAN PLATE", "JUAN DE FUCA PLATE", "PHILIPPINE PLATE",
+    "COCOS PLATE", "CARIBBEAN PLATE", "ARABIAN PLATE", "INDIAN PLATE", "AUSTRALIAN PLATE",
+    "AFRICAN PLATE", "SOUTH AMERICAN PLATE", "NAZCA PLATE", "PACIFIC PLATE", "SCOTIA PLATE",
+    "AUSTRALIAN PLATE", "ANTARCTIC PLATE", "EURASIAN PLATE", "EQUATOR"
+  ],
+  "labelsPrinted": 18,
+  "relations": [
+    ["Juan de Fuca Plate", "borders", "North American Plate"],
+    ["Nazca Plate", "borders", "South American Plate"],
+    ["Indian Plate", "borders", "Eurasian Plate"]
+  ],
+  "difficulty": "medium",
+  "notes": "Plate names are printed in uppercase; repeated labels on the map are counted separately."
+}

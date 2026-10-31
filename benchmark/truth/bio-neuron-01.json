@@ -1,0 +1,25 @@
+{
+  "id": "bio-neuron-01",
+  "subject": "biology",
+  "class": 11,
+  "source": "Wikimedia Commons, Complete neuron cell diagram en.svg, LadyofHats, public domain; https://commons.wikimedia.org/wiki/File:Complete_neuron_cell_diagram_en.svg",
+  "image": "raw/bio-neuron-01.png",
+  "regions": ["Cell body", "Dendrites", "Axon", "Axon terminal", "Synaptic inset", "Myelin inset"],
+  "lines": ["Axon", "Dendrites", "Microtubule", "Microfilament"],
+  "labels": [
+    "Dendrites", "Microtubule Neurofibrils", "Neurotransmitter", "Receptor", "Rough ER (Nissl body)",
+    "Polyribosomes", "Ribosomes", "Golgi apparatus", "Nucleus", "Nucleolus", "Membrane",
+    "Microtubule", "Mitochondrion", "Smooth ER", "Synapse (Axodendritic)", "Synapse (Axosomatic)",
+    "Synapse", "Synaptic vesicles", "Synapse (Axoaxonic)", "Synaptic cleft", "Axonal terminal",
+    "Node of Ranvier", "Myelin Sheath (Schwann cell)", "Axon hillock", "Nucleus (Schwann cell)",
+    "Microfilament", "Microtubule", "Axon", "Dendrites"
+  ],
+  "labelsPrinted": 29,
+  "relations": [
+    ["Dendrites", "receive-signal-at", "Synapse"],
+    ["Axon", "ends-at", "Axonal terminal"],
+    ["Synaptic vesicles", "release-into", "Synaptic cleft"]
+  ],
+  "difficulty": "hard",
+  "notes": "Repeated printed labels are preserved as separate occurrences."
+}

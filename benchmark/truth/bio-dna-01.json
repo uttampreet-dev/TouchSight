@@ -1,0 +1,18 @@
+{
+  "id": "bio-dna-01",
+  "subject": "biology",
+  "class": 12,
+  "source": "Wikimedia Commons, DNA structure formula numbered.svg, William Crochot (SVG by Medium69), public domain; https://commons.wikimedia.org/wiki/File:DNA_structure_formula_numbered.svg",
+  "image": "raw/bio-dna-01.png",
+  "regions": ["Upper base pair", "Lower base pair", "Sugar-phosphate backbone"],
+  "lines": ["Hydrogen bonds", "Phosphodiester backbone"],
+  "labels": ["1", "2", "3", "4", "5", "6"],
+  "labelsPrinted": 6,
+  "relations": [
+    ["1", "paired-with", "2"],
+    ["3", "paired-with", "4"],
+    ["5", "paired-with", "6"]
+  ],
+  "difficulty": "medium",
+  "notes": "Only the six large numbered annotations are counted as labels; atom symbols and bond notation are chemical notation."
+}
