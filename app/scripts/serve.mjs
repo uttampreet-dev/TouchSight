@@ -4,6 +4,7 @@ import { createServer } from 'node:http'
 import { readFile, stat } from 'node:fs/promises'
 import { extname, join, normalize } from 'node:path'
 import { WebSocketServer } from 'ws'
+import { readFileSync, writeFileSync } from 'node:fs'
 
 const ROOT = new URL('../dist/', import.meta.url).pathname
 const PORT = +(process.argv[2] || 4173)
@@ -42,7 +43,12 @@ const server = createServer(async (req, res) => {
 //          diagrams and student activity in memory, replays them to whoever joins, and fans out changes.
 const wss = new WebSocketServer({ noServer: true })
 let lastHello = null
+// rooms survive a relay restart: written to scripts/.rooms.json on every change, read back at start
+const STORE = new URL('./.rooms.json', import.meta.url).pathname
 const rooms = new Map() // code -> { roster: string[], published: Map<id, json>, activity: [] }
+try { for (const [code, r] of Object.entries(JSON.parse(readFileSync(STORE, 'utf8')))) rooms.set(code, { roster: r.roster || [], published: new Map(Object.entries(r.published || {})), activity: r.activity || [] }); if (rooms.size) console.log(`restored ${rooms.size} room(s)`) } catch { /* first start */ }
+let saveTimer = null
+const persist = () => { clearTimeout(saveTimer); saveTimer = setTimeout(() => { try { const out = {}; for (const [code, r] of rooms) out[code] = { roster: r.roster, published: Object.fromEntries(r.published), activity: r.activity.slice(-2000) }; writeFileSync(STORE, JSON.stringify(out)) } catch (e) { console.warn('rooms not saved:', e.message) } }, 400) }
 const room = (code) => { if (!rooms.has(code)) rooms.set(code, { roster: [], published: new Map(), activity: [] }); return rooms.get(code) }
 const send = (c, obj) => c.readyState === 1 && c.send(JSON.stringify(obj))
 const toRoom = (code, obj, except) => { for (const c of wss.clients) if (c !== except && c.room === code) send(c, obj) }
@@ -68,11 +74,11 @@ wss.on('connection', (ws) => {
           toRoom(m.room, { type: 'class', op: 'presence', room: m.room, phones: [...wss.clients].filter((c) => c.room === m.room && c.role === 'student').length, student: m.student || null, joined: true }, ws)
           return
         }
-        case 'roster': r.roster = Array.isArray(m.names) ? m.names.slice(0, 60) : []; toRoom(m.room, { type: 'class', op: 'roster', room: m.room, names: r.roster }, ws); return
-        case 'publish': if (m.tdm && m.tdm.id) { r.published.set(m.tdm.id, m.tdm); toRoom(m.room, { type: 'class', op: 'published', room: m.room, tdm: m.tdm }, ws) } return
-        case 'unpublish': r.published.delete(m.id); toRoom(m.room, { type: 'class', op: 'unpublished', room: m.room, id: m.id }, ws); return
-        case 'activity': { const ev = { ...m.event, student: m.student, at: m.at || Date.now() }; r.activity.push(ev); if (r.activity.length > 5000) r.activity.splice(0, 1000); toRoom(m.room, { type: 'class', op: 'activity', room: m.room, event: ev }, ws); return }
-        case 'reset': r.activity = []; toRoom(m.room, { type: 'class', op: 'state', room: m.room, roster: r.roster, published: [...r.published.values()], activity: [], phones: 0 }, ws); return
+        case 'roster': r.roster = Array.isArray(m.names) ? m.names.slice(0, 60) : []; persist(); toRoom(m.room, { type: 'class', op: 'roster', room: m.room, names: r.roster }, ws); return
+        case 'publish': if (m.tdm && m.tdm.id) { r.published.set(m.tdm.id, m.tdm); persist(); toRoom(m.room, { type: 'class', op: 'published', room: m.room, tdm: m.tdm }, ws) } return
+        case 'unpublish': r.published.delete(m.id); persist(); toRoom(m.room, { type: 'class', op: 'unpublished', room: m.room, id: m.id }, ws); return
+        case 'activity': { const ev = { ...m.event, student: m.student, at: m.at || Date.now() }; r.activity.push(ev); if (r.activity.length > 5000) r.activity.splice(0, 1000); persist(); toRoom(m.room, { type: 'class', op: 'activity', room: m.room, event: ev }, ws); return }
+        case 'reset': r.activity = []; persist(); toRoom(m.room, { type: 'class', op: 'state', room: m.room, roster: r.roster, published: [...r.published.values()], activity: [], phones: 0 }, ws); return
       }
       return
     }
