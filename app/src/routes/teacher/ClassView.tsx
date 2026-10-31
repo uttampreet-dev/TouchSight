@@ -45,7 +45,7 @@ export function ClassView() {
     classroom.roster(roster)
     classroom.onOpen = () => { classroom.roster(rosterRef.current); for (const t of pushedRef.current) classroom.publish(t) }
     const off = classroom.on((m: Incoming) => {
-      if (m.op === 'state') { setPhones(m.phones); const known = new Map([...pushedRef.current, ...m.published].map((t) => [t.id, t])); pushedRef.current = [...known.values()]; setPushed(new Set(known.keys())); setFromRoom([...known.values()]); for (const a of m.activity) remember(a) }
+      if (m.op === 'state') { setPhones(m.phones); if (!rosterRef.current.length && m.roster.length) { rosterRef.current = m.roster; setRoster(m.roster); try { localStorage.setItem(ROSTER_KEY, JSON.stringify(m.roster)) } catch { /* ignore */ } } const known = new Map([...pushedRef.current, ...m.published].map((t) => [t.id, t])); pushedRef.current = [...known.values()]; setPushed(new Set(known.keys())); setFromRoom([...known.values()]); for (const a of m.activity) remember(a) }
       if (m.op === 'presence') { setPhones(m.phones); if (m.student) setOnline((s) => { const n = new Set(s); if (m.joined) n.add(m.student!); else n.delete(m.student!); return n }) }
       if (m.op === 'activity') remember(m.event)
       if (m.op === 'published') { setPushed((s) => new Set(s).add(m.tdm.id)); setFromRoom((xs) => xs.some((t) => t.id === m.tdm.id) ? xs : [...xs, m.tdm]) }
