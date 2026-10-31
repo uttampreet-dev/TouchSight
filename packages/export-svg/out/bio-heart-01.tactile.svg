@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="297mm" viewBox="0 0 210 297">
+  <defs>
+    <pattern id="dots" width="2.2" height="2.2" patternUnits="userSpaceOnUse"><path d="M0.825 1.1a0.275 0.275 0 1 0 0.55 0a0.275 0.275 0 1 0 -0.55 0" fill="#000"/></pattern>
+    <pattern id="diagonal" width="2.2" height="2.2" patternUnits="userSpaceOnUse"><path d="M-0.55 2.2L2.2-0.55M1.65 2.75L2.75 1.65" fill="none" stroke="#000" stroke-width="0.55"/></pattern>
+    <pattern id="horizontal" width="2.2" height="2.2" patternUnits="userSpaceOnUse"><path d="M0 0.3H2.2" fill="none" stroke="#000" stroke-width="0.55"/></pattern>
+    <pattern id="grid" width="2.8" height="2.8" patternUnits="userSpaceOnUse"><path d="M0 0H2.8M0 0V2.8" fill="none" stroke="#000" stroke-width="0.5"/></pattern>
+  </defs>
+  <path d="M0 0H210V297H0Z" fill="#fff"/>
+  <g><path id="r-ra" d="M40 70 L100 70 L98 118 L40 118 Z" fill="url(#dots)" stroke="#000" stroke-width="1.2" stroke-linejoin="round"/>
+<path id="r-rv" d="M40 122 L98 122 L106 210 L40 215 Z" fill="url(#diagonal)" stroke="#000" stroke-width="1.2" stroke-linejoin="round"/>
+<path id="r-la" d="M104 70 L175 70 L175 118 L102 118 Z" fill="url(#horizontal)" stroke="#000" stroke-width="1.2" stroke-linejoin="round"/>
+<path id="r-lv" d="M102 122 L175 122 L175 215 L110 215 Z" fill="url(#grid)" stroke="#000" stroke-width="1.2" stroke-linejoin="round"/></g>
+  <g><g id="l-aorta"><path d="M116.807 65.867 L118.956 47.408 L134.765 34.823 L160.19 38.815" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M119.193 66.133 L121.044 48.592 L135.235 37.177 L159.81 41.185" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="156.801,41.007 160,40 157.275,38.045" fill="none" stroke="#000" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></g>
+<g id="l-pa"><path d="M90.809 66.149 L89.084 50.775 L69.463 41.073" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M93.191 65.851 L90.916 49.225 L70.537 38.927" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="73.354,40 70,40 72.012,42.683" fill="none" stroke="#000" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></g></g>
+  <g><g><text x="15" y="224" font-family="sans-serif" font-size="2.8" fill="#000">a. Right atrium</text></g>
+<g><text x="15" y="232" font-family="sans-serif" font-size="2.8" fill="#000">b. Right ventricle</text></g>
+<g><text x="15" y="240" font-family="sans-serif" font-size="2.8" fill="#000">c. Left atrium</text></g>
+<g><text x="15" y="248" font-family="sans-serif" font-size="2.8" fill="#000">d. Left ventricle</text></g>
+<g><text x="15" y="256" font-family="sans-serif" font-size="2.8" fill="#000">e. Aorta</text></g>
+<g><text x="15" y="264" font-family="sans-serif" font-size="2.8" fill="#000">f. Pulmonary artery</text></g></g>
+</svg>

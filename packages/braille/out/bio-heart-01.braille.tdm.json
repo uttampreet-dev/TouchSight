@@ -1,0 +1,338 @@
+{
+  "tdm": "0.1",
+  "id": "bio-heart-01",
+  "title": "The human heart",
+  "subject": "biology",
+  "sheet": {
+    "w": 210,
+    "h": 297,
+    "margin": 15
+  },
+  "source": {
+    "kind": "photo",
+    "file": "raw/bio-heart-01.jpg",
+    "captured": "2026-10-29T10:00:00+05:30"
+  },
+  "regions": [
+    {
+      "id": "r-ra",
+      "name": {
+        "en": "Right atrium",
+        "hi": "दायाँ आलिंद",
+        "pa": "ਸੱਜਾ ਆਲਿੰਦ"
+      },
+      "meaning": "receives deoxygenated blood from the body",
+      "polygon": [
+        [
+          40,
+          70
+        ],
+        [
+          100,
+          70
+        ],
+        [
+          98,
+          118
+        ],
+        [
+          40,
+          118
+        ]
+      ],
+      "texture": "dots",
+      "keyRef": "a",
+      "confidence": 0.93,
+      "sourceLabel": {
+        "text": "Right Atrium",
+        "ocrConfidence": 0.96
+      }
+    },
+    {
+      "id": "r-rv",
+      "name": {
+        "en": "Right ventricle",
+        "hi": "दायाँ निलय",
+        "pa": "ਸੱਜਾ ਨਿਲਯ"
+      },
+      "meaning": "pumps deoxygenated blood to the lungs",
+      "polygon": [
+        [
+          40,
+          122
+        ],
+        [
+          98,
+          122
+        ],
+        [
+          106,
+          210
+        ],
+        [
+          40,
+          215
+        ]
+      ],
+      "texture": "diagonal-lines",
+      "keyRef": "b",
+      "confidence": 0.9,
+      "sourceLabel": {
+        "text": "Right Ventricle",
+        "ocrConfidence": 0.95
+      }
+    },
+    {
+      "id": "r-la",
+      "name": {
+        "en": "Left atrium",
+        "hi": "बायाँ आलिंद",
+        "pa": "ਖੱਬਾ ਆਲਿੰਦ"
+      },
+      "meaning": "receives oxygenated blood from the lungs",
+      "polygon": [
+        [
+          104,
+          70
+        ],
+        [
+          175,
+          70
+        ],
+        [
+          175,
+          118
+        ],
+        [
+          102,
+          118
+        ]
+      ],
+      "texture": "horizontal-lines",
+      "keyRef": "c",
+      "confidence": 0.92,
+      "sourceLabel": {
+        "text": "Left Atrium",
+        "ocrConfidence": 0.97
+      }
+    },
+    {
+      "id": "r-lv",
+      "name": {
+        "en": "Left ventricle",
+        "hi": "बायाँ निलय",
+        "pa": "ਖੱਬਾ ਨਿਲਯ"
+      },
+      "meaning": "pumps oxygenated blood into the aorta",
+      "polygon": [
+        [
+          102,
+          122
+        ],
+        [
+          175,
+          122
+        ],
+        [
+          175,
+          215
+        ],
+        [
+          110,
+          215
+        ]
+      ],
+      "texture": "grid",
+      "keyRef": "d",
+      "confidence": 0.94,
+      "sourceLabel": {
+        "text": "Left Ventricle",
+        "ocrConfidence": 0.98
+      }
+    }
+  ],
+  "lines": [
+    {
+      "id": "l-aorta",
+      "name": {
+        "en": "Aorta",
+        "hi": "महाधमनी",
+        "pa": "ਮਹਾਂਧਮਨੀ"
+      },
+      "path": [
+        [
+          118,
+          66
+        ],
+        [
+          120,
+          48
+        ],
+        [
+          135,
+          36
+        ],
+        [
+          160,
+          40
+        ]
+      ],
+      "width": 1.5,
+      "style": "double",
+      "arrow": "end",
+      "keyRef": "e"
+    },
+    {
+      "id": "l-pa",
+      "name": {
+        "en": "Pulmonary artery",
+        "hi": "फुफ्फुस धमनी",
+        "pa": "ਫੇਫੜਾ ਧਮਨੀ"
+      },
+      "path": [
+        [
+          92,
+          66
+        ],
+        [
+          90,
+          50
+        ],
+        [
+          70,
+          40
+        ]
+      ],
+      "width": 1.5,
+      "style": "double",
+      "arrow": "end",
+      "keyRef": "f"
+    }
+  ],
+  "relations": [
+    {
+      "from": "r-ra",
+      "to": "r-rv",
+      "kind": "flows-into",
+      "direction": "forward"
+    },
+    {
+      "from": "r-rv",
+      "to": "l-pa",
+      "kind": "flows-into",
+      "direction": "forward"
+    },
+    {
+      "from": "r-la",
+      "to": "r-lv",
+      "kind": "flows-into",
+      "direction": "forward"
+    },
+    {
+      "from": "r-lv",
+      "to": "l-aorta",
+      "kind": "flows-into",
+      "direction": "forward"
+    }
+  ],
+  "key": [
+    {
+      "ref": "a",
+      "regionId": "r-ra",
+      "text": {
+        "en": "Right atrium"
+      },
+      "braille": {
+        "en": "⠠⠗⠊⠛⠓⠞ ⠁⠞⠗⠊⠥⠍",
+        "hi": "⠙⠜⠽⠜⠄ ⠜⠇⠊⠰⠙",
+        "pa": "⠈⠎⠚⠜ ⠜⠇⠊⠰⠙"
+      }
+    },
+    {
+      "ref": "b",
+      "regionId": "r-rv",
+      "text": {
+        "en": "Right ventricle"
+      },
+      "braille": {
+        "en": "⠠⠗⠊⠛⠓⠞ ⠧⠑⠝⠞⠗⠊⠉⠇⠑",
+        "hi": "⠙⠜⠽⠜⠄ ⠝⠊⠇⠽",
+        "pa": "⠈⠎⠚⠜ ⠝⠊⠇⠽"
+      }
+    },
+    {
+      "ref": "c",
+      "regionId": "r-la",
+      "text": {
+        "en": "Left atrium"
+      },
+      "braille": {
+        "en": "⠠⠇⠑⠋⠞ ⠁⠞⠗⠊⠥⠍",
+        "hi": "⠃⠜⠽⠜⠄ ⠜⠇⠊⠰⠙",
+        "pa": "⠈⠊⠃⠜ ⠜⠇⠊⠰⠙"
+      }
+    },
+    {
+      "ref": "d",
+      "regionId": "r-lv",
+      "text": {
+        "en": "Left ventricle"
+      },
+      "braille": {
+        "en": "⠠⠇⠑⠋⠞ ⠧⠑⠝⠞⠗⠊⠉⠇⠑",
+        "hi": "⠃⠜⠽⠜⠄ ⠝⠊⠇⠽",
+        "pa": "⠈⠊⠃⠜ ⠝⠊⠇⠽"
+      }
+    },
+    {
+      "ref": "e",
+      "regionId": "l-aorta",
+      "text": {
+        "en": "Aorta"
+      },
+      "braille": {
+        "en": "⠠⠁⠕⠗⠞⠁",
+        "hi": "⠍⠓⠜⠮⠍⠝⠔",
+        "pa": "⠍⠓⠜⠰⠮⠍⠝⠔"
+      }
+    },
+    {
+      "ref": "f",
+      "regionId": "l-pa",
+      "text": {
+        "en": "Pulmonary artery"
+      },
+      "braille": {
+        "en": "⠠⠏⠥⠇⠍⠕⠝⠁⠗⠽ ⠁⠗⠞⠑⠗⠽",
+        "hi": "⠖⠥⠈⠖⠖⠥⠎ ⠮⠍⠝⠔",
+        "pa": "⠖⠑⠖⠻⠜ ⠮⠍⠝⠔"
+      }
+    }
+  ],
+  "readingOrder": [
+    "r-ra",
+    "r-rv",
+    "l-pa",
+    "r-la",
+    "r-lv",
+    "l-aorta"
+  ],
+  "languages": {
+    "primary": "en",
+    "available": [
+      "en",
+      "hi",
+      "pa"
+    ]
+  },
+  "validation": {
+    "status": "pending",
+    "blocking": [],
+    "advisory": []
+  },
+  "provenance": {
+    "pipeline": "0.1",
+    "teacherReviewed": false,
+    "reviewedAt": null
+  }
+}
