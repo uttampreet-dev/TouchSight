@@ -124,15 +124,15 @@ export function Landing() {
       <section className="ld-sec ld-deeper" id="measured">
         <div className="ld-sec-head">
           <p className="ld-eyebrow mono" data-rv>⠼⠙ 04 · measured</p>
-          <h2 className="ld-h2" data-rv>Eight figures, no teacher, every number from the run.</h2>
-          <BrailleLine text="Eight figures, no teacher, every number from the run." className="light" />
+          <h2 className="ld-h2" data-rv>Twenty-five figures, no teacher, every number from the run.</h2>
+          <BrailleLine text="Twenty-five figures, no teacher, every number from the run." className="light" />
         </div>
         <div className="ld-stats" data-rv>
-          <div><Count to={83} suffix="%" /><span className="mono">labels read</span></div>
-          <div><Count to={100} suffix="%" /><span className="mono">regions named on line art</span></div>
-          <div><span className="ld-num">8<small>/8</small></span><span className="mono">geometry clean first run</span></div>
-          <div><span className="ld-num">8<small>/8</small></span><span className="mono">SVG · STL · BRF · alt-text</span></div>
-          <div><Count to={1.7} decimals={1} suffix=" s" /><span className="mono">photo to four files</span></div>
+          <div><Count to={54} suffix="%" /><span className="mono">labels read · mean of 25</span></div>
+          <div><span className="ld-num">10<small>/25</small></span><span className="mono">figures read above 90%</span></div>
+          <div><span className="ld-num">23<small>/25</small></span><span className="mono">geometry clean first run</span></div>
+          <div><span className="ld-num">25<small>/25</small></span><span className="mono">SVG · STL · BRF · alt-text</span></div>
+          <div><Count to={1.3} decimals={1} suffix=" s" /><span className="mono">photo to four files</span></div>
         </div>
       </section>
 

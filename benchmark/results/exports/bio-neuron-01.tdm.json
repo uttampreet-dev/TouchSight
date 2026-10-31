@@ -11,13 +11,13 @@
  "source": {
   "kind": "upload",
   "file": "bio-neuron-01",
-  "captured": "2026-10-30T09:27:52.331Z"
+  "captured": "2026-10-31T00:31:14.298Z"
  },
  "regions": [
   {
    "id": "r-12",
    "name": {
-    "en": "Apse Matic)"
+    "en": "Region 12"
    },
    "polygon": [
     [
@@ -79,16 +79,12 @@
    ],
    "texture": "empty",
    "keyRef": "b",
-   "confidence": 0.95,
-   "sourceLabel": {
-    "text": "apse matic)",
-    "ocrConfidence": 0.88
-   }
+   "confidence": 0.5
   },
   {
    "id": "r-07",
    "name": {
-    "en": "Hillock"
+    "en": "Node Of Ranvier"
    },
    "polygon": [
     [
@@ -336,14 +332,14 @@
    "keyRef": "e",
    "confidence": 0.98,
    "sourceLabel": {
-    "text": "hillock",
-    "ocrConfidence": 0.94
+    "text": "Node of Ranvier",
+    "ocrConfidence": 0.96
    }
   },
   {
    "id": "r-05",
    "name": {
-    "en": "Yy Vy Gm Microfilament Microtubule"
+    "en": "Vy Bis Microfilament Microtubule Axon"
    },
    "polygon": [
     [
@@ -413,16 +409,16 @@
    ],
    "texture": "dots",
    "keyRef": "j",
-   "confidence": 0.9,
+   "confidence": 0.94,
    "sourceLabel": {
-    "text": "Yy Vy Gm Microfilament Microtubule",
-    "ocrConfidence": 0.74
+    "text": "Vy bis Microfilament Microtubule Axon",
+    "ocrConfidence": 0.85
    }
   },
   {
    "id": "r-06",
    "name": {
-    "en": "Myelin Sheath (schwann Cell)"
+    "en": "Nucleus (schwann Cell)"
    },
    "polygon": [
     [
@@ -492,16 +488,16 @@
    ],
    "texture": "diagonal-lines",
    "keyRef": "f",
-   "confidence": 0.98,
+   "confidence": 0.97,
    "sourceLabel": {
-    "text": "Myelin Sheath (Schwann cell)",
-    "ocrConfidence": 0.95
+    "text": "Nucleus (Schwann cell)",
+    "ocrConfidence": 0.92
    }
   },
   {
    "id": "r-03",
    "name": {
-    "en": "Smooth Er"
+    "en": "Synapse (axodendritic)"
    },
    "polygon": [
     [
@@ -575,10 +571,10 @@
    ],
    "texture": "dots",
    "keyRef": "g",
-   "confidence": 0.98,
+   "confidence": 0.94,
    "sourceLabel": {
-    "text": "Smooth ER",
-    "ocrConfidence": 0.96
+    "text": "Synapse (Axodendritic)",
+    "ocrConfidence": 0.86
    }
   },
   {
@@ -663,7 +659,7 @@
   {
    "id": "r-04",
    "name": {
-    "en": "(gens"
+    "en": "Nucleus Nucleolus Membrane Microtubule"
    },
    "polygon": [
     [
@@ -709,10 +705,10 @@
    ],
    "texture": "dots",
    "keyRef": "c",
-   "confidence": 0.78,
+   "confidence": 0.98,
    "sourceLabel": {
-    "text": "(GENS",
-    "ocrConfidence": 0.46
+    "text": "Nucleus Nucleolus Membrane Microtubule",
+    "ocrConfidence": 0.95
    }
   },
   {
@@ -761,7 +757,7 @@
   {
    "id": "r-08",
    "name": {
-    "en": "Polyribosomes"
+    "en": "Polyribosomes Ribosomes"
    },
    "polygon": [
     [
@@ -799,16 +795,16 @@
    ],
    "texture": "dots",
    "keyRef": "d",
-   "confidence": 0.97,
+   "confidence": 0.98,
    "sourceLabel": {
-    "text": "Polyribosomes",
-    "ocrConfidence": 0.92
+    "text": "Polyribosomes Ribosomes",
+    "ocrConfidence": 0.94
    }
   },
   {
    "id": "r-10",
    "name": {
-    "en": "Polyribosomes Ribosomes"
+    "en": "Rough Er Body)"
    },
    "polygon": [
     [
@@ -846,14 +842,34 @@
    ],
    "texture": "dots",
    "keyRef": "a",
-   "confidence": 0.97,
+   "confidence": 0.98,
    "sourceLabel": {
-    "text": "Polyribosomes Ribosomes",
-    "ocrConfidence": 0.93
+    "text": "Rough ER body)",
+    "ocrConfidence": 0.96
    }
   }
  ],
  "lines": [
+  {
+   "id": "l-01",
+   "name": {
+    "en": "Line 1"
+   },
+   "path": [
+    [
+     38.63,
+     82.92
+    ],
+    [
+     85.17,
+     104.58
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "n"
+  },
   {
    "id": "l-03",
    "name": {
@@ -861,32 +877,12 @@
    },
    "path": [
     [
-     39.75,
-     92.34
+     97.97,
+     40.17
     ],
     [
-     85.17,
-     95.58
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "p"
-  },
-  {
-   "id": "l-04",
-   "name": {
-    "en": "Line 4"
-   },
-   "path": [
-    [
-     93.61,
-     50.3
-    ],
-    [
-     128.63,
-     32.44
+     130.45,
+     48.89
     ]
    ],
    "width": 1.2,
@@ -895,38 +891,18 @@
    "keyRef": "m"
   },
   {
-   "id": "l-14",
+   "id": "l-04",
    "name": {
-    "en": "Line 14"
+    "en": "Line 4"
    },
    "path": [
     [
-     98.25,
-     40.45
+     100.78,
+     36.52
     ],
     [
-     122.72,
-     26.39
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "o"
-  },
-  {
-   "id": "l-06",
-   "name": {
-    "en": "Line 6"
-   },
-   "path": [
-    [
-     94.17,
-     20.77
-    ],
-    [
-     114,
-     20.34
+     131.86,
+     36.52
     ]
    ],
    "width": 1.2,
@@ -935,18 +911,18 @@
    "keyRef": "k"
   },
   {
-   "id": "l-12",
+   "id": "l-15",
    "name": {
-    "en": "Line 12"
+    "en": "Line 15"
    },
    "path": [
     [
-     129.75,
-     39.61
+     102.47,
+     28.5
     ],
     [
-     122.02,
-     51.98
+     128.48,
+     31.31
     ]
    ],
    "width": 1.2,
@@ -955,53 +931,35 @@
    "keyRef": "l"
   },
   {
-   "id": "l-07",
+   "id": "l-08",
    "name": {
-    "en": "Line 7"
+    "en": "Line 8"
    },
    "path": [
     [
-     94.31,
-     50.86
+     66.33,
+     85.59
     ],
     [
-     102.33,
-     44.25
+     72.66,
+     90.52
     ]
    ],
    "width": 1.2,
    "style": "single",
    "arrow": "none",
-   "keyRef": "n"
+   "keyRef": "o"
   }
  ],
  "relations": [
   {
-   "from": "l-03",
-   "to": "r-04",
+   "from": "r-04",
+   "to": "r-10",
    "kind": "connects",
    "direction": "forward",
-   "confidence": 0.13,
+   "confidence": 0.43,
    "source": "detected",
-   "via": "l-03"
-  },
-  {
-   "from": "r-03",
-   "to": "r-07",
-   "kind": "connects",
-   "direction": "forward",
-   "confidence": 0.89,
-   "source": "detected",
-   "via": "l-05"
-  },
-  {
-   "from": "r-05",
-   "to": "r-06",
-   "kind": "connects",
-   "direction": "forward",
-   "confidence": 0.97,
-   "source": "detected",
-   "via": "l-11"
+   "via": "l-02"
   }
  ],
  "key": [
@@ -1009,7 +967,7 @@
    "ref": "a",
    "regionId": "r-10",
    "text": {
-    "en": "Polyribosomes Ribosomes"
+    "en": "Rough Er Body)"
    },
    "braille": {}
   },
@@ -1017,7 +975,7 @@
    "ref": "b",
    "regionId": "r-12",
    "text": {
-    "en": "Apse Matic)"
+    "en": "Region 12"
    },
    "braille": {}
   },
@@ -1025,7 +983,7 @@
    "ref": "c",
    "regionId": "r-04",
    "text": {
-    "en": "(gens"
+    "en": "Nucleus Nucleolus Membrane Microtubule"
    },
    "braille": {}
   },
@@ -1033,7 +991,7 @@
    "ref": "d",
    "regionId": "r-08",
    "text": {
-    "en": "Polyribosomes"
+    "en": "Polyribosomes Ribosomes"
    },
    "braille": {}
   },
@@ -1041,7 +999,7 @@
    "ref": "e",
    "regionId": "r-07",
    "text": {
-    "en": "Hillock"
+    "en": "Node Of Ranvier"
    },
    "braille": {}
   },
@@ -1049,7 +1007,7 @@
    "ref": "f",
    "regionId": "r-06",
    "text": {
-    "en": "Myelin Sheath (schwann Cell)"
+    "en": "Nucleus (schwann Cell)"
    },
    "braille": {}
   },
@@ -1057,7 +1015,7 @@
    "ref": "g",
    "regionId": "r-03",
    "text": {
-    "en": "Smooth Er"
+    "en": "Synapse (axodendritic)"
    },
    "braille": {}
   },
@@ -1081,28 +1039,12 @@
    "ref": "j",
    "regionId": "r-05",
    "text": {
-    "en": "Yy Vy Gm Microfilament Microtubule"
+    "en": "Vy Bis Microfilament Microtubule Axon"
    },
    "braille": {}
   },
   {
    "ref": "k",
-   "regionId": "l-06",
-   "text": {
-    "en": "Line 6"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "l",
-   "regionId": "l-12",
-   "text": {
-    "en": "Line 12"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "m",
    "regionId": "l-04",
    "text": {
     "en": "Line 4"
@@ -1110,26 +1052,34 @@
    "braille": {}
   },
   {
-   "ref": "n",
-   "regionId": "l-07",
+   "ref": "l",
+   "regionId": "l-15",
    "text": {
-    "en": "Line 7"
+    "en": "Line 15"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "m",
+   "regionId": "l-03",
+   "text": {
+    "en": "Line 3"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "n",
+   "regionId": "l-01",
+   "text": {
+    "en": "Line 1"
    },
    "braille": {}
   },
   {
    "ref": "o",
-   "regionId": "l-14",
+   "regionId": "l-08",
    "text": {
-    "en": "Line 14"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "p",
-   "regionId": "l-03",
-   "text": {
-    "en": "Line 3"
+    "en": "Line 8"
    },
    "braille": {}
   }
@@ -1145,12 +1095,11 @@
   "r-02",
   "r-01",
   "r-05",
-  "l-06",
-  "l-12",
   "l-04",
-  "l-07",
-  "l-14",
-  "l-03"
+  "l-15",
+  "l-03",
+  "l-01",
+  "l-08"
  ],
  "languages": {
   "primary": "en",
@@ -1163,35 +1112,19 @@
   "blocking": [
    {
     "rule": "R3",
-    "msg": "Detected: Line 3 connects Line 3 to (gens (13%) — confirm or remove",
+    "msg": "Detected: A stroke connects Nucleus Nucleolus Membrane Microtubule to Rough Er Body) (43%) — confirm or remove",
     "ids": [
-     "l-03",
-     "r-04"
-    ]
-   },
-   {
-    "rule": "R3",
-    "msg": "Detected: A stroke connects Smooth Er to Hillock (89%) — confirm or remove",
-    "ids": [
-     "r-03",
-     "r-07"
-    ]
-   },
-   {
-    "rule": "R3",
-    "msg": "Detected: A stroke connects Yy Vy Gm Microfilament Microtubule to Myelin Sheath (schwann Cell) (97%) — confirm or remove",
-    "ids": [
-     "r-05",
-     "r-06"
+     "r-04",
+     "r-10"
     ]
    }
   ],
   "advisory": [
    {
-    "rule": "O1",
-    "msg": "Yy Vy Gm Microfilament Microtubule: read at 74% confidence",
+    "rule": "N1",
+    "msg": "r-12 has no label",
     "ids": [
-     "r-05"
+     "r-12"
     ]
    },
    {
@@ -1202,17 +1135,17 @@
     ]
    },
    {
-    "rule": "O1",
-    "msg": "(gens: read at 46% confidence",
-    "ids": [
-     "r-04"
-    ]
-   },
-   {
     "rule": "N1",
     "msg": "r-01 has no label",
     "ids": [
      "r-01"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-01 has no label",
+    "ids": [
+     "l-01"
     ]
    },
    {
@@ -1231,30 +1164,16 @@
    },
    {
     "rule": "N1",
-    "msg": "l-14 has no label",
+    "msg": "l-15 has no label",
     "ids": [
-     "l-14"
+     "l-15"
     ]
    },
    {
     "rule": "N1",
-    "msg": "l-06 has no label",
+    "msg": "l-08 has no label",
     "ids": [
-     "l-06"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-12 has no label",
-    "ids": [
-     "l-12"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-07 has no label",
-    "ids": [
-     "l-07"
+     "l-08"
     ]
    }
   ]

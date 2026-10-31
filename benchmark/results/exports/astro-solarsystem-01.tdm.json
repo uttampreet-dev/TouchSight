@@ -11,7 +11,7 @@
  "source": {
   "kind": "upload",
   "file": "astro-solarsystem-01",
-  "captured": "2026-10-30T09:26:38.540Z"
+  "captured": "2026-10-31T00:30:49.589Z"
  },
  "regions": [
   {
@@ -147,7 +147,7 @@
   {
    "id": "r-02",
    "name": {
-    "en": "Nee"
+    "en": "Moe"
    },
    "polygon": [
     [
@@ -191,14 +191,14 @@
    "keyRef": "h",
    "confidence": 0.78,
    "sourceLabel": {
-    "text": "nee",
-    "ocrConfidence": 0.46
+    "text": "moe",
+    "ocrConfidence": 0.45
    }
   },
   {
    "id": "r-08",
    "name": {
-    "en": "Region 8"
+    "en": "Rls"
    },
    "polygon": [
     [
@@ -252,7 +252,11 @@
    ],
    "texture": "dots",
    "keyRef": "a",
-   "confidence": 0.5
+   "confidence": 0.8,
+   "sourceLabel": {
+    "text": "rls",
+    "ocrConfidence": 0.5
+   }
   },
   {
    "id": "r-05",
@@ -397,10 +401,10 @@
    ],
    "texture": "dots",
    "keyRef": "g",
-   "confidence": 0.88,
+   "confidence": 0.87,
    "sourceLabel": {
     "text": "Comets",
-    "ocrConfidence": 0.7
+    "ocrConfidence": 0.68
    }
   },
   {
@@ -449,18 +453,18 @@
  ],
  "lines": [
   {
-   "id": "l-03",
+   "id": "l-02",
    "name": {
-    "en": "Line 3"
+    "en": "Line 2"
    },
    "path": [
     [
-     168.9,
-     35.25
+     173.18,
+     46.28
     ],
     [
-     178.8,
-     97.13
+     188.25,
+     124.58
     ]
    ],
    "width": 1.2,
@@ -469,38 +473,18 @@
    "keyRef": "i"
   },
   {
-   "id": "l-04",
+   "id": "l-09",
    "name": {
-    "en": "Line 4"
+    "en": "Line 9"
    },
    "path": [
     [
-     17.02,
-     143.03
+     25.8,
+     107.7
     ],
     [
-     15.68,
-     92.63
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "m"
-  },
-  {
-   "id": "l-08",
-   "name": {
-    "en": "Line 8"
-   },
-   "path": [
-    [
-     43.8,
-     120.3
-    ],
-    [
-     55.27,
-     87.23
+     24.45,
+     159.22
     ]
    ],
    "width": 1.2,
@@ -515,12 +499,12 @@
    },
    "path": [
     [
-     177.9,
-     61.8
+     16.57,
+     98.48
     ],
     [
-     182.85,
-     83.4
+     17.48,
+     145.72
     ]
    ],
    "width": 1.2,
@@ -529,35 +513,84 @@
    "keyRef": "j"
   },
   {
+   "id": "l-14",
+   "name": {
+    "en": "Line 14"
+   },
+   "path": [
+    [
+     178.8,
+     128.63
+    ],
+    [
+     163.72,
+     131.78
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "n"
+  },
+  {
    "id": "l-13",
    "name": {
     "en": "Line 13"
    },
    "path": [
     [
-     53.25,
-     104.78
+     54.83,
+     89.48
     ],
     [
-     61.58,
-     105.9
+     47.63,
+     97.8
     ]
    ],
    "width": 1.2,
    "style": "single",
    "arrow": "none",
    "keyRef": "k"
+  },
+  {
+   "id": "l-16",
+   "name": {
+    "en": "Line 16"
+   },
+   "path": [
+    [
+     35.92,
+     101.85
+    ],
+    [
+     46.5,
+     102.98
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "m"
   }
  ],
  "relations": [
+  {
+   "from": "l-02",
+   "to": "r-08",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 1,
+   "source": "detected",
+   "via": "l-02"
+  },
   {
    "from": "r-08",
    "to": "r-06",
    "kind": "connects",
    "direction": "forward",
-   "confidence": 1,
+   "confidence": 0.98,
    "source": "detected",
-   "via": "l-01"
+   "via": "l-04"
   },
   {
    "from": "r-03",
@@ -566,7 +599,7 @@
    "direction": "forward",
    "confidence": 0.99,
    "source": "detected",
-   "via": "l-08"
+   "via": "l-06"
   }
  ],
  "key": [
@@ -574,7 +607,7 @@
    "ref": "a",
    "regionId": "r-08",
    "text": {
-    "en": "Region 8"
+    "en": "Rls"
    },
    "braille": {}
   },
@@ -630,15 +663,15 @@
    "ref": "h",
    "regionId": "r-02",
    "text": {
-    "en": "Nee"
+    "en": "Moe"
    },
    "braille": {}
   },
   {
    "ref": "i",
-   "regionId": "l-03",
+   "regionId": "l-02",
    "text": {
-    "en": "Line 3"
+    "en": "Line 2"
    },
    "braille": {}
   },
@@ -660,17 +693,25 @@
   },
   {
    "ref": "l",
-   "regionId": "l-08",
+   "regionId": "l-09",
    "text": {
-    "en": "Line 8"
+    "en": "Line 9"
    },
    "braille": {}
   },
   {
    "ref": "m",
-   "regionId": "l-04",
+   "regionId": "l-16",
    "text": {
-    "en": "Line 4"
+    "en": "Line 16"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "n",
+   "regionId": "l-14",
+   "text": {
+    "en": "Line 14"
    },
    "braille": {}
   }
@@ -684,11 +725,12 @@
   "r-05",
   "r-01",
   "r-02",
-  "l-03",
+  "l-02",
   "l-05",
   "l-13",
-  "l-08",
-  "l-04"
+  "l-09",
+  "l-16",
+  "l-14"
  ],
  "languages": {
   "primary": "en",
@@ -701,7 +743,15 @@
   "blocking": [
    {
     "rule": "R3",
-    "msg": "Detected: A stroke connects Region 8 to Pluto (100%) — confirm or remove",
+    "msg": "Detected: Line 2 connects Line 2 to Rls (100%) — confirm or remove",
+    "ids": [
+     "l-02",
+     "r-08"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: A stroke connects Rls to Pluto (98%) — confirm or remove",
     "ids": [
      "r-08",
      "r-06"
@@ -709,7 +759,7 @@
    },
    {
     "rule": "R3",
-    "msg": "Detected: Line 8 connects Region 3 to Region 5 (99%) — confirm or remove",
+    "msg": "Detected: A stroke connects Region 3 to Region 5 (99%) — confirm or remove",
     "ids": [
      "r-03",
      "r-05"
@@ -726,14 +776,14 @@
    },
    {
     "rule": "O1",
-    "msg": "Nee: read at 46% confidence",
+    "msg": "Moe: read at 45% confidence",
     "ids": [
      "r-02"
     ]
    },
    {
-    "rule": "N1",
-    "msg": "r-08 has no label",
+    "rule": "O1",
+    "msg": "Rls: read at 50% confidence",
     "ids": [
      "r-08"
     ]
@@ -754,7 +804,7 @@
    },
    {
     "rule": "O1",
-    "msg": "Comets: read at 70% confidence",
+    "msg": "Comets: read at 68% confidence",
     "ids": [
      "r-01"
     ]
@@ -768,23 +818,16 @@
    },
    {
     "rule": "N1",
-    "msg": "l-03 has no label",
+    "msg": "l-02 has no label",
     "ids": [
-     "l-03"
+     "l-02"
     ]
    },
    {
     "rule": "N1",
-    "msg": "l-04 has no label",
+    "msg": "l-09 has no label",
     "ids": [
-     "l-04"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-08 has no label",
-    "ids": [
-     "l-08"
+     "l-09"
     ]
    },
    {
@@ -796,9 +839,23 @@
    },
    {
     "rule": "N1",
+    "msg": "l-14 has no label",
+    "ids": [
+     "l-14"
+    ]
+   },
+   {
+    "rule": "N1",
     "msg": "l-13 has no label",
     "ids": [
      "l-13"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-16 has no label",
+    "ids": [
+     "l-16"
     ]
    }
   ]

@@ -11,7 +11,7 @@
  "source": {
   "kind": "upload",
   "file": "bio-digestive-02",
-  "captured": "2026-10-30T09:27:06.357Z"
+  "captured": "2026-10-31T00:30:58.499Z"
  },
  "regions": [
   {
@@ -250,7 +250,7 @@
     ]
    ],
    "texture": "empty",
-   "keyRef": "f",
+   "keyRef": "d",
    "confidence": 0.98,
    "sourceLabel": {
     "text": "Mouth Palate Uvula Tongue Teeth",
@@ -363,7 +363,7 @@
   {
    "id": "r-02",
    "name": {
-    "en": "Large Intestine"
+    "en": "Descending Colon"
    },
    "polygon": [
     [
@@ -452,10 +452,10 @@
     ]
    ],
    "texture": "dots",
-   "keyRef": "d",
+   "keyRef": "g",
    "confidence": 0.98,
    "sourceLabel": {
-    "text": "Large intestine",
+    "text": "Descending colon",
     "ocrConfidence": 0.96
    }
   },
@@ -523,13 +523,13 @@
     ]
    ],
    "texture": "diagonal-lines",
-   "keyRef": "c",
+   "keyRef": "e",
    "confidence": 0.5
   },
   {
    "id": "r-06",
    "name": {
-    "en": "Region 6"
+    "en": "Pharynx"
    },
    "polygon": [
     [
@@ -591,12 +591,16 @@
    ],
    "texture": "dots",
    "keyRef": "a",
-   "confidence": 0.5
+   "confidence": 0.97,
+   "sourceLabel": {
+    "text": "Pharynx",
+    "ocrConfidence": 0.93
+   }
   },
   {
    "id": "r-04",
    "name": {
-    "en": "Region 4"
+    "en": "Fon"
    },
    "polygon": [
     [
@@ -645,13 +649,17 @@
     ]
    ],
    "texture": "dots",
-   "keyRef": "e",
-   "confidence": 0.5
+   "keyRef": "c",
+   "confidence": 0.79,
+   "sourceLabel": {
+    "text": "fon",
+    "ocrConfidence": 0.48
+   }
   },
   {
    "id": "r-01",
    "name": {
-    "en": "Duodenum"
+    "en": "Region 1"
    },
    "polygon": [
     [
@@ -680,28 +688,24 @@
     ]
    ],
    "texture": "dots",
-   "keyRef": "g",
-   "confidence": 0.96,
-   "sourceLabel": {
-    "text": "Duodenum",
-    "ocrConfidence": 0.91
-   }
+   "keyRef": "f",
+   "confidence": 0.5
   }
  ],
  "lines": [
   {
-   "id": "l-04",
+   "id": "l-12",
    "name": {
-    "en": "Line 4"
+    "en": "Line 12"
    },
    "path": [
     [
-     113.03,
-     183.94
+     102.23,
+     188.95
     ],
     [
-     137.7,
-     186.51
+     138.73,
+     195.11
     ]
    ],
    "width": 1.2,
@@ -710,18 +714,18 @@
    "keyRef": "m"
   },
   {
-   "id": "l-05",
+   "id": "l-04",
    "name": {
-    "en": "Line 5"
+    "en": "Line 4"
    },
    "path": [
     [
-     65.11,
-     123.43
+     105.84,
+     68.57
     ],
     [
-     88.62,
-     131.01
+     108.14,
+     104.29
     ]
    ],
    "width": 1.2,
@@ -736,12 +740,12 @@
    },
    "path": [
     [
-     106.6,
-     125.87
+     88.49,
+     149.89
     ],
     [
-     110.84,
-     147.59
+     114.96,
+     154.13
     ]
    ],
    "width": 1.2,
@@ -750,38 +754,38 @@
    "keyRef": "j"
   },
   {
-   "id": "l-16",
+   "id": "l-03",
    "name": {
-    "en": "Line 16"
+    "en": "Line 3"
    },
    "path": [
     [
-     133.46,
-     171.09
+     71.02,
+     147.71
     ],
     [
-     135.51,
-     151.82
+     69.86,
+     164.67
     ]
    ],
    "width": 1.2,
    "style": "single",
    "arrow": "none",
-   "keyRef": "k"
+   "keyRef": "i"
   },
   {
-   "id": "l-01",
+   "id": "l-15",
    "name": {
-    "en": "Line 1"
+    "en": "Line 15"
    },
    "path": [
     [
-     106.73,
-     190.63
+     81.17,
+     164.15
     ],
     [
-     118.17,
-     192.93
+     80.91,
+     149.51
     ]
    ],
    "width": 1.2,
@@ -790,33 +794,53 @@
    "keyRef": "l"
   },
   {
-   "id": "l-02",
+   "id": "l-06",
    "name": {
-    "en": "Line 2"
+    "en": "Line 6"
    },
    "path": [
     [
-     99.41,
-     121.24
+     129.21,
+     185.74
     ],
     [
-     102.11,
-     130.24
+     138.73,
+     186.13
     ]
    ],
    "width": 1.2,
    "style": "single",
    "arrow": "none",
-   "keyRef": "i"
+   "keyRef": "n"
+  },
+  {
+   "id": "l-16",
+   "name": {
+    "en": "Line 16"
+   },
+   "path": [
+    [
+     74.62,
+     166.98
+    ],
+    [
+     75.9,
+     158.11
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "k"
   }
  ],
  "relations": [
   {
-   "from": "r-05",
+   "from": "r-02",
    "to": "r-03",
    "kind": "connects",
    "direction": "forward",
-   "confidence": 0.91,
+   "confidence": 0.6,
    "source": "detected",
    "via": "l-02"
   },
@@ -825,45 +849,9 @@
    "to": "r-05",
    "kind": "connects",
    "direction": "forward",
-   "confidence": 0.94,
+   "confidence": 0.84,
    "source": "detected",
-   "via": "l-05"
-  },
-  {
-   "from": "r-03",
-   "to": "r-07",
-   "kind": "connects",
-   "direction": "forward",
-   "confidence": 1,
-   "source": "detected",
-   "via": "l-06"
-  },
-  {
-   "from": "r-04",
-   "to": "r-07",
-   "kind": "connects",
-   "direction": "forward",
-   "confidence": 1,
-   "source": "detected",
-   "via": "l-07"
-  },
-  {
-   "from": "r-05",
-   "to": "r-02",
-   "kind": "connects",
-   "direction": "forward",
-   "confidence": 0.99,
-   "source": "detected",
-   "via": "l-08"
-  },
-  {
-   "from": "r-07",
-   "to": "r-02",
-   "kind": "connects",
-   "direction": "forward",
-   "confidence": 0.65,
-   "source": "detected",
-   "via": "l-16"
+   "via": "l-04"
   }
  ],
  "key": [
@@ -871,7 +859,7 @@
    "ref": "a",
    "regionId": "r-06",
    "text": {
-    "en": "Region 6"
+    "en": "Pharynx"
    },
    "braille": {}
   },
@@ -885,30 +873,14 @@
   },
   {
    "ref": "c",
-   "regionId": "r-03",
+   "regionId": "r-04",
    "text": {
-    "en": "Region 3"
+    "en": "Fon"
    },
    "braille": {}
   },
   {
    "ref": "d",
-   "regionId": "r-02",
-   "text": {
-    "en": "Large Intestine"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "e",
-   "regionId": "r-04",
-   "text": {
-    "en": "Region 4"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "f",
    "regionId": "r-07",
    "text": {
     "en": "Mouth Palate Uvula Tongue Teeth"
@@ -916,26 +888,42 @@
    "braille": {}
   },
   {
-   "ref": "g",
+   "ref": "e",
+   "regionId": "r-03",
+   "text": {
+    "en": "Region 3"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "f",
    "regionId": "r-01",
    "text": {
-    "en": "Duodenum"
+    "en": "Region 1"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "g",
+   "regionId": "r-02",
+   "text": {
+    "en": "Descending Colon"
    },
    "braille": {}
   },
   {
    "ref": "h",
-   "regionId": "l-05",
+   "regionId": "l-04",
    "text": {
-    "en": "Line 5"
+    "en": "Line 4"
    },
    "braille": {}
   },
   {
    "ref": "i",
-   "regionId": "l-02",
+   "regionId": "l-03",
    "text": {
-    "en": "Line 2"
+    "en": "Line 3"
    },
    "braille": {}
   },
@@ -957,17 +945,25 @@
   },
   {
    "ref": "l",
-   "regionId": "l-01",
+   "regionId": "l-15",
    "text": {
-    "en": "Line 1"
+    "en": "Line 15"
    },
    "braille": {}
   },
   {
    "ref": "m",
-   "regionId": "l-04",
+   "regionId": "l-12",
    "text": {
-    "en": "Line 4"
+    "en": "Line 12"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "n",
+   "regionId": "l-06",
+   "text": {
+    "en": "Line 6"
    },
    "braille": {}
   }
@@ -975,17 +971,18 @@
  "readingOrder": [
   "r-06",
   "r-05",
-  "r-03",
-  "r-02",
   "r-04",
   "r-07",
+  "r-03",
   "r-01",
-  "l-05",
-  "l-02",
+  "r-02",
+  "l-04",
+  "l-03",
   "l-08",
   "l-16",
-  "l-01",
-  "l-04"
+  "l-15",
+  "l-12",
+  "l-06"
  ],
  "languages": {
   "primary": "en",
@@ -998,50 +995,18 @@
   "blocking": [
    {
     "rule": "R3",
-    "msg": "Detected: Line 2 connects Region 5 to Region 3 (91%) — confirm or remove",
+    "msg": "Detected: A stroke connects Descending Colon to Region 3 (60%) — confirm or remove",
     "ids": [
-     "r-05",
+     "r-02",
      "r-03"
     ]
    },
    {
     "rule": "R3",
-    "msg": "Detected: Line 5 connects Mouth Palate Uvula Tongue Teeth to Region 5 (94%) — confirm or remove",
+    "msg": "Detected: Line 4 connects Mouth Palate Uvula Tongue Teeth to Region 5 (84%) — confirm or remove",
     "ids": [
      "r-07",
      "r-05"
-    ]
-   },
-   {
-    "rule": "R3",
-    "msg": "Detected: A stroke connects Region 3 to Mouth Palate Uvula Tongue Teeth (100%) — confirm or remove",
-    "ids": [
-     "r-03",
-     "r-07"
-    ]
-   },
-   {
-    "rule": "R3",
-    "msg": "Detected: A stroke connects Region 4 to Mouth Palate Uvula Tongue Teeth (100%) — confirm or remove",
-    "ids": [
-     "r-04",
-     "r-07"
-    ]
-   },
-   {
-    "rule": "R3",
-    "msg": "Detected: Line 8 connects Region 5 to Large Intestine (99%) — confirm or remove",
-    "ids": [
-     "r-05",
-     "r-02"
-    ]
-   },
-   {
-    "rule": "R3",
-    "msg": "Detected: Line 16 connects Mouth Palate Uvula Tongue Teeth to Large Intestine (65%) — confirm or remove",
-    "ids": [
-     "r-07",
-     "r-02"
     ]
    }
   ],
@@ -1061,17 +1026,24 @@
     ]
    },
    {
-    "rule": "N1",
-    "msg": "r-06 has no label",
+    "rule": "O1",
+    "msg": "Fon: read at 48% confidence",
     "ids": [
-     "r-06"
+     "r-04"
     ]
    },
    {
     "rule": "N1",
-    "msg": "r-04 has no label",
+    "msg": "r-01 has no label",
     "ids": [
-     "r-04"
+     "r-01"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-12 has no label",
+    "ids": [
+     "l-12"
     ]
    },
    {
@@ -1083,13 +1055,6 @@
    },
    {
     "rule": "N1",
-    "msg": "l-05 has no label",
-    "ids": [
-     "l-05"
-    ]
-   },
-   {
-    "rule": "N1",
     "msg": "l-08 has no label",
     "ids": [
      "l-08"
@@ -1097,23 +1062,30 @@
    },
    {
     "rule": "N1",
+    "msg": "l-03 has no label",
+    "ids": [
+     "l-03"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-15 has no label",
+    "ids": [
+     "l-15"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-06 has no label",
+    "ids": [
+     "l-06"
+    ]
+   },
+   {
+    "rule": "N1",
     "msg": "l-16 has no label",
     "ids": [
      "l-16"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-01 has no label",
-    "ids": [
-     "l-01"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-02 has no label",
-    "ids": [
-     "l-02"
     ]
    }
   ]

@@ -11,7 +11,7 @@
  "source": {
   "kind": "upload",
   "file": "bio-flower-02",
-  "captured": "2026-10-30T09:27:34.530Z"
+  "captured": "2026-10-31T00:31:08.334Z"
  },
  "regions": [
   {
@@ -159,10 +159,10 @@
    ],
    "texture": "dots",
    "keyRef": "a",
-   "confidence": 0.97,
+   "confidence": 0.96,
    "sourceLabel": {
     "text": "LEE",
-    "ocrConfidence": 0.92
+    "ocrConfidence": 0.9
    }
   }
  ],

@@ -11,7 +11,7 @@
  "source": {
   "kind": "upload",
   "file": "geo-watercycle-02",
-  "captured": "2026-10-30T09:28:36.777Z"
+  "captured": "2026-10-31T00:31:29.827Z"
  },
  "regions": [
   {
@@ -323,16 +323,16 @@
    ],
    "texture": "dots",
    "keyRef": "a",
-   "confidence": 0.92,
+   "confidence": 0.93,
    "sourceLabel": {
     "text": "CLOUDS",
-    "ocrConfidence": 0.81
+    "ocrConfidence": 0.82
    }
   },
   {
    "id": "r-10",
    "name": {
-    "en": "Precipitation"
+    "en": "Evaporation"
    },
    "polygon": [
     [
@@ -657,17 +657,17 @@
     ]
    ],
    "texture": "diagonal-lines",
-   "keyRef": "i",
+   "keyRef": "g",
    "confidence": 0.98,
    "sourceLabel": {
-    "text": "PRECIPITATION",
-    "ocrConfidence": 0.96
+    "text": "EVAPORATION",
+    "ocrConfidence": 0.94
    }
   },
   {
    "id": "r-05",
    "name": {
-    "en": "Glacie"
+    "en": "Clouds And Water Vapor"
    },
    "polygon": [
     [
@@ -812,11 +812,11 @@
     ]
    ],
    "texture": "diagonal-lines",
-   "keyRef": "c",
-   "confidence": 0.92,
+   "keyRef": "d",
+   "confidence": 0.98,
    "sourceLabel": {
-    "text": "GLACIE",
-    "ocrConfidence": 0.79
+    "text": "CLOUDS and WATER VAPOR",
+    "ocrConfidence": 0.95
    }
   },
   {
@@ -1195,17 +1195,17 @@
     ]
    ],
    "texture": "dots",
-   "keyRef": "f",
-   "confidence": 0.88,
+   "keyRef": "b",
+   "confidence": 0.89,
    "sourceLabel": {
     "text": "NFILTRATION",
-    "ocrConfidence": 0.69
+    "ocrConfidence": 0.73
    }
   },
   {
    "id": "r-06",
    "name": {
-    "en": "Soil Moisture"
+    "en": "Ra (oe"
    },
    "polygon": [
     [
@@ -1306,17 +1306,17 @@
     ]
    ],
    "texture": "dots",
-   "keyRef": "g",
-   "confidence": 0.93,
+   "keyRef": "i",
+   "confidence": 0.8,
    "sourceLabel": {
-    "text": "SOIL MOISTURE",
-    "ocrConfidence": 0.82
+    "text": "ra (oe",
+    "ocrConfidence": 0.49
    }
   },
   {
    "id": "r-13",
    "name": {
-    "en": "And Ss Icesheets"
+    "en": "And Ss Icesheets Ss"
    },
    "polygon": [
     [
@@ -1593,11 +1593,11 @@
     ]
    ],
    "texture": "diagonal-lines",
-   "keyRef": "e",
-   "confidence": 0.88,
+   "keyRef": "f",
+   "confidence": 0.86,
    "sourceLabel": {
-    "text": "and SS ICESHEETS",
-    "ocrConfidence": 0.71
+    "text": "and SS ICESHEETS SS",
+    "ocrConfidence": 0.64
    }
   },
   {
@@ -1696,7 +1696,7 @@
     ]
    ],
    "texture": "dots",
-   "keyRef": "d",
+   "keyRef": "e",
    "confidence": 0.5
   },
   {
@@ -1759,7 +1759,7 @@
     ]
    ],
    "texture": "diagonal-lines",
-   "keyRef": "b",
+   "keyRef": "c",
    "confidence": 0.5
   },
   {
@@ -1832,7 +1832,7 @@
   {
    "id": "r-07",
    "name": {
-    "en": "Region 7"
+    "en": "Runoff"
    },
    "polygon": [
     [
@@ -1926,7 +1926,11 @@
    ],
    "texture": "diagonal-lines",
    "keyRef": "j",
-   "confidence": 0.5
+   "confidence": 0.93,
+   "sourceLabel": {
+    "text": "RUNOFF",
+    "ocrConfidence": 0.82
+   }
   },
   {
    "id": "r-12",
@@ -2024,23 +2028,43 @@
    ],
    "texture": "dots",
    "keyRef": "h",
-   "confidence": 0.98,
+   "confidence": 0.97,
    "sourceLabel": {
     "text": "RIVERS and",
-    "ocrConfidence": 0.94
+    "ocrConfidence": 0.93
    }
   }
  ],
  "lines": [
   {
-   "id": "l-02",
+   "id": "l-05",
    "name": {
-    "en": "Line 2"
+    "en": "Line 5"
    },
    "path": [
     [
-     21.19,
-     104.3
+     107.81,
+     115.41
+    ],
+    [
+     156.33,
+     112.03
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "p"
+  },
+  {
+   "id": "l-10",
+   "name": {
+    "en": "Line 10"
+   },
+   "path": [
+    [
+     49.59,
+     103.88
     ],
     [
      80.11,
@@ -2053,87 +2077,56 @@
    "keyRef": "o"
   },
   {
-   "id": "l-06",
+   "id": "l-11",
    "name": {
-    "en": "Line 6"
+    "en": "Line 11"
    },
    "path": [
     [
-     141.42,
-     113.3
+     143.25,
+     95.02
     ],
     [
-     182.06,
-     110.48
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "q"
-  },
-  {
-   "id": "l-16",
-   "name": {
-    "en": "Line 16"
-   },
-   "path": [
-    [
-     99.66,
-     109.78
-    ],
-    [
-     120.89,
-     107.95
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "p"
-  },
-  {
-   "id": "l-14",
-   "name": {
-    "en": "Line 14"
-   },
-   "path": [
-    [
-     107.67,
-     69.98
-    ],
-    [
-     119.63,
-     70.69
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "m"
-  },
-  {
-   "id": "l-05",
-   "name": {
-    "en": "Line 5"
-   },
-   "path": [
-    [
-     147.75,
-     61.27
-    ],
-    [
-     156.61,
-     62.11
+     172.5,
+     87.28
     ]
    ],
    "width": 1.2,
    "style": "single",
    "arrow": "none",
    "keyRef": "n"
+  },
+  {
+   "id": "l-13",
+   "name": {
+    "en": "Line 13"
+   },
+   "path": [
+    [
+     31.73,
+     21.75
+    ],
+    [
+     23.72,
+     22.17
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "m"
   }
  ],
  "relations": [
+  {
+   "from": "r-03",
+   "to": "r-01",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.91,
+   "source": "detected",
+   "via": "l-01"
+  },
   {
    "from": "r-12",
    "to": "r-06",
@@ -2141,43 +2134,25 @@
    "direction": "forward",
    "confidence": 1,
    "source": "detected",
-   "via": "l-04"
-  },
-  {
-   "from": "r-01",
-   "to": "r-06",
-   "kind": "connects",
-   "direction": "forward",
-   "confidence": 1,
-   "source": "detected",
-   "via": "l-11"
-  },
-  {
-   "from": "r-01",
-   "to": "r-09",
-   "kind": "connects",
-   "direction": "forward",
-   "confidence": 0.99,
-   "source": "detected",
-   "via": "l-13"
-  },
-  {
-   "from": "r-01",
-   "to": "r-13",
-   "kind": "connects",
-   "direction": "forward",
-   "confidence": 1,
-   "source": "detected",
-   "via": "l-15"
+   "via": "l-05"
   },
   {
    "from": "r-04",
    "to": "r-12",
    "kind": "connects",
    "direction": "forward",
-   "confidence": 1,
+   "confidence": 0.99,
    "source": "detected",
-   "via": "l-16"
+   "via": "l-08"
+  },
+  {
+   "from": "r-09",
+   "to": "r-06",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.97,
+   "source": "detected",
+   "via": "l-11"
   }
  ],
  "key": [
@@ -2191,38 +2166,6 @@
   },
   {
    "ref": "b",
-   "regionId": "r-14",
-   "text": {
-    "en": "Region 14"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "c",
-   "regionId": "r-05",
-   "text": {
-    "en": "Glacie"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "d",
-   "regionId": "r-11",
-   "text": {
-    "en": "Region 11"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "e",
-   "regionId": "r-13",
-   "text": {
-    "en": "And Ss Icesheets"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "f",
    "regionId": "r-01",
    "text": {
     "en": "Nfiltration"
@@ -2230,10 +2173,42 @@
    "braille": {}
   },
   {
-   "ref": "g",
-   "regionId": "r-06",
+   "ref": "c",
+   "regionId": "r-14",
    "text": {
-    "en": "Soil Moisture"
+    "en": "Region 14"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "d",
+   "regionId": "r-05",
+   "text": {
+    "en": "Clouds And Water Vapor"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "e",
+   "regionId": "r-11",
+   "text": {
+    "en": "Region 11"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "f",
+   "regionId": "r-13",
+   "text": {
+    "en": "And Ss Icesheets Ss"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "g",
+   "regionId": "r-10",
+   "text": {
+    "en": "Evaporation"
    },
    "braille": {}
   },
@@ -2247,9 +2222,9 @@
   },
   {
    "ref": "i",
-   "regionId": "r-10",
+   "regionId": "r-06",
    "text": {
-    "en": "Precipitation"
+    "en": "Ra (oe"
    },
    "braille": {}
   },
@@ -2257,7 +2232,7 @@
    "ref": "j",
    "regionId": "r-07",
    "text": {
-    "en": "Region 7"
+    "en": "Runoff"
    },
    "braille": {}
   },
@@ -2279,63 +2254,54 @@
   },
   {
    "ref": "m",
-   "regionId": "l-14",
+   "regionId": "l-13",
    "text": {
-    "en": "Line 14"
+    "en": "Line 13"
    },
    "braille": {}
   },
   {
    "ref": "n",
-   "regionId": "l-05",
+   "regionId": "l-11",
    "text": {
-    "en": "Line 5"
+    "en": "Line 11"
    },
    "braille": {}
   },
   {
    "ref": "o",
-   "regionId": "l-02",
+   "regionId": "l-10",
    "text": {
-    "en": "Line 2"
+    "en": "Line 10"
    },
    "braille": {}
   },
   {
    "ref": "p",
-   "regionId": "l-16",
+   "regionId": "l-05",
    "text": {
-    "en": "Line 16"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "q",
-   "regionId": "l-06",
-   "text": {
-    "en": "Line 6"
+    "en": "Line 5"
    },
    "braille": {}
   }
  ],
  "readingOrder": [
   "r-03",
+  "r-01",
   "r-14",
   "r-05",
   "r-11",
   "r-13",
-  "r-01",
-  "r-06",
-  "r-09",
   "r-10",
+  "r-09",
+  "r-06",
   "r-07",
   "r-04",
   "r-12",
-  "l-14",
-  "l-05",
-  "l-02",
-  "l-16",
-  "l-06"
+  "l-13",
+  "l-11",
+  "l-10",
+  "l-05"
  ],
  "languages": {
   "primary": "en",
@@ -2348,7 +2314,15 @@
   "blocking": [
    {
     "rule": "R3",
-    "msg": "Detected: A stroke connects Groundwater to Soil Moisture (100%) — confirm or remove",
+    "msg": "Detected: A stroke connects Clouds to Nfiltration (91%) — confirm or remove",
+    "ids": [
+     "r-03",
+     "r-01"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: Line 5 connects Groundwater to Ra (oe (100%) — confirm or remove",
     "ids": [
      "r-12",
      "r-06"
@@ -2356,48 +2330,39 @@
    },
    {
     "rule": "R3",
-    "msg": "Detected: A stroke connects Nfiltration to Soil Moisture (100%) — confirm or remove",
-    "ids": [
-     "r-01",
-     "r-06"
-    ]
-   },
-   {
-    "rule": "R3",
-    "msg": "Detected: A stroke connects Nfiltration to Rivers And (99%) — confirm or remove",
-    "ids": [
-     "r-01",
-     "r-09"
-    ]
-   },
-   {
-    "rule": "R3",
-    "msg": "Detected: A stroke connects Nfiltration to And Ss Icesheets (100%) — confirm or remove",
-    "ids": [
-     "r-01",
-     "r-13"
-    ]
-   },
-   {
-    "rule": "R3",
-    "msg": "Detected: Line 16 connects Region 4 to Groundwater (100%) — confirm or remove",
+    "msg": "Detected: A stroke connects Region 4 to Groundwater (99%) — confirm or remove",
     "ids": [
      "r-04",
      "r-12"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: Line 11 connects Rivers And to Ra (oe (97%) — confirm or remove",
+    "ids": [
+     "r-09",
+     "r-06"
     ]
    }
   ],
   "advisory": [
    {
     "rule": "O1",
-    "msg": "Nfiltration: read at 69% confidence",
+    "msg": "Nfiltration: read at 73% confidence",
     "ids": [
      "r-01"
     ]
    },
    {
     "rule": "O1",
-    "msg": "And Ss Icesheets: read at 71% confidence",
+    "msg": "Ra (oe: read at 49% confidence",
+    "ids": [
+     "r-06"
+    ]
+   },
+   {
+    "rule": "O1",
+    "msg": "And Ss Icesheets Ss: read at 64% confidence",
     "ids": [
      "r-13"
     ]
@@ -2425,44 +2390,30 @@
    },
    {
     "rule": "N1",
-    "msg": "r-07 has no label",
-    "ids": [
-     "r-07"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-02 has no label",
-    "ids": [
-     "l-02"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-06 has no label",
-    "ids": [
-     "l-06"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-16 has no label",
-    "ids": [
-     "l-16"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-14 has no label",
-    "ids": [
-     "l-14"
-    ]
-   },
-   {
-    "rule": "N1",
     "msg": "l-05 has no label",
     "ids": [
      "l-05"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-10 has no label",
+    "ids": [
+     "l-10"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-11 has no label",
+    "ids": [
+     "l-11"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-13 has no label",
+    "ids": [
+     "l-13"
     ]
    }
   ]

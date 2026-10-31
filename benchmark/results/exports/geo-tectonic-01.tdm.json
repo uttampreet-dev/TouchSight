@@ -11,13 +11,13 @@
  "source": {
   "kind": "upload",
   "file": "geo-tectonic-01",
-  "captured": "2026-10-30T09:28:21.978Z"
+  "captured": "2026-10-31T00:31:24.611Z"
  },
  "regions": [
   {
    "id": "r-08",
    "name": {
-    "en": "Eurasian Plate"
+    "en": "Kf Ih"
    },
    "polygon": [
     [
@@ -362,11 +362,11 @@
     ]
    ],
    "texture": "dots",
-   "keyRef": "c",
-   "confidence": 0.98,
+   "keyRef": "d",
+   "confidence": 0.83,
    "sourceLabel": {
-    "text": "EURASIAN PLATE",
-    "ocrConfidence": 0.94
+    "text": "kf ih",
+    "ocrConfidence": 0.58
    }
   },
   {
@@ -637,11 +637,11 @@
     ]
    ],
    "texture": "dots",
-   "keyRef": "g",
+   "keyRef": "f",
    "confidence": 0.98,
    "sourceLabel": {
     "text": "SOUTH",
-    "ocrConfidence": 0.96
+    "ocrConfidence": 0.95
    }
   },
   {
@@ -797,16 +797,16 @@
    ],
    "texture": "diagonal-lines",
    "keyRef": "j",
-   "confidence": 0.93,
+   "confidence": 0.92,
    "sourceLabel": {
     "text": "AFRICAN",
-    "ocrConfidence": 0.83
+    "ocrConfidence": 0.79
    }
   },
   {
    "id": "r-09",
    "name": {
-    "en": "Ser"
+    "en": "Of American"
    },
    "polygon": [
     [
@@ -988,10 +988,10 @@
    ],
    "texture": "diagonal-lines",
    "keyRef": "b",
-   "confidence": 0.78,
+   "confidence": 0.94,
    "sourceLabel": {
-    "text": "SER",
-    "ocrConfidence": 0.46
+    "text": "of AMERICAN",
+    "ocrConfidence": 0.84
    }
   },
   {
@@ -1098,7 +1098,7 @@
     ]
    ],
    "texture": "dots",
-   "keyRef": "h",
+   "keyRef": "g",
    "confidence": 0.9,
    "sourceLabel": {
     "text": "SS es",
@@ -1165,7 +1165,7 @@
     ]
    ],
    "texture": "diagonal-lines",
-   "keyRef": "d",
+   "keyRef": "i",
    "confidence": 0.97,
    "sourceLabel": {
     "text": "NAZCA",
@@ -1175,7 +1175,7 @@
   {
    "id": "r-07",
    "name": {
-    "en": "Region 7"
+    "en": "Caribbean Plate"
    },
    "polygon": [
     [
@@ -1288,13 +1288,17 @@
     ]
    ],
    "texture": "diagonal-lines",
-   "keyRef": "f",
-   "confidence": 0.5
+   "keyRef": "e",
+   "confidence": 0.98,
+   "sourceLabel": {
+    "text": "CARIBBEAN PLATE",
+    "ocrConfidence": 0.96
+   }
   },
   {
    "id": "r-10",
    "name": {
-    "en": "Plate"
+    "en": "Eurasian Plate"
    },
    "polygon": [
     [
@@ -1352,16 +1356,16 @@
    ],
    "texture": "dots",
    "keyRef": "a",
-   "confidence": 0.97,
+   "confidence": 0.98,
    "sourceLabel": {
-    "text": "PLATE",
-    "ocrConfidence": 0.93
+    "text": "EURASIAN PLATE",
+    "ocrConfidence": 0.94
    }
   },
   {
    "id": "r-04",
    "name": {
-    "en": "In An) Plate"
+    "en": "In Plate"
    },
    "polygon": [
     [
@@ -1422,11 +1426,11 @@
     ]
    ],
    "texture": "dots",
-   "keyRef": "i",
-   "confidence": 0.87,
+   "keyRef": "h",
+   "confidence": 0.92,
    "sourceLabel": {
-    "text": "IN an) PLATE",
-    "ocrConfidence": 0.68
+    "text": "IN PLATE",
+    "ocrConfidence": 0.79
    }
   },
   {
@@ -1481,48 +1485,68 @@
     ]
    ],
    "texture": "diagonal-lines",
-   "keyRef": "e",
+   "keyRef": "c",
    "confidence": 0.5
   }
  ],
  "lines": [
   {
-   "id": "l-02",
+   "id": "l-03",
    "name": {
-    "en": "Line 2"
+    "en": "Line 3"
    },
    "path": [
     [
-     33.28,
-     78.98
+     30.47,
+     78.84
     ],
     [
      59.72,
-     79.69
+     79.97
     ]
    ],
    "width": 1.2,
    "style": "single",
    "arrow": "none",
    "keyRef": "k"
+  },
+  {
+   "id": "l-12",
+   "name": {
+    "en": "Line 12"
+   },
+   "path": [
+    [
+     159.56,
+     97.83
+    ],
+    [
+     167.58,
+     85.45
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "l"
   }
  ],
  "relations": [
   {
-   "from": "r-02",
+   "from": "r-08",
    "to": "r-04",
    "kind": "connects",
    "direction": "forward",
-   "confidence": 0.54,
+   "confidence": 0.64,
    "source": "detected",
    "via": "l-01"
   },
   {
-   "from": "r-07",
-   "to": "r-02",
+   "from": "r-05",
+   "to": "r-08",
    "kind": "connects",
    "direction": "forward",
-   "confidence": 0.97,
+   "confidence": 0.95,
    "source": "detected",
    "via": "l-03"
   },
@@ -1531,52 +1555,25 @@
    "to": "r-09",
    "kind": "connects",
    "direction": "forward",
-   "confidence": 0.86,
-   "source": "detected",
-   "via": "l-04"
-  },
-  {
-   "from": "r-08",
-   "to": "r-03",
-   "kind": "connects",
-   "direction": "forward",
-   "confidence": 1,
+   "confidence": 0.91,
    "source": "detected",
    "via": "l-05"
   },
   {
-   "from": "r-09",
-   "to": "r-03",
-   "kind": "connects",
-   "direction": "forward",
-   "confidence": 1,
-   "source": "detected",
-   "via": "l-06"
-  },
-  {
    "from": "r-08",
-   "to": "r-09",
-   "kind": "connects",
-   "direction": "forward",
-   "confidence": 0.95,
-   "source": "detected",
-   "via": "l-07"
-  },
-  {
-   "from": "r-10",
-   "to": "r-08",
+   "to": "r-02",
    "kind": "connects",
    "direction": "forward",
    "confidence": 0.93,
    "source": "detected",
-   "via": "l-10"
+   "via": "l-13"
   },
   {
-   "from": "r-02",
-   "to": "r-01",
+   "from": "r-07",
+   "to": "r-02",
    "kind": "connects",
    "direction": "forward",
-   "confidence": 0.98,
+   "confidence": 0.95,
    "source": "detected",
    "via": "l-15"
   }
@@ -1586,7 +1583,7 @@
    "ref": "a",
    "regionId": "r-10",
    "text": {
-    "en": "Plate"
+    "en": "Eurasian Plate"
    },
    "braille": {}
   },
@@ -1594,28 +1591,12 @@
    "ref": "b",
    "regionId": "r-09",
    "text": {
-    "en": "Ser"
+    "en": "Of American"
    },
    "braille": {}
   },
   {
    "ref": "c",
-   "regionId": "r-08",
-   "text": {
-    "en": "Eurasian Plate"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "d",
-   "regionId": "r-03",
-   "text": {
-    "en": "Nazca"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "e",
    "regionId": "r-05",
    "text": {
     "en": "Region 5"
@@ -1623,15 +1604,23 @@
    "braille": {}
   },
   {
-   "ref": "f",
-   "regionId": "r-07",
+   "ref": "d",
+   "regionId": "r-08",
    "text": {
-    "en": "Region 7"
+    "en": "Kf Ih"
    },
    "braille": {}
   },
   {
-   "ref": "g",
+   "ref": "e",
+   "regionId": "r-07",
+   "text": {
+    "en": "Caribbean Plate"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "f",
    "regionId": "r-02",
    "text": {
     "en": "South"
@@ -1639,7 +1628,7 @@
    "braille": {}
   },
   {
-   "ref": "h",
+   "ref": "g",
    "regionId": "r-06",
    "text": {
     "en": "Ss Es"
@@ -1647,10 +1636,18 @@
    "braille": {}
   },
   {
-   "ref": "i",
+   "ref": "h",
    "regionId": "r-04",
    "text": {
-    "en": "In An) Plate"
+    "en": "In Plate"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "i",
+   "regionId": "r-03",
+   "text": {
+    "en": "Nazca"
    },
    "braille": {}
   },
@@ -1664,9 +1661,17 @@
   },
   {
    "ref": "k",
-   "regionId": "l-02",
+   "regionId": "l-03",
    "text": {
-    "en": "Line 2"
+    "en": "Line 3"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "l",
+   "regionId": "l-12",
+   "text": {
+    "en": "Line 12"
    },
    "braille": {}
   }
@@ -1674,15 +1679,16 @@
  "readingOrder": [
   "r-10",
   "r-09",
-  "r-08",
-  "r-03",
   "r-05",
+  "r-08",
   "r-07",
   "r-02",
   "r-06",
   "r-04",
+  "r-03",
   "r-01",
-  "l-02"
+  "l-03",
+  "l-12"
  ],
  "languages": {
   "primary": "en",
@@ -1695,75 +1701,51 @@
   "blocking": [
    {
     "rule": "R3",
-    "msg": "Detected: A stroke connects South to In An) Plate (54%) — confirm or remove",
+    "msg": "Detected: A stroke connects Kf Ih to In Plate (64%) — confirm or remove",
     "ids": [
-     "r-02",
+     "r-08",
      "r-04"
     ]
    },
    {
     "rule": "R3",
-    "msg": "Detected: A stroke connects Region 7 to South (97%) — confirm or remove",
+    "msg": "Detected: Line 3 connects Region 5 to Kf Ih (95%) — confirm or remove",
     "ids": [
-     "r-07",
-     "r-02"
-    ]
-   },
-   {
-    "rule": "R3",
-    "msg": "Detected: A stroke connects Plate to Ser (86%) — confirm or remove",
-    "ids": [
-     "r-10",
-     "r-09"
-    ]
-   },
-   {
-    "rule": "R3",
-    "msg": "Detected: A stroke connects Eurasian Plate to Nazca (100%) — confirm or remove",
-    "ids": [
-     "r-08",
-     "r-03"
-    ]
-   },
-   {
-    "rule": "R3",
-    "msg": "Detected: A stroke connects Ser to Nazca (100%) — confirm or remove",
-    "ids": [
-     "r-09",
-     "r-03"
-    ]
-   },
-   {
-    "rule": "R3",
-    "msg": "Detected: A stroke connects Eurasian Plate to Ser (95%) — confirm or remove",
-    "ids": [
-     "r-08",
-     "r-09"
-    ]
-   },
-   {
-    "rule": "R3",
-    "msg": "Detected: A stroke connects Plate to Eurasian Plate (93%) — confirm or remove",
-    "ids": [
-     "r-10",
+     "r-05",
      "r-08"
     ]
    },
    {
     "rule": "R3",
-    "msg": "Detected: A stroke connects South to African (98%) — confirm or remove",
+    "msg": "Detected: A stroke connects Eurasian Plate to Of American (91%) — confirm or remove",
     "ids": [
-     "r-02",
-     "r-01"
+     "r-10",
+     "r-09"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: A stroke connects Kf Ih to South (93%) — confirm or remove",
+    "ids": [
+     "r-08",
+     "r-02"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: A stroke connects Caribbean Plate to South (95%) — confirm or remove",
+    "ids": [
+     "r-07",
+     "r-02"
     ]
    }
   ],
   "advisory": [
    {
     "rule": "O1",
-    "msg": "Ser: read at 46% confidence",
+    "msg": "Kf Ih: read at 58% confidence",
     "ids": [
-     "r-09"
+     "r-08"
     ]
    },
    {
@@ -1775,20 +1757,6 @@
    },
    {
     "rule": "N1",
-    "msg": "r-07 has no label",
-    "ids": [
-     "r-07"
-    ]
-   },
-   {
-    "rule": "O1",
-    "msg": "In An) Plate: read at 68% confidence",
-    "ids": [
-     "r-04"
-    ]
-   },
-   {
-    "rule": "N1",
     "msg": "r-05 has no label",
     "ids": [
      "r-05"
@@ -1796,9 +1764,16 @@
    },
    {
     "rule": "N1",
-    "msg": "l-02 has no label",
+    "msg": "l-03 has no label",
     "ids": [
-     "l-02"
+     "l-03"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-12 has no label",
+    "ids": [
+     "l-12"
     ]
    }
   ]

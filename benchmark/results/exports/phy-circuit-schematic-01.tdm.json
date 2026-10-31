@@ -11,7 +11,7 @@
  "source": {
   "kind": "upload",
   "file": "phy-circuit-schematic-01",
-  "captured": "2026-10-30T09:28:52.987Z"
+  "captured": "2026-10-31T00:31:35.710Z"
  },
  "regions": [
   {
@@ -428,7 +428,7 @@
    "confidence": 0.96,
    "sourceLabel": {
     "text": "AMMETER",
-    "ocrConfidence": 0.89
+    "ocrConfidence": 0.9
    }
   },
   {
@@ -571,7 +571,7 @@
    "confidence": 0.96,
    "sourceLabel": {
     "text": "VOLTMETER",
-    "ocrConfidence": 0.91
+    "ocrConfidence": 0.9
    }
   },
   {

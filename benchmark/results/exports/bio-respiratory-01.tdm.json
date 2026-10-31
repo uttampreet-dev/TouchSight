@@ -11,13 +11,13 @@
  "source": {
   "kind": "upload",
   "file": "bio-respiratory-01",
-  "captured": "2026-10-30T09:28:11.819Z"
+  "captured": "2026-10-31T00:31:20.809Z"
  },
  "regions": [
   {
    "id": "r-06",
    "name": {
-    "en": "Pulmonary Artery Pulmonary Vein"
+    "en": "Mucous Gland Mucosal Ining"
    },
    "polygon": [
     [
@@ -71,16 +71,16 @@
    ],
    "texture": "dots",
    "keyRef": "a",
-   "confidence": 0.98,
+   "confidence": 0.96,
    "sourceLabel": {
-    "text": "Pulmonary artery Pulmonary vein",
-    "ocrConfidence": 0.94
+    "text": "Mucous gland Mucosal ining",
+    "ocrConfidence": 0.9
    }
   },
   {
    "id": "r-02",
    "name": {
-    "en": "Ny Ny"
+    "en": "Oblique Fissure"
    },
    "polygon": [
     [
@@ -158,16 +158,16 @@
    ],
    "texture": "dots",
    "keyRef": "e",
-   "confidence": 0.82,
+   "confidence": 0.98,
    "sourceLabel": {
-    "text": "Ny Ny",
-    "ocrConfidence": 0.56
+    "text": "Oblique fissure",
+    "ocrConfidence": 0.95
    }
   },
   {
    "id": "r-01",
    "name": {
-    "en": "Lobar Bronchus"
+    "en": "Lal Ke"
    },
    "polygon": [
     [
@@ -205,16 +205,16 @@
    ],
    "texture": "dots",
    "keyRef": "f",
-   "confidence": 0.98,
+   "confidence": 0.81,
    "sourceLabel": {
-    "text": "Lobar bronchus",
-    "ocrConfidence": 0.94
+    "text": "LAL Ke",
+    "ocrConfidence": 0.53
    }
   },
   {
    "id": "r-04",
    "name": {
-    "en": "Oral"
+    "en": "Paranasal Sinuses Frontal Sphenoid"
    },
    "polygon": [
     [
@@ -270,8 +270,8 @@
    "keyRef": "c",
    "confidence": 0.98,
    "sourceLabel": {
-    "text": "Oral",
-    "ocrConfidence": 0.96
+    "text": "Paranasal sinuses Frontal Sphenoid",
+    "ocrConfidence": 0.94
    }
   },
   {
@@ -328,7 +328,7 @@
   {
    "id": "r-05",
    "name": {
-    "en": "Alveolar Duct Mucous"
+    "en": "Capilllary Beds"
    },
    "polygon": [
     [
@@ -370,27 +370,27 @@
    ],
    "texture": "dots",
    "keyRef": "b",
-   "confidence": 0.93,
+   "confidence": 0.97,
    "sourceLabel": {
-    "text": "Alveolar duct Mucous",
-    "ocrConfidence": 0.82
+    "text": "Capilllary beds",
+    "ocrConfidence": 0.93
    }
   }
  ],
  "lines": [
   {
-   "id": "l-08",
+   "id": "l-02",
    "name": {
-    "en": "Line 8"
+    "en": "Line 2"
    },
    "path": [
     [
-     120.19,
-     102.05
+     109.64,
+     95.58
     ],
     [
-     126.94,
-     160.55
+     147.19,
+     133.13
     ]
    ],
    "width": 1.2,
@@ -399,38 +399,18 @@
    "keyRef": "h"
   },
   {
-   "id": "l-07",
+   "id": "l-05",
    "name": {
-    "en": "Line 7"
+    "en": "Line 5"
    },
    "path": [
     [
-     141.7,
-     73.22
+     66.89,
+     138.19
     ],
     [
-     182.63,
-     42.56
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "g"
-  },
-  {
-   "id": "l-03",
-   "name": {
-    "en": "Line 3"
-   },
-   "path": [
-    [
-     132.84,
-     109.78
-    ],
-    [
-     142.41,
-     159.28
+     99.09,
+     158.86
     ]
    ],
    "width": 1.2,
@@ -439,18 +419,38 @@
    "keyRef": "i"
   },
   {
-   "id": "l-12",
+   "id": "l-11",
    "name": {
-    "en": "Line 12"
+    "en": "Line 11"
    },
    "path": [
     [
-     89.25,
-     147.05
+     154.08,
+     50.3
     ],
     [
-     89.39,
-     137.2
+     178.55,
+     51.98
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "g"
+  },
+  {
+   "id": "l-13",
+   "name": {
+    "en": "Line 13"
+   },
+   "path": [
+    [
+     93.89,
+     135.38
+    ],
+    [
+     94.31,
+     111.47
     ]
    ],
    "width": 1.2,
@@ -461,22 +461,31 @@
  ],
  "relations": [
   {
+   "from": "r-01",
+   "to": "r-02",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.5,
+   "source": "detected",
+   "via": "l-01"
+  },
+  {
    "from": "r-06",
    "to": "r-05",
    "kind": "connects",
    "direction": "forward",
-   "confidence": 0.85,
+   "confidence": 1,
    "source": "detected",
-   "via": "l-04"
+   "via": "l-11"
   },
   {
-   "from": "l-07",
-   "to": "r-06",
+   "from": "r-02",
+   "to": "r-03",
    "kind": "connects",
    "direction": "forward",
-   "confidence": 0.82,
+   "confidence": 0.89,
    "source": "detected",
-   "via": "l-07"
+   "via": "l-13"
   }
  ],
  "key": [
@@ -484,7 +493,7 @@
    "ref": "a",
    "regionId": "r-06",
    "text": {
-    "en": "Pulmonary Artery Pulmonary Vein"
+    "en": "Mucous Gland Mucosal Ining"
    },
    "braille": {}
   },
@@ -492,7 +501,7 @@
    "ref": "b",
    "regionId": "r-05",
    "text": {
-    "en": "Alveolar Duct Mucous"
+    "en": "Capilllary Beds"
    },
    "braille": {}
   },
@@ -500,7 +509,7 @@
    "ref": "c",
    "regionId": "r-04",
    "text": {
-    "en": "Oral"
+    "en": "Paranasal Sinuses Frontal Sphenoid"
    },
    "braille": {}
   },
@@ -516,7 +525,7 @@
    "ref": "e",
    "regionId": "r-02",
    "text": {
-    "en": "Ny Ny"
+    "en": "Oblique Fissure"
    },
    "braille": {}
   },
@@ -524,39 +533,39 @@
    "ref": "f",
    "regionId": "r-01",
    "text": {
-    "en": "Lobar Bronchus"
+    "en": "Lal Ke"
    },
    "braille": {}
   },
   {
    "ref": "g",
-   "regionId": "l-07",
+   "regionId": "l-11",
    "text": {
-    "en": "Line 7"
+    "en": "Line 11"
    },
    "braille": {}
   },
   {
    "ref": "h",
-   "regionId": "l-08",
+   "regionId": "l-02",
    "text": {
-    "en": "Line 8"
+    "en": "Line 2"
    },
    "braille": {}
   },
   {
    "ref": "i",
-   "regionId": "l-03",
+   "regionId": "l-05",
    "text": {
-    "en": "Line 3"
+    "en": "Line 5"
    },
    "braille": {}
   },
   {
    "ref": "j",
-   "regionId": "l-12",
+   "regionId": "l-13",
    "text": {
-    "en": "Line 12"
+    "en": "Line 13"
    },
    "braille": {}
   }
@@ -568,10 +577,10 @@
   "r-03",
   "r-02",
   "r-01",
-  "l-07",
-  "l-08",
-  "l-03",
-  "l-12"
+  "l-11",
+  "l-02",
+  "l-05",
+  "l-13"
  ],
  "languages": {
   "primary": "en",
@@ -584,7 +593,15 @@
   "blocking": [
    {
     "rule": "R3",
-    "msg": "Detected: A stroke connects Pulmonary Artery Pulmonary Vein to Alveolar Duct Mucous (85%) — confirm or remove",
+    "msg": "Detected: A stroke connects Lal Ke to Oblique Fissure (50%) — confirm or remove",
+    "ids": [
+     "r-01",
+     "r-02"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: Line 11 connects Mucous Gland Mucosal Ining to Capilllary Beds (100%) — confirm or remove",
     "ids": [
      "r-06",
      "r-05"
@@ -592,47 +609,47 @@
    },
    {
     "rule": "R3",
-    "msg": "Detected: Line 7 connects Line 7 to Pulmonary Artery Pulmonary Vein (82%) — confirm or remove",
+    "msg": "Detected: Line 13 connects Oblique Fissure to Vocal Folds (89%) — confirm or remove",
     "ids": [
-     "l-07",
-     "r-06"
+     "r-02",
+     "r-03"
     ]
    }
   ],
   "advisory": [
    {
     "rule": "O1",
-    "msg": "Ny Ny: read at 56% confidence",
+    "msg": "Lal Ke: read at 53% confidence",
     "ids": [
-     "r-02"
+     "r-01"
     ]
    },
    {
     "rule": "N1",
-    "msg": "l-08 has no label",
+    "msg": "l-02 has no label",
     "ids": [
-     "l-08"
+     "l-02"
     ]
    },
    {
     "rule": "N1",
-    "msg": "l-07 has no label",
+    "msg": "l-05 has no label",
     "ids": [
-     "l-07"
+     "l-05"
     ]
    },
    {
     "rule": "N1",
-    "msg": "l-03 has no label",
+    "msg": "l-11 has no label",
     "ids": [
-     "l-03"
+     "l-11"
     ]
    },
    {
     "rule": "N1",
-    "msg": "l-12 has no label",
+    "msg": "l-13 has no label",
     "ids": [
-     "l-12"
+     "l-13"
     ]
    }
   ]

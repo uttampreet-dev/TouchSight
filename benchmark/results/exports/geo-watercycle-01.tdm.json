@@ -11,13 +11,13 @@
  "source": {
   "kind": "upload",
   "file": "geo-watercycle-01",
-  "captured": "2026-10-30T09:28:29.177Z"
+  "captured": "2026-10-31T00:31:27.083Z"
  },
  "regions": [
   {
    "id": "r-05",
    "name": {
-    "en": "Sublimation"
+    "en": "Condensation"
    },
    "polygon": [
     [
@@ -230,17 +230,17 @@
     ]
    ],
    "texture": "dots",
-   "keyRef": "g",
+   "keyRef": "l",
    "confidence": 0.98,
    "sourceLabel": {
-    "text": "Sublimation",
+    "text": "Condensation",
     "ocrConfidence": 0.96
    }
   },
   {
    "id": "r-02",
    "name": {
-    "en": "Volcanic Steagi"
+    "en": "Snow"
    },
    "polygon": [
     [
@@ -409,17 +409,17 @@
     ]
    ],
    "texture": "dots",
-   "keyRef": "k",
-   "confidence": 0.91,
+   "keyRef": "j",
+   "confidence": 0.98,
    "sourceLabel": {
-    "text": "Volcanic steagi",
-    "ocrConfidence": 0.77
+    "text": "snow",
+    "ocrConfidence": 0.95
    }
   },
   {
    "id": "r-13",
    "name": {
-    "en": "The"
+    "en": "Af Acer Cycie"
    },
    "polygon": [
     [
@@ -549,16 +549,16 @@
    ],
    "texture": "dots",
    "keyRef": "b",
-   "confidence": 0.91,
+   "confidence": 0.86,
    "sourceLabel": {
-    "text": "The",
-    "ocrConfidence": 0.77
+    "text": "Af acer Cycie",
+    "ocrConfidence": 0.66
    }
   },
   {
    "id": "r-01",
    "name": {
-    "en": "Desublimation"
+    "en": "Fe. Ecipitation"
    },
    "polygon": [
     [
@@ -916,10 +916,10 @@
    ],
    "texture": "dots",
    "keyRef": "f",
-   "confidence": 0.97,
+   "confidence": 0.9,
    "sourceLabel": {
-    "text": "Desublimation",
-    "ocrConfidence": 0.92
+    "text": "Fe. ecipitation",
+    "ocrConfidence": 0.74
    }
   },
   {
@@ -1077,17 +1077,17 @@
     ]
    ],
    "texture": "diagonal-lines",
-   "keyRef": "i",
-   "confidence": 0.79,
+   "keyRef": "h",
+   "confidence": 0.8,
    "sourceLabel": {
     "text": "Une",
-    "ocrConfidence": 0.47
+    "ocrConfidence": 0.49
    }
   },
   {
    "id": "r-08",
    "name": {
-    "en": "Condensation"
+    "en": "Region 8"
    },
    "polygon": [
     [
@@ -1197,11 +1197,7 @@
    ],
    "texture": "diagonal-lines",
    "keyRef": "c",
-   "confidence": 0.98,
-   "sourceLabel": {
-    "text": "Condensation",
-    "ocrConfidence": 0.96
-   }
+   "confidence": 0.5
   },
   {
    "id": "r-10",
@@ -1267,13 +1263,13 @@
     ]
    ],
    "texture": "diagonal-lines",
-   "keyRef": "h",
+   "keyRef": "g",
    "confidence": 0.5
   },
   {
    "id": "r-11",
    "name": {
-    "en": "Vents And Volcanos"
+    "en": "Region 11"
    },
    "polygon": [
     [
@@ -1311,11 +1307,7 @@
    ],
    "texture": "diagonal-lines",
    "keyRef": "m",
-   "confidence": 0.98,
-   "sourceLabel": {
-    "text": "Vents and volcanos",
-    "ocrConfidence": 0.96
-   }
+   "confidence": 0.5
   },
   {
    "id": "r-04",
@@ -1379,7 +1371,7 @@
   {
    "id": "r-06",
    "name": {
-    "en": "Fe. Ecipitation"
+    "en": "Ice And"
    },
    "polygon": [
     [
@@ -1425,16 +1417,16 @@
    ],
    "texture": "dots",
    "keyRef": "d",
-   "confidence": 0.89,
+   "confidence": 0.94,
    "sourceLabel": {
-    "text": "Fe. ecipitation",
-    "ocrConfidence": 0.72
+    "text": "Ice and",
+    "ocrConfidence": 0.84
    }
   },
   {
    "id": "r-03",
    "name": {
-    "en": "Surface"
+    "en": "Region 3"
    },
    "polygon": [
     [
@@ -1475,17 +1467,13 @@
     ]
    ],
    "texture": "dots",
-   "keyRef": "j",
-   "confidence": 0.98,
-   "sourceLabel": {
-    "text": "Surface",
-    "ocrConfidence": 0.96
-   }
+   "keyRef": "i",
+   "confidence": 0.5
   },
   {
    "id": "r-12",
    "name": {
-    "en": "Region 12"
+    "en": "Vents And Volcanos"
    },
    "polygon": [
     [
@@ -1526,84 +1514,28 @@
     ]
    ],
    "texture": "diagonal-lines",
-   "keyRef": "l",
-   "confidence": 0.5
+   "keyRef": "k",
+   "confidence": 0.98,
+   "sourceLabel": {
+    "text": "Vents and volcanos",
+    "ocrConfidence": 0.96
+   }
   }
  ],
  "lines": [
   {
-   "id": "l-04",
+   "id": "l-01",
    "name": {
-    "en": "Line 4"
+    "en": "Line 1"
    },
    "path": [
     [
-     33.27,
-     78.46
+     16.98,
+     85.62
     ],
     [
-     62.65,
-     78.95
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "p"
-  },
-  {
-   "id": "l-14",
-   "name": {
-    "en": "Line 14"
-   },
-   "path": [
-    [
-     40.68,
-     93.77
-    ],
-    [
-     63.64,
-     95
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "q"
-  },
-  {
-   "id": "l-16",
-   "name": {
-    "en": "Line 16"
-   },
-   "path": [
-    [
-     72.53,
-     81.91
-    ],
-    [
-     91.54,
-     69.07
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "r"
-  },
-  {
-   "id": "l-08",
-   "name": {
-    "en": "Line 8"
-   },
-   "path": [
-    [
-     118.46,
-     18.21
-    ],
-    [
-     132.28,
-     18.21
+     15.49,
+     15
     ]
    ],
    "width": 1.2,
@@ -1612,24 +1544,84 @@
    "keyRef": "n"
   },
   {
-   "id": "l-15",
+   "id": "l-02",
    "name": {
-    "en": "Line 15"
+    "en": "Line 2"
    },
    "path": [
     [
-     140.68,
-     25.37
+     32.04,
+     130.56
     ],
     [
-     128.83,
-     23.64
+     81.17,
+     132.78
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "p"
+  },
+  {
+   "id": "l-07",
+   "name": {
+    "en": "Line 7"
+   },
+   "path": [
+    [
+     15.99,
+     123.15
+    ],
+    [
+     46.11,
+     92.04
     ]
    ],
    "width": 1.2,
    "style": "single",
    "arrow": "none",
    "keyRef": "o"
+  },
+  {
+   "id": "l-16",
+   "name": {
+    "en": "Line 16"
+   },
+   "path": [
+    [
+     85.62,
+     125.62
+    ],
+    [
+     118.21,
+     126.85
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "q"
+  },
+  {
+   "id": "l-15",
+   "name": {
+    "en": "Line 15"
+   },
+   "path": [
+    [
+     100.43,
+     131.3
+    ],
+    [
+     117.22,
+     130.31
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "r"
   }
  ],
  "relations": [
@@ -1644,28 +1636,19 @@
   },
   {
    "from": "r-02",
-   "to": "r-10",
-   "kind": "connects",
-   "direction": "forward",
-   "confidence": 1,
-   "source": "detected",
-   "via": "l-02"
-  },
-  {
-   "from": "r-10",
    "to": "r-01",
    "kind": "connects",
    "direction": "forward",
    "confidence": 1,
    "source": "detected",
-   "via": "l-07"
+   "via": "l-08"
   },
   {
-   "from": "r-01",
-   "to": "r-05",
+   "from": "r-02",
+   "to": "r-12",
    "kind": "connects",
    "direction": "forward",
-   "confidence": 0.97,
+   "confidence": 0.96,
    "source": "detected",
    "via": "l-16"
   }
@@ -1683,7 +1666,7 @@
    "ref": "b",
    "regionId": "r-13",
    "text": {
-    "en": "The"
+    "en": "Af Acer Cycie"
    },
    "braille": {}
   },
@@ -1691,7 +1674,7 @@
    "ref": "c",
    "regionId": "r-08",
    "text": {
-    "en": "Condensation"
+    "en": "Region 8"
    },
    "braille": {}
   },
@@ -1699,7 +1682,7 @@
    "ref": "d",
    "regionId": "r-06",
    "text": {
-    "en": "Fe. Ecipitation"
+    "en": "Ice And"
    },
    "braille": {}
   },
@@ -1715,20 +1698,12 @@
    "ref": "f",
    "regionId": "r-01",
    "text": {
-    "en": "Desublimation"
+    "en": "Fe. Ecipitation"
    },
    "braille": {}
   },
   {
    "ref": "g",
-   "regionId": "r-05",
-   "text": {
-    "en": "Sublimation"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "h",
    "regionId": "r-10",
    "text": {
     "en": "Region 10"
@@ -1736,7 +1711,7 @@
    "braille": {}
   },
   {
-   "ref": "i",
+   "ref": "h",
    "regionId": "r-09",
    "text": {
     "en": "Une"
@@ -1744,26 +1719,34 @@
    "braille": {}
   },
   {
-   "ref": "j",
+   "ref": "i",
    "regionId": "r-03",
    "text": {
-    "en": "Surface"
+    "en": "Region 3"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "j",
+   "regionId": "r-02",
+   "text": {
+    "en": "Snow"
    },
    "braille": {}
   },
   {
    "ref": "k",
-   "regionId": "r-02",
+   "regionId": "r-12",
    "text": {
-    "en": "Volcanic Steagi"
+    "en": "Vents And Volcanos"
    },
    "braille": {}
   },
   {
    "ref": "l",
-   "regionId": "r-12",
+   "regionId": "r-05",
    "text": {
-    "en": "Region 12"
+    "en": "Condensation"
    },
    "braille": {}
   },
@@ -1771,47 +1754,47 @@
    "ref": "m",
    "regionId": "r-11",
    "text": {
-    "en": "Vents And Volcanos"
+    "en": "Region 11"
    },
    "braille": {}
   },
   {
    "ref": "n",
-   "regionId": "l-08",
+   "regionId": "l-01",
    "text": {
-    "en": "Line 8"
+    "en": "Line 1"
    },
    "braille": {}
   },
   {
    "ref": "o",
-   "regionId": "l-15",
+   "regionId": "l-07",
    "text": {
-    "en": "Line 15"
+    "en": "Line 7"
    },
    "braille": {}
   },
   {
    "ref": "p",
-   "regionId": "l-04",
+   "regionId": "l-02",
    "text": {
-    "en": "Line 4"
+    "en": "Line 2"
    },
    "braille": {}
   },
   {
    "ref": "q",
-   "regionId": "l-14",
+   "regionId": "l-16",
    "text": {
-    "en": "Line 14"
+    "en": "Line 16"
    },
    "braille": {}
   },
   {
    "ref": "r",
-   "regionId": "l-16",
+   "regionId": "l-15",
    "text": {
-    "en": "Line 16"
+    "en": "Line 15"
    },
    "braille": {}
   }
@@ -1823,18 +1806,18 @@
   "r-06",
   "r-04",
   "r-01",
-  "r-05",
   "r-10",
   "r-09",
   "r-03",
   "r-02",
   "r-12",
+  "r-05",
   "r-11",
-  "l-08",
-  "l-15",
-  "l-04",
-  "l-14",
-  "l-16"
+  "l-01",
+  "l-07",
+  "l-02",
+  "l-16",
+  "l-15"
  ],
  "languages": {
   "primary": "en",
@@ -1847,7 +1830,7 @@
   "blocking": [
    {
     "rule": "R3",
-    "msg": "Detected: A stroke connects Volcanic Steagi to Region 14 (100%) — confirm or remove",
+    "msg": "Detected: Line 1 connects Snow to Region 14 (100%) — confirm or remove",
     "ids": [
      "r-02",
      "r-14"
@@ -1855,30 +1838,36 @@
    },
    {
     "rule": "R3",
-    "msg": "Detected: A stroke connects Volcanic Steagi to Region 10 (100%) — confirm or remove",
+    "msg": "Detected: A stroke connects Snow to Fe. Ecipitation (100%) — confirm or remove",
     "ids": [
      "r-02",
-     "r-10"
-    ]
-   },
-   {
-    "rule": "R3",
-    "msg": "Detected: A stroke connects Region 10 to Desublimation (100%) — confirm or remove",
-    "ids": [
-     "r-10",
      "r-01"
     ]
    },
    {
     "rule": "R3",
-    "msg": "Detected: Line 16 connects Desublimation to Sublimation (97%) — confirm or remove",
+    "msg": "Detected: Line 16 connects Snow to Vents And Volcanos (96%) — confirm or remove",
     "ids": [
-     "r-01",
-     "r-05"
+     "r-02",
+     "r-12"
     ]
    }
   ],
   "advisory": [
+   {
+    "rule": "O1",
+    "msg": "Af Acer Cycie: read at 66% confidence",
+    "ids": [
+     "r-13"
+    ]
+   },
+   {
+    "rule": "O1",
+    "msg": "Fe. Ecipitation: read at 74% confidence",
+    "ids": [
+     "r-01"
+    ]
+   },
    {
     "rule": "N1",
     "msg": "r-14 has no label",
@@ -1888,9 +1877,16 @@
    },
    {
     "rule": "O1",
-    "msg": "Une: read at 47% confidence",
+    "msg": "Une: read at 49% confidence",
     "ids": [
      "r-09"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "r-08 has no label",
+    "ids": [
+     "r-08"
     ]
    },
    {
@@ -1902,37 +1898,44 @@
    },
    {
     "rule": "N1",
+    "msg": "r-11 has no label",
+    "ids": [
+     "r-11"
+    ]
+   },
+   {
+    "rule": "N1",
     "msg": "r-04 has no label",
     "ids": [
      "r-04"
     ]
    },
    {
-    "rule": "O1",
-    "msg": "Fe. Ecipitation: read at 72% confidence",
+    "rule": "N1",
+    "msg": "r-03 has no label",
     "ids": [
-     "r-06"
+     "r-03"
     ]
    },
    {
     "rule": "N1",
-    "msg": "r-12 has no label",
+    "msg": "l-01 has no label",
     "ids": [
-     "r-12"
+     "l-01"
     ]
    },
    {
     "rule": "N1",
-    "msg": "l-04 has no label",
+    "msg": "l-02 has no label",
     "ids": [
-     "l-04"
+     "l-02"
     ]
    },
    {
     "rule": "N1",
-    "msg": "l-14 has no label",
+    "msg": "l-07 has no label",
     "ids": [
-     "l-14"
+     "l-07"
     ]
    },
    {
@@ -1940,13 +1943,6 @@
     "msg": "l-16 has no label",
     "ids": [
      "l-16"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-08 has no label",
-    "ids": [
-     "l-08"
     ]
    },
    {

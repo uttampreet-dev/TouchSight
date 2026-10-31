@@ -110,44 +110,32 @@ the sheet. Rules, thresholds and sources: [docs/VALIDATOR-RULES.md](docs/VALIDAT
 
 ## Measured
 
-From [benchmark/RESULTS.md](benchmark/RESULTS.md): eight figures (six from Wikimedia Commons, two synthetic
-line-art schematics), headless Chromium, production build, no network, every figure through understand →
-redesign → validate → exports with no teacher. Two tables on purpose: a figure can pass every geometric rule and
-still be semantically wrong.
+From [benchmark/RESULTS.md](benchmark/RESULTS.md): 25 figures (8 development figures plus 17 Wikimedia Commons
+diagrams across biology, physics, chemistry, geography, mathematics and astronomy), headless Chromium, production
+build, no network, every figure through understand → redesign → validate → exports with no teacher. Two tables in
+the file on purpose: a figure can pass every geometric rule and still be semantically wrong.
 
-**Semantic, what it read**
-
-| Figure | Difficulty | Labels read | Regions named | Relations proposed · match truth |
-|---|---|---|---|---|
-| bio-digestive-01 | hard | 29/30 (97%) | 3/7 (43%) | 6 · 1/4 |
-| bio-eye-01 | medium | 18/19 (95%) | 1/7 (14%) | 1 · 0/3 |
-| bio-flower-01 | medium | 16/17 (94%) | 1/6 (17%) | 3 · 0/5 |
-| bio-heart-01 | hard | 9/14 (64%) | 0/4 (0%) | 7 · 0/4 |
-| bio-heart-02 | easy | 9/9 (100%) | 4/4 (100%) | 6 · 2/4 |
-| bio-plantcell-01 | medium | 21/22 (95%) | 2/6 (33%) | 5 · 0/3 |
-| bio-plantcell-02 | easy | 6/8 (75%) | 4/9 (44%) | 1 · 0/2 |
-| geo-watercycle-01 | hard | 11/24 (46%) | 1/4 (25%) | 4 · 0/3 |
-
-Mean label recall **83%**, mean region recall **35%** (100% on clean line art, which is what a photocopied
-textbook figure looks like; 0–44% on shaded colour figures).
-
-**Geometric, what it made**
-
-| First-run validator geometry clean | Min gap before → after | All four exports | End to end, median |
-|---|---|---|---|
-| 8/8 | 0.0–1.2 mm → 3.1 mm on every figure | 8/8 (every STL shell closed) | 1.7 s |
+| What the pipeline read | What it made |
+|---|---|
+| Labels read: mean **54%** over 25 figures; **10 figures at or above 90%** (digestive, cell cycle, eye, flower, heart line art, neuron, plant cell, respiratory) | Validator geometry clean on the first run: **23/25** (the two misses are K1, a braille key that did not fit) |
+| Regions named: mean **20%**; 100% on the clean heart, 0% where labels sit over gradients or where the figure is symbolic | Minimum gap raised to ≥ 3.0 mm on every figure that had one below |
+| Symbolic and numeric labels (DNA formula, distillation, three maths figures, pulley): **0%**, see limits | All four exports on **25/25**, every STL shell closed |
+| Relations: 91 proposed, **3 of 83** truth pairs matched automatically; rule R3 holds every one for the teacher | Median **1.3 s** from photo to four files |
 
 Teacher-correction counts and the eyes-closed location test are logged by hand in
-[benchmark/CORRECTIONS.md](benchmark/CORRECTIONS.md) and [benchmark/USABILITY.md](benchmark/USABILITY.md).
+[benchmark/CORRECTIONS.md](benchmark/CORRECTIONS.md) and [benchmark/USABILITY.md](benchmark/USABILITY.md); both
+are protocols with no recorded runs yet.
 
 ## What it cannot do yet
 
-- **Naming regions on colour figures is the weak link** (region recall 35% across the set, 100% on clean line
-  art). Labels are read well; tying a label to the right enclosed area fails over gradients, broken leader lines
+- **Naming regions is the weak link** (region recall 20% across 25 figures, 100% on the clean heart). Labels are
+  read well on printed figures; tying a label to the right enclosed area fails over gradients, broken leader lines
   and white pockets between organs. The teacher renames in the console.
+- **Symbolic, numeric and non-English labels are not read.** Formulas, angle marks and numerals (the DNA, distillation,
+  pulley and three maths figures) scored 0%; a French diagram scored 0%. Clean printed words in English are the target.
 - **Relations are proposed from stroke adjacency only.** They are often wrong, which is why rule R3 blocks
   every one until a teacher confirms it.
-- **3-D shaded colour figures** read at 64% and **low-resolution paintings** at 46% label recall.
+- **3-D shaded colour figures** read at 64% and **low-resolution paintings** at 46–58% label recall.
 - **Hand-drawn chalk on a blackboard** is not supported. Clean printed, photocopied or projected figures are the
   target.
 - **Haptics are Android-only** (iOS Safari has no Vibration API); audio, quiz and print work everywhere. A phone

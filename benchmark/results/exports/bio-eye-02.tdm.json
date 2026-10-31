@@ -11,7 +11,7 @@
  "source": {
   "kind": "upload",
   "file": "bio-eye-02",
-  "captured": "2026-10-30T09:27:26.862Z"
+  "captured": "2026-10-31T00:31:05.357Z"
  },
  "regions": [
   {
@@ -99,10 +99,10 @@
    ],
    "texture": "dots",
    "keyRef": "a",
-   "confidence": 0.95,
+   "confidence": 0.96,
    "sourceLabel": {
     "text": "Sclera",
-    "ocrConfidence": 0.88
+    "ocrConfidence": 0.9
    }
   },
   {
@@ -251,18 +251,18 @@
  ],
  "lines": [
   {
-   "id": "l-09",
+   "id": "l-01",
    "name": {
-    "en": "Line 9"
+    "en": "Line 1"
    },
    "path": [
     [
-     124.7,
-     26.43
+     113.03,
+     23.03
     ],
     [
-     154.38,
-     53.19
+     155.11,
+     54.65
     ]
    ],
    "width": 1.2,
@@ -271,38 +271,38 @@
    "keyRef": "c"
   },
   {
-   "id": "l-15",
+   "id": "l-02",
    "name": {
-    "en": "Line 15"
+    "en": "Line 2"
    },
    "path": [
     [
-     125.19,
-     80.43
+     119.35,
+     41.76
     ],
     [
-     147.32,
-     87.49
+     129.32,
+     93.32
     ]
    ],
    "width": 1.2,
    "style": "single",
    "arrow": "none",
-   "keyRef": "d"
+   "keyRef": "e"
   },
   {
-   "id": "l-06",
+   "id": "l-07",
    "name": {
-    "en": "Line 6"
+    "en": "Line 7"
    },
    "path": [
     [
-     135.89,
-     111.32
+     77.51,
+     93.08
     ],
     [
-     137.11,
-     99.41
+     78.97,
+     47.84
     ]
    ],
    "width": 1.2,
@@ -311,24 +311,44 @@
    "keyRef": "f"
   },
   {
-   "id": "l-11",
+   "id": "l-09",
    "name": {
-    "en": "Line 11"
+    "en": "Line 9"
    },
    "path": [
     [
-     127.14,
-     91.86
+     125.68,
+     93.32
     ],
     [
-     123.73,
-     100.62
+     124.22,
+     103.54
     ]
    ],
    "width": 1.2,
    "style": "single",
    "arrow": "none",
-   "keyRef": "e"
+   "keyRef": "g"
+  },
+  {
+   "id": "l-12",
+   "name": {
+    "en": "Line 12"
+   },
+   "path": [
+    [
+     55.14,
+     54.41
+    ],
+    [
+     62.19,
+     49.05
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "d"
   }
  ],
  "relations": [
@@ -337,9 +357,9 @@
    "to": "r-01",
    "kind": "connects",
    "direction": "forward",
-   "confidence": 0.97,
+   "confidence": 0.72,
    "source": "detected",
-   "via": "l-06"
+   "via": "l-03"
   }
  ],
  "key": [
@@ -361,33 +381,41 @@
   },
   {
    "ref": "c",
-   "regionId": "l-09",
+   "regionId": "l-01",
    "text": {
-    "en": "Line 9"
+    "en": "Line 1"
    },
    "braille": {}
   },
   {
    "ref": "d",
-   "regionId": "l-15",
+   "regionId": "l-12",
    "text": {
-    "en": "Line 15"
+    "en": "Line 12"
    },
    "braille": {}
   },
   {
    "ref": "e",
-   "regionId": "l-11",
+   "regionId": "l-02",
    "text": {
-    "en": "Line 11"
+    "en": "Line 2"
    },
    "braille": {}
   },
   {
    "ref": "f",
-   "regionId": "l-06",
+   "regionId": "l-07",
    "text": {
-    "en": "Line 6"
+    "en": "Line 7"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "g",
+   "regionId": "l-09",
+   "text": {
+    "en": "Line 9"
    },
    "braille": {}
   }
@@ -395,10 +423,11 @@
  "readingOrder": [
   "r-02",
   "r-01",
-  "l-09",
-  "l-15",
-  "l-11",
-  "l-06"
+  "l-01",
+  "l-12",
+  "l-02",
+  "l-07",
+  "l-09"
  ],
  "languages": {
   "primary": "en",
@@ -411,7 +440,7 @@
   "blocking": [
    {
     "rule": "R3",
-    "msg": "Detected: Line 6 connects Sclera to Granula Iridis (97%) — confirm or remove",
+    "msg": "Detected: A stroke connects Sclera to Granula Iridis (72%) — confirm or remove",
     "ids": [
      "r-02",
      "r-01"
@@ -421,6 +450,27 @@
   "advisory": [
    {
     "rule": "N1",
+    "msg": "l-01 has no label",
+    "ids": [
+     "l-01"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-02 has no label",
+    "ids": [
+     "l-02"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-07 has no label",
+    "ids": [
+     "l-07"
+    ]
+   },
+   {
+    "rule": "N1",
     "msg": "l-09 has no label",
     "ids": [
      "l-09"
@@ -428,23 +478,9 @@
    },
    {
     "rule": "N1",
-    "msg": "l-15 has no label",
+    "msg": "l-12 has no label",
     "ids": [
-     "l-15"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-06 has no label",
-    "ids": [
-     "l-06"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-11 has no label",
-    "ids": [
-     "l-11"
+     "l-12"
     ]
    }
   ]

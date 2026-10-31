@@ -54,7 +54,7 @@ for (const [label, opts] of [['1440', { viewport: { width: 1440, height: 900 } }
   await page.waitForTimeout(1800)
   const m = await page.evaluate(() => ({ rv: document.querySelectorAll('[data-rv]').length, inn: document.querySelectorAll('[data-rv].in').length, stat: document.querySelector('.ld-stats .ld-num')?.textContent, ticker: document.querySelectorAll('.ld-ticker-in span').length, vr: document.querySelectorAll('.vr-log li').length, gap: document.querySelector('.vr-gap b')?.textContent, sw: document.documentElement.scrollWidth, iw: window.innerWidth, h: document.documentElement.scrollHeight }))
   check(m.inn === m.rv, `${label}: every reveal fired (${m.inn}/${m.rv})`)
-  check(m.stat === '83%', `${label}: label-recall counter landed on ${m.stat}`)
+  check(m.stat === '54%', `${label}: label-recall counter landed on ${m.stat}`)
   check(m.ticker >= 12, `${label}: validator ticker has ${m.ticker} real findings`)
   check(m.vr >= 5 && /^3\.1/.test(m.gap ?? ''), `${label}: validator replay ran (${m.vr} lines, gap ${m.gap})`)
   check(m.sw <= m.iw, `${label}: no horizontal overflow (${m.sw}/${m.iw})`)

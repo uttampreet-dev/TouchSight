@@ -11,13 +11,13 @@
  "source": {
   "kind": "upload",
   "file": "bio-heart-01",
-  "captured": "2026-10-30T09:27:40.870Z"
+  "captured": "2026-10-31T00:31:10.441Z"
  },
  "regions": [
   {
    "id": "r-09",
    "name": {
-    "en": "Pulmonary Art"
+    "en": "Gone"
    },
    "polygon": [
     [
@@ -335,16 +335,16 @@
    ],
    "texture": "empty",
    "keyRef": "c",
-   "confidence": 0.98,
+   "confidence": 0.83,
    "sourceLabel": {
-    "text": "Pulmonary Art",
-    "ocrConfidence": 0.95
+    "text": "gone",
+    "ocrConfidence": 0.57
    }
   },
   {
    "id": "r-04",
    "name": {
-    "en": "Right Trium"
+    "en": "Pulmonary Vein"
    },
    "polygon": [
     [
@@ -1629,11 +1629,11 @@
     ]
    ],
    "texture": "empty",
-   "keyRef": "f",
-   "confidence": 0.96,
+   "keyRef": "e",
+   "confidence": 0.98,
    "sourceLabel": {
-    "text": "Right trium",
-    "ocrConfidence": 0.89
+    "text": "Pulmonary Vein",
+    "ocrConfidence": 0.95
    }
   },
   {
@@ -1734,7 +1734,7 @@
   {
    "id": "r-07",
    "name": {
-    "en": "Sy Ox"
+    "en": "Es Ce"
    },
    "polygon": [
     [
@@ -1864,10 +1864,10 @@
    ],
    "texture": "dots",
    "keyRef": "a",
-   "confidence": 0.87,
+   "confidence": 0.82,
    "sourceLabel": {
-    "text": "Sy ox",
-    "ocrConfidence": 0.67
+    "text": "eS Ce",
+    "ocrConfidence": 0.55
    }
   },
   {
@@ -1922,13 +1922,13 @@
     ]
    ],
    "texture": "dots",
-   "keyRef": "e",
+   "keyRef": "f",
    "confidence": 0.5
   },
   {
    "id": "r-05",
    "name": {
-    "en": "Pulmonary Valve"
+    "en": "Region 5"
    },
    "polygon": [
     [
@@ -1998,87 +1998,23 @@
    ],
    "texture": "dots",
    "keyRef": "d",
-   "confidence": 0.98,
-   "sourceLabel": {
-    "text": "Pulmonary Valve",
-    "ocrConfidence": 0.94
-   }
+   "confidence": 0.5
   }
  ],
  "lines": [
   {
-   "id": "l-08",
+   "id": "l-07",
    "name": {
-    "en": "Line 8"
+    "en": "Line 7"
    },
    "path": [
     [
-     121.8,
-     115.2
+     120.2,
+     74.6
     ],
     [
-     154.8,
-     74.4
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "j"
-  },
-  {
-   "id": "l-15",
-   "name": {
-    "en": "Line 15"
-   },
-   "path": [
-    [
-     103,
-     175.6
-    ],
-    [
-     151.2,
-     170.6
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "m"
-  },
-  {
-   "id": "l-02",
-   "name": {
-    "en": "Line 2"
-   },
-   "path": [
-    [
-     112.6,
-     157.4
-    ],
-    [
-     86.6,
-     130.2
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "k"
-  },
-  {
-   "id": "l-01",
-   "name": {
-    "en": "Line 1"
-   },
-   "path": [
-    [
-     95.6,
-     106
-    ],
-    [
-     117.4,
-     109
+     134.4,
+     124.2
     ]
    ],
    "width": 1.2,
@@ -2087,18 +2023,38 @@
    "keyRef": "h"
   },
   {
-   "id": "l-12",
+   "id": "l-02",
    "name": {
-    "en": "Line 12"
+    "en": "Line 2"
    },
    "path": [
     [
-     100.2,
-     71.6
+     87.2,
+     127.8
     ],
     [
-     119,
-     82.4
+     121.2,
+     165.2
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "j"
+  },
+  {
+   "id": "l-16",
+   "name": {
+    "en": "Line 16"
+   },
+   "path": [
+    [
+     84.8,
+     49.2
+    ],
+    [
+     119.8,
+     23.8
     ]
    ],
    "width": 1.2,
@@ -2107,38 +2063,18 @@
    "keyRef": "g"
   },
   {
-   "id": "l-07",
+   "id": "l-12",
    "name": {
-    "en": "Line 7"
+    "en": "Line 12"
    },
    "path": [
     [
-     154.6,
-     143
+     144.8,
+     79.6
     ],
     [
-     144.6,
-     124
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "l"
-  },
-  {
-   "id": "l-04",
-   "name": {
-    "en": "Line 4"
-   },
-   "path": [
-    [
-     102.8,
-     115
-    ],
-    [
-     110.6,
-     113.2
+     122.4,
+     67
     ]
    ],
    "width": 1.2,
@@ -2149,20 +2085,29 @@
  ],
  "relations": [
   {
+   "from": "r-05",
+   "to": "r-04",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.78,
+   "source": "detected",
+   "via": "l-01"
+  },
+  {
+   "from": "r-05",
+   "to": "r-02",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.45,
+   "source": "detected",
+   "via": "l-04"
+  },
+  {
    "from": "r-08",
    "to": "r-09",
    "kind": "connects",
    "direction": "forward",
    "confidence": 1,
-   "source": "detected",
-   "via": "l-03"
-  },
-  {
-   "from": "r-04",
-   "to": "r-05",
-   "kind": "connects",
-   "direction": "forward",
-   "confidence": 0.93,
    "source": "detected",
    "via": "l-05"
   },
@@ -2171,18 +2116,18 @@
    "to": "r-09",
    "kind": "connects",
    "direction": "forward",
-   "confidence": 1,
-   "source": "detected",
-   "via": "l-08"
-  },
-  {
-   "from": "r-05",
-   "to": "r-02",
-   "kind": "connects",
-   "direction": "forward",
-   "confidence": 1,
+   "confidence": 0.92,
    "source": "detected",
    "via": "l-09"
+  },
+  {
+   "from": "r-07",
+   "to": "r-08",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.76,
+   "source": "detected",
+   "via": "l-16"
   }
  ],
  "key": [
@@ -2190,7 +2135,7 @@
    "ref": "a",
    "regionId": "r-07",
    "text": {
-    "en": "Sy Ox"
+    "en": "Es Ce"
    },
    "braille": {}
   },
@@ -2206,7 +2151,7 @@
    "ref": "c",
    "regionId": "r-09",
    "text": {
-    "en": "Pulmonary Art"
+    "en": "Gone"
    },
    "braille": {}
   },
@@ -2214,12 +2159,20 @@
    "ref": "d",
    "regionId": "r-05",
    "text": {
-    "en": "Pulmonary Valve"
+    "en": "Region 5"
    },
    "braille": {}
   },
   {
    "ref": "e",
+   "regionId": "r-04",
+   "text": {
+    "en": "Pulmonary Vein"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "f",
    "regionId": "r-02",
    "text": {
     "en": "Region 2"
@@ -2227,55 +2180,15 @@
    "braille": {}
   },
   {
-   "ref": "f",
-   "regionId": "r-04",
-   "text": {
-    "en": "Right Trium"
-   },
-   "braille": {}
-  },
-  {
    "ref": "g",
-   "regionId": "l-12",
+   "regionId": "l-16",
    "text": {
-    "en": "Line 12"
+    "en": "Line 16"
    },
    "braille": {}
   },
   {
    "ref": "h",
-   "regionId": "l-01",
-   "text": {
-    "en": "Line 1"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "i",
-   "regionId": "l-04",
-   "text": {
-    "en": "Line 4"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "j",
-   "regionId": "l-08",
-   "text": {
-    "en": "Line 8"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "k",
-   "regionId": "l-02",
-   "text": {
-    "en": "Line 2"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "l",
    "regionId": "l-07",
    "text": {
     "en": "Line 7"
@@ -2283,10 +2196,18 @@
    "braille": {}
   },
   {
-   "ref": "m",
-   "regionId": "l-15",
+   "ref": "i",
+   "regionId": "l-12",
    "text": {
-    "en": "Line 15"
+    "en": "Line 12"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "j",
+   "regionId": "l-02",
+   "text": {
+    "en": "Line 2"
    },
    "braille": {}
   }
@@ -2296,15 +2217,12 @@
   "r-08",
   "r-09",
   "r-05",
-  "r-02",
   "r-04",
-  "l-12",
-  "l-01",
-  "l-04",
-  "l-08",
-  "l-02",
+  "r-02",
+  "l-16",
   "l-07",
-  "l-15"
+  "l-12",
+  "l-02"
  ],
  "languages": {
   "primary": "en",
@@ -2317,7 +2235,23 @@
   "blocking": [
    {
     "rule": "R3",
-    "msg": "Detected: A stroke connects Aorta to Pulmonary Art (100%) — confirm or remove",
+    "msg": "Detected: A stroke connects Region 5 to Pulmonary Vein (78%) — confirm or remove",
+    "ids": [
+     "r-05",
+     "r-04"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: A stroke connects Region 5 to Region 2 (45%) — confirm or remove",
+    "ids": [
+     "r-05",
+     "r-02"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: A stroke connects Aorta to Gone (100%) — confirm or remove",
     "ids": [
      "r-08",
      "r-09"
@@ -2325,15 +2259,7 @@
    },
    {
     "rule": "R3",
-    "msg": "Detected: A stroke connects Right Trium to Pulmonary Valve (93%) — confirm or remove",
-    "ids": [
-     "r-04",
-     "r-05"
-    ]
-   },
-   {
-    "rule": "R3",
-    "msg": "Detected: Line 8 connects Right Trium to Pulmonary Art (100%) — confirm or remove",
+    "msg": "Detected: A stroke connects Pulmonary Vein to Gone (92%) — confirm or remove",
     "ids": [
      "r-04",
      "r-09"
@@ -2341,14 +2267,21 @@
    },
    {
     "rule": "R3",
-    "msg": "Detected: A stroke connects Pulmonary Valve to Region 2 (100%) — confirm or remove",
+    "msg": "Detected: Line 16 connects Es Ce to Aorta (76%) — confirm or remove",
     "ids": [
-     "r-05",
-     "r-02"
+     "r-07",
+     "r-08"
     ]
    }
   ],
   "advisory": [
+   {
+    "rule": "O1",
+    "msg": "Gone: read at 57% confidence",
+    "ids": [
+     "r-09"
+    ]
+   },
    {
     "rule": "O1",
     "msg": "Aorta: read at 53% confidence",
@@ -2358,7 +2291,7 @@
    },
    {
     "rule": "O1",
-    "msg": "Sy Ox: read at 67% confidence",
+    "msg": "Es Ce: read at 55% confidence",
     "ids": [
      "r-07"
     ]
@@ -2372,37 +2305,9 @@
    },
    {
     "rule": "N1",
-    "msg": "l-08 has no label",
+    "msg": "r-05 has no label",
     "ids": [
-     "l-08"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-15 has no label",
-    "ids": [
-     "l-15"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-02 has no label",
-    "ids": [
-     "l-02"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-01 has no label",
-    "ids": [
-     "l-01"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-12 has no label",
-    "ids": [
-     "l-12"
+     "r-05"
     ]
    },
    {
@@ -2414,9 +2319,23 @@
    },
    {
     "rule": "N1",
-    "msg": "l-04 has no label",
+    "msg": "l-02 has no label",
     "ids": [
-     "l-04"
+     "l-02"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-16 has no label",
+    "ids": [
+     "l-16"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-12 has no label",
+    "ids": [
+     "l-12"
     ]
    }
   ]
