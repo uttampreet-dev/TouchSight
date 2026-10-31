@@ -1,40 +1,35 @@
-# TouchSight
+<h1 align="center">TouchSight</h1>
 
-**A textbook can have a braille edition. A blackboard can't.**
+<h3 align="center">A textbook can have a braille edition. A blackboard can't.</h3>
 
-TouchSight is an **accessibility compiler for diagrams**. It reads the structure of a diagram a teacher photographs, redesigns that structure for a fingertip, and refuses to publish anything a finger could not read. The one verified model it produces is then touched on a phone, mirrored on a projector, printed as a raised relief and a braille key, and pushed to every phone in the room.
+<p align="center">
+  TouchSight is an <b>accessibility compiler for diagrams</b>. It reads the structure of a diagram a teacher photographs,<br>
+  redesigns that structure for a fingertip, and refuses to publish anything a finger could not read.<br>
+  The one verified model is touched on a phone, mirrored on a projector, printed as a relief and a braille key,<br>
+  and pushed to every phone in the room.
+</p>
 
-![React](https://img.shields.io/badge/React-19-2f3338?style=flat-square&logo=react&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-8-2f3338?style=flat-square&logo=vite&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-7-2f3338?style=flat-square&logo=typescript&logoColor=white)
-![OpenCV.js](https://img.shields.io/badge/OpenCV.js-5-2f3338?style=flat-square&logo=opencv&logoColor=white)
-![Tesseract.js](https://img.shields.io/badge/Tesseract.js-7-2f3338?style=flat-square)
-![liblouis](https://img.shields.io/badge/liblouis-3.2-2f3338?style=flat-square)
-![three.js](https://img.shields.io/badge/three.js-r187-2f3338?style=flat-square&logo=three.js&logoColor=white)
-![IndexedDB](https://img.shields.io/badge/IndexedDB-idb_8-2f3338?style=flat-square)
-![WebSocket](https://img.shields.io/badge/WebSocket-ws_8-2f3338?style=flat-square)
-![Vitest](https://img.shields.io/badge/Vitest-5-2f3338?style=flat-square&logo=vitest&logoColor=white)
+<p align="center">
+  <img src="https://img.shields.io/badge/React-19-2f3338?style=flat-square&logo=react&logoColor=white" alt="React 19"> <img src="https://img.shields.io/badge/Vite-8-2f3338?style=flat-square&logo=vite&logoColor=white" alt="Vite 8"> <img src="https://img.shields.io/badge/TypeScript-7-2f3338?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript 7"> <img src="https://img.shields.io/badge/OpenCV.js-5-2f3338?style=flat-square&logo=opencv&logoColor=white" alt="OpenCV.js 5"> <img src="https://img.shields.io/badge/Tesseract.js-7-2f3338?style=flat-square" alt="Tesseract.js 7">
+</p>
+<p align="center">
+  <img src="https://img.shields.io/badge/liblouis-3.2-2f3338?style=flat-square" alt="liblouis 3.2"> <img src="https://img.shields.io/badge/three.js-r187-2f3338?style=flat-square&logo=three.js&logoColor=white" alt="three.js r187"> <img src="https://img.shields.io/badge/IndexedDB-idb_8-2f3338?style=flat-square" alt="IndexedDB"> <img src="https://img.shields.io/badge/WebSocket-ws_8-2f3338?style=flat-square" alt="WebSocket"> <img src="https://img.shields.io/badge/Vitest-5-2f3338?style=flat-square&logo=vitest&logoColor=white" alt="Vitest 5">
+</p>
+
+<p align="center">
+  <a href="#why-a-fingertip-needs-a-compiler">Why a compiler</a> · <a href="#how-a-diagram-compiles">How it compiles</a> · <a href="#where-the-model-goes">Where the model goes</a> · <a href="#the-validator">The validator</a> · <a href="#a-classroom-live">Classroom</a> · <a href="#driven-without-sight">Without sight</a> · <a href="#measured">Measured</a> · <a href="#what-it-cannot-do-yet">Limits</a> · <a href="#run-it">Run it</a> · <a href="#repository">Repository</a>
+</p>
 
 ---
 
 ![The teacher console after publish: source photo with the pipeline's reading drawn over it, the redesigned tactile sheet, the validator's findings and the five exports](benchmark/results/screens/teacher-published-1440.png)
 
-Image describers tell a blind student *about* a picture. Braille translators convert text. Tactile-graphics software starts from a transcriber's hand drawing and ends at an embosser that costs lakhs, weeks after the lesson. TouchSight is none of those. It is the compiler between the photograph and all of them: it runs entirely in the browser, needs no server, no account and no network once installed, and takes a figure from photo to a verified tactile model inside one class period.
-
-## Contents
-
-- [Why a fingertip needs a compiler](#why-a-fingertip-needs-a-compiler)
-- [How a diagram compiles](#how-a-diagram-compiles)
-- [Where the model goes](#where-the-model-goes)
-- [The Tactile Diagram Model](#the-tactile-diagram-model)
-- [The validator](#the-validator)
-- [A classroom, live](#a-classroom-live)
-- [Driven without sight](#driven-without-sight)
-- [Measured](#measured)
-- [What it cannot do yet](#what-it-cannot-do-yet)
-- [Run it](#run-it)
-- [Repository](#repository)
-- [Built on](#built-on)
+<p align="center">
+  Image describers tell a blind student <i>about</i> a picture. Braille translators convert text. Tactile-graphics software starts<br>
+  from a transcriber's hand drawing and ends at an embosser that costs lakhs, weeks after the lesson. TouchSight is the compiler<br>
+  between the photograph and all of them: in the browser, no server, no account, no network once installed,<br>
+  photo to verified tactile model inside one class period.
+</p>
 
 ## Why a fingertip needs a compiler
 
@@ -53,22 +48,21 @@ So the middle stage is a constraint solver over real geometry in millimetres on 
 
 ```mermaid
 flowchart LR
-    P([photo or page]) --> U
-
-    subgraph browser [Teacher console · runs in the browser]
-        direction LR
-        U["Understand<br/>OpenCV.js regions and strokes<br/>Tesseract.js labels<br/>leader-line association"]
-        S["Simplify<br/>re-space to ≥ 3 mm<br/>assign textures<br/>drop what cannot survive<br/>lay out the braille key"]
-        V{"Validate<br/>11 rules<br/>S1 S2 S3 T1 K1 M1<br/>R1 R2 R3 · O1 N1"}
-        T["Teacher review<br/>confirm relations<br/>rename · merge · remove<br/>write what each part does"]
-        U -->|draft TDM| S --> V
-        V -->|blocking findings| T --> S
+    P([Photo or page]) --> U
+    subgraph console [Teacher console, in the browser]
+        U[Understand: regions, strokes, labels]
+        S[Simplify: re-space, texture, key]
+        V{Validate: 11 rules}
+        T[Teacher review]
+        U -- draft model --> S
+        S --> V
+        V -- blocking findings --> T
+        T --> S
     end
-
-    V -->|pass| M[("one Tactile Diagram Model<br/>.tdm.json · millimetres")]
+    V -- pass --> M[(Tactile Diagram Model)]
     M --> A[Student app]
     M --> J[Projector]
-    M --> X[Exports]
+    M --> X[Exports: SVG, STL, BRF, alt-text]
     M --> C[Classroom]
 ```
 
@@ -164,20 +158,20 @@ The relay is under a hundred lines of WebSocket on the same static server that s
 ```mermaid
 sequenceDiagram
     participant T as Teacher console
-    participant R as Relay · /relay
+    participant R as Relay, /relay
     participant S as Student phone
-    participant J as Projector · /stage
+    participant J as Projector, /stage
 
-    T->>R: join room CAMB · roster
+    T->>R: join room CAMB, roster
     S->>R: join CAMB (scanned QR)
-    R-->>S: roster · every diagram already published
+    R-->>S: roster, every diagram already published
     S->>S: student picks a name by touch
     T->>R: publish heart.tdm.json
-    R-->>S: heart arrives · stored in IndexedDB
-    S->>R: activity · opened · seconds per part · quiz found
+    R-->>S: heart arrives, stored in IndexedDB
+    S->>R: activity, opened, seconds per part, quiz found
     R-->>T: progress card updates live
     S->>R: finger position (explore)
-    R-->>J: trail · boundary flash · caption
+    R-->>J: trail, boundary flash, caption
     Note over S: Wi-Fi off: diagrams stay, activity queues, sends on reconnect
 ```
 
@@ -198,7 +192,6 @@ Every control on the student app speaks on the first touch and acts on the secon
 
 Spoken commands are matched in English, Hindi, Punjabi and romanised Hindi and Punjabi: *where am I*, *what does it do*, *tour*, *quiz*, *key*, *repeat*, *next*, *previous*, *play*, *pause*, *library*, *help*, a language name. Questions about the diagram are answered from the model itself, never guessed: *what does the left atrium do*, *which part pumps blood to the body*, *how many parts*, *what connects to the left ventricle*, *where is the left ventricle*.
 
-<p align="center"><img src="benchmark/results/screens/student-explore-touch.png" width="340" alt="The student app on a phone: a finger on the right atrium, the name spoken, Where am I and Say it again under the sheet"></p>
 
 ## Measured
 
