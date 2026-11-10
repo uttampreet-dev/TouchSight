@@ -18,7 +18,7 @@ type Row = { id: string; tdm: Tdm; chapter: string; published: boolean }
 
 export function ClassView() {
   const [room, setRoom] = useState(teacherRoom)
-  const [pub, setPub] = useState(() => { try { return localStorage.getItem(PUBLIC_KEY) || '' } catch { return '' } })
+  const [pub, setPub] = useState(() => { try { return localStorage.getItem(PUBLIC_KEY) || (/^(localhost|127\.|0\.0\.0\.0|\d+\.\d+\.\d+\.\d+)/.test(location.hostname) ? '' : location.origin) } catch { return '' } })
   const savePub = (v: string) => { setPub(v); try { localStorage.setItem(PUBLIC_KEY, v) } catch { /* ignore */ } }
   const [qr, setQr] = useState<string | null>(null)
   const [roster, setRoster] = useState<string[]>(loadRoster)

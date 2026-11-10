@@ -19,7 +19,8 @@ export type StageEvent =
 export type StageMessage = StageEvent & { t: number; src: 'student' | 'stage' }
 
 export const CHANNEL = 'touchsight-stage'
-export const relayUrl = () => `${location.protocol === 'https:' ? 'wss' : 'ws'}://${location.host}/relay`
+/** The relay lives on the app's own origin (serve.mjs), or wherever VITE_RELAY_URL points when the static app is hosted apart from it. */
+export const relayUrl = () => (import.meta.env.VITE_RELAY_URL as string | undefined) || `${location.protocol === 'https:' ? 'wss' : 'ws'}://${location.host}/relay`
 
 class Mirror {
   private bc = typeof BroadcastChannel !== 'undefined' ? new BroadcastChannel(CHANNEL) : null

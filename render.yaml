@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: touchsight-relay
+    runtime: node
+    plan: free
+    rootDir: .
+    buildCommand: cd app && npm ci && npm run build
+    startCommand: node app/scripts/serve.mjs $PORT
+    healthCheckPath: /
+    autoDeploy: true
