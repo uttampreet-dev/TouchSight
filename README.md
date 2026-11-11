@@ -220,6 +220,15 @@ Teacher-correction counts and the eyes-closed location test are protocols in [be
 
 Full list: [benchmark/LIMITS.md](benchmark/LIMITS.md).
 
+## Try it
+
+**Live:** [touchsight-one.vercel.app](https://touchsight-one.vercel.app). The console is at `/teacher`, the student
+app at `/student` (open it on an Android phone, add it to the home screen, then turn Wi-Fi off), the projector at
+`/stage`, and the room code for the phones under the console's **class** tab. The classroom link and the projector
+mirror run through a relay hosted separately on Render's free tier, which sleeps when idle: the first join after a quiet
+spell can take up to a minute to connect; everything else is instant. The full walkthrough is in the demo video linked
+on the landing page.
+
 ## Run it
 
 ```bash
