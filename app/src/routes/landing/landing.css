@@ -15,8 +15,10 @@
 .ld-mark { width: 22px; height: 28px; border-radius: 5px; background: var(--soft); position: relative; display: inline-block; }
 .ld-mark i { position: absolute; width: 5px; height: 5px; border-radius: 50%; background: var(--bg); }
 .ld-mark i:nth-child(1) { left: 5px; top: 11px; } .ld-mark i:nth-child(2) { left: 5px; top: 18px; } .ld-mark i:nth-child(3) { left: 12px; top: 5px; } .ld-mark i:nth-child(4) { left: 12px; top: 11px; }
-.ld-nav { display: flex; gap: 30px; font-size: 15px; } .ld-nav a { color: var(--txt2); padding-bottom: 3px; border-bottom: 1px solid transparent; } .ld-nav a:hover { color: var(--txt); border-bottom-color: var(--coral); }
-.ld-mast-r { display: flex; align-items: center; gap: 20px; font-size: 11.5px; color: var(--mute); }
+.ld-nav { display: flex; gap: 26px; font-size: 15px; white-space: nowrap; } .ld-nav a { color: var(--txt2); padding-bottom: 3px; border-bottom: 1px solid transparent; } .ld-nav a:hover { color: var(--txt); border-bottom-color: var(--coral); }
+.ld-mast-r { display: flex; align-items: center; gap: 12px; font-size: 11.5px; color: var(--mute); white-space: nowrap; } .ld-mast-note { margin-right: 8px; }
+@media (max-width: 1500px) { .ld-mast-note { display: none; } }
+.ld-go-try { background: transparent !important; color: var(--coral) !important; border: 1px solid rgba(255,111,89,.6); } .ld-go-try:hover { background: rgba(255,111,89,.12) !important; }
 .ld-go { background: var(--coral); color: #fff !important; padding: 11px 16px; font-weight: 700; font-size: 12.5px; letter-spacing: .04em; border-radius: 8px; } .ld-go:hover { background: #ff846f; }
 
 .ld-index { position: fixed; right: 20px; top: 50%; transform: translateY(-50%); display: grid; gap: 12px; z-index: 5; }

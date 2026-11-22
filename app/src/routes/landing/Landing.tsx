@@ -44,7 +44,7 @@ export function Landing() {
       <header className="ld-mast">
         <Link to="/" className="ld-word"><span className="ld-mark" aria-hidden><i /><i /><i /><i /></span>TouchSight</Link>
         <nav className="ld-nav"><a href="#compile">How it compiles</a><a href="#validator">How it is checked</a><a href="#surfaces">Surfaces</a><a href="#measured">Measured</a></nav>
-        <div className="ld-mast-r mono"><span>in the browser · no server · Wi-Fi off</span><Link to="/teacher" className="ld-go">Open the console →</Link></div>
+        <div className="ld-mast-r mono"><span className="ld-mast-note">in the browser · no server · Wi-Fi off</span><Link to="/teacher?sample=bio-heart-02" className="ld-go ld-go-try">Compile a sample →</Link><Link to="/teacher" className="ld-go">Open the console →</Link></div>
       </header>
 
       <aside className="ld-index" aria-label="sections">
@@ -128,17 +128,17 @@ export function Landing() {
           <BrailleLine text="Twenty-five figures, no teacher, every number from the run." className="light" />
         </div>
         <div className="ld-stats" data-rv>
-          <div><Count to={54} suffix="%" /><span className="mono">labels read · mean of 25</span></div>
-          <div><span className="ld-num">10<small>/25</small></span><span className="mono">figures read above 90%</span></div>
-          <div><span className="ld-num">23<small>/25</small></span><span className="mono">geometry clean first run</span></div>
+          <div><Count to={66} suffix="%" /><span className="mono">labels read · mean of 25</span></div>
+          <div><span className="ld-num">9<small>/25</small></span><span className="mono">figures read above 90%</span></div>
+          <div><span className="ld-num">25<small>/25</small></span><span className="mono">geometry clean first run</span></div>
           <div><span className="ld-num">25<small>/25</small></span><span className="mono">SVG · STL · BRF · alt-text</span></div>
-          <div><Count to={1.3} decimals={1} suffix=" s" /><span className="mono">photo to four files</span></div>
+          <div><Count to={1.5} decimals={1} suffix=" s" /><span className="mono">photo to four files</span></div>
         </div>
       </section>
 
       <section className="ld-close ld-paper">
         <h2 className="ld-h2 center" data-rv>Photograph a diagram.<br />Hand the phone to a student.</h2>
-        <div className="ld-dock center" data-rv><Link className="ld-btn solid" to="/teacher">Open the teacher console →</Link><Link className="ld-btn" to="/student">Student app</Link><Link className="ld-btn" to="/stage">Projector</Link></div>
+        <div className="ld-dock center" data-rv><Link className="ld-btn solid" to="/teacher?sample=bio-heart-02">Compile a sample →</Link><Link className="ld-btn" to="/teacher/preview">Phone and projector on one screen</Link><Link className="ld-btn" to="/student">Student app</Link></div>
       </section>
       <footer className="ld-foot-bar mono"><span>TouchSight</span><span>Tactile Diagram Model 0.1 · millimetres on A4</span><span>OpenCV.js · Tesseract.js · liblouis</span></footer>
     </main>
