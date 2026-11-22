@@ -17,7 +17,7 @@
 </p>
 
 <p align="center">
-  <a href="#why-a-fingertip-needs-a-compiler">Why a compiler</a> · <a href="#how-a-diagram-compiles">How it compiles</a> · <a href="#where-the-model-goes">Where the model goes</a> · <a href="#the-validator">The validator</a> · <a href="#a-classroom-live">Classroom</a> · <a href="#driven-without-sight">Without sight</a> · <a href="#measured">Measured</a> · <a href="#what-it-cannot-do-yet">Limits</a> · <a href="#run-it">Run it</a> · <a href="#repository">Repository</a>
+  <a href="#the-gap">The gap</a> · <a href="#why-a-fingertip-needs-a-compiler">Why a compiler</a> · <a href="#how-a-diagram-compiles">How it compiles</a> · <a href="#where-the-model-goes">Where the model goes</a> · <a href="#the-validator">The validator</a> · <a href="#a-classroom-live">Classroom</a> · <a href="#driven-without-sight">Without sight</a> · <a href="#measured">Measured</a> · <a href="#what-it-cannot-do-yet">Limits</a> · <a href="#run-it">Run it</a> · <a href="#repository">Repository</a>
 </p>
 
 ---
@@ -30,6 +30,22 @@
   between the photograph and all of them: in the browser, no server, no account, no network once installed,<br>
   photo to verified tactile model inside one class period.
 </p>
+
+## The gap
+
+Software for tactile diagrams is rare, and the need for it is proven. The closest work is at IIT Delhi: the [Raised Lines Foundation](https://thelogicalindian.com/exclusive/raised-lines-foundation-iit-delhi/), which grew out of the institute's Centre of Excellence in Tactile Graphics, designs tactile diagrams by hand and prints them as tactile books for NCERT maths and science ([YourStory, 2019](https://yourstory.com/2019/01/iit-delhi-braille-tactile-diagram-rlf)). That work settles the question of whether blind students learn from diagrams they can touch. It also shows where hand production stops: a fixed, published list of textbook figures, made centrally, reaching a school as a book.
+
+TouchSight starts where that list ends, with the diagram this teacher has today: on a worksheet, in a different textbook, projected in class, or drawn on the console's own board.
+
+| | Tactile books made by hand | Image describers | TouchSight |
+|---|---|---|---|
+| Which diagrams | A fixed list of textbook figures | Any picture | Any diagram the teacher photographs, uploads or draws |
+| Who makes it | Trained designers, figure by figure | A language model | A compiler in the teacher's browser; the teacher confirms the names |
+| When it arrives | With the printed book | At once, as a paragraph | Inside the class period; the median compile is 1.5 s |
+| What the student gets | Raised paper | Words about the picture | The shape itself under a finger on an ordinary phone, with speech, a tour and a quiz; the same model prints as a relief |
+| What can go wrong | Nothing reaches the student that was not designed for touch | Nothing checks the description | Eleven validator rules block a sheet a finger could not read |
+
+We have not found another tool that takes a teacher's own diagram to a blind student's hands on the day it is taught. Research systems cover neighbouring pieces: generating tactile pictures, laying out tactile charts, reading an existing tactile sheet aloud. The compiler, the validator and the delivery to a classroom in one tool is what is new here, and it is the piece a school for the blind, an inclusive classroom, a braille press or a textbook board would use.
 
 ## Why a fingertip needs a compiler
 
@@ -68,13 +84,21 @@ flowchart LR
 
 | Stage | What happens | Where |
 |---|---|---|
-| **Understand** | Adaptive threshold and contour tracing find enclosed regions; straight strokes are found with a probabilistic Hough transform on the ink mask; OCR reads printed labels; each label is tied to a region or line through its leader line. Results are drawn over the photo as they arrive. | `app/src/pipeline/` |
+| **Understand** | Adaptive threshold and contour tracing find enclosed regions; straight strokes are found with a probabilistic Hough transform on the ink mask; OCR reads printed labels in four passes, the last on the letters alone so a name written inside a part is read; each label is tied to one part through containment, its leader line or the nearest edge. Results are drawn over the photo as they arrive. | `app/src/pipeline/` |
 | **Simplify** | Regions are offset apart until every gap is at least 3 mm, neighbours get different textures, lines under 1.2 mm are widened, anything below 60 mm² or 8 mm is dropped, and the braille key is laid out at 10 mm pitch so it fits the margin. | `app/src/tdm/simplify.ts` |
 | **Validate** | Every rule in [the validator](#the-validator) runs against the sheet. A finding names the rule, the elements and the spot in millimetres. | `app/src/tdm/validate.ts` |
 | **Review** | The teacher confirms or removes every detected relation (rule R3 blocks until they do), renames, merges, re-orders, and writes or confirms the one line the phone speaks after a part's name. A glossary pre-fills about seventy common parts in English, Hindi and Punjabi. | `app/src/routes/teacher/Workbench.tsx` |
 | **Publish** | The model is saved to the library on the laptop, pushed to every phone in the room, and exported four ways. | `app/src/export/`, `app/src/class/` |
 
 Nothing downstream ever reads the source image again. Every surface renders from the model.
+
+A diagram reaches the console three ways, and all three run the same pipeline:
+
+| Source | How |
+|---|---|
+| **A photograph or a file** | the phone's camera, a scan, a slide, a screenshot, dropped on the console |
+| **A drawing on the board** | pen, line, box, round and typed labels on a board inside the console, for the diagram that exists only in the teacher's hand |
+| **A shipped textbook figure** | five figures from the benchmark sit under the dropzone; one click compiles one, nothing pre-made |
 
 ## Where the model goes
 
@@ -99,7 +123,7 @@ The console shows a four-letter room code and a QR. A phone joins once; from the
 </tr>
 </table>
 
-**Projector view** mirrors the student's finger live on the classroom screen through a relay on the app's own origin, with a trail, boundary flashes, captions in the chosen language and a measured round trip, so the sighted class and the teacher see what the student is touching.
+**Projector view** mirrors the student's finger live on the classroom screen through a relay on the app's own origin, with a trail, boundary flashes, captions in the chosen language and a measured round trip, so the sighted class and the teacher see what the student is touching. Each projector has its own code: a phone mirrors only to the projector whose QR it scanned, or to its class room's projector, so two rooms never see each other.
 
 **Exports**, all from the same model, all in true millimetres:
 
@@ -177,9 +201,19 @@ sequenceDiagram
 
 Room state survives a console refresh: the relay re-sends the roster and the published diagrams on reconnect, phones keep theirs, progress is kept on the laptop.
 
+**Leading the class.** The teacher opens a pushed diagram in the Class view and clicks a part. Every phone in the room opens that diagram, says *your teacher is pointing at the left ventricle, find it*, and guides its own finger: a direction after a wrong lift, a confirmation when the finger rests on the part. The console lists who has found it and in how many seconds; the projector outlines the target.
+
+**The class on one sheet.** Seconds under every finger are summed per part and drawn as a heat map on the diagram, with the parts no one touched named beside it. The whole lesson downloads as a CSV.
+
+**The classroom on one screen.** `/teacher/preview` puts the real student app and the real projector side by side in one window, joined by the same channel they use in a room. The pointer is the finger, typed questions go down the path of spoken ones, and the guided tour runs inside it. It needs no phone, no relay and no second screen.
+
+**A chapter as one print job.** The library prints every published diagram of a chapter as one PDF: a cover with the contents and printing instructions, then one A4 tactile sheet per diagram in true millimetres with its braille key.
+
+![The Class view while the teacher points at the left ventricle: the sheet, the target, and who has found it](benchmark/results/screens/class-console-found.png)
+
 ## Driven without sight
 
-Every control on the student app speaks on the first touch and acts on the second. A spoken introduction plays on first launch and again from the `?` button. Beyond that, the whole app is operable by gesture and by voice.
+Every control on the student app speaks on the first touch and acts on the second. A spoken introduction plays on first launch and again from the `?` button, and **Try it now** on the library is a one-minute guided first diagram: it speaks one step, waits for the real gesture, then speaks the next (move a finger, rest it, swipe to the tour, ask where you are, change the language). Beyond that, the whole app is operable by gesture and by voice.
 
 | Gesture | Does |
 |---|---|
@@ -199,19 +233,19 @@ From [benchmark/RESULTS.md](benchmark/RESULTS.md): 25 figures (8 development fig
 
 | What the pipeline read | What it made |
 |---|---|
-| Labels read: mean **54%** over 25 figures; **10 figures at or above 90%** (digestive, cell cycle, eye, flower, heart line art, neuron, plant cell, respiratory) | Validator geometry clean on the first run: **23/25** (the two misses are K1, a braille key that did not fit) |
-| Regions named: mean **20%**; 100% on the clean heart, 0% where labels sit over gradients or where the figure is symbolic | Minimum gap raised to ≥ 3.0 mm on every figure that had one below |
-| Symbolic and numeric labels (DNA formula, distillation, three maths figures, pulley): **0%**, see limits | All four exports on **25/25**, every STL shell closed |
-| Relations: 91 proposed, **3 of 83** truth pairs matched automatically; rule R3 holds every one for the teacher | Median **1.3 s** from photo to four files |
+| Labels read: mean **66%** over 25 figures; **9 figures at or above 90%** (digestive, cell cycle, eye, flower, heart line art, neuron, plant cell) | Validator geometry clean on the first run: **25/25** |
+| Regions named: mean **27%**; 100% on the clean heart and the plate map, 0% where labels sit over gradients or where the figure is symbolic | Minimum gap raised to ≥ 3.0 mm on every figure that had one below |
+| Numbered keys and vertex letters (DNA, distillation, triangle proof, pulley): **2/6, 8/16, 7/8, 4/6**; formulas and Greek letters: **0–7%**, see limits | All four exports on **25/25**, every STL shell closed |
+| Relations: 102 proposed, **1 of 83** truth pairs matched automatically; rule R3 holds every one for the teacher | Median **1.5 s** from photo to four files |
 
-Teacher-correction counts and the eyes-closed location test are protocols in [benchmark/CORRECTIONS.md](benchmark/CORRECTIONS.md) and [benchmark/USABILITY.md](benchmark/USABILITY.md), with no recorded runs yet.
+The console now times every review and counts its edits, and the library exports them as a review log; the teacher-correction study and the eyes-closed location test remain protocols in [benchmark/CORRECTIONS.md](benchmark/CORRECTIONS.md) and [benchmark/USABILITY.md](benchmark/USABILITY.md), with no recorded runs yet.
 
 ## What it cannot do yet
 
-- **Naming regions is the weak link** (region recall 20% across 25 figures, 100% on the clean heart). Labels are read well on printed figures; tying a label to the right enclosed area fails over gradients, broken leader lines and white pockets between organs. The teacher renames in the console.
-- **Symbolic, numeric and non-English labels are not read.** Formulas, angle marks and numerals scored 0%; a French diagram scored 0%. Clean printed words in English are the target.
+- **Naming regions is the weak link** (region recall 27% across 25 figures, 100% on the clean heart). Labels are read well on printed figures and tied one-to-one to parts; the ceiling is segmentation: parts drawn as open strokes inside one outline are found as the outline plus a few blobs, so the label of a missing part has nowhere to go. The teacher renames in the console.
+- **Formulas, Greek letters and non-English labels are not read.** Plain numbers and single capitals are read (a numbered key, vertices A to F); formulas and angle marks in Greek scored 0%; a French diagram scored 0%. Clean printed words in English are the target.
 - **Relations are proposed from stroke adjacency only.** They are often wrong, which is why rule R3 blocks every one until a teacher confirms it.
-- **3-D shaded colour figures** read at 64% and **low-resolution paintings** at 46–58% label recall.
+- **3-D shaded colour figures** read at 71% and **low-resolution paintings** at 58% label recall.
 - **Hand-drawn chalk on a blackboard** is not supported. Clean printed, photocopied or projected figures are the target.
 - **Haptics are Android-only** (iOS Safari has no Vibration API); audio, sound layer, quiz and print work everywhere. A phone screen is for exploration; the raised print is the study artefact.
 - **The projector mirror and the classroom link need the phone and laptop on one link** (a hotspot and tunnel, or the same machine); the student app itself needs no network.
@@ -222,12 +256,11 @@ Full list: [benchmark/LIMITS.md](benchmark/LIMITS.md).
 
 ## Try it
 
-**Live:** [touchsight-one.vercel.app](https://touchsight-one.vercel.app). The console is at `/teacher`, the student
+**Live:** [touchsight-one.vercel.app](https://touchsight-one.vercel.app). The fastest way in is **Compile a sample** on the landing page, then **See it as the student**: the whole loop on one laptop screen. The console is at `/teacher`, the student
 app at `/student` (open it on an Android phone, add it to the home screen, then turn Wi-Fi off), the projector at
 `/stage`, and the room code for the phones under the console's **class** tab. The classroom link and the projector
 mirror run through a relay hosted separately on Render's free tier, which sleeps when idle: the first join after a quiet
-spell can take up to a minute to connect; everything else is instant. The full walkthrough is in the demo video linked
-on the landing page.
+spell can take up to a minute to connect; everything else is instant. 
 
 ## Run it
 
@@ -240,7 +273,10 @@ node scripts/serve.mjs 4173        # app on http://localhost:4173, relay at /rel
 | Open | On |
 |---|---|
 | `/teacher` | the laptop: capture, understand, review, publish, export |
-| `/teacher/class` | the laptop: room code, QR, roster, progress |
+| `/teacher/class` | the laptop: room code, QR, roster, leading the class, progress and heat map |
+| `/teacher/preview` | the laptop: the student's phone and the projector on one screen |
+| `/teacher?sample=bio-heart-02` | the console already compiling a shipped figure |
+| `/print/<chapter>` | a chapter's tactile sheets as one print job |
 | `/student` | an Android phone: add to home screen, then Wi-Fi off |
 | `/student?room=CODE` | what the QR encodes; the phone joins the room |
 | `/stage` | the projector |
@@ -249,10 +285,12 @@ A phone on another network needs https for installation, vibration and the micro
 
 ```bash
 npm run dev                    # development server
-npm test                       # 34 unit tests: model, solver, validator, explorer, gestures, answers, glossary, exports
+npm test                       # 38 unit tests: model, solver, validator, association, explorer, gestures, answers, glossary, exports
 npm run benchmark              # rewrites benchmark/RESULTS.md from a full headless run; a partial run never overwrites it
 node scripts/shoot-teacher.mjs # headless walkthroughs of each surface against a running build:
-node scripts/shoot-student.mjs #   shoot-home, shoot-teacher, shoot-student, shoot-stage, shoot-class
+node scripts/shoot-student.mjs #   shoot-home, shoot-teacher, shoot-student, shoot-stage, shoot-class,
+node scripts/shoot-guide.mjs   #   shoot-guide (shipped figure, guided first diagram, teacher points),
+node scripts/shoot-preview.mjs #   shoot-preview (one-screen classroom, review log, chapter pack)
 ```
 
 The export CLIs run from the repository root without the app:
@@ -275,12 +313,14 @@ touchsight/
 │   │   ├── liblouis/            liblouis asm.js build + UEB and Bharati tables, run in a Web Worker
 │   │   ├── tesseract/ tessdata/ Tesseract.js worker and English traineddata, served locally
 │   │   ├── vendor/opencv.js     OpenCV.js
+│   │   ├── samples/             five textbook figures the console can compile from one click
 │   │   └── fonts/ icons/        self-hosted type and PWA icons
 │   ├── scripts/
 │   │   ├── serve.mjs            static server + WebSocket relay (stage mirror, classroom rooms)
 │   │   ├── run-pipeline.mjs     the benchmark runner: every raw figure → RESULTS.md
 │   │   ├── score.mjs            semantic scoring against truth files
-│   │   └── shoot-*.mjs          headless Playwright walkthroughs of landing, teacher, student, stage, class
+│   │   ├── make-*samples.mjs    the diagrams shipped inside the student app, compiled and reviewed by script
+│   │   └── shoot-*.mjs          headless Playwright walkthroughs of landing, teacher, student, stage, class, guide, preview
 │   └── src/
 │       ├── pipeline/            understand: cv, segment, lines, ocr, associate, overlay
 │       ├── tdm/                 the model: types, geometry, simplify (solver), validate, edit, io
@@ -290,10 +330,11 @@ touchsight/
 │       ├── class/               classroom client: rooms, roster, publish, activity, offline queue
 │       ├── i18n/                strings and the part glossary in English, Hindi, Punjabi
 │       ├── store/               IndexedDB library and progress
-│       ├── components/          sheet canvas, braille cells, 3-D relief viewer, export panel
-│       └── routes/              landing, teacher (workbench, library, inspector, class), student (library, explore, key), stage, device check
+│       ├── components/          sheet canvas, drawing board, braille cells, 3-D relief viewer, export panel
+│       └── routes/              landing, teacher (workbench, library, inspector, class, preview), student (library, explore, key), stage, print pack, device check
 ├── packages/                    standalone Node CLIs: export-svg, export-stl, braille, alt-text, tdm-runtime
-├── docs/                        TDM-SPEC.md, VALIDATOR-RULES.md
+├── cloudflare/                  the relay as a Cloudflare Worker with one Durable Object
+├── docs/                        ARCHITECTURE.md, PIPELINE.md, API.md, INTEGRATIONS.md, TDM-SPEC.md, VALIDATOR-RULES.md
 ├── benchmark/
 │   ├── raw/                     25 figures + SOURCES.md (licences)
 │   ├── truth/                   one truth file per figure: regions, lines, labels, relations
