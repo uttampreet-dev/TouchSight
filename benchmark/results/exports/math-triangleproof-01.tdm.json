@@ -11,13 +11,13 @@
  "source": {
   "kind": "upload",
   "file": "math-triangleproof-01",
-  "captured": "2026-10-31T00:31:33.904Z"
+  "captured": "2026-11-18T15:44:45.003Z"
  },
  "regions": [
   {
    "id": "r-05",
    "name": {
-    "en": "Region 5"
+    "en": "B"
    },
    "polygon": [
     [
@@ -58,13 +58,17 @@
     ]
    ],
    "texture": "empty",
-   "keyRef": "f",
-   "confidence": 0.5
+   "keyRef": "g",
+   "confidence": 0.97,
+   "sourceLabel": {
+    "text": "B",
+    "ocrConfidence": 0.92
+   }
   },
   {
    "id": "r-07",
    "name": {
-    "en": "Region 7"
+    "en": "B"
    },
    "polygon": [
     [
@@ -118,12 +122,16 @@
    ],
    "texture": "dots",
    "keyRef": "b",
-   "confidence": 0.5
+   "confidence": 0.97,
+   "sourceLabel": {
+    "text": "B",
+    "ocrConfidence": 0.93
+   }
   },
   {
    "id": "r-06",
    "name": {
-    "en": "Region 6"
+    "en": "D"
    },
    "polygon": [
     [
@@ -177,12 +185,16 @@
    ],
    "texture": "dots",
    "keyRef": "d",
-   "confidence": 0.5
+   "confidence": 0.97,
+   "sourceLabel": {
+    "text": "D",
+    "ocrConfidence": 0.93
+   }
   },
   {
    "id": "r-04",
    "name": {
-    "en": "Region 4"
+    "en": "A"
    },
    "polygon": [
     [
@@ -252,12 +264,16 @@
    ],
    "texture": "diagonal-lines",
    "keyRef": "a",
-   "confidence": 0.5
+   "confidence": 0.98,
+   "sourceLabel": {
+    "text": "A",
+    "ocrConfidence": 0.96
+   }
   },
   {
    "id": "r-01",
    "name": {
-    "en": "Region 1"
+    "en": "E"
    },
    "polygon": [
     [
@@ -346,8 +362,12 @@
     ]
    ],
    "texture": "dots",
-   "keyRef": "g",
-   "confidence": 0.5
+   "keyRef": "f",
+   "confidence": 0.97,
+   "sourceLabel": {
+    "text": "E",
+    "ocrConfidence": 0.92
+   }
   },
   {
    "id": "r-02",
@@ -528,86 +548,16 @@
    "confidence": 0.5
   }
  ],
- "lines": [
-  {
-   "id": "l-09",
-   "name": {
-    "en": "Line 9"
-   },
-   "path": [
-    [
-     38.31,
-     104.92
-    ],
-    [
-     72.2,
-     52.78
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "h"
-  },
-  {
-   "id": "l-05",
-   "name": {
-    "en": "Line 5"
-   },
-   "path": [
-    [
-     107.78,
-     149.81
-    ],
-    [
-     114.9,
-     160.55
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "j"
-  },
-  {
-   "id": "l-16",
-   "name": {
-    "en": "Line 16"
-   },
-   "path": [
-    [
-     166.91,
-     105.69
-    ],
-    [
-     168.59,
-     97.02
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "i"
-  }
- ],
+ "lines": [],
  "relations": [
   {
-   "from": "r-01",
-   "to": "r-02",
-   "kind": "connects",
-   "direction": "forward",
-   "confidence": 0.88,
-   "source": "detected",
-   "via": "l-01"
-  },
-  {
-   "from": "r-06",
-   "to": "r-03",
+   "from": "r-02",
+   "to": "r-01",
    "kind": "connects",
    "direction": "forward",
    "confidence": 0.98,
    "source": "detected",
-   "via": "l-03"
+   "via": "l-02"
   }
  ],
  "key": [
@@ -615,7 +565,7 @@
    "ref": "a",
    "regionId": "r-04",
    "text": {
-    "en": "Region 4"
+    "en": "A"
    },
    "braille": {}
   },
@@ -623,7 +573,7 @@
    "ref": "b",
    "regionId": "r-07",
    "text": {
-    "en": "Region 7"
+    "en": "B"
    },
    "braille": {}
   },
@@ -639,7 +589,7 @@
    "ref": "d",
    "regionId": "r-06",
    "text": {
-    "en": "Region 6"
+    "en": "D"
    },
    "braille": {}
   },
@@ -653,41 +603,17 @@
   },
   {
    "ref": "f",
-   "regionId": "r-05",
+   "regionId": "r-01",
    "text": {
-    "en": "Region 5"
+    "en": "E"
    },
    "braille": {}
   },
   {
    "ref": "g",
-   "regionId": "r-01",
+   "regionId": "r-05",
    "text": {
-    "en": "Region 1"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "h",
-   "regionId": "l-09",
-   "text": {
-    "en": "Line 9"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "i",
-   "regionId": "l-16",
-   "text": {
-    "en": "Line 16"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "j",
-   "regionId": "l-05",
-   "text": {
-    "en": "Line 5"
+    "en": "B"
    },
    "braille": {}
   }
@@ -698,11 +624,8 @@
   "r-03",
   "r-06",
   "r-02",
-  "r-05",
   "r-01",
-  "l-09",
-  "l-16",
-  "l-05"
+  "r-05"
  ],
  "languages": {
   "primary": "en",
@@ -715,57 +638,14 @@
   "blocking": [
    {
     "rule": "R3",
-    "msg": "Detected: A stroke connects Region 1 to Region 2 (88%) — confirm or remove",
+    "msg": "Detected: A stroke connects Region 2 to E (98%) — confirm or remove",
     "ids": [
-     "r-01",
-     "r-02"
-    ]
-   },
-   {
-    "rule": "R3",
-    "msg": "Detected: A stroke connects Region 6 to Region 3 (98%) — confirm or remove",
-    "ids": [
-     "r-06",
-     "r-03"
+     "r-02",
+     "r-01"
     ]
    }
   ],
   "advisory": [
-   {
-    "rule": "N1",
-    "msg": "r-05 has no label",
-    "ids": [
-     "r-05"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "r-07 has no label",
-    "ids": [
-     "r-07"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "r-06 has no label",
-    "ids": [
-     "r-06"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "r-04 has no label",
-    "ids": [
-     "r-04"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "r-01 has no label",
-    "ids": [
-     "r-01"
-    ]
-   },
    {
     "rule": "N1",
     "msg": "r-02 has no label",
@@ -778,27 +658,6 @@
     "msg": "r-03 has no label",
     "ids": [
      "r-03"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-09 has no label",
-    "ids": [
-     "l-09"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-05 has no label",
-    "ids": [
-     "l-05"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-16 has no label",
-    "ids": [
-     "l-16"
     ]
    }
   ]

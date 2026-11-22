@@ -11,162 +11,162 @@
  "source": {
   "kind": "upload",
   "file": "bio-cellcycle-01",
-  "captured": "2026-10-31T00:30:53.727Z"
+  "captured": "2026-11-18T15:44:00.182Z"
  },
  "regions": [
   {
    "id": "r-15",
    "name": {
-    "en": "Centrioles"
+    "en": "Nucleus Membrane"
    },
    "polygon": [
     [
-     119.75,
-     19.71
+     120.91,
+     19.25
     ],
     [
-     121.36,
-     20.32
+     122.53,
+     19.88
     ],
     [
-     126.73,
-     25.88
+     128.44,
+     25.98
     ],
     [
-     126.68,
-     28.52
+     128.38,
+     28.61
     ],
     [
-     119.17,
-     37.82
+     120.21,
+     38.72
     ],
     [
-     122.46,
-     50.25
+     123.8,
+     52.24
     ],
     [
-     124.75,
-     51.09
+     126.09,
+     53.08
     ],
     [
-     133.56,
-     45.12
+     135.77,
+     46.52
     ],
     [
-     135.68,
-     44.94
+     137.88,
+     46.34
     ],
     [
-     144.55,
-     50.11
+     147.51,
+     51.93
     ],
     [
-     148.2,
-     63.64
+     151.44,
+     66.53
     ],
     [
-     147.59,
-     65.45
+     150.83,
+     68.34
     ],
     [
-     141.06,
-     72.07
+     143.63,
+     75.64
     ],
     [
-     140.74,
-     73.69
+     143.31,
+     77.26
     ],
     [
-     150.93,
-     78.96
+     154.4,
+     82.95
     ],
     [
-     153.78,
-     88.04
+     157.43,
+     92.76
     ],
     [
-     153.44,
-     89.89
+     157.09,
+     94.61
     ],
     [
-     143.99,
-     105.13
+     146.85,
+     111.02
     ],
     [
-     154.02,
-     115.93
+     157.76,
+     122.75
     ],
     [
-     154.32,
-     118.74
+     158.06,
+     125.56
     ],
     [
-     145.14,
-     133.76
+     148.08,
+     141.89
     ],
     [
-     143.15,
-     134.89
+     146.09,
+     143.02
     ],
     [
-     123.95,
-     135.19
+     125.18,
+     143.35
     ],
     [
-     121.95,
-     133.97
+     123.18,
+     142.13
     ],
     [
-     124.32,
-     91.09
+     125.76,
+     95.91
     ],
     [
-     122.82,
-     88.46
+     123.53,
+     91.7
     ],
     [
-     123.22,
-     84.37
+     124.61,
+     88.81
     ],
     [
-     113.49,
-     58.67
+     114.13,
+     61.12
     ],
     [
-     101.68,
-     54.12
+     101.2,
+     56.16
     ],
     [
-     100.37,
-     52.22
+     99.89,
+     54.26
     ],
     [
-     100.93,
-     50.64
+     100.45,
+     52.68
     ],
     [
-     113.98,
-     37.01
+     114.68,
+     37.85
     ],
     [
-     106.24,
-     24.44
+     106.19,
+     24.14
     ],
     [
-     106.3,
-     22.13
+     106.25,
+     21.83
     ],
     [
-     107.73,
-     21.19
+     107.68,
+     20.89
     ]
    ],
    "texture": "empty",
    "keyRef": "c",
-   "confidence": 0.93,
+   "confidence": 0.86,
    "sourceLabel": {
-    "text": "Centrioles",
-    "ocrConfidence": 0.83
+    "text": "Nucleus membrane",
+    "ocrConfidence": 0.64
    }
   },
   {
@@ -176,68 +176,68 @@
    },
    "polygon": [
     [
-     141.53,
-     52.44
+     144.48,
+     54.25
     ],
     [
-     144.35,
-     63.72
+     147.36,
+     66.82
     ],
     [
-     138.55,
-     69.59
+     141.12,
+     73.16
     ],
     [
-     138.44,
-     69.79
+     141.01,
+     73.36
     ],
     [
-     137.51,
-     73.5
+     140.07,
+     77.06
     ],
     [
-     134.13,
-     74.63
+     136.3,
+     78.32
     ],
     [
-     130.14,
-     74.28
+     131.96,
+     77.93
     ],
     [
-     125.45,
-     71.79
+     126.93,
+     75.26
     ],
     [
-     122.93,
-     68.49
+     124.21,
+     71.68
     ],
     [
-     121.88,
-     64.15
+     123.1,
+     67.05
     ],
     [
-     122.33,
-     58.41
+     123.55,
+     60.95
     ],
     [
-     123.93,
-     54.37
+     125.35,
+     56.38
     ],
     [
-     126.54,
-     54.08
+     127.88,
+     56.07
     ],
     [
-     126.73,
-     54.01
+     128.07,
+     56
     ],
     [
-     134.65,
-     48.64
+     136.88,
+     50.04
     ]
    ],
    "texture": "dots",
-   "keyRef": "e",
+   "keyRef": "d",
    "confidence": 0.95,
    "sourceLabel": {
     "text": "Myosin It and actin filament ring contract to cleave cell in two Contractile ring",
@@ -251,76 +251,76 @@
    },
    "polygon": [
     [
-     140.82,
-     106.22
+     143.68,
+     112.12
     ],
     [
-     150.22,
-     116.88
+     153.85,
+     123.59
     ],
     [
-     149.32,
-     118.78
+     152.62,
+     125.92
     ],
     [
-     143.85,
-     121.31
+     146.81,
+     128.34
     ],
     [
-     143.66,
-     121.63
+     146.6,
+     128.67
     ],
     [
-     143.81,
-     124.65
+     146.7,
+     132.01
     ],
     [
-     143.88,
-     124.83
+     146.74,
+     132.17
     ],
     [
-     145.38,
-     126.77
+     148.32,
+     134.89
     ],
     [
-     143.64,
-     129.61
+     146.77,
+     137.44
     ],
     [
-     136.79,
-     130.57
+     138.54,
+     138.18
     ],
     [
-     132.7,
-     128.59
+     134.73,
+     136.26
     ],
     [
-     129.77,
-     125.47
+     131.59,
+     132.9
     ],
     [
-     127.99,
-     120.95
+     129.68,
+     128.02
     ],
     [
-     128.1,
-     116.26
+     129.7,
+     123.49
     ],
     [
-     129.85,
-     112.1
+     131.44,
+     118.9
     ],
     [
-     133.69,
-     107.92
+     135.31,
+     114.41
     ],
     [
-     137.96,
-     105.79
+     139.85,
+     111.91
     ]
    ],
    "texture": "dots",
-   "keyRef": "d",
+   "keyRef": "l",
    "confidence": 0.95,
    "sourceLabel": {
     "text": "Mitotic Phase M-Phase",
@@ -330,170 +330,182 @@
   {
    "id": "r-10",
    "name": {
-    "en": "Metaphase Chromosomes Line Up Along Metaphase Plate (imaginary Plane)"
+    "en": "The Cell Cycle (animal Cells)"
    },
    "polygon": [
     [
-     137.65,
-     89.21
+     140.14,
+     93.96
     ],
     [
-     141.23,
-     89.34
+     143.94,
+     94.08
     ],
     [
-     148.68,
-     91.69
+     152.11,
+     96.74
     ],
     [
-     141.8,
-     102.8
+     144.73,
+     108.56
     ],
     [
-     137.51,
-     102.77
+     139.9,
+     108.51
     ],
     [
-     132.66,
-     100.65
+     134.69,
+     106.21
     ],
     [
-     128.86,
-     96.37
+     130.25,
+     100.89
     ],
     [
-     127.39,
-     91.75
+     128.98,
+     96.45
     ],
     [
-     128.22,
-     87.08
+     129.17,
+     92.82
     ],
     [
-     131.99,
-     86.89
+     131.52,
+     91.08
     ]
    ],
    "texture": "diagonal-lines",
-   "keyRef": "g",
-   "confidence": 0.96,
+   "keyRef": "e",
+   "confidence": 0.98,
    "sourceLabel": {
-    "text": "Metaphase Chromosomes line up along metaphase plate (imaginary plane)",
-    "ocrConfidence": 0.89
+    "text": "The Cell Cycle (Animal Cells)",
+    "ocrConfidence": 0.96
    }
   },
   {
-   "id": "r-16",
+   "id": "r-14",
    "name": {
-    "en": "Daughter Cells"
+    "en": "4"
    },
    "polygon": [
     [
-     98.15,
-     21.06
+     93.87,
+     16.19
     ],
     [
-     98.14,
-     25.18
+     96,
+     18.4
     ],
     [
-     96.85,
-     28
+     97.08,
+     21.95
     ],
     [
-     94.2,
-     30.17
+     96.84,
+     25.26
     ],
     [
-     91.27,
-     31.03
+     95.35,
+     28.28
     ],
     [
-     87.98,
-     30.82
+     89.72,
+     30.78
     ],
     [
-     84.94,
-     29.25
+     85.87,
+     30.21
     ],
     [
-     81.93,
-     24.52
+     83.48,
+     28.76
     ],
     [
-     82.26,
-     20.54
+     80.9,
+     24.03
     ],
     [
-     83.68,
-     17.9
+     81.22,
+     20.41
     ],
     [
-     88.34,
-     15.09
+     82.9,
+     17.38
     ],
     [
-     95.28,
-     16.51
+     86.92,
+     15.08
     ]
    ],
    "texture": "dots",
    "keyRef": "a",
-   "confidence": 0.97,
+   "confidence": 0.96,
    "sourceLabel": {
-    "text": "Daughter cells",
-    "ocrConfidence": 0.93
+    "text": "4",
+    "ocrConfidence": 0.89
    }
   },
   {
    "id": "r-02",
    "name": {
-    "en": "Ats"
+    "en": "Centrosome"
    },
    "polygon": [
     [
-     103.83,
-     124.44
+     102.62,
+     131.53
     ],
     [
-     107.67,
-     128.5
+     106.82,
+     133.69
     ],
     [
-     107.82,
-     131.24
+     108.02,
+     136.88
     ],
     [
-     106.61,
-     134.28
+     107.87,
+     139.87
     ],
     [
-     102.47,
-     137.09
+     104.47,
+     144.49
     ],
     [
-     97.1,
-     136.16
+     98.69,
+     145.33
     ],
     [
-     93.99,
-     131.77
+     95.77,
+     143.89
     ],
     [
-     94.84,
-     126.51
+     93.98,
+     141.79
     ],
     [
-     99.3,
-     123.37
+     93.05,
+     138.99
+    ],
+    [
+     93.32,
+     135.65
+    ],
+    [
+     96.89,
+     131.37
+    ],
+    [
+     99.66,
+     130.52
     ]
    ],
    "texture": "dots",
-   "keyRef": "m",
-   "confidence": 0.83,
+   "keyRef": "k",
+   "confidence": 0.98,
    "sourceLabel": {
-    "text": "ats",
-    "ocrConfidence": 0.57
+    "text": "Centrosome",
+    "ocrConfidence": 0.96
    }
   },
   {
@@ -503,60 +515,60 @@
    },
    "polygon": [
     [
-     84.95,
-     117.79
+     83.55,
+     124.35
     ],
     [
-     86.38,
-     123.31
+     85.32,
+     129.58
     ],
     [
-     85.26,
-     125.43
+     83.85,
+     132.96
     ],
     [
-     83.47,
-     126.67
+     79.98,
+     134.76
     ],
     [
-     79.7,
-     126.63
+     77.41,
+     134.14
     ],
     [
-     78.22,
-     122.88
+     75.95,
+     130.17
     ],
     [
-     78.18,
-     122.8
+     75.9,
+     130.08
     ],
     [
-     77.98,
-     122.48
+     75.74,
+     129.81
     ],
     [
-     77.92,
-     122.4
+     75.69,
+     129.73
     ],
     [
-     75.73,
-     120.02
+     73.34,
+     126.96
     ],
     [
-     76.64,
-     117.47
+     75.03,
+     123.64
     ],
     [
-     78.26,
-     116.36
+     76.92,
+     122.72
     ],
     [
-     81.42,
-     116.04
+     79.55,
+     122.58
     ]
    ],
    "texture": "dots",
-   "keyRef": "k",
+   "keyRef": "j",
    "confidence": 0.97,
    "sourceLabel": {
     "text": "DNA Synthesis Phase S-Phase",
@@ -570,52 +582,56 @@
    },
    "polygon": [
     [
-     100.33,
-     106.83
+     97.5,
+     112.07
     ],
     [
-     101.61,
-     108.64
+     101.04,
+     113.67
     ],
     [
-     100.23,
-     112.25
+     101.46,
+     115.59
     ],
     [
-     102.94,
-     113.86
+     99.74,
+     118.34
     ],
     [
-     103.1,
-     116.56
+     102.89,
+     120.37
     ],
     [
-     98.57,
-     119.87
+     103.34,
+     122.22
     ],
     [
-     93.44,
-     119.15
+     100.31,
+     126
     ],
     [
-     91.16,
-     116.99
+     94.82,
+     126.95
     ],
     [
-     90.06,
-     114.28
+     90.11,
+     123.77
     ],
     [
-     90.91,
-     109.47
+     88.94,
+     118.21
     ],
     [
-     95.36,
-     106.19
+     89.87,
+     115.68
+    ],
+    [
+     92.29,
+     113.19
     ]
    ],
    "texture": "diagonal-lines",
-   "keyRef": "j",
+   "keyRef": "i",
    "confidence": 0.98,
    "sourceLabel": {
     "text": "(Animal Cells)",
@@ -625,240 +641,158 @@
   {
    "id": "r-11",
    "name": {
-    "en": "Region 11"
+    "en": "Sister"
    },
    "polygon": [
     [
-     89.65,
-     67.02
+     88.68,
+     70.04
     ],
     [
-     89.7,
-     67.92
+     88.74,
+     70.92
     ],
     [
-     83.93,
-     80.73
+     82.37,
+     85.07
     ],
     [
-     82.67,
-     81.69
+     81.11,
+     86.02
     ],
     [
-     80.14,
-     81.05
+     78.09,
+     85.26
     ],
     [
-     79.21,
-     80.2
+     77.14,
+     84.38
     ],
     [
-     79.36,
-     76.9
+     77.34,
+     80.75
     ],
     [
-     85.55,
-     66.31
+     84.14,
+     69.13
     ],
     [
-     87.68,
-     65.69
+     86.29,
+     68.51
     ]
    ],
    "texture": "diagonal-lines",
    "keyRef": "b",
-   "confidence": 0.5
+   "confidence": 0.82,
+   "sourceLabel": {
+    "text": "Sister",
+    "ocrConfidence": 0.55
+   }
   },
   {
    "id": "r-01",
    "name": {
-    "en": "Gap Iig Cell Grows Some More"
+    "en": "Cell Duplicates Its Dna"
    },
    "polygon": [
     [
-     81.93,
-     131.92
+     79.13,
+     138.37
     ],
     [
-     84.12,
-     138.7
+     80.27,
+     139.46
     ],
     [
-     84.19,
-     138.87
+     82.74,
+     147.11
     ],
     [
-     87.36,
-     144.84
+     82.8,
+     147.26
     ],
     [
-     87.3,
-     147.45
+     86.35,
+     154.04
     ],
     [
-     86.84,
-     148.05
+     86.11,
+     156.85
     ],
     [
-     85.31,
-     147.86
+     85.57,
+     157.54
     ],
     [
-     81.08,
-     141.7
+     83.96,
+     157.34
     ],
     [
-     77.17,
-     131.67
+     79.13,
+     150.39
     ],
     [
-     77.65,
-     130.44
+     74.84,
+     139.27
     ],
     [
-     78.75,
-     130.27
+     75.35,
+     137.95
+    ],
+    [
+     76.67,
+     137.75
     ]
    ],
    "texture": "diagonal-lines",
-   "keyRef": "l",
-   "confidence": 0.97,
+   "keyRef": "m",
+   "confidence": 0.98,
    "sourceLabel": {
-    "text": "Gap IIG Cell grows some more",
-    "ocrConfidence": 0.93
+    "text": "Cell duplicates its DNA",
+    "ocrConfidence": 0.95
    }
   },
   {
    "id": "r-08",
    "name": {
-    "en": "Region 8"
-   },
-   "polygon": [
-    [
-     82.39,
-     85.71
-    ],
-    [
-     83.46,
-     89.3
-    ],
-    [
-     82.05,
-     92.9
-    ],
-    [
-     78,
-     94.2
-    ],
-    [
-     74.95,
-     92.67
-    ],
-    [
-     73.73,
-     88.88
-    ],
-    [
-     75.41,
-     85.49
-    ],
-    [
-     79.21,
-     84.32
-    ]
-   ],
-   "texture": "dots",
-   "keyRef": "h",
-   "confidence": 0.5
-  },
-  {
-   "id": "r-07",
-   "name": {
-    "en": "Gap Cell Grows"
-   },
-   "polygon": [
-    [
-     79.53,
-     97.85
-    ],
-    [
-     79.95,
-     98.74
-    ],
-    [
-     79.38,
-     111.16
-    ],
-    [
-     77.87,
-     113.03
-    ],
-    [
-     75.12,
-     113.59
-    ],
-    [
-     74.13,
-     112.23
-    ],
-    [
-     74.85,
-     98.43
-    ],
-    [
-     75.51,
-     97.37
-    ],
-    [
-     76.72,
-     97.08
-    ]
-   ],
-   "texture": "diagonal-lines",
-   "keyRef": "i",
-   "confidence": 0.97,
-   "sourceLabel": {
-    "text": "Gap Cell grows",
-    "ocrConfidence": 0.92
-   }
-  },
-  {
-   "id": "r-09",
-   "name": {
     "en": "Chrom"
    },
    "polygon": [
     [
-     116.26,
-     79
+     80.85,
+     90.11
     ],
     [
-     118.4,
-     81.18
+     82.01,
+     94.07
     ],
     [
-     119.34,
-     83.84
+     80.27,
+     98.28
     ],
     [
-     118.83,
-     87.63
+     78.64,
+     99.25
     ],
     [
-     116.87,
-     88.89
+     76.08,
+     99.51
     ],
     [
-     107.93,
-     80.84
+     72.53,
+     97.7
     ],
     [
-     108.59,
-     78.98
+     71.24,
+     93.56
     ],
     [
-     110.88,
-     78.01
+     73.12,
+     89.81
+    ],
+    [
+     77.32,
+     88.53
     ]
    ],
    "texture": "dots",
@@ -868,22 +802,128 @@
     "text": "Chrom",
     "ocrConfidence": 0.56
    }
+  },
+  {
+   "id": "r-07",
+   "name": {
+    "en": "Gap Cell Grows"
+   },
+   "polygon": [
+    [
+     77.74,
+     103.15
+    ],
+    [
+     78.15,
+     104.02
+    ],
+    [
+     77.51,
+     117.69
+    ],
+    [
+     76.02,
+     119.54
+    ],
+    [
+     72.76,
+     120.29
+    ],
+    [
+     71.8,
+     118.99
+    ],
+    [
+     72.6,
+     103.66
+    ],
+    [
+     73.25,
+     102.6
+    ],
+    [
+     74.51,
+     102.32
+    ]
+   ],
+   "texture": "diagonal-lines",
+   "keyRef": "h",
+   "confidence": 0.97,
+   "sourceLabel": {
+    "text": "Gap Cell grows",
+    "ocrConfidence": 0.92
+   }
+  },
+  {
+   "id": "r-09",
+   "name": {
+    "en": "Chromosome Sater"
+   },
+   "polygon": [
+    [
+     120.41,
+     88.12
+    ],
+    [
+     119.74,
+     92.58
+    ],
+    [
+     117.78,
+     93.8
+    ],
+    [
+     115.98,
+     92.86
+    ],
+    [
+     113.13,
+     88.71
+    ],
+    [
+     108.15,
+     85.65
+    ],
+    [
+     108.42,
+     83.48
+    ],
+    [
+     111.45,
+     81.88
+    ],
+    [
+     115.11,
+     82.06
+    ],
+    [
+     118.85,
+     84.55
+    ]
+   ],
+   "texture": "dots",
+   "keyRef": "g",
+   "confidence": 0.88,
+   "sourceLabel": {
+    "text": "Chromosome Sater",
+    "ocrConfidence": 0.69
+   }
   }
  ],
  "lines": [
   {
-   "id": "l-11",
+   "id": "l-10",
    "name": {
-    "en": "Line 11"
+    "en": "Line 10"
    },
    "path": [
     [
-     94.09,
-     134.01
+     106.32,
+     52.79
     ],
     [
-     106.83,
-     125.43
+     118.43,
+     65.44
     ]
    ],
    "width": 1.2,
@@ -892,18 +932,58 @@
    "keyRef": "o"
   },
   {
-   "id": "l-16",
+   "id": "l-12",
    "name": {
-    "en": "Line 16"
+    "en": "Line 12"
    },
    "path": [
     [
-     73.5,
-     128.99
+     91.96,
+     112.45
     ],
     [
-     84.04,
-     119.79
+     100.52,
+     126.8
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "p"
+  },
+  {
+   "id": "l-13",
+   "name": {
+    "en": "Line 13"
+   },
+   "path": [
+    [
+     106.05,
+     167.23
+    ],
+    [
+     118.04,
+     155.64
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "q"
+  },
+  {
+   "id": "l-06",
+   "name": {
+    "en": "Line 6"
+   },
+   "path": [
+    [
+     113.83,
+     24.88
+    ],
+    [
+     123.7,
+     29.22
     ]
    ],
    "width": 1.2,
@@ -914,49 +994,49 @@
  ],
  "relations": [
   {
-   "from": "r-15",
-   "to": "r-06",
+   "from": "r-12",
+   "to": "r-10",
    "kind": "connects",
    "direction": "forward",
-   "confidence": 0.7,
+   "confidence": 0.51,
    "source": "detected",
    "via": "l-01"
+  },
+  {
+   "from": "r-06",
+   "to": "r-15",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.83,
+   "source": "detected",
+   "via": "l-02"
+  },
+  {
+   "from": "r-10",
+   "to": "r-09",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.89,
+   "source": "detected",
+   "via": "l-03"
+  },
+  {
+   "from": "r-06",
+   "to": "r-10",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.99,
+   "source": "detected",
+   "via": "l-04"
   },
   {
    "from": "r-15",
    "to": "r-12",
    "kind": "connects",
    "direction": "forward",
-   "confidence": 0.77,
+   "confidence": 0.61,
    "source": "detected",
-   "via": "l-05"
-  },
-  {
-   "from": "r-12",
-   "to": "r-09",
-   "kind": "connects",
-   "direction": "forward",
-   "confidence": 0.24,
-   "source": "detected",
-   "via": "l-07"
-  },
-  {
-   "from": "r-04",
-   "to": "r-05",
-   "kind": "connects",
-   "direction": "forward",
-   "confidence": 1,
-   "source": "detected",
-   "via": "l-12"
-  },
-  {
-   "from": "r-12",
-   "to": "r-10",
-   "kind": "connects",
-   "direction": "forward",
-   "confidence": 0.83,
-   "source": "detected",
-   "via": "l-13"
+   "via": "l-10"
   },
   {
    "from": "r-01",
@@ -965,15 +1045,15 @@
    "direction": "forward",
    "confidence": 0.9,
    "source": "detected",
-   "via": "l-15"
+   "via": "l-16"
   }
  ],
  "key": [
   {
    "ref": "a",
-   "regionId": "r-16",
+   "regionId": "r-14",
    "text": {
-    "en": "Daughter Cells"
+    "en": "4"
    },
    "braille": {}
   },
@@ -981,7 +1061,7 @@
    "ref": "b",
    "regionId": "r-11",
    "text": {
-    "en": "Region 11"
+    "en": "Sister"
    },
    "braille": {}
   },
@@ -989,20 +1069,12 @@
    "ref": "c",
    "regionId": "r-15",
    "text": {
-    "en": "Centrioles"
+    "en": "Nucleus Membrane"
    },
    "braille": {}
   },
   {
    "ref": "d",
-   "regionId": "r-06",
-   "text": {
-    "en": "Mitotic Phase M-phase"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "e",
    "regionId": "r-12",
    "text": {
     "en": "Myosin It And Actin Filament Ring Contract To Cleave Cell In Two Contractile Ring"
@@ -1010,8 +1082,16 @@
    "braille": {}
   },
   {
+   "ref": "e",
+   "regionId": "r-10",
+   "text": {
+    "en": "The Cell Cycle (animal Cells)"
+   },
+   "braille": {}
+  },
+  {
    "ref": "f",
-   "regionId": "r-09",
+   "regionId": "r-08",
    "text": {
     "en": "Chrom"
    },
@@ -1019,22 +1099,14 @@
   },
   {
    "ref": "g",
-   "regionId": "r-10",
+   "regionId": "r-09",
    "text": {
-    "en": "Metaphase Chromosomes Line Up Along Metaphase Plate (imaginary Plane)"
+    "en": "Chromosome Sater"
    },
    "braille": {}
   },
   {
    "ref": "h",
-   "regionId": "r-08",
-   "text": {
-    "en": "Region 8"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "i",
    "regionId": "r-07",
    "text": {
     "en": "Gap Cell Grows"
@@ -1042,7 +1114,7 @@
    "braille": {}
   },
   {
-   "ref": "j",
+   "ref": "i",
    "regionId": "r-05",
    "text": {
     "en": "(animal Cells)"
@@ -1050,7 +1122,7 @@
    "braille": {}
   },
   {
-   "ref": "k",
+   "ref": "j",
    "regionId": "r-04",
    "text": {
     "en": "Dna Synthesis Phase S-phase"
@@ -1058,54 +1130,80 @@
    "braille": {}
   },
   {
-   "ref": "l",
-   "regionId": "r-01",
+   "ref": "k",
+   "regionId": "r-02",
    "text": {
-    "en": "Gap Iig Cell Grows Some More"
+    "en": "Centrosome"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "l",
+   "regionId": "r-06",
+   "text": {
+    "en": "Mitotic Phase M-phase"
    },
    "braille": {}
   },
   {
    "ref": "m",
-   "regionId": "r-02",
+   "regionId": "r-01",
    "text": {
-    "en": "Ats"
+    "en": "Cell Duplicates Its Dna"
    },
    "braille": {}
   },
   {
    "ref": "n",
-   "regionId": "l-16",
+   "regionId": "l-06",
    "text": {
-    "en": "Line 16"
+    "en": "Line 6"
    },
    "braille": {}
   },
   {
    "ref": "o",
-   "regionId": "l-11",
+   "regionId": "l-10",
    "text": {
-    "en": "Line 11"
+    "en": "Line 10"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "p",
+   "regionId": "l-12",
+   "text": {
+    "en": "Line 12"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "q",
+   "regionId": "l-13",
+   "text": {
+    "en": "Line 13"
    },
    "braille": {}
   }
  ],
  "readingOrder": [
-  "r-16",
+  "r-14",
   "r-11",
   "r-15",
-  "r-06",
   "r-12",
-  "r-09",
   "r-10",
   "r-08",
+  "r-09",
   "r-07",
   "r-05",
   "r-04",
-  "r-01",
   "r-02",
-  "l-16",
-  "l-11"
+  "r-06",
+  "r-01",
+  "l-06",
+  "l-10",
+  "l-12",
+  "l-13"
  ],
  "languages": {
   "primary": "en",
@@ -1118,39 +1216,7 @@
   "blocking": [
    {
     "rule": "R3",
-    "msg": "Detected: A stroke connects Centrioles to Mitotic Phase M-phase (70%) — confirm or remove",
-    "ids": [
-     "r-15",
-     "r-06"
-    ]
-   },
-   {
-    "rule": "R3",
-    "msg": "Detected: A stroke connects Centrioles to Myosin It And Actin Filament Ring Contract To Cleave Cell In Two Contractile Ring (77%) — confirm or remove",
-    "ids": [
-     "r-15",
-     "r-12"
-    ]
-   },
-   {
-    "rule": "R3",
-    "msg": "Detected: A stroke connects Myosin It And Actin Filament Ring Contract To Cleave Cell In Two Contractile Ring to Chrom (24%) — confirm or remove",
-    "ids": [
-     "r-12",
-     "r-09"
-    ]
-   },
-   {
-    "rule": "R3",
-    "msg": "Detected: A stroke connects Dna Synthesis Phase S-phase to (animal Cells) (100%) — confirm or remove",
-    "ids": [
-     "r-04",
-     "r-05"
-    ]
-   },
-   {
-    "rule": "R3",
-    "msg": "Detected: A stroke connects Myosin It And Actin Filament Ring Contract To Cleave Cell In Two Contractile Ring to Metaphase Chromosomes Line Up Along Metaphase Plate (imaginary Plane) (83%) — confirm or remove",
+    "msg": "Detected: A stroke connects Myosin It And Actin Filament Ring Contract To Cleave Cell In Two Contractile Ring to The Cell Cycle (animal Cells) (51%) — confirm or remove",
     "ids": [
      "r-12",
      "r-10"
@@ -1158,7 +1224,39 @@
    },
    {
     "rule": "R3",
-    "msg": "Detected: A stroke connects Gap Iig Cell Grows Some More to Dna Synthesis Phase S-phase (90%) — confirm or remove",
+    "msg": "Detected: A stroke connects Mitotic Phase M-phase to Nucleus Membrane (83%) — confirm or remove",
+    "ids": [
+     "r-06",
+     "r-15"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: A stroke connects The Cell Cycle (animal Cells) to Chromosome Sater (89%) — confirm or remove",
+    "ids": [
+     "r-10",
+     "r-09"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: A stroke connects Mitotic Phase M-phase to The Cell Cycle (animal Cells) (99%) — confirm or remove",
+    "ids": [
+     "r-06",
+     "r-10"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: Line 10 connects Nucleus Membrane to Myosin It And Actin Filament Ring Contract To Cleave Cell In Two Contractile Ring (61%) — confirm or remove",
+    "ids": [
+     "r-15",
+     "r-12"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: A stroke connects Cell Duplicates Its Dna to Dna Synthesis Phase S-phase (90%) — confirm or remove",
     "ids": [
      "r-01",
      "r-04"
@@ -1168,44 +1266,58 @@
   "advisory": [
    {
     "rule": "O1",
-    "msg": "Ats: read at 57% confidence",
+    "msg": "Nucleus Membrane: read at 64% confidence",
     "ids": [
-     "r-02"
+     "r-15"
     ]
    },
    {
-    "rule": "N1",
-    "msg": "r-11 has no label",
+    "rule": "O1",
+    "msg": "Sister: read at 55% confidence",
     "ids": [
      "r-11"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "r-08 has no label",
-    "ids": [
-     "r-08"
     ]
    },
    {
     "rule": "O1",
     "msg": "Chrom: read at 56% confidence",
     "ids": [
+     "r-08"
+    ]
+   },
+   {
+    "rule": "O1",
+    "msg": "Chromosome Sater: read at 69% confidence",
+    "ids": [
      "r-09"
     ]
    },
    {
     "rule": "N1",
-    "msg": "l-11 has no label",
+    "msg": "l-10 has no label",
     "ids": [
-     "l-11"
+     "l-10"
     ]
    },
    {
     "rule": "N1",
-    "msg": "l-16 has no label",
+    "msg": "l-12 has no label",
     "ids": [
-     "l-16"
+     "l-12"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-13 has no label",
+    "ids": [
+     "l-13"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-06 has no label",
+    "ids": [
+     "l-06"
     ]
    }
   ]

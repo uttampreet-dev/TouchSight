@@ -11,13 +11,13 @@
  "source": {
   "kind": "upload",
   "file": "bio-respiratory-01",
-  "captured": "2026-10-31T00:31:20.809Z"
+  "captured": "2026-11-18T15:44:30.545Z"
  },
  "regions": [
   {
    "id": "r-06",
    "name": {
-    "en": "Mucous Gland Mucosal Ining"
+    "en": "Pulmonary Artery Pulmonary Vein"
    },
    "polygon": [
     [
@@ -73,14 +73,14 @@
    "keyRef": "a",
    "confidence": 0.96,
    "sourceLabel": {
-    "text": "Mucous gland Mucosal ining",
-    "ocrConfidence": 0.9
+    "text": "Pulmonary artery Pulmonary vein",
+    "ocrConfidence": 0.89
    }
   },
   {
    "id": "r-02",
    "name": {
-    "en": "Oblique Fissure"
+    "en": "Region 2"
    },
    "polygon": [
     [
@@ -158,16 +158,12 @@
    ],
    "texture": "dots",
    "keyRef": "e",
-   "confidence": 0.98,
-   "sourceLabel": {
-    "text": "Oblique fissure",
-    "ocrConfidence": 0.95
-   }
+   "confidence": 0.5
   },
   {
    "id": "r-01",
    "name": {
-    "en": "Lal Ke"
+    "en": "Ww Nal Gees Ben"
    },
    "polygon": [
     [
@@ -205,16 +201,16 @@
    ],
    "texture": "dots",
    "keyRef": "f",
-   "confidence": 0.81,
+   "confidence": 0.83,
    "sourceLabel": {
-    "text": "LAL Ke",
-    "ocrConfidence": 0.53
+    "text": "Ww Nal GEES BEN",
+    "ocrConfidence": 0.58
    }
   },
   {
    "id": "r-04",
    "name": {
-    "en": "Paranasal Sinuses Frontal Sphenoid"
+    "en": "Nose Nasal Cavity Nasal Conchae Nasal Vestibule"
    },
    "polygon": [
     [
@@ -270,14 +266,14 @@
    "keyRef": "c",
    "confidence": 0.98,
    "sourceLabel": {
-    "text": "Paranasal sinuses Frontal Sphenoid",
-    "ocrConfidence": 0.94
+    "text": "Nose Nasal cavity Nasal conchae Nasal vestibule",
+    "ocrConfidence": 0.96
    }
   },
   {
    "id": "r-03",
    "name": {
-    "en": "Vocal Folds"
+    "en": "Pen Bronchi"
    },
    "polygon": [
     [
@@ -319,16 +315,16 @@
    ],
    "texture": "dots",
    "keyRef": "d",
-   "confidence": 0.98,
+   "confidence": 0.94,
    "sourceLabel": {
-    "text": "Vocal folds",
-    "ocrConfidence": 0.96
+    "text": "pen bronchi",
+    "ocrConfidence": 0.84
    }
   },
   {
    "id": "r-05",
    "name": {
-    "en": "Capilllary Beds"
+    "en": "Alveoli"
    },
    "polygon": [
     [
@@ -370,27 +366,27 @@
    ],
    "texture": "dots",
    "keyRef": "b",
-   "confidence": 0.97,
+   "confidence": 0.96,
    "sourceLabel": {
-    "text": "Capilllary beds",
-    "ocrConfidence": 0.93
+    "text": "Alveoli",
+    "ocrConfidence": 0.89
    }
   }
  ],
  "lines": [
   {
-   "id": "l-02",
+   "id": "l-03",
    "name": {
-    "en": "Line 2"
+    "en": "Line 3"
    },
    "path": [
     [
-     109.64,
-     95.58
+     109.78,
+     95.44
     ],
     [
-     147.19,
-     133.13
+     143.81,
+     144.09
     ]
    ],
    "width": 1.2,
@@ -399,73 +395,33 @@
    "keyRef": "h"
   },
   {
-   "id": "l-05",
+   "id": "l-09",
    "name": {
-    "en": "Line 5"
+    "en": "Line 9"
    },
    "path": [
     [
-     66.89,
-     138.19
+     157.17,
+     39.05
     ],
     [
-     99.09,
-     158.86
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "i"
-  },
-  {
-   "id": "l-11",
-   "name": {
-    "en": "Line 11"
-   },
-   "path": [
-    [
-     154.08,
-     50.3
-    ],
-    [
-     178.55,
-     51.98
+     160.13,
+     60.56
     ]
    ],
    "width": 1.2,
    "style": "single",
    "arrow": "none",
    "keyRef": "g"
-  },
-  {
-   "id": "l-13",
-   "name": {
-    "en": "Line 13"
-   },
-   "path": [
-    [
-     93.89,
-     135.38
-    ],
-    [
-     94.31,
-     111.47
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "j"
   }
  ],
  "relations": [
   {
    "from": "r-01",
-   "to": "r-02",
+   "to": "r-03",
    "kind": "connects",
    "direction": "forward",
-   "confidence": 0.5,
+   "confidence": 0.83,
    "source": "detected",
    "via": "l-01"
   },
@@ -474,18 +430,18 @@
    "to": "r-05",
    "kind": "connects",
    "direction": "forward",
-   "confidence": 1,
+   "confidence": 0.91,
    "source": "detected",
-   "via": "l-11"
+   "via": "l-07"
   },
   {
    "from": "r-02",
-   "to": "r-03",
+   "to": "r-01",
    "kind": "connects",
    "direction": "forward",
-   "confidence": 0.89,
+   "confidence": 0.94,
    "source": "detected",
-   "via": "l-13"
+   "via": "l-11"
   }
  ],
  "key": [
@@ -493,7 +449,7 @@
    "ref": "a",
    "regionId": "r-06",
    "text": {
-    "en": "Mucous Gland Mucosal Ining"
+    "en": "Pulmonary Artery Pulmonary Vein"
    },
    "braille": {}
   },
@@ -501,7 +457,7 @@
    "ref": "b",
    "regionId": "r-05",
    "text": {
-    "en": "Capilllary Beds"
+    "en": "Alveoli"
    },
    "braille": {}
   },
@@ -509,7 +465,7 @@
    "ref": "c",
    "regionId": "r-04",
    "text": {
-    "en": "Paranasal Sinuses Frontal Sphenoid"
+    "en": "Nose Nasal Cavity Nasal Conchae Nasal Vestibule"
    },
    "braille": {}
   },
@@ -517,7 +473,7 @@
    "ref": "d",
    "regionId": "r-03",
    "text": {
-    "en": "Vocal Folds"
+    "en": "Pen Bronchi"
    },
    "braille": {}
   },
@@ -525,7 +481,7 @@
    "ref": "e",
    "regionId": "r-02",
    "text": {
-    "en": "Oblique Fissure"
+    "en": "Region 2"
    },
    "braille": {}
   },
@@ -533,39 +489,23 @@
    "ref": "f",
    "regionId": "r-01",
    "text": {
-    "en": "Lal Ke"
+    "en": "Ww Nal Gees Ben"
    },
    "braille": {}
   },
   {
    "ref": "g",
-   "regionId": "l-11",
+   "regionId": "l-09",
    "text": {
-    "en": "Line 11"
+    "en": "Line 9"
    },
    "braille": {}
   },
   {
    "ref": "h",
-   "regionId": "l-02",
+   "regionId": "l-03",
    "text": {
-    "en": "Line 2"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "i",
-   "regionId": "l-05",
-   "text": {
-    "en": "Line 5"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "j",
-   "regionId": "l-13",
-   "text": {
-    "en": "Line 13"
+    "en": "Line 3"
    },
    "braille": {}
   }
@@ -577,10 +517,8 @@
   "r-03",
   "r-02",
   "r-01",
-  "l-11",
-  "l-02",
-  "l-05",
-  "l-13"
+  "l-09",
+  "l-03"
  ],
  "languages": {
   "primary": "en",
@@ -593,15 +531,15 @@
   "blocking": [
    {
     "rule": "R3",
-    "msg": "Detected: A stroke connects Lal Ke to Oblique Fissure (50%) — confirm or remove",
+    "msg": "Detected: A stroke connects Ww Nal Gees Ben to Pen Bronchi (83%) — confirm or remove",
     "ids": [
      "r-01",
-     "r-02"
+     "r-03"
     ]
    },
    {
     "rule": "R3",
-    "msg": "Detected: Line 11 connects Mucous Gland Mucosal Ining to Capilllary Beds (100%) — confirm or remove",
+    "msg": "Detected: A stroke connects Pulmonary Artery Pulmonary Vein to Alveoli (91%) — confirm or remove",
     "ids": [
      "r-06",
      "r-05"
@@ -609,47 +547,40 @@
    },
    {
     "rule": "R3",
-    "msg": "Detected: Line 13 connects Oblique Fissure to Vocal Folds (89%) — confirm or remove",
+    "msg": "Detected: A stroke connects Region 2 to Ww Nal Gees Ben (94%) — confirm or remove",
     "ids": [
      "r-02",
-     "r-03"
+     "r-01"
     ]
    }
   ],
   "advisory": [
    {
+    "rule": "N1",
+    "msg": "r-02 has no label",
+    "ids": [
+     "r-02"
+    ]
+   },
+   {
     "rule": "O1",
-    "msg": "Lal Ke: read at 53% confidence",
+    "msg": "Ww Nal Gees Ben: read at 58% confidence",
     "ids": [
      "r-01"
     ]
    },
    {
     "rule": "N1",
-    "msg": "l-02 has no label",
+    "msg": "l-03 has no label",
     "ids": [
-     "l-02"
+     "l-03"
     ]
    },
    {
     "rule": "N1",
-    "msg": "l-05 has no label",
+    "msg": "l-09 has no label",
     "ids": [
-     "l-05"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-11 has no label",
-    "ids": [
-     "l-11"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-13 has no label",
-    "ids": [
-     "l-13"
+     "l-09"
     ]
    }
   ]

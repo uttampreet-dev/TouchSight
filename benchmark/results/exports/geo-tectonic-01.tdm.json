@@ -11,13 +11,13 @@
  "source": {
   "kind": "upload",
   "file": "geo-tectonic-01",
-  "captured": "2026-10-31T00:31:24.611Z"
+  "captured": "2026-11-18T15:44:34.689Z"
  },
  "regions": [
   {
    "id": "r-08",
    "name": {
-    "en": "Kf Ih"
+    "en": "Equator"
    },
    "polygon": [
     [
@@ -362,17 +362,17 @@
     ]
    ],
    "texture": "dots",
-   "keyRef": "d",
-   "confidence": 0.83,
+   "keyRef": "b",
+   "confidence": 0.98,
    "sourceLabel": {
-    "text": "kf ih",
-    "ocrConfidence": 0.58
+    "text": "EQUATOR",
+    "ocrConfidence": 0.96
    }
   },
   {
    "id": "r-02",
    "name": {
-    "en": "South"
+    "en": "Plate"
    },
    "polygon": [
     [
@@ -637,17 +637,17 @@
     ]
    ],
    "texture": "dots",
-   "keyRef": "f",
+   "keyRef": "h",
    "confidence": 0.98,
    "sourceLabel": {
-    "text": "SOUTH",
-    "ocrConfidence": 0.95
+    "text": "PLATE",
+    "ocrConfidence": 0.96
    }
   },
   {
    "id": "r-01",
    "name": {
-    "en": "African"
+    "en": "Plate"
    },
    "polygon": [
     [
@@ -797,16 +797,16 @@
    ],
    "texture": "diagonal-lines",
    "keyRef": "j",
-   "confidence": 0.92,
+   "confidence": 0.98,
    "sourceLabel": {
-    "text": "AFRICAN",
-    "ocrConfidence": 0.79
+    "text": "PLATE",
+    "ocrConfidence": 0.96
    }
   },
   {
    "id": "r-09",
    "name": {
-    "en": "Of American"
+    "en": "American"
    },
    "polygon": [
     [
@@ -987,17 +987,17 @@
     ]
    ],
    "texture": "diagonal-lines",
-   "keyRef": "b",
-   "confidence": 0.94,
+   "keyRef": "c",
+   "confidence": 0.98,
    "sourceLabel": {
-    "text": "of AMERICAN",
-    "ocrConfidence": 0.84
+    "text": "AMERICAN",
+    "ocrConfidence": 0.96
    }
   },
   {
    "id": "r-06",
    "name": {
-    "en": "Ss Es"
+    "en": "Plate"
    },
    "polygon": [
     [
@@ -1098,17 +1098,17 @@
     ]
    ],
    "texture": "dots",
-   "keyRef": "g",
-   "confidence": 0.9,
+   "keyRef": "f",
+   "confidence": 0.98,
    "sourceLabel": {
-    "text": "SS es",
-    "ocrConfidence": 0.74
+    "text": "PLATE",
+    "ocrConfidence": 0.96
    }
   },
   {
    "id": "r-03",
    "name": {
-    "en": "Nazca"
+    "en": "Plate"
    },
    "polygon": [
     [
@@ -1166,16 +1166,16 @@
    ],
    "texture": "diagonal-lines",
    "keyRef": "i",
-   "confidence": 0.97,
+   "confidence": 0.98,
    "sourceLabel": {
-    "text": "NAZCA",
-    "ocrConfidence": 0.92
+    "text": "PLATE",
+    "ocrConfidence": 0.95
    }
   },
   {
    "id": "r-07",
    "name": {
-    "en": "Caribbean Plate"
+    "en": "Plate"
    },
    "polygon": [
     [
@@ -1291,14 +1291,14 @@
    "keyRef": "e",
    "confidence": 0.98,
    "sourceLabel": {
-    "text": "CARIBBEAN PLATE",
+    "text": "PLATE",
     "ocrConfidence": 0.96
    }
   },
   {
    "id": "r-10",
    "name": {
-    "en": "Eurasian Plate"
+    "en": "North"
    },
    "polygon": [
     [
@@ -1358,14 +1358,14 @@
    "keyRef": "a",
    "confidence": 0.98,
    "sourceLabel": {
-    "text": "EURASIAN PLATE",
-    "ocrConfidence": 0.94
+    "text": "NORTH",
+    "ocrConfidence": 0.96
    }
   },
   {
    "id": "r-04",
    "name": {
-    "en": "In Plate"
+    "en": "N"
    },
    "polygon": [
     [
@@ -1426,17 +1426,17 @@
     ]
    ],
    "texture": "dots",
-   "keyRef": "h",
-   "confidence": 0.92,
+   "keyRef": "g",
+   "confidence": 0.97,
    "sourceLabel": {
-    "text": "IN PLATE",
-    "ocrConfidence": 0.79
+    "text": "N",
+    "ocrConfidence": 0.92
    }
   },
   {
    "id": "r-05",
    "name": {
-    "en": "Region 5"
+    "en": "Philippine"
    },
    "polygon": [
     [
@@ -1485,24 +1485,28 @@
     ]
    ],
    "texture": "diagonal-lines",
-   "keyRef": "c",
-   "confidence": 0.5
+   "keyRef": "d",
+   "confidence": 0.92,
+   "sourceLabel": {
+    "text": "PHILIPPINE",
+    "ocrConfidence": 0.8
+   }
   }
  ],
  "lines": [
   {
-   "id": "l-03",
+   "id": "l-12",
    "name": {
-    "en": "Line 3"
+    "en": "Line 12"
    },
    "path": [
     [
-     30.47,
-     78.84
+     100.22,
+     53.81
     ],
     [
-     59.72,
-     79.97
+     108.23,
+     45.8
     ]
    ],
    "width": 1.2,
@@ -1511,18 +1515,18 @@
    "keyRef": "k"
   },
   {
-   "id": "l-12",
+   "id": "l-15",
    "name": {
-    "en": "Line 12"
+    "en": "Line 15"
    },
    "path": [
     [
-     159.56,
-     97.83
+     160.83,
+     83.77
     ],
     [
-     167.58,
-     85.45
+     171.23,
+     87
     ]
    ],
    "width": 1.2,
@@ -1533,31 +1537,67 @@
  ],
  "relations": [
   {
-   "from": "r-08",
+   "from": "r-02",
    "to": "r-04",
    "kind": "connects",
    "direction": "forward",
-   "confidence": 0.64,
+   "confidence": 0.53,
    "source": "detected",
    "via": "l-01"
+  },
+  {
+   "from": "r-09",
+   "to": "r-10",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.99,
+   "source": "detected",
+   "via": "l-02"
+  },
+  {
+   "from": "r-10",
+   "to": "r-08",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 1,
+   "source": "detected",
+   "via": "l-03"
+  },
+  {
+   "from": "r-02",
+   "to": "r-01",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.9,
+   "source": "detected",
+   "via": "l-04"
   },
   {
    "from": "r-05",
    "to": "r-08",
    "kind": "connects",
    "direction": "forward",
-   "confidence": 0.95,
-   "source": "detected",
-   "via": "l-03"
-  },
-  {
-   "from": "r-10",
-   "to": "r-09",
-   "kind": "connects",
-   "direction": "forward",
    "confidence": 0.91,
    "source": "detected",
-   "via": "l-05"
+   "via": "l-06"
+  },
+  {
+   "from": "r-07",
+   "to": "r-06",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.97,
+   "source": "detected",
+   "via": "l-07"
+  },
+  {
+   "from": "r-09",
+   "to": "r-08",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.94,
+   "source": "detected",
+   "via": "l-08"
   },
   {
    "from": "r-08",
@@ -1566,16 +1606,7 @@
    "direction": "forward",
    "confidence": 0.93,
    "source": "detected",
-   "via": "l-13"
-  },
-  {
-   "from": "r-07",
-   "to": "r-02",
-   "kind": "connects",
-   "direction": "forward",
-   "confidence": 0.95,
-   "source": "detected",
-   "via": "l-15"
+   "via": "l-09"
   }
  ],
  "key": [
@@ -1583,31 +1614,31 @@
    "ref": "a",
    "regionId": "r-10",
    "text": {
-    "en": "Eurasian Plate"
+    "en": "North"
    },
    "braille": {}
   },
   {
    "ref": "b",
-   "regionId": "r-09",
+   "regionId": "r-08",
    "text": {
-    "en": "Of American"
+    "en": "Equator"
    },
    "braille": {}
   },
   {
    "ref": "c",
-   "regionId": "r-05",
+   "regionId": "r-09",
    "text": {
-    "en": "Region 5"
+    "en": "American"
    },
    "braille": {}
   },
   {
    "ref": "d",
-   "regionId": "r-08",
+   "regionId": "r-05",
    "text": {
-    "en": "Kf Ih"
+    "en": "Philippine"
    },
    "braille": {}
   },
@@ -1615,31 +1646,31 @@
    "ref": "e",
    "regionId": "r-07",
    "text": {
-    "en": "Caribbean Plate"
+    "en": "Plate"
    },
    "braille": {}
   },
   {
    "ref": "f",
-   "regionId": "r-02",
+   "regionId": "r-06",
    "text": {
-    "en": "South"
+    "en": "Plate"
    },
    "braille": {}
   },
   {
    "ref": "g",
-   "regionId": "r-06",
+   "regionId": "r-04",
    "text": {
-    "en": "Ss Es"
+    "en": "N"
    },
    "braille": {}
   },
   {
    "ref": "h",
-   "regionId": "r-04",
+   "regionId": "r-02",
    "text": {
-    "en": "In Plate"
+    "en": "Plate"
    },
    "braille": {}
   },
@@ -1647,7 +1678,7 @@
    "ref": "i",
    "regionId": "r-03",
    "text": {
-    "en": "Nazca"
+    "en": "Plate"
    },
    "braille": {}
   },
@@ -1655,40 +1686,40 @@
    "ref": "j",
    "regionId": "r-01",
    "text": {
-    "en": "African"
+    "en": "Plate"
    },
    "braille": {}
   },
   {
    "ref": "k",
-   "regionId": "l-03",
+   "regionId": "l-12",
    "text": {
-    "en": "Line 3"
+    "en": "Line 12"
    },
    "braille": {}
   },
   {
    "ref": "l",
-   "regionId": "l-12",
+   "regionId": "l-15",
    "text": {
-    "en": "Line 12"
+    "en": "Line 15"
    },
    "braille": {}
   }
  ],
  "readingOrder": [
   "r-10",
+  "r-08",
   "r-09",
   "r-05",
-  "r-08",
   "r-07",
-  "r-02",
   "r-06",
   "r-04",
+  "r-02",
   "r-03",
   "r-01",
-  "l-03",
-  "l-12"
+  "l-12",
+  "l-15"
  ],
  "languages": {
   "primary": "en",
@@ -1701,15 +1732,39 @@
   "blocking": [
    {
     "rule": "R3",
-    "msg": "Detected: A stroke connects Kf Ih to In Plate (64%) — confirm or remove",
+    "msg": "Detected: A stroke connects Plate to N (53%) — confirm or remove",
     "ids": [
-     "r-08",
+     "r-02",
      "r-04"
     ]
    },
    {
     "rule": "R3",
-    "msg": "Detected: Line 3 connects Region 5 to Kf Ih (95%) — confirm or remove",
+    "msg": "Detected: A stroke connects American to North (99%) — confirm or remove",
+    "ids": [
+     "r-09",
+     "r-10"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: A stroke connects North to Equator (100%) — confirm or remove",
+    "ids": [
+     "r-10",
+     "r-08"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: A stroke connects Plate to Plate (90%) — confirm or remove",
+    "ids": [
+     "r-02",
+     "r-01"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: A stroke connects Philippine to Equator (91%) — confirm or remove",
     "ids": [
      "r-05",
      "r-08"
@@ -1717,63 +1772,42 @@
    },
    {
     "rule": "R3",
-    "msg": "Detected: A stroke connects Eurasian Plate to Of American (91%) — confirm or remove",
-    "ids": [
-     "r-10",
-     "r-09"
-    ]
-   },
-   {
-    "rule": "R3",
-    "msg": "Detected: A stroke connects Kf Ih to South (93%) — confirm or remove",
-    "ids": [
-     "r-08",
-     "r-02"
-    ]
-   },
-   {
-    "rule": "R3",
-    "msg": "Detected: A stroke connects Caribbean Plate to South (95%) — confirm or remove",
+    "msg": "Detected: A stroke connects Plate to Plate (97%) — confirm or remove",
     "ids": [
      "r-07",
+     "r-06"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: A stroke connects American to Equator (94%) — confirm or remove",
+    "ids": [
+     "r-09",
+     "r-08"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: A stroke connects Equator to Plate (93%) — confirm or remove",
+    "ids": [
+     "r-08",
      "r-02"
     ]
    }
   ],
   "advisory": [
    {
-    "rule": "O1",
-    "msg": "Kf Ih: read at 58% confidence",
-    "ids": [
-     "r-08"
-    ]
-   },
-   {
-    "rule": "O1",
-    "msg": "Ss Es: read at 74% confidence",
-    "ids": [
-     "r-06"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "r-05 has no label",
-    "ids": [
-     "r-05"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-03 has no label",
-    "ids": [
-     "l-03"
-    ]
-   },
-   {
     "rule": "N1",
     "msg": "l-12 has no label",
     "ids": [
      "l-12"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-15 has no label",
+    "ids": [
+     "l-15"
     ]
    }
   ]

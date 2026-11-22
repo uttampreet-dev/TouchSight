@@ -11,13 +11,13 @@
  "source": {
   "kind": "upload",
   "file": "bio-plantcell-01",
-  "captured": "2026-10-31T00:31:16.580Z"
+  "captured": "2026-11-18T15:44:25.679Z"
  },
  "regions": [
   {
    "id": "r-10",
    "name": {
-    "en": "Chloroplast Thylakoid Membrane"
+    "en": "Vesicles"
    },
    "polygon": [
     [
@@ -170,17 +170,17 @@
     ]
    ],
    "texture": "empty",
-   "keyRef": "c",
+   "keyRef": "b",
    "confidence": 0.98,
    "sourceLabel": {
-    "text": "Chloroplast Thylakoid membrane",
-    "ocrConfidence": 0.95
+    "text": "vesicles",
+    "ocrConfidence": 0.96
    }
   },
   {
    "id": "r-06",
    "name": {
-    "en": "Region 6"
+    "en": "Siri"
    },
    "polygon": [
     [
@@ -310,7 +310,11 @@
    ],
    "texture": "dots",
    "keyRef": "a",
-   "confidence": 0.5
+   "confidence": 0.84,
+   "sourceLabel": {
+    "text": "SIRI",
+    "ocrConfidence": 0.59
+   }
   },
   {
    "id": "r-03",
@@ -378,7 +382,7 @@
   {
    "id": "r-04",
    "name": {
-    "en": "Region 4"
+    "en": "Ribosomes"
    },
    "polygon": [
     [
@@ -435,8 +439,12 @@
     ]
    ],
    "texture": "dots",
-   "keyRef": "b",
-   "confidence": 0.5
+   "keyRef": "d",
+   "confidence": 0.98,
+   "sourceLabel": {
+    "text": "Ribosomes",
+    "ocrConfidence": 0.95
+   }
   },
   {
    "id": "r-01",
@@ -486,7 +494,7 @@
     ]
    ],
    "texture": "dots",
-   "keyRef": "d",
+   "keyRef": "c",
    "confidence": 0.98,
    "sourceLabel": {
     "text": "Rough endoplasmic reticulum",
@@ -496,138 +504,18 @@
  ],
  "lines": [
   {
-   "id": "l-05",
-   "name": {
-    "en": "Line 5"
-   },
-   "path": [
-    [
-     91.95,
-     97.13
-    ],
-    [
-     59.77,
-     110.17
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "k"
-  },
-  {
-   "id": "l-07",
-   "name": {
-    "en": "Line 7"
-   },
-   "path": [
-    [
-     155.06,
-     88.58
-    ],
-    [
-     155.06,
-     53.93
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "m"
-  },
-  {
-   "id": "l-10",
-   "name": {
-    "en": "Line 10"
-   },
-   "path": [
-    [
-     49.09,
-     60.79
-    ],
-    [
-     81.94,
-     68.89
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "f"
-  },
-  {
-   "id": "l-06",
-   "name": {
-    "en": "Line 6"
-   },
-   "path": [
-    [
-     61.01,
-     60
-    ],
-    [
-     89.81,
-     67.54
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "g"
-  },
-  {
-   "id": "l-14",
-   "name": {
-    "en": "Line 14"
-   },
-   "path": [
-    [
-     102.98,
-     109.28
-    ],
-    [
-     128.29,
-     94.09
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "o"
-  },
-  {
-   "id": "l-15",
-   "name": {
-    "en": "Line 15"
-   },
-   "path": [
-    [
-     118.16,
-     74.06
-    ],
-    [
-     144.71,
-     85.88
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "j"
-  },
-  {
    "id": "l-02",
    "name": {
     "en": "Line 2"
    },
    "path": [
     [
-     71.81,
-     73.95
+     114.9,
+     78.34
     ],
     [
-     100.28,
-     74.51
+     164.96,
+     68.66
     ]
    ],
    "width": 1.2,
@@ -636,38 +524,58 @@
    "keyRef": "h"
   },
   {
-   "id": "l-08",
+   "id": "l-06",
    "name": {
-    "en": "Line 8"
+    "en": "Line 6"
    },
    "path": [
     [
-     75.64,
-     113.55
+     49.09,
+     60.9
     ],
     [
-     93.86,
-     99.94
+     89.59,
+     71.03
     ]
    ],
    "width": 1.2,
    "style": "single",
    "arrow": "none",
-   "keyRef": "n"
+   "keyRef": "f"
   },
   {
-   "id": "l-13",
+   "id": "l-11",
    "name": {
-    "en": "Line 13"
+    "en": "Line 11"
    },
    "path": [
     [
-     103.31,
-     91.5
+     67.09,
+     74.4
     ],
     [
-     117.49,
-     81.49
+     99.49,
+     74.4
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "g"
+  },
+  {
+   "id": "l-15",
+   "name": {
+    "en": "Line 15"
+   },
+   "path": [
+    [
+     102.08,
+     109.39
+    ],
+    [
+     127.16,
+     95.44
     ]
    ],
    "width": 1.2,
@@ -676,18 +584,38 @@
    "keyRef": "l"
   },
   {
+   "id": "l-16",
+   "name": {
+    "en": "Line 16"
+   },
+   "path": [
+    [
+     94.76,
+     109.39
+    ],
+    [
+     115.13,
+     90.26
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "k"
+  },
+  {
    "id": "l-04",
    "name": {
     "en": "Line 4"
    },
    "path": [
     [
-     79.8,
-     78
+     80.36,
+     96.23
     ],
     [
-     92.63,
-     77.55
+     62.36,
+     96.67
     ]
    ],
    "width": 1.2,
@@ -696,44 +624,53 @@
    "keyRef": "i"
   },
   {
-   "id": "l-09",
+   "id": "l-05",
    "name": {
-    "en": "Line 9"
+    "en": "Line 5"
    },
    "path": [
     [
-     154.39,
-     115.58
+     144.83,
+     85.09
     ],
     [
-     162.94,
-     106.8
+     160.01,
+     80.81
     ]
    ],
    "width": 1.2,
    "style": "single",
    "arrow": "none",
-   "keyRef": "p"
+   "keyRef": "j"
   }
  ],
  "relations": [
   {
-   "from": "r-10",
-   "to": "r-06",
+   "from": "r-06",
+   "to": "r-10",
    "kind": "connects",
    "direction": "forward",
    "confidence": 1,
    "source": "detected",
-   "via": "l-02"
+   "via": "l-03"
   },
   {
    "from": "r-06",
+   "to": "r-01",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.88,
+   "source": "detected",
+   "via": "l-07"
+  },
+  {
+   "from": "r-10",
    "to": "r-04",
    "kind": "connects",
    "direction": "forward",
-   "confidence": 0.73,
+   "confidence": 0.92,
    "source": "detected",
-   "via": "l-15"
+   "via": "l-08"
   }
  ],
  "key": [
@@ -741,31 +678,31 @@
    "ref": "a",
    "regionId": "r-06",
    "text": {
-    "en": "Region 6"
+    "en": "Siri"
    },
    "braille": {}
   },
   {
    "ref": "b",
-   "regionId": "r-04",
+   "regionId": "r-10",
    "text": {
-    "en": "Region 4"
+    "en": "Vesicles"
    },
    "braille": {}
   },
   {
    "ref": "c",
-   "regionId": "r-10",
+   "regionId": "r-01",
    "text": {
-    "en": "Chloroplast Thylakoid Membrane"
+    "en": "Rough Endoplasmic Reticulum"
    },
    "braille": {}
   },
   {
    "ref": "d",
-   "regionId": "r-01",
+   "regionId": "r-04",
    "text": {
-    "en": "Rough Endoplasmic Reticulum"
+    "en": "Ribosomes"
    },
    "braille": {}
   },
@@ -779,17 +716,17 @@
   },
   {
    "ref": "f",
-   "regionId": "l-10",
+   "regionId": "l-06",
    "text": {
-    "en": "Line 10"
+    "en": "Line 6"
    },
    "braille": {}
   },
   {
    "ref": "g",
-   "regionId": "l-06",
+   "regionId": "l-11",
    "text": {
-    "en": "Line 6"
+    "en": "Line 11"
    },
    "braille": {}
   },
@@ -811,14 +748,6 @@
   },
   {
    "ref": "j",
-   "regionId": "l-15",
-   "text": {
-    "en": "Line 15"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "k",
    "regionId": "l-05",
    "text": {
     "en": "Line 5"
@@ -826,63 +755,35 @@
    "braille": {}
   },
   {
+   "ref": "k",
+   "regionId": "l-16",
+   "text": {
+    "en": "Line 16"
+   },
+   "braille": {}
+  },
+  {
    "ref": "l",
-   "regionId": "l-13",
+   "regionId": "l-15",
    "text": {
-    "en": "Line 13"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "m",
-   "regionId": "l-07",
-   "text": {
-    "en": "Line 7"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "n",
-   "regionId": "l-08",
-   "text": {
-    "en": "Line 8"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "o",
-   "regionId": "l-14",
-   "text": {
-    "en": "Line 14"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "p",
-   "regionId": "l-09",
-   "text": {
-    "en": "Line 9"
+    "en": "Line 15"
    },
    "braille": {}
   }
  ],
  "readingOrder": [
   "r-06",
-  "r-04",
   "r-10",
   "r-01",
+  "r-04",
   "r-03",
-  "l-10",
   "l-06",
+  "l-11",
   "l-02",
   "l-04",
-  "l-15",
   "l-05",
-  "l-13",
-  "l-07",
-  "l-08",
-  "l-14",
-  "l-09"
+  "l-16",
+  "l-15"
  ],
  "languages": {
   "primary": "en",
@@ -895,76 +796,35 @@
   "blocking": [
    {
     "rule": "R3",
-    "msg": "Detected: Line 2 connects Chloroplast Thylakoid Membrane to Region 6 (100%) — confirm or remove",
+    "msg": "Detected: A stroke connects Siri to Vesicles (100%) — confirm or remove",
     "ids": [
-     "r-10",
-     "r-06"
+     "r-06",
+     "r-10"
     ]
    },
    {
     "rule": "R3",
-    "msg": "Detected: Line 15 connects Region 6 to Region 4 (73%) — confirm or remove",
+    "msg": "Detected: A stroke connects Siri to Rough Endoplasmic Reticulum (88%) — confirm or remove",
     "ids": [
      "r-06",
+     "r-01"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: A stroke connects Vesicles to Ribosomes (92%) — confirm or remove",
+    "ids": [
+     "r-10",
      "r-04"
     ]
    }
   ],
   "advisory": [
    {
-    "rule": "N1",
-    "msg": "r-06 has no label",
+    "rule": "O1",
+    "msg": "Siri: read at 59% confidence",
     "ids": [
      "r-06"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "r-04 has no label",
-    "ids": [
-     "r-04"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-05 has no label",
-    "ids": [
-     "l-05"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-07 has no label",
-    "ids": [
-     "l-07"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-10 has no label",
-    "ids": [
-     "l-10"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-06 has no label",
-    "ids": [
-     "l-06"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-14 has no label",
-    "ids": [
-     "l-14"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-15 has no label",
-    "ids": [
-     "l-15"
     ]
    },
    {
@@ -976,16 +836,30 @@
    },
    {
     "rule": "N1",
-    "msg": "l-08 has no label",
+    "msg": "l-06 has no label",
     "ids": [
-     "l-08"
+     "l-06"
     ]
    },
    {
     "rule": "N1",
-    "msg": "l-13 has no label",
+    "msg": "l-11 has no label",
     "ids": [
-     "l-13"
+     "l-11"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-15 has no label",
+    "ids": [
+     "l-15"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-16 has no label",
+    "ids": [
+     "l-16"
     ]
    },
    {
@@ -997,9 +871,9 @@
    },
    {
     "rule": "N1",
-    "msg": "l-09 has no label",
+    "msg": "l-05 has no label",
     "ids": [
-     "l-09"
+     "l-05"
     ]
    }
   ]

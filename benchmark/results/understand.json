@@ -1,5 +1,318 @@
 [
   {
+    "name": "astro-solarsystem-01",
+    "regions": 8,
+    "labels": [
+      [
+        "rls",
+        "50",
+        "— none"
+      ],
+      [
+        "4",
+        "78",
+        "— none"
+      ],
+      [
+        "Pluto",
+        "93",
+        "c5 nearest"
+      ],
+      [
+        "moe",
+        "45",
+        "— none"
+      ],
+      [
+        "Comets",
+        "68",
+        "c0 inside"
+      ]
+    ],
+    "linked": 2,
+    "strokes": 247,
+    "time": 980,
+    "wallMs": 1355,
+    "mode": "line-art"
+  },
+  {
+    "name": "bio-brain-fr-01",
+    "regions": 4,
+    "labels": [
+      [
+        "ofe par tal",
+        "70",
+        "— none"
+      ],
+      [
+        "par",
+        "76",
+        "— none"
+      ],
+      [
+        "tal",
+        "95",
+        "c3 inside"
+      ],
+      [
+        "atal",
+        "61",
+        "c1 inside"
+      ],
+      [
+        "Tronc",
+        "89",
+        "c0 leader"
+      ]
+    ],
+    "linked": 3,
+    "strokes": 267,
+    "time": 1041,
+    "wallMs": 1082,
+    "mode": "colour"
+  },
+  {
+    "name": "bio-cellcycle-01",
+    "regions": 16,
+    "labels": [
+      [
+        "Telophase and Cytokinesis Nuclear membrane reforms nucleoli reappear chromosomes unwind into chromatin",
+        "94",
+        "— none"
+      ],
+      [
+        "Aly",
+        "79",
+        "— none"
+      ],
+      [
+        "4",
+        "89",
+        "c13 inside"
+      ],
+      [
+        "Myosin It and actin filament ring contract to cleave cell in two Contractile ring",
+        "88",
+        "c12 leader"
+      ],
+      [
+        "Cleavage furrow",
+        "94",
+        "— none"
+      ],
+      [
+        "Daughter cells",
+        "93",
+        "c15 leader"
+      ],
+      [
+        "Contractile ring",
+        "96",
+        "c11 leader"
+      ],
+      [
+        "Resting Phase G Cell leaves cycle",
+        "92",
+        "— none"
+      ],
+      [
+        "Anaphase Chromosomes break at centromeres and sister chromatids move to opposite ends of the cell",
+        "95",
+        "— none"
+      ],
+      [
+        "cycle",
+        "83",
+        "— none"
+      ],
+      [
+        "ste orate",
+        "52",
+        "— none"
+      ],
+      [
+        "Chrom",
+        "56",
+        "c8 leader"
+      ],
+      [
+        "Sister",
+        "55",
+        "c10 nearest"
+      ],
+      [
+        "Metaphase Chromosomes line up along metaphase plate (imaginary plane)",
+        "89",
+        "— none"
+      ],
+      [
+        "Gap Cell grows",
+        "92",
+        "c7 nearest"
+      ],
+      [
+        "The Cell Cycle (Animal Cells)",
+        "96",
+        "c9 leader"
+      ],
+      [
+        "7",
+        "71",
+        "— none"
+      ],
+      [
+        "(Animal Cells)",
+        "96",
+        "c4 leader"
+      ],
+      [
+        "Interphase",
+        "96",
+        "— none"
+      ],
+      [
+        "Mitotic Phase M-Phase",
+        "88",
+        "c5 leader"
+      ],
+      [
+        "Centrosome",
+        "96",
+        "— none"
+      ],
+      [
+        "Centrioles",
+        "83",
+        "— none"
+      ],
+      [
+        "Microtubules",
+        "72",
+        "— none"
+      ],
+      [
+        "Prometaphase Nuclear membrane breaks down",
+        "95",
+        "— none"
+      ],
+      [
+        "Prometaphase",
+        "92",
+        "— none"
+      ],
+      [
+        "Lon",
+        "51",
+        "— none"
+      ],
+      [
+        "Nucleus membrane",
+        "64",
+        "c1 leader"
+      ],
+      [
+        "Nuclear membrane breaks down",
+        "96",
+        "— none"
+      ],
+      [
+        "DNA Synthesis Phase S-Phase",
+        "93",
+        "c0 leader"
+      ],
+      [
+        "Chromatin",
+        "86",
+        "c2 leader"
+      ],
+      [
+        "Kinetochore invade nuclear microtubules space and attach to kinetochores",
+        "94",
+        "— none"
+      ],
+      [
+        "Kinetochore",
+        "90",
+        "— none"
+      ],
+      [
+        "Kinetochore microtubules invade nuciea Kinctochores Polar microtubules push against each other moving centrosomes apart Astral microtubules",
+        "91",
+        "— none"
+      ],
+      [
+        "Cell duplicates its DNA",
+        "95",
+        "c3 leader"
+      ],
+      [
+        "Centrosome duplicates",
+        "95",
+        "c6 leader"
+      ],
+      [
+        "Cell duplicates its",
+        "93",
+        "— none"
+      ],
+      [
+        "Centrosome duplicates",
+        "95",
+        "— none"
+      ],
+      [
+        "Chromosome.",
+        "74",
+        "c14 leader"
+      ],
+      [
+        "Prophase Chromatin condenses into chromosomes Nucleolus disappears",
+        "95",
+        "— none"
+      ],
+      [
+        "Prophase",
+        "92",
+        "— none"
+      ],
+      [
+        "Chromatin condenses into chromosomes",
+        "95",
+        "— none"
+      ],
+      [
+        "ats",
+        "57",
+        "— none"
+      ],
+      [
+        "Gap IIG Cell grows some more",
+        "93",
+        "— none"
+      ],
+      [
+        "Nucleolus disappears",
+        "94",
+        "— none"
+      ],
+      [
+        "ell",
+        "86",
+        "— none"
+      ],
+      [
+        "grows some more",
+        "96",
+        "— none"
+      ]
+    ],
+    "linked": 16,
+    "strokes": 281,
+    "time": 1806,
+    "wallMs": 1854,
+    "mode": "line-art"
+  },
+  {
     "name": "bio-digestive-01",
     "regions": 10,
     "labels": [
@@ -16,57 +329,72 @@
       [
         "Palate Uvula Tongue Teeth",
         "95",
-        "c8 leader"
+        "— none"
       ],
       [
         "Palate",
         "96",
-        "c9 leader"
+        "— none"
       ],
       [
         "we ts",
         "54",
-        "c8 inside"
+        "— none"
       ],
       [
         "Uvula",
         "92",
-        "c8 leader"
+        "— none"
       ],
       [
         "Pharynx",
         "92",
-        "c8 leader"
+        "c5 leader"
       ],
       [
         "Salivary glands",
         "96",
-        "c9 leader"
+        "— none"
       ],
       [
         "Esophagus",
         "96",
-        "c7 leader"
+        "— none"
       ],
       [
-        "Sublingual- Submandibular Parotid",
+        "7",
+        "94",
+        "c8 leader"
+      ],
+      [
+        "Sublingual-",
         "86",
-        "c7 leader"
+        "— none"
+      ],
+      [
+        "Submandibular",
+        "86",
+        "— none"
+      ],
+      [
+        "Parotid",
+        "86",
+        "— none"
       ],
       [
         "Parotid",
         "96",
-        "c7 nearest"
+        "— none"
       ],
       [
         "Liver",
         "96",
-        "c7 leader"
+        "— none"
       ],
       [
         "Stomach",
         "96",
-        "c3 leader"
+        "c2 leader"
       ],
       [
         "Gallbladder Common bile duct",
@@ -74,49 +402,59 @@
         "c4 leader"
       ],
       [
-        "Gallbladder Common",
+        "Gallbladder",
         "91",
-        "c4 leader"
+        "c7 leader"
+      ],
+      [
+        "Common",
+        "91",
+        "— none"
       ],
       [
         "Gallbladder",
         "96",
-        "c4 leader"
+        "— none"
       ],
       [
         "Pancreas",
         "96",
-        "c7 leader"
+        "— none"
+      ],
+      [
+        "4",
+        "94",
+        "c3 inside"
       ],
       [
         "Pancreatic duct",
         "96",
-        "c2 leader"
+        "— none"
       ],
       [
         "duct",
         "95",
-        "c7 nearest"
+        "— none"
       ],
       [
         "uct",
         "96",
-        "c7 nearest"
+        "— none"
       ],
       [
         "ile",
         "81",
-        "c7 nearest"
+        "— none"
       ],
       [
         "Small intestine",
         "94",
-        "c7 leader"
+        "— none"
       ],
       [
         "Large intestine",
         "96",
-        "c1 leader"
+        "— none"
       ],
       [
         "Transverse colon",
@@ -126,74 +464,356 @@
       [
         "Duodenum",
         "92",
-        "c7 leader"
+        "— none"
       ],
       [
         "Duodenum vm lleum",
         "75",
-        "c7 leader"
+        "c0 leader"
+      ],
+      [
+        "3",
+        "71",
+        "— none"
       ],
       [
         "Ascending Cecum Descending",
         "94",
-        "c1 leader"
+        "— none"
       ],
       [
         "Ascending Cecum",
         "94",
-        "c1 leader"
+        "— none"
       ],
       [
         "colon",
         "96",
-        "c7 leader"
+        "— none"
       ],
       [
         "eum",
         "96",
-        "c0 leader"
+        "— none"
       ],
       [
         "ecum",
         "92",
-        "c7 nearest"
+        "— none"
       ],
       [
         "Descendi escending colon",
         "93",
-        "c7 leader"
+        "— none"
       ],
       [
         "Appendix",
         "96",
-        "c7 leader"
+        "— none"
       ],
       [
         "Sigmoid colon",
         "93",
-        "c7 nearest"
+        "— none"
       ],
       [
         "colon",
         "96",
-        "c7 nearest"
+        "— none"
       ],
       [
         "Anus",
         "96",
-        "c7 leader"
+        "— none"
       ],
       [
         "Rectum",
         "95",
-        "c1 leader"
+        "— none"
       ]
     ],
-    "linked": 37,
-    "strokes": 275,
-    "time": 1948,
-    "wallMs": 2218,
+    "linked": 10,
+    "strokes": 263,
+    "time": 1755,
+    "wallMs": 2108,
     "mode": "colour"
+  },
+  {
+    "name": "bio-digestive-02",
+    "regions": 7,
+    "labels": [
+      [
+        "Mouth Palate Uvula Tongue Teeth",
+        "95",
+        "— none"
+      ],
+      [
+        "ESS",
+        "49",
+        "— none"
+      ],
+      [
+        "Palate",
+        "96",
+        "— none"
+      ],
+      [
+        "Uvula",
+        "92",
+        "— none"
+      ],
+      [
+        "Tongue Teeth",
+        "96",
+        "— none"
+      ],
+      [
+        "eet",
+        "96",
+        "— none"
+      ],
+      [
+        "Pharynx",
+        "93",
+        "— none"
+      ],
+      [
+        "wa LL",
+        "64",
+        "— none"
+      ],
+      [
+        "Salivary glands",
+        "96",
+        "— none"
+      ],
+      [
+        "Esophagus",
+        "96",
+        "— none"
+      ],
+      [
+        "7",
+        "91",
+        "c5 leader"
+      ],
+      [
+        "Z",
+        "87",
+        "— none"
+      ],
+      [
+        "Sublingual- Submandibular Parotid",
+        "90",
+        "— none"
+      ],
+      [
+        "Parotid",
+        "96",
+        "— none"
+      ],
+      [
+        "Liver",
+        "96",
+        "c6 leader"
+      ],
+      [
+        "Stomach",
+        "96",
+        "c2 leader"
+      ],
+      [
+        "fon",
+        "48",
+        "— none"
+      ],
+      [
+        "Gallbladder Common bile duct",
+        "96",
+        "c4 leader"
+      ],
+      [
+        "Gallbladder Common bile duct",
+        "96",
+        "— none"
+      ],
+      [
+        "Gallbladder",
+        "96",
+        "— none"
+      ],
+      [
+        "Pancreas",
+        "96",
+        "— none"
+      ],
+      [
+        "4",
+        "87",
+        "c3 inside"
+      ],
+      [
+        "Pancreatic duct",
+        "96",
+        "— none"
+      ],
+      [
+        "Large intestine",
+        "95",
+        "— none"
+      ],
+      [
+        "Small intestine",
+        "92",
+        "— none"
+      ],
+      [
+        "TES",
+        "54",
+        "— none"
+      ],
+      [
+        "Transverse colon",
+        "96",
+        "c1 leader"
+      ],
+      [
+        "Duodenum",
+        "91",
+        "— none"
+      ],
+      [
+        "3",
+        "77",
+        "— none"
+      ],
+      [
+        "Jejunum",
+        "82",
+        "c0 leader"
+      ],
+      [
+        "lleum",
+        "82",
+        "— none"
+      ],
+      [
+        "Ascending Cecum Descending colon Sigmoid colon",
+        "94",
+        "— none"
+      ],
+      [
+        "Ascending Cecum",
+        "93",
+        "— none"
+      ],
+      [
+        "AC al",
+        "54",
+        "— none"
+      ],
+      [
+        "colon",
+        "96",
+        "— none"
+      ],
+      [
+        "eum",
+        "95",
+        "— none"
+      ],
+      [
+        "ecum",
+        "92",
+        "— none"
+      ],
+      [
+        "Descending colon",
+        "96",
+        "— none"
+      ],
+      [
+        "Appendix",
+        "96",
+        "— none"
+      ],
+      [
+        "sigmoid",
+        "48",
+        "— none"
+      ],
+      [
+        "colon",
+        "96",
+        "— none"
+      ],
+      [
+        "Anus",
+        "96",
+        "— none"
+      ],
+      [
+        "Rectum",
+        "96",
+        "— none"
+      ]
+    ],
+    "linked": 7,
+    "strokes": 263,
+    "time": 1664,
+    "wallMs": 2076,
+    "mode": "colour"
+  },
+  {
+    "name": "bio-dna-01",
+    "regions": 5,
+    "labels": [
+      [
+        "4",
+        "70",
+        "— none"
+      ],
+      [
+        "2",
+        "94",
+        "— none"
+      ],
+      [
+        "Q",
+        "87",
+        "— none"
+      ],
+      [
+        "N",
+        "90",
+        "c4 inside"
+      ],
+      [
+        "N",
+        "92",
+        "c2 leader"
+      ],
+      [
+        "N",
+        "92",
+        "c1 leader"
+      ],
+      [
+        "N",
+        "86",
+        "c3 inside"
+      ],
+      [
+        "4",
+        "96",
+        "— none"
+      ]
+    ],
+    "linked": 4,
+    "strokes": 249,
+    "time": 783,
+    "wallMs": 835,
+    "mode": "line-art"
   },
   {
     "name": "bio-eye-01",
@@ -202,7 +822,7 @@
       [
         "antetior chamber (aqueous humour) Posterior chamber Suspensory ligament of lens",
         "85",
-        "c4 leader"
+        "c5 leader"
       ],
       [
         "Cornea",
@@ -212,7 +832,7 @@
       [
         "Anterior chamber (aqueous humour) Posterior osterior chamb chamber",
         "94",
-        "c5 leader"
+        "— none"
       ],
       [
         "Pupil",
@@ -267,22 +887,22 @@
       [
         "scl ciera",
         "68",
-        "c4 leader"
+        "— none"
       ],
       [
         "Sclera",
         "92",
-        "c4 leader"
+        "— none"
       ],
       [
         "Vitreou humou",
         "91",
-        "c4 inside"
+        "— none"
       ],
       [
         "Hyaloid canal",
         "93",
-        "c4 inside"
+        "— none"
       ],
       [
         "canal",
@@ -290,14 +910,24 @@
         "c4 inside"
       ],
       [
-        "Retinal Sy. vessels blood Vf",
+        "4",
+        "79",
+        "— none"
+      ],
+      [
+        "Retinal blood Sy. vessels Vf",
         "78",
-        "c4 leader"
+        "c3 leader"
       ],
       [
         "Retinal blood vessels",
         "96",
         "— none"
+      ],
+      [
+        "A",
+        "92",
+        "c2 leader"
       ],
       [
         "Retina",
@@ -312,7 +942,7 @@
       [
         "Say",
         "45",
-        "c0 inside"
+        "— none"
       ],
       [
         "Fovea",
@@ -330,10 +960,10 @@
         "— none"
       ]
     ],
-    "linked": 10,
-    "strokes": 290,
-    "time": 1845,
-    "wallMs": 2191,
+    "linked": 5,
+    "strokes": 282,
+    "time": 1842,
+    "wallMs": 2185,
     "mode": "colour"
   },
   {
@@ -368,7 +998,7 @@
       [
         "style",
         "96",
-        "c6 nearest"
+        "— none"
       ],
       [
         "ovary",
@@ -378,7 +1008,7 @@
       [
         "SIN",
         "53",
-        "c6 inside"
+        "— none"
       ],
       [
         "connective",
@@ -388,17 +1018,17 @@
       [
         "petal/corolla sepal/calyx perianth",
         "92",
-        "c6 leader"
+        "— none"
       ],
       [
         "microsporangium filament",
         "94",
-        "c6 leader"
+        "— none"
       ],
       [
         "floral axis",
         "96",
-        "c6 leader"
+        "c0 leader"
       ],
       [
         "nectary",
@@ -413,14 +1043,50 @@
       [
         "pedicel",
         "96",
-        "c6 leader"
+        "— none"
       ]
     ],
-    "linked": 11,
+    "linked": 6,
     "strokes": 264,
-    "time": 936,
-    "wallMs": 923,
+    "time": 944,
+    "wallMs": 1029,
     "mode": "colour"
+  },
+  {
+    "name": "bio-flower-02",
+    "regions": 1,
+    "labels": [
+      [
+        "PETAL",
+        "96",
+        "— none"
+      ],
+      [
+        "LEE",
+        "90",
+        "— none"
+      ],
+      [
+        "SEPAL",
+        "91",
+        "— none"
+      ],
+      [
+        "STAMEN",
+        "91",
+        "— none"
+      ],
+      [
+        "PISTIL",
+        "93",
+        "c0 leader"
+      ]
+    ],
+    "linked": 1,
+    "strokes": 261,
+    "time": 733,
+    "wallMs": 818,
+    "mode": "line-art"
   },
   {
     "name": "bio-heart-01",
@@ -444,17 +1110,22 @@
       [
         "eS Ce",
         "55",
-        "c6 inside"
+        "— none"
       ],
       [
         "ery",
         "96",
-        "c8 nearest"
+        "— none"
       ],
       [
-        "Pulmonary Vein",
+        "Pulmonary",
         "95",
         "c3 leader"
+      ],
+      [
+        "Vein",
+        "95",
+        "— none"
       ],
       [
         "Mitral Valve",
@@ -464,27 +1135,27 @@
       [
         "Right trium",
         "89",
-        "c3 inside"
+        "c0 leader"
       ],
       [
         "gone",
         "57",
-        "c8 leader"
+        "— none"
       ],
       [
         "Aortic Valve",
         "96",
-        "c7 leader"
+        "— none"
       ],
       [
         "Pulmonary Valve",
         "94",
-        "c8 leader"
+        "— none"
       ],
       [
         "Left",
         "90",
-        "c8 inside"
+        "c5 leader"
       ],
       [
         "Ventri",
@@ -494,7 +1165,7 @@
       [
         "ae ON",
         "47",
-        "c3 inside"
+        "— none"
       ],
       [
         "Tricuspid Valve",
@@ -504,13 +1175,13 @@
       [
         "Inferior Vena Cava",
         "96",
-        "c3 leader"
+        "c1 leader"
       ]
     ],
-    "linked": 12,
+    "linked": 6,
     "strokes": 265,
-    "time": 1446,
-    "wallMs": 1649,
+    "time": 1448,
+    "wallMs": 1645,
     "mode": "colour"
   },
   {
@@ -555,7 +1226,7 @@
       [
         "Septum",
         "96",
-        "c4 nearest"
+        "— none"
       ],
       [
         "Inferior vena cava",
@@ -563,11 +1234,222 @@
         "— none"
       ]
     ],
-    "linked": 6,
+    "linked": 5,
     "strokes": 184,
-    "time": 712,
-    "wallMs": 823,
+    "time": 705,
+    "wallMs": 847,
     "mode": "line-art"
+  },
+  {
+    "name": "bio-neuron-01",
+    "regions": 12,
+    "labels": [
+      [
+        "4",
+        "81",
+        "— none"
+      ],
+      [
+        "Microtubule Neurofibrils Neurotransmitter Receptor",
+        "94",
+        "c8 leader"
+      ],
+      [
+        "Microtubule",
+        "96",
+        "c10 leader"
+      ],
+      [
+        "Dendrites",
+        "92",
+        "— none"
+      ],
+      [
+        "Synaptic vesicles Synapse Synaptic cleft ING",
+        "92",
+        "c11 leader"
+      ],
+      [
+        "5",
+        "72",
+        "— none"
+      ],
+      [
+        "Receptor.",
+        "75",
+        "— none"
+      ],
+      [
+        "Synaptic cleft",
+        "96",
+        "— none"
+      ],
+      [
+        "Axonal terminal",
+        "96",
+        "— none"
+      ],
+      [
+        "Rough ER body)",
+        "96",
+        "— none"
+      ],
+      [
+        "Polyribosomes Ribosomes",
+        "94",
+        "c9 leader"
+      ],
+      [
+        "Polyribosomes",
+        "92",
+        "— none"
+      ],
+      [
+        "Node of Ranvier",
+        "96",
+        "— none"
+      ],
+      [
+        "7",
+        "70",
+        "— none"
+      ],
+      [
+        "Ribosomes",
+        "96",
+        "— none"
+      ],
+      [
+        "SyNapse",
+        "88",
+        "— none"
+      ],
+      [
+        "apse matic)",
+        "86",
+        "— none"
+      ],
+      [
+        "Golgi apparatus",
+        "94",
+        "— none"
+      ],
+      [
+        "Myelin Sheath (Schwann cell)",
+        "95",
+        "— none"
+      ],
+      [
+        "hillock",
+        "90",
+        "— none"
+      ],
+      [
+        "Axon",
+        "90",
+        "c6 inside"
+      ],
+      [
+        "Nucleus Nucleolus Membrane Microtubule",
+        "95",
+        "c3 leader"
+      ],
+      [
+        "Nucleus",
+        "96",
+        "— none"
+      ],
+      [
+        "Nucleus (Schwann cell)",
+        "92",
+        "— none"
+      ],
+      [
+        "1",
+        "78",
+        "— none"
+      ],
+      [
+        "embrane",
+        "87",
+        "c2 leader"
+      ],
+      [
+        "chwann",
+        "70",
+        "— none"
+      ],
+      [
+        "cel",
+        "92",
+        "c5 inside"
+      ],
+      [
+        "2",
+        "72",
+        "— none"
+      ],
+      [
+        "Microtubule",
+        "94",
+        "— none"
+      ],
+      [
+        "YY Vy",
+        "57",
+        "— none"
+      ],
+      [
+        "Ondrion",
+        "74",
+        "c7 leader"
+      ],
+      [
+        "Vy bis Microfilament Microtubule Axon",
+        "85",
+        "— none"
+      ],
+      [
+        "Smooth ER",
+        "96",
+        "— none"
+      ],
+      [
+        "Microfilament Microtubule",
+        "94",
+        "— none"
+      ],
+      [
+        "Microfilament",
+        "91",
+        "c4 inside"
+      ],
+      [
+        "Microtubule",
+        "96",
+        "— none"
+      ],
+      [
+        "Axon",
+        "56",
+        "— none"
+      ],
+      [
+        "Synapse (Axodendritic)",
+        "86",
+        "c1 leader"
+      ],
+      [
+        "Dendrites",
+        "92",
+        "c0 nearest"
+      ]
+    ],
+    "linked": 12,
+    "strokes": 280,
+    "time": 1793,
+    "wallMs": 2032,
+    "mode": "colour"
   },
   {
     "name": "bio-plantcell-01",
@@ -576,22 +1458,27 @@
       [
         "Filamentous cytoskeleton",
         "96",
-        "c9 nearest"
+        "— none"
       ],
       [
-        "Plasmodesmata Plasma membrane",
+        "Plasmodesmata",
         "94",
         "c8 leader"
       ],
       [
+        "Plasma membrane",
+        "94",
+        "— none"
+      ],
+      [
         "Plasmodesmata",
         "92",
-        "c8 leader"
+        "— none"
       ],
       [
         "Small membranous",
         "96",
-        "c9 nearest"
+        "— none"
       ],
       [
         "WA SIRI",
@@ -601,17 +1488,17 @@
       [
         "Plasma membrane",
         "95",
-        "c8 leader"
+        "— none"
       ],
       [
         "vesicles",
         "96",
-        "c9 nearest"
+        "— none"
       ],
       [
         "Cell wall",
         "95",
-        "c7 leader"
+        "— none"
       ],
       [
         "Chloroplast Thylakoid membrane",
@@ -626,67 +1513,77 @@
       [
         "ins.",
         "48",
-        "c9 inside"
+        "— none"
       ],
       [
         "Starch grain",
         "96",
-        "c9 leader"
+        "— none"
       ],
       [
         "Smooth endoplasmic reticulum",
         "96",
-        "c9 leader"
+        "— none"
       ],
       [
         "Vacuole",
         "93",
-        "c9 leader"
+        "— none"
       ],
       [
         "facuole",
         "70",
-        "c9 leader"
+        "— none"
       ],
       [
         "Tonoplast Mitochondrion (mitochondria)",
         "93",
-        "c9 leader"
+        "— none"
       ],
       [
         "Tonoplast",
         "92",
-        "c9 leader"
+        "— none"
       ],
       [
         "Ribosomes",
         "95",
-        "c9 leader"
+        "c3 leader"
       ],
       [
-        "SS SOK Ss",
+        "SS",
         "60",
-        "c9 inside"
+        "— none"
+      ],
+      [
+        "SOK",
+        "60",
+        "— none"
+      ],
+      [
+        "Ss",
+        "60",
+        "— none"
       ],
       [
         "Peroxi eroxisome",
         "88",
-        "c9 leader"
+        "— none"
       ],
       [
         "SOK",
         "78",
-        "c9 inside"
+        "— none"
       ],
       [
         "Cytoplasm",
         "92",
-        "c9 leader"
+        "— none"
       ],
       [
         "Nucleus",
         "96",
-        "c9 leader"
+        "— none"
       ],
       [
         "Nucl ucleus Nuclear pore Nuclear envelope",
@@ -696,17 +1593,17 @@
       [
         "Nuclear envelope",
         "95",
-        "c2 leader"
+        "— none"
       ],
       [
         "Golgi vesicles",
         "94",
-        "c9 leader"
+        "— none"
       ],
       [
         "Nucleolus",
         "91",
-        "c2 leader"
+        "— none"
       ],
       [
         "Golgi body (Golgi apparatus)",
@@ -719,10 +1616,10 @@
         "c0 leader"
       ]
     ],
-    "linked": 28,
+    "linked": 7,
     "strokes": 269,
-    "time": 1614,
-    "wallMs": 1666,
+    "time": 1599,
+    "wallMs": 1639,
     "mode": "colour"
   },
   {
@@ -737,12 +1634,12 @@
       [
         "ucleus",
         "89",
-        "c8 nearest"
+        "c6 nearest"
       ],
       [
         "Vacuole",
         "90",
-        "c8 nearest"
+        "— none"
       ],
       [
         "Chloroplast",
@@ -757,13 +1654,1117 @@
       [
         "Cytoplasm",
         "92",
-        "c8 nearest"
+        "— none"
+      ]
+    ],
+    "linked": 4,
+    "strokes": 181,
+    "time": 657,
+    "wallMs": 845,
+    "mode": "line-art"
+  },
+  {
+    "name": "bio-respiratory-01",
+    "regions": 6,
+    "labels": [
+      [
+        "Capilllary beds",
+        "93",
+        "— none"
+      ],
+      [
+        "Paranasal sinuses Frontal Sphenoid",
+        "94",
+        "— none"
+      ],
+      [
+        "Connective tissue",
+        "96",
+        "c5 leader"
+      ],
+      [
+        "Frontal",
+        "92",
+        "— none"
+      ],
+      [
+        "Nose Nasal cavity Nasal conchae Nasal vestibule",
+        "96",
+        "— none"
+      ],
+      [
+        "Alveolar",
+        "96",
+        "— none"
+      ],
+      [
+        "sacs",
+        "96",
+        "— none"
+      ],
+      [
+        "Alveolar duct/7",
+        "82",
+        "— none"
+      ],
+      [
+        "Mucous gland Mucosal ining",
+        "90",
+        "— none"
+      ],
+      [
+        "Pharynx Larynx Epiglottis Thyroid cartilage Cricoid cartilage",
+        "93",
+        "c3 leader"
+      ],
+      [
+        "Ree",
+        "46",
+        "— none"
+      ],
+      [
+        "ining",
+        "96",
+        "— none"
+      ],
+      [
+        "Oral",
+        "96",
+        "— none"
+      ],
+      [
+        "Pulmonary artery Pulmonary vein",
+        "89",
+        "— none"
+      ],
+      [
+        "Alveoli",
+        "89",
+        "c4 leader"
+      ],
+      [
+        "alveoli Atrium",
+        "94",
+        "— none"
+      ],
+      [
+        "Atrium",
+        "96",
+        "— none"
+      ],
+      [
+        "Vocal folds",
+        "96",
+        "— none"
+      ],
+      [
+        "Trachea- Carina of trachea",
+        "83",
+        "c2 leader"
+      ],
+      [
+        "Trachea",
+        "96",
+        "— none"
+      ],
+      [
+        "Carina of tra",
+        "96",
+        "— none"
+      ],
+      [
+        "bronchi",
+        "56",
+        "— none"
+      ],
+      [
+        "Tracheal and bronchi rings",
+        "95",
+        "— none"
+      ],
+      [
+        "ain bronchi",
+        "96",
+        "— none"
+      ],
+      [
+        "SYR",
+        "74",
+        "— none"
+      ],
+      [
+        "Lingular division bronchi",
+        "94",
+        "— none"
+      ],
+      [
+        "Ww Nal GEES BEN",
+        "58",
+        "c0 leader"
+      ],
+      [
+        "Re Ne",
+        "46",
+        "— none"
+      ],
+      [
+        "Left lung Superior lobe",
+        "96",
+        "— none"
+      ],
+      [
+        "Left lung Ss uperior lob lobe",
+        "88",
+        "— none"
+      ],
+      [
+        "Left lung",
+        "94",
+        "— none"
+      ],
+      [
+        "LAL",
+        "53",
+        "— none"
+      ],
+      [
+        "Ke",
+        "53",
+        "— none"
+      ],
+      [
+        "Right lung Superior perior lob lobe",
+        "95",
+        "— none"
+      ],
+      [
+        "ior",
+        "88",
+        "— none"
+      ],
+      [
+        "Apex of left lung",
+        "95",
+        "— none"
+      ],
+      [
+        "Horizontal fissure",
+        "96",
+        "— none"
+      ],
+      [
+        "Oblique fissure Cardiac notch sir Lingula of lung Inferior lobe",
+        "91",
+        "— none"
+      ],
+      [
+        "4",
+        "73",
+        "— none"
+      ],
+      [
+        "Oblique fissure",
+        "95",
+        "— none"
+      ],
+      [
+        "ique",
+        "79",
+        "— none"
+      ],
+      [
+        "Middle lob lobe iddle inferior lobe",
+        "85",
+        "— none"
+      ],
+      [
+        "Middle lobe",
+        "95",
+        "— none"
+      ],
+      [
+        "5",
+        "80",
+        "— none"
+      ],
+      [
+        "Inferior lobe",
+        "89",
+        "— none"
+      ],
+      [
+        "Diaphragm",
+        "96",
+        "— none"
+      ],
+      [
+        "Superior Inferior Middle",
+        "96",
+        "— none"
+      ],
+      [
+        "Lobar bronchus",
+        "94",
+        "— none"
+      ]
+    ],
+    "linked": 5,
+    "strokes": 278,
+    "time": 2261,
+    "wallMs": 2325,
+    "mode": "line-art"
+  },
+  {
+    "name": "chem-distillation-01",
+    "regions": 6,
+    "labels": [
+      [
+        "Sf SS",
+        "61",
+        "— none"
+      ],
+      [
+        "3",
+        "96",
+        "c4 leader"
+      ],
+      [
+        "10",
+        "96",
+        "— none"
+      ],
+      [
+        "14",
+        "95",
+        "c5 leader"
+      ],
+      [
+        "13",
+        "96",
+        "c0 leader"
+      ]
+    ],
+    "linked": 3,
+    "strokes": 239,
+    "time": 834,
+    "wallMs": 872,
+    "mode": "line-art"
+  },
+  {
+    "name": "geo-tectonic-01",
+    "regions": 10,
+    "labels": [
+      [
+        "of",
+        "84",
+        "— none"
+      ],
+      [
+        "AMERICAN",
+        "84",
+        "— none"
+      ],
+      [
+        "NORTH",
+        "96",
+        "c9 leader"
+      ],
+      [
+        "AMERICAN",
+        "96",
+        "c8 inside"
+      ],
+      [
+        "PLATE",
+        "96",
+        "— none"
+      ],
+      [
+        "3",
+        "70",
+        "— none"
+      ],
+      [
+        "5",
+        "75",
+        "— none"
+      ],
+      [
+        "EURASIAN PLATE",
+        "94",
+        "— none"
+      ],
+      [
+        "PLATE",
+        "71",
+        "— none"
+      ],
+      [
+        "EURASIAN",
+        "91",
+        "— none"
+      ],
+      [
+        "9",
+        "78",
+        "— none"
+      ],
+      [
+        "PLATE",
+        "93",
+        "— none"
+      ],
+      [
+        "PLATE",
+        "96",
+        "— none"
+      ],
+      [
+        "PLATE",
+        "96",
+        "— none"
+      ],
+      [
+        "kf ih",
+        "58",
+        "— none"
+      ],
+      [
+        "Ana",
+        "50",
+        "— none"
+      ],
+      [
+        "3",
+        "83",
+        "— none"
+      ],
+      [
+        "the",
+        "50",
+        "— none"
+      ],
+      [
+        "SS es",
+        "74",
+        "— none"
+      ],
+      [
+        "6",
+        "90",
+        "— none"
+      ],
+      [
+        "JUAN DE",
+        "94",
+        "— none"
+      ],
+      [
+        "FUCA",
+        "96",
+        "— none"
+      ],
+      [
+        "PLATE",
+        "96",
+        "— none"
+      ],
+      [
+        "PLATE",
+        "95",
+        "— none"
+      ],
+      [
+        "9",
+        "85",
+        "— none"
+      ],
+      [
+        "CARIBBEAN",
+        "96",
+        "c6 leader"
+      ],
+      [
+        "PLATE",
+        "96",
+        "— none"
+      ],
+      [
+        "/PLATE",
+        "55",
+        "— none"
+      ],
+      [
+        "PHILIPPINE",
+        "96",
+        "c4 leader"
+      ],
+      [
+        "PLATE",
+        "96",
+        "— none"
+      ],
+      [
+        "ARABIAN",
+        "90",
+        "— none"
+      ],
+      [
+        "IN PLATE",
+        "79",
+        "— none"
+      ],
+      [
+        "SU ws",
+        "57",
+        "— none"
+      ],
+      [
+        "PLATE",
+        "96",
+        "— none"
+      ],
+      [
+        "PLATE",
+        "96",
+        "c5 inside"
+      ],
+      [
+        "N",
+        "92",
+        "c3 inside"
+      ],
+      [
+        "cocos",
+        "83",
+        "— none"
+      ],
+      [
+        "EQUATOR",
+        "96",
+        "c7 inside"
+      ],
+      [
+        "AFRICAN",
+        "79",
+        "— none"
+      ],
+      [
+        "PLATE",
+        "96",
+        "c0 inside"
+      ],
+      [
+        "PACIFIC",
+        "96",
+        "— none"
+      ],
+      [
+        "NAZCA",
+        "92",
+        "— none"
+      ],
+      [
+        "PLATE",
+        "96",
+        "— none"
+      ],
+      [
+        "SOUTH",
+        "95",
+        "— none"
+      ],
+      [
+        "AMERICAN",
+        "96",
+        "— none"
+      ],
+      [
+        "AUSTRALIAN PLATE",
+        "96",
+        "— none"
+      ],
+      [
+        "PLATE",
+        "96",
+        "— none"
+      ],
+      [
+        "PLATE",
+        "95",
+        "c2 inside"
+      ],
+      [
+        "PLATE",
+        "96",
+        "c1 inside"
+      ],
+      [
+        "PLATE",
+        "96",
+        "— none"
+      ],
+      [
+        "AUSTRALIAN",
+        "96",
+        "— none"
+      ],
+      [
+        "PLATE",
+        "96",
+        "— none"
+      ],
+      [
+        "ANTARCTIC",
+        "96",
+        "— none"
+      ],
+      [
+        "PLATE",
+        "96",
+        "— none"
+      ]
+    ],
+    "linked": 10,
+    "strokes": 281,
+    "time": 1697,
+    "wallMs": 2086,
+    "mode": "colour"
+  },
+  {
+    "name": "geo-watercycle-02",
+    "regions": 14,
+    "labels": [
+      [
+        "CLOUDS",
+        "82",
+        "— none"
+      ],
+      [
+        "CLOUDS and WATER VAPOR",
+        "95",
+        "c4 leader"
+      ],
+      [
+        "CLOUDS and WATER VAPOR",
+        "89",
+        "c2 inside"
+      ],
+      [
+        "TRANSPORT",
+        "46",
+        "— none"
+      ],
+      [
+        "4",
+        "81",
+        "— none"
+      ],
+      [
+        "SNOW GLACIERS and ICESHEETS",
+        "84",
+        "— none"
+      ],
+      [
+        "SNOW",
+        "92",
+        "— none"
+      ],
+      [
+        "GLACIE",
+        "72",
+        "— none"
+      ],
+      [
+        "ee Cae",
+        "64",
+        "— none"
+      ],
+      [
+        "and ICESHEETS SS SS",
+        "64",
+        "— none"
+      ],
+      [
+        "ess",
+        "50",
+        "— none"
+      ],
+      [
+        "and",
+        "92",
+        "— none"
+      ],
+      [
+        "ICESHEE",
+        "91",
+        "— none"
+      ],
+      [
+        "cee",
+        "74",
+        "— none"
+      ],
+      [
+        "Hedy",
+        "45",
+        "— none"
+      ],
+      [
+        "4",
+        "95",
+        "c12 inside"
+      ],
+      [
+        "PERMAFROST",
+        "93",
+        "c10 leader"
+      ],
+      [
+        "PRECIPITATION",
+        "96",
+        "— none"
+      ],
+      [
+        "EVAPORATION",
+        "94",
+        "c7 leader"
+      ],
+      [
+        "NFILTRATION",
+        "73",
+        "— none"
+      ],
+      [
+        "SURFACE",
+        "94",
+        "c6 leader"
+      ],
+      [
+        "SES",
+        "58",
+        "— none"
+      ],
+      [
+        "SOIL MOISTURE",
+        "80",
+        "c5 leader"
+      ],
+      [
+        "RUNOFF",
+        "82",
+        "— none"
+      ],
+      [
+        "4",
+        "71",
+        "— none"
+      ],
+      [
+        "ra",
+        "49",
+        "— none"
+      ],
+      [
+        "(oe",
+        "49",
+        "— none"
+      ],
+      [
+        "2",
+        "86",
+        "c0 inside"
+      ],
+      [
+        "OCEAN",
+        "88",
+        "c9 inside"
+      ],
+      [
+        "RIVERS and",
+        "93",
+        "c8 inside"
+      ],
+      [
+        "R",
+        "91",
+        "— none"
+      ],
+      [
+        "met",
+        "50",
+        "— none"
+      ],
+      [
+        "RGE.",
+        "49",
+        "— none"
+      ],
+      [
+        "4",
+        "81",
+        "— none"
+      ],
+      [
+        "GROUNDWATER",
+        "92",
+        "c11 leader"
+      ]
+    ],
+    "linked": 11,
+    "strokes": 247,
+    "time": 1901,
+    "wallMs": 2027,
+    "mode": "colour"
+  },
+  {
+    "name": "math-keplertriangle-01",
+    "regions": 6,
+    "labels": [
+      [
+        "VoA(-10)",
+        "46",
+        "— none"
+      ],
+      [
+        "vpr(-8)",
+        "56",
+        "— none"
+      ],
+      [
+        "Vor(-9)",
+        "76",
+        "— none"
+      ],
+      [
+        "HoH",
+        "53",
+        "— none"
+      ]
+    ],
+    "linked": 0,
+    "strokes": 200,
+    "time": 888,
+    "wallMs": 928,
+    "mode": "line-art"
+  },
+  {
+    "name": "math-parallelogram-01",
+    "regions": 4,
+    "labels": [],
+    "linked": 0,
+    "strokes": 80,
+    "time": 480,
+    "wallMs": 858,
+    "mode": "line-art"
+  },
+  {
+    "name": "math-triangleproof-01",
+    "regions": 7,
+    "labels": [
+      [
+        "A",
+        "96",
+        "c6 leader"
+      ],
+      [
+        "D",
+        "93",
+        "c5 leader"
+      ],
+      [
+        "B",
+        "92",
+        "c4 nearest"
+      ],
+      [
+        "E",
+        "92",
+        "c0 leader"
+      ]
+    ],
+    "linked": 4,
+    "strokes": 187,
+    "time": 671,
+    "wallMs": 892,
+    "mode": "line-art"
+  },
+  {
+    "name": "phy-circuit-schematic-01",
+    "regions": 13,
+    "labels": [
+      [
+        "4",
+        "83",
+        "— none"
+      ],
+      [
+        "AMMETER",
+        "90",
+        "c7 inside"
+      ],
+      [
+        "BATTERY",
+        "96",
+        "c6 leader"
+      ],
+      [
+        "RESISTOR",
+        "93",
+        "c12 inside"
+      ],
+      [
+        "PICTORIAL DIAGRAM OF CIRCUIT",
+        "95",
+        "— none"
+      ],
+      [
+        "VOLTMETER",
+        "90",
+        "c1 leader"
+      ],
+      [
+        "AMPERES",
+        "95",
+        "c11 inside"
+      ],
+      [
+        "VOLTS",
+        "90",
+        "c0 inside"
+      ],
+      [
+        "OHMS",
+        "92",
+        "— none"
+      ],
+      [
+        "CIRCUIT",
+        "96",
+        "— none"
+      ],
+      [
+        "Figure",
+        "82",
+        "— none"
+      ],
+      [
+        "Diagrem of basta",
+        "88",
+        "— none"
+      ],
+      [
+        "circuit.",
+        "60",
+        "— none"
       ]
     ],
     "linked": 6,
-    "strokes": 181,
-    "time": 660,
-    "wallMs": 851,
+    "strokes": 248,
+    "time": 1141,
+    "wallMs": 1327,
+    "mode": "line-art"
+  },
+  {
+    "name": "phy-pulley-01",
+    "regions": 9,
+    "labels": [
+      [
+        "FAF",
+        "88",
+        "c6 leader"
+      ],
+      [
+        "Nut",
+        "50",
+        "— none"
+      ],
+      [
+        "D",
+        "93",
+        "c8 nearest"
+      ]
+    ],
+    "linked": 2,
+    "strokes": 231,
+    "time": 725,
+    "wallMs": 812,
+    "mode": "line-art"
+  },
+  {
+    "name": "bio-eye-02",
+    "regions": 2,
+    "labels": [
+      [
+        "Sclera",
+        "90",
+        "c0 leader"
+      ],
+      [
+        "Reflection of conjunctiva",
+        "96",
+        "— none"
+      ],
+      [
+        "Bat",
+        "46",
+        "— none"
+      ],
+      [
+        "Tris",
+        "92",
+        "— none"
+      ],
+      [
+        "4",
+        "95",
+        "c1 inside"
+      ],
+      [
+        "Granula iridis",
+        "89",
+        "— none"
+      ],
+      [
+        "7",
+        "72",
+        "— none"
+      ],
+      [
+        "4",
+        "71",
+        "— none"
+      ],
+      [
+        "4",
+        "80",
+        "— none"
+      ],
+      [
+        "Cornea",
+        "94",
+        "— none"
+      ],
+      [
+        "Cornea",
+        "93",
+        "— none"
+      ],
+      [
+        "0",
+        "74",
+        "— none"
+      ],
+      [
+        "nerve",
+        "83",
+        "— none"
+      ],
+      [
+        "Optic nerve",
+        "76",
+        "— none"
+      ],
+      [
+        "Loi",
+        "45",
+        "— none"
+      ],
+      [
+        "eee",
+        "49",
+        "— none"
+      ],
+      [
+        "AES",
+        "45",
+        "— none"
+      ],
+      [
+        "abe",
+        "52",
+        "— none"
+      ],
+      [
+        "papilla",
+        "94",
+        "— none"
+      ],
+      [
+        "Lens Anterior chamber",
+        "86",
+        "— none"
+      ],
+      [
+        "Sat",
+        "76",
+        "— none"
+      ],
+      [
+        "Retrobulbar fat",
+        "94",
+        "— none"
+      ],
+      [
+        "Antertor chamber",
+        "92",
+        "— none"
+      ],
+      [
+        "Gas",
+        "51",
+        "— none"
+      ],
+      [
+        "Rectus oculi inferior",
+        "93",
+        "— none"
+      ],
+      [
+        "Ciliary",
+        "91",
+        "— none"
+      ],
+      [
+        "Ciliary processes",
+        "96",
+        "— none"
+      ],
+      [
+        "Chorioid",
+        "80",
+        "— none"
+      ],
+      [
+        "oF contour MEM of the erystalline lens is",
+        "86",
+        "— none"
+      ],
+      [
+        "Sectiox",
+        "66",
+        "— none"
+      ],
+      [
+        "ABour",
+        "45",
+        "— none"
+      ],
+      [
+        "Fic.",
+        "89",
+        "— none"
+      ],
+      [
+        "The contour of the crystalline lens is dotted.",
+        "95",
+        "— none"
+      ]
+    ],
+    "linked": 2,
+    "strokes": 257,
+    "time": 2263,
+    "wallMs": 2354,
     "mode": "line-art"
   },
   {
@@ -773,7 +2774,7 @@
       [
         "The",
         "77",
-        "c12 nearest"
+        "— none"
       ],
       [
         "Af acer Cycie",
@@ -783,12 +2784,12 @@
       [
         "akc",
         "68",
-        "c12 nearest"
+        "— none"
       ],
       [
         "Volcanic steagi",
         "76",
-        "c5 nearest"
+        "— none"
       ],
       [
         "Atmosphere",
@@ -798,67 +2799,82 @@
       [
         "Condensation",
         "96",
-        "c4 leader"
+        "c7 nearest"
       ],
       [
         "Sublimation",
         "96",
-        "c4 nearest"
+        "— none"
       ],
       [
         "Fe. ecipitation",
         "74",
-        "c0 leader"
+        "c5 leader"
       ],
       [
         "Ice and",
         "84",
-        "c5 leader"
+        "— none"
       ],
       [
         "ice",
         "85",
-        "c5 nearest"
+        "— none"
       ],
       [
         "snow",
         "95",
-        "c1 leader"
+        "— none"
       ],
       [
         "Desublimation",
         "91",
-        "c4 nearest"
+        "c0 leader"
       ],
       [
         "Evapotranspiration",
         "91",
-        "c4 leader"
+        "c3 nearest"
       ],
       [
         "Evaporation",
         "96",
-        "c4 leader"
+        "— none"
+      ],
+      [
+        "7",
+        "70",
+        "— none"
       ],
       [
         "Surface",
         "96",
-        "c0 leader"
+        "c2 leader"
       ],
       [
         "OTT",
         "52",
-        "c0 inside"
+        "— none"
+      ],
+      [
+        "1",
+        "89",
+        "c8 nearest"
       ],
       [
         "Une",
         "49",
-        "c8 leader"
+        "— none"
       ],
       [
-        "Fresh- SSN",
+        "Fresh-",
         "67",
-        "c1 inside"
+        "c9 leader"
+      ],
+      [
+        "SSN",
+        "67",
+        "— none"
       ],
       [
         "Oceans",
@@ -868,12 +2884,12 @@
       [
         "SEE",
         "46",
-        "c1 leader"
+        "— none"
       ],
       [
         "flow",
         "96",
-        "c1 leader"
+        "— none"
       ],
       [
         "Vents and volcanos",
@@ -883,7 +2899,7 @@
       [
         "ator",
         "48",
-        "c1 inside"
+        "— none"
       ],
       [
         "Groundwater storage",
@@ -891,10 +2907,10 @@
         "c1 inside"
       ]
     ],
-    "linked": 24,
-    "strokes": 239,
-    "time": 1759,
-    "wallMs": 2028,
+    "linked": 12,
+    "strokes": 270,
+    "time": 1770,
+    "wallMs": 2034,
     "mode": "colour"
   }
 ]

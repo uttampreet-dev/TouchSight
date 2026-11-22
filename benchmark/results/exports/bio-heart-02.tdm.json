@@ -11,7 +11,7 @@
  "source": {
   "kind": "upload",
   "file": "bio-heart-02",
-  "captured": "2026-10-31T00:31:11.825Z"
+  "captured": "2026-11-18T15:44:20.232Z"
  },
  "regions": [
   {
@@ -74,7 +74,7 @@
     ]
    ],
    "texture": "empty",
-   "keyRef": "e",
+   "keyRef": "c",
    "confidence": 0.98,
    "sourceLabel": {
     "text": "Superior vena cava",
@@ -117,7 +117,7 @@
     ]
    ],
    "texture": "dots",
-   "keyRef": "b",
+   "keyRef": "d",
    "confidence": 0.98,
    "sourceLabel": {
     "text": "Right ventricle",
@@ -168,7 +168,7 @@
     ]
    ],
    "texture": "diagonal-lines",
-   "keyRef": "d",
+   "keyRef": "e",
    "confidence": 0.98,
    "sourceLabel": {
     "text": "Left ventricle",
@@ -254,7 +254,7 @@
     ]
    ],
    "texture": "dots",
-   "keyRef": "c",
+   "keyRef": "b",
    "confidence": 0.98,
    "sourceLabel": {
     "text": "Left atrium",
@@ -262,128 +262,7 @@
    }
   }
  ],
- "lines": [
-  {
-   "id": "l-03",
-   "name": {
-    "en": "Line 3"
-   },
-   "path": [
-    [
-     145.72,
-     73.05
-    ],
-    [
-     146.63,
-     124.8
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "i"
-  },
-  {
-   "id": "l-02",
-   "name": {
-    "en": "Line 2"
-   },
-   "path": [
-    [
-     63.71,
-     75.3
-    ],
-    [
-     64.84,
-     124.69
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "h"
-  },
-  {
-   "id": "l-12",
-   "name": {
-    "en": "Line 12"
-   },
-   "path": [
-    [
-     86.66,
-     52.46
-    ],
-    [
-     116.14,
-     51.9
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "g"
-  },
-  {
-   "id": "l-16",
-   "name": {
-    "en": "Line 16"
-   },
-   "path": [
-    [
-     123,
-     28.5
-    ],
-    [
-     143.81,
-     29.96
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "f"
-  },
-  {
-   "id": "l-10",
-   "name": {
-    "en": "Line 10"
-   },
-   "path": [
-    [
-     103.88,
-     149.89
-    ],
-    [
-     116.81,
-     149.66
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "j"
-  },
-  {
-   "id": "l-04",
-   "name": {
-    "en": "Line 4"
-   },
-   "path": [
-    [
-     138.07,
-     156.75
-    ],
-    [
-     148.09,
-     160.69
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "k"
-  }
- ],
+ "lines": [],
  "relations": [
   {
    "from": "r-02",
@@ -393,51 +272,6 @@
    "confidence": 0.76,
    "source": "detected",
    "via": "l-01"
-  },
-  {
-   "from": "r-04",
-   "to": "r-02",
-   "kind": "connects",
-   "direction": "forward",
-   "confidence": 0.83,
-   "source": "detected",
-   "via": "l-02"
-  },
-  {
-   "from": "r-03",
-   "to": "r-01",
-   "kind": "connects",
-   "direction": "forward",
-   "confidence": 0.72,
-   "source": "detected",
-   "via": "l-03"
-  },
-  {
-   "from": "r-01",
-   "to": "r-05",
-   "kind": "connects",
-   "direction": "forward",
-   "confidence": 0.78,
-   "source": "detected",
-   "via": "l-08"
-  },
-  {
-   "from": "r-02",
-   "to": "r-01",
-   "kind": "connects",
-   "direction": "forward",
-   "confidence": 0.83,
-   "source": "detected",
-   "via": "l-10"
-  },
-  {
-   "from": "r-04",
-   "to": "r-03",
-   "kind": "connects",
-   "direction": "forward",
-   "confidence": 0.76,
-   "source": "detected",
-   "via": "l-12"
   }
  ],
  "key": [
@@ -451,14 +285,6 @@
   },
   {
    "ref": "b",
-   "regionId": "r-02",
-   "text": {
-    "en": "Right Ventricle"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "c",
    "regionId": "r-03",
    "text": {
     "en": "Left Atrium"
@@ -466,15 +292,7 @@
    "braille": {}
   },
   {
-   "ref": "d",
-   "regionId": "r-01",
-   "text": {
-    "en": "Left Ventricle"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "e",
+   "ref": "c",
    "regionId": "r-05",
    "text": {
     "en": "Superior Vena Cava"
@@ -482,66 +300,28 @@
    "braille": {}
   },
   {
-   "ref": "f",
-   "regionId": "l-16",
+   "ref": "d",
+   "regionId": "r-02",
    "text": {
-    "en": "Line 16"
+    "en": "Right Ventricle"
    },
    "braille": {}
   },
   {
-   "ref": "g",
-   "regionId": "l-12",
+   "ref": "e",
+   "regionId": "r-01",
    "text": {
-    "en": "Line 12"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "h",
-   "regionId": "l-02",
-   "text": {
-    "en": "Line 2"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "i",
-   "regionId": "l-03",
-   "text": {
-    "en": "Line 3"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "j",
-   "regionId": "l-10",
-   "text": {
-    "en": "Line 10"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "k",
-   "regionId": "l-04",
-   "text": {
-    "en": "Line 4"
+    "en": "Left Ventricle"
    },
    "braille": {}
   }
  ],
  "readingOrder": [
   "r-04",
-  "r-02",
   "r-03",
-  "r-01",
   "r-05",
-  "l-16",
-  "l-12",
-  "l-02",
-  "l-03",
-  "l-10",
-  "l-04"
+  "r-02",
+  "r-01"
  ],
  "languages": {
   "primary": "en",
@@ -559,92 +339,9 @@
      "r-02",
      "r-03"
     ]
-   },
-   {
-    "rule": "R3",
-    "msg": "Detected: Line 2 connects Right Atrium to Right Ventricle (83%) — confirm or remove",
-    "ids": [
-     "r-04",
-     "r-02"
-    ]
-   },
-   {
-    "rule": "R3",
-    "msg": "Detected: Line 3 connects Left Atrium to Left Ventricle (72%) — confirm or remove",
-    "ids": [
-     "r-03",
-     "r-01"
-    ]
-   },
-   {
-    "rule": "R3",
-    "msg": "Detected: A stroke connects Left Ventricle to Superior Vena Cava (78%) — confirm or remove",
-    "ids": [
-     "r-01",
-     "r-05"
-    ]
-   },
-   {
-    "rule": "R3",
-    "msg": "Detected: Line 10 connects Right Ventricle to Left Ventricle (83%) — confirm or remove",
-    "ids": [
-     "r-02",
-     "r-01"
-    ]
-   },
-   {
-    "rule": "R3",
-    "msg": "Detected: Line 12 connects Right Atrium to Left Atrium (76%) — confirm or remove",
-    "ids": [
-     "r-04",
-     "r-03"
-    ]
    }
   ],
-  "advisory": [
-   {
-    "rule": "N1",
-    "msg": "l-03 has no label",
-    "ids": [
-     "l-03"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-02 has no label",
-    "ids": [
-     "l-02"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-12 has no label",
-    "ids": [
-     "l-12"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-16 has no label",
-    "ids": [
-     "l-16"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-10 has no label",
-    "ids": [
-     "l-10"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-04 has no label",
-    "ids": [
-     "l-04"
-    ]
-   }
-  ]
+  "advisory": []
  },
  "provenance": {
   "pipeline": "0.1",

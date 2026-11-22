@@ -1,19 +1,233 @@
 [
   {
+    "name": "astro-solarsystem-01",
+    "truth": true,
+    "labelsPrinted": 17,
+    "found": 2,
+    "pct": 12,
+    "spurious": 3,
+    "regionsFound": 8,
+    "regionsExpected": 4,
+    "strokes": 247,
+    "ms": 980,
+    "missing": [
+      [
+        "Sun",
+        "rls",
+        0
+      ],
+      [
+        "Mercury",
+        "rls",
+        0
+      ],
+      [
+        "Venus",
+        "rls",
+        0
+      ],
+      [
+        "Earth",
+        "rls",
+        0
+      ],
+      [
+        "Moon",
+        "rls",
+        0
+      ],
+      [
+        "Mars",
+        "rls",
+        0
+      ],
+      [
+        "Asteroid Belt",
+        "rls",
+        0
+      ],
+      [
+        "Ceres",
+        "rls",
+        0
+      ],
+      [
+        "Jupiter",
+        "rls",
+        0
+      ],
+      [
+        "Saturn",
+        "rls",
+        0
+      ],
+      [
+        "Uranus",
+        "rls",
+        0
+      ],
+      [
+        "Neptune",
+        "rls",
+        0
+      ],
+      [
+        "Eris",
+        "rls",
+        0
+      ],
+      [
+        "Kuiper Belt Objects",
+        "rls",
+        0
+      ],
+      [
+        "Makemake",
+        "rls",
+        0
+      ]
+    ]
+  },
+  {
+    "name": "bio-brain-fr-01",
+    "truth": true,
+    "labelsPrinted": 6,
+    "found": 0,
+    "pct": 0,
+    "spurious": 3,
+    "regionsFound": 4,
+    "regionsExpected": 6,
+    "strokes": 267,
+    "ms": 1041,
+    "missing": [
+      [
+        "Lobe frontal",
+        "ofe par tal",
+        0
+      ],
+      [
+        "Lobe pariétal",
+        "ofe par tal",
+        0.33
+      ],
+      [
+        "Lobe temporal",
+        "ofe par tal",
+        0
+      ],
+      [
+        "Lobe occipital",
+        "ofe par tal",
+        0
+      ],
+      [
+        "Cervelet",
+        "ofe par tal",
+        0
+      ],
+      [
+        "Tronc cérébral",
+        "Tronc",
+        0.25
+      ]
+    ]
+  },
+  {
+    "name": "bio-cellcycle-01",
+    "truth": true,
+    "labelsPrinted": 45,
+    "found": 41,
+    "pct": 91,
+    "spurious": 9,
+    "regionsFound": 16,
+    "regionsExpected": 9,
+    "strokes": 281,
+    "ms": 1806,
+    "missing": [
+      [
+        "(Animal Cells)",
+        "Telophase and Cytokinesis Nuclear membrane reforms nucleoli reappear chromosomes unwind into chromatin",
+        0
+      ],
+      [
+        "Resting Phase G0",
+        "Resting Phase G Cell leaves cycle",
+        0.67
+      ],
+      [
+        "Gap I G1",
+        "Gap Cell grows",
+        0.33
+      ],
+      [
+        "Gap II G2",
+        "Gap Cell grows",
+        0.33
+      ]
+    ]
+  },
+  {
     "name": "bio-digestive-01",
     "truth": true,
     "labelsPrinted": 30,
     "found": 29,
     "pct": 97,
-    "spurious": 5,
+    "spurious": 8,
     "regionsFound": 10,
     "regionsExpected": 7,
-    "strokes": 275,
-    "ms": 1948,
+    "strokes": 263,
+    "ms": 1755,
     "missing": [
       [
         "Jejunum",
         "Mouth",
+        0
+      ]
+    ]
+  },
+  {
+    "name": "bio-digestive-02",
+    "truth": true,
+    "labelsPrinted": 30,
+    "found": 30,
+    "pct": 100,
+    "spurious": 12,
+    "regionsFound": 7,
+    "regionsExpected": 8,
+    "strokes": 263,
+    "ms": 1664,
+    "missing": []
+  },
+  {
+    "name": "bio-dna-01",
+    "truth": true,
+    "labelsPrinted": 6,
+    "found": 2,
+    "pct": 33,
+    "spurious": 5,
+    "regionsFound": 5,
+    "regionsExpected": 3,
+    "strokes": 249,
+    "ms": 783,
+    "missing": [
+      [
+        "1",
+        "4",
+        0
+      ],
+      [
+        "3",
+        "4",
+        0
+      ],
+      [
+        "5",
+        "4",
+        0
+      ],
+      [
+        "6",
+        "4",
         0
       ]
     ]
@@ -24,11 +238,11 @@
     "labelsPrinted": 19,
     "found": 18,
     "pct": 95,
-    "spurious": 4,
+    "spurious": 6,
     "regionsFound": 6,
     "regionsExpected": 7,
-    "strokes": 290,
-    "ms": 1845,
+    "strokes": 282,
+    "ms": 1842,
     "missing": [
       [
         "Ciliary body",
@@ -47,7 +261,7 @@
     "regionsFound": 8,
     "regionsExpected": 6,
     "strokes": 264,
-    "ms": 936,
+    "ms": 944,
     "missing": [
       [
         "anther",
@@ -57,19 +271,37 @@
     ]
   },
   {
+    "name": "bio-flower-02",
+    "truth": true,
+    "labelsPrinted": 4,
+    "found": 4,
+    "pct": 100,
+    "spurious": 1,
+    "regionsFound": 1,
+    "regionsExpected": 4,
+    "strokes": 261,
+    "ms": 733,
+    "missing": []
+  },
+  {
     "name": "bio-heart-01",
     "truth": true,
     "labelsPrinted": 14,
-    "found": 9,
-    "pct": 64,
+    "found": 8,
+    "pct": 57,
     "spurious": 6,
     "regionsFound": 9,
     "regionsExpected": 4,
     "strokes": 265,
-    "ms": 1446,
+    "ms": 1448,
     "missing": [
       [
         "Pulmonary Artery",
+        "Pulmonary Art",
+        0.5
+      ],
+      [
+        "Pulmonary Vein",
         "Pulmonary Art",
         0.5
       ],
@@ -105,8 +337,32 @@
     "regionsFound": 5,
     "regionsExpected": 4,
     "strokes": 184,
-    "ms": 712,
+    "ms": 705,
     "missing": []
+  },
+  {
+    "name": "bio-neuron-01",
+    "truth": true,
+    "labelsPrinted": 29,
+    "found": 27,
+    "pct": 93,
+    "spurious": 10,
+    "regionsFound": 12,
+    "regionsExpected": 6,
+    "strokes": 280,
+    "ms": 1793,
+    "missing": [
+      [
+        "Mitochondrion",
+        "4",
+        0
+      ],
+      [
+        "Axon hillock",
+        "hillock",
+        0.5
+      ]
+    ]
   },
   {
     "name": "bio-plantcell-01",
@@ -114,11 +370,11 @@
     "labelsPrinted": 22,
     "found": 21,
     "pct": 95,
-    "spurious": 4,
+    "spurious": 6,
     "regionsFound": 10,
     "regionsExpected": 6,
     "strokes": 269,
-    "ms": 1614,
+    "ms": 1599,
     "missing": [
       [
         "Small membranous vesicles",
@@ -137,7 +393,7 @@
     "regionsFound": 9,
     "regionsExpected": 9,
     "strokes": 181,
-    "ms": 660,
+    "ms": 657,
     "missing": [
       [
         "Nucleolus",
@@ -152,16 +408,536 @@
     ]
   },
   {
+    "name": "bio-respiratory-01",
+    "truth": true,
+    "labelsPrinted": 48,
+    "found": 44,
+    "pct": 92,
+    "spurious": 12,
+    "regionsFound": 6,
+    "regionsExpected": 7,
+    "strokes": 278,
+    "ms": 2261,
+    "missing": [
+      [
+        "Esophagus",
+        "Capilllary beds",
+        0
+      ],
+      [
+        "Oral cavity",
+        "Nose Nasal cavity Nasal conchae Nasal vestibule",
+        0.5
+      ],
+      [
+        "Main bronchi",
+        "bronchi",
+        0.5
+      ],
+      [
+        "Alveolar sacs",
+        "Alveolar",
+        0.5
+      ]
+    ]
+  },
+  {
+    "name": "chem-distillation-01",
+    "truth": true,
+    "labelsPrinted": 16,
+    "found": 4,
+    "pct": 25,
+    "spurious": 1,
+    "regionsFound": 6,
+    "regionsExpected": 6,
+    "strokes": 239,
+    "ms": 834,
+    "missing": [
+      [
+        "1",
+        "Sf SS",
+        0
+      ],
+      [
+        "2",
+        "Sf SS",
+        0
+      ],
+      [
+        "4",
+        "Sf SS",
+        0
+      ],
+      [
+        "5",
+        "Sf SS",
+        0
+      ],
+      [
+        "6",
+        "Sf SS",
+        0
+      ],
+      [
+        "7",
+        "Sf SS",
+        0
+      ],
+      [
+        "8",
+        "Sf SS",
+        0
+      ],
+      [
+        "9",
+        "Sf SS",
+        0
+      ],
+      [
+        "11",
+        "Sf SS",
+        0
+      ],
+      [
+        "12",
+        "Sf SS",
+        0
+      ],
+      [
+        "15",
+        "Sf SS",
+        0
+      ],
+      [
+        "16",
+        "Sf SS",
+        0
+      ]
+    ]
+  },
+  {
+    "name": "geo-tectonic-01",
+    "truth": true,
+    "labelsPrinted": 18,
+    "found": 5,
+    "pct": 28,
+    "spurious": 14,
+    "regionsFound": 10,
+    "regionsExpected": 7,
+    "strokes": 281,
+    "ms": 1697,
+    "missing": [
+      [
+        "NORTH AMERICAN PLATE",
+        "AMERICAN",
+        0.33
+      ],
+      [
+        "JUAN DE FUCA PLATE",
+        "JUAN DE",
+        0.5
+      ],
+      [
+        "PHILIPPINE PLATE",
+        "PLATE",
+        0.5
+      ],
+      [
+        "COCOS PLATE",
+        "PLATE",
+        0.5
+      ],
+      [
+        "CARIBBEAN PLATE",
+        "PLATE",
+        0.5
+      ],
+      [
+        "ARABIAN PLATE",
+        "PLATE",
+        0.5
+      ],
+      [
+        "INDIAN PLATE",
+        "PLATE",
+        0.5
+      ],
+      [
+        "AFRICAN PLATE",
+        "AMERICAN",
+        0.5
+      ],
+      [
+        "SOUTH AMERICAN PLATE",
+        "AMERICAN",
+        0.33
+      ],
+      [
+        "NAZCA PLATE",
+        "PLATE",
+        0.5
+      ],
+      [
+        "PACIFIC PLATE",
+        "PLATE",
+        0.5
+      ],
+      [
+        "SCOTIA PLATE",
+        "PLATE",
+        0.5
+      ],
+      [
+        "ANTARCTIC PLATE",
+        "PLATE",
+        0.5
+      ]
+    ]
+  },
+  {
+    "name": "geo-watercycle-02",
+    "truth": true,
+    "labelsPrinted": 19,
+    "found": 11,
+    "pct": 58,
+    "spurious": 18,
+    "regionsFound": 14,
+    "regionsExpected": 4,
+    "strokes": 247,
+    "ms": 1901,
+    "missing": [
+      [
+        "SEA ICE",
+        "CLOUDS",
+        0
+      ],
+      [
+        "SNOW, GLACIERS and ICE SHEETS",
+        "SNOW GLACIERS and ICESHEETS",
+        0.6
+      ],
+      [
+        "EVAPOTRANSPIRATION",
+        "CLOUDS",
+        0
+      ],
+      [
+        "SURFACE RUNOFF",
+        "SURFACE",
+        0.5
+      ],
+      [
+        "RIVERS and LAKES",
+        "RIVERS and",
+        0.67
+      ],
+      [
+        "PERCOLATION",
+        "CLOUDS",
+        0
+      ],
+      [
+        "RIVER DISCHARGE",
+        "RIVERS and",
+        0.5
+      ],
+      [
+        "GROUND-WATER FLOW",
+        "CLOUDS and WATER VAPOR",
+        0.33
+      ]
+    ]
+  },
+  {
+    "name": "math-keplertriangle-01",
+    "truth": true,
+    "labelsPrinted": 15,
+    "found": 0,
+    "pct": 0,
+    "spurious": 4,
+    "regionsFound": 6,
+    "regionsExpected": 2,
+    "strokes": 200,
+    "ms": 888,
+    "missing": [
+      [
+        "√φ^(-10) ≈ .090",
+        "VoA(-10)",
+        0
+      ],
+      [
+        "√φ^(-8) ≈ .145",
+        "VoA(-10)",
+        0
+      ],
+      [
+        "√φ^(-9) ≈ .114",
+        "VoA(-10)",
+        0
+      ],
+      [
+        "√φ^(-7) ≈ .185",
+        "VoA(-10)",
+        0
+      ],
+      [
+        "√φ^(-6) ≈ .236",
+        "VoA(-10)",
+        0
+      ],
+      [
+        "√φ^(-5) ≈ .300",
+        "VoA(-10)",
+        0
+      ],
+      [
+        "√φ^(-4) ≈ .381",
+        "VoA(-10)",
+        0
+      ],
+      [
+        "√φ^(-3) ≈ .485",
+        "VoA(-10)",
+        0
+      ],
+      [
+        "√φ^(-3) ≈ .485",
+        "VoA(-10)",
+        0
+      ],
+      [
+        "√φ^(-2) ≈ .618",
+        "VoA(-10)",
+        0
+      ],
+      [
+        "√φ^(-2) ≈ .618",
+        "VoA(-10)",
+        0
+      ],
+      [
+        "√φ^(-1) ≈ .786",
+        "VoA(-10)",
+        0
+      ],
+      [
+        "√φ^(0) =1.",
+        "VoA(-10)",
+        0
+      ],
+      [
+        "√φ^(1) ≈1.272",
+        "VoA(-10)",
+        0
+      ],
+      [
+        "√φ^(2) ≈1.618",
+        "VoA(-10)",
+        0
+      ]
+    ]
+  },
+  {
+    "name": "math-parallelogram-01",
+    "truth": true,
+    "labelsPrinted": 4,
+    "found": 0,
+    "pct": 0,
+    "spurious": 0,
+    "regionsFound": 4,
+    "regionsExpected": 2,
+    "strokes": 80,
+    "ms": 480,
+    "missing": [
+      [
+        "a",
+        "",
+        0
+      ],
+      [
+        "b",
+        "",
+        0
+      ],
+      [
+        "h",
+        "",
+        0
+      ],
+      [
+        "γ",
+        "",
+        0
+      ]
+    ]
+  },
+  {
+    "name": "math-triangleproof-01",
+    "truth": true,
+    "labelsPrinted": 8,
+    "found": 5,
+    "pct": 63,
+    "spurious": 0,
+    "regionsFound": 7,
+    "regionsExpected": 3,
+    "strokes": 187,
+    "ms": 671,
+    "missing": [
+      [
+        "C",
+        "A",
+        0
+      ],
+      [
+        "F",
+        "A",
+        0
+      ],
+      [
+        "C (F)",
+        "A",
+        0
+      ]
+    ]
+  },
+  {
+    "name": "phy-circuit-schematic-01",
+    "truth": true,
+    "labelsPrinted": 16,
+    "found": 5,
+    "pct": 31,
+    "spurious": 0,
+    "regionsFound": 13,
+    "regionsExpected": 6,
+    "strokes": 248,
+    "ms": 1141,
+    "missing": [
+      [
+        "1",
+        "4",
+        0
+      ],
+      [
+        "A",
+        "4",
+        0
+      ],
+      [
+        "I=4 AMPERES",
+        "4",
+        0.33
+      ],
+      [
+        "R=3 OHMS",
+        "OHMS",
+        0.33
+      ],
+      [
+        "+",
+        "4",
+        0
+      ],
+      [
+        "V",
+        "4",
+        0
+      ],
+      [
+        "-",
+        "4",
+        0
+      ],
+      [
+        "E=12 VOLTS",
+        "VOLTS",
+        0.33
+      ],
+      [
+        "2",
+        "4",
+        0
+      ],
+      [
+        "SCHEMATIC OF CIRCUIT",
+        "PICTORIAL DIAGRAM OF CIRCUIT",
+        0.67
+      ],
+      [
+        "Figure 48. Diagram of a basic electric circuit.",
+        "PICTORIAL DIAGRAM OF CIRCUIT",
+        0.38
+      ]
+    ]
+  },
+  {
+    "name": "phy-pulley-01",
+    "truth": true,
+    "labelsPrinted": 6,
+    "found": 2,
+    "pct": 33,
+    "spurious": 2,
+    "regionsFound": 9,
+    "regionsExpected": 3,
+    "strokes": 231,
+    "ms": 725,
+    "missing": [
+      [
+        "F_N",
+        "FAF",
+        0
+      ],
+      [
+        "F + ΔF",
+        "FAF",
+        0
+      ],
+      [
+        "β",
+        "FAF",
+        0
+      ],
+      [
+        "F",
+        "FAF",
+        0
+      ]
+    ]
+  },
+  {
+    "name": "bio-eye-02",
+    "truth": true,
+    "labelsPrinted": 13,
+    "found": 11,
+    "pct": 85,
+    "spurious": 16,
+    "regionsFound": 2,
+    "regionsExpected": 4,
+    "strokes": 257,
+    "ms": 2263,
+    "missing": [
+      [
+        "Iris",
+        "Sclera",
+        0
+      ],
+      [
+        "Optic papilla",
+        "Optic nerve",
+        0.5
+      ]
+    ]
+  },
+  {
     "name": "geo-watercycle-01",
     "truth": true,
     "labelsPrinted": 24,
     "found": 11,
     "pct": 46,
-    "spurious": 7,
+    "spurious": 10,
     "regionsFound": 14,
     "regionsExpected": 4,
-    "strokes": 239,
-    "ms": 1759,
+    "strokes": 270,
+    "ms": 1770,
     "missing": [
       [
         "The Water Cycle",

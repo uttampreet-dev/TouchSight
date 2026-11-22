@@ -11,13 +11,13 @@
  "source": {
   "kind": "upload",
   "file": "bio-eye-01",
-  "captured": "2026-10-31T00:31:02.449Z"
+  "captured": "2026-11-18T15:44:09.993Z"
  },
  "regions": [
   {
    "id": "r-05",
    "name": {
-    "en": "Antetior Chamber (aqueous Humour) Posterior Chamber Suspensory Ligament Of Lens"
+    "en": "Canal"
    },
    "polygon": [
     [
@@ -127,16 +127,16 @@
    ],
    "texture": "dots",
    "keyRef": "b",
-   "confidence": 0.94,
+   "confidence": 0.98,
    "sourceLabel": {
-    "text": "antetior chamber (aqueous humour) Posterior chamber Suspensory ligament of lens",
-    "ocrConfidence": 0.85
+    "text": "canal",
+    "ocrConfidence": 0.96
    }
   },
   {
    "id": "r-04",
    "name": {
-    "en": "Region 4"
+    "en": "Retinal Blood Sy. Vessels Vf"
    },
    "polygon": [
     [
@@ -222,12 +222,16 @@
    ],
    "texture": "diagonal-lines",
    "keyRef": "c",
-   "confidence": 0.5
+   "confidence": 0.91,
+   "sourceLabel": {
+    "text": "Retinal blood Sy. vessels Vf",
+    "ocrConfidence": 0.78
+   }
   },
   {
    "id": "r-01",
    "name": {
-    "en": "Say"
+    "en": "Optic Disc"
    },
    "polygon": [
     [
@@ -289,10 +293,10 @@
    ],
    "texture": "dots",
    "keyRef": "e",
-   "confidence": 0.78,
+   "confidence": 0.98,
    "sourceLabel": {
-    "text": "Say",
-    "ocrConfidence": 0.45
+    "text": "Optic disc",
+    "ocrConfidence": 0.96
    }
   },
   {
@@ -345,7 +349,7 @@
   {
    "id": "r-03",
    "name": {
-    "en": "Region 3"
+    "en": "A"
    },
    "polygon": [
     [
@@ -395,12 +399,16 @@
    ],
    "texture": "dots",
    "keyRef": "d",
-   "confidence": 0.5
+   "confidence": 0.97,
+   "sourceLabel": {
+    "text": "A",
+    "ocrConfidence": 0.92
+   }
   },
   {
    "id": "r-06",
    "name": {
-    "en": "Anterior Chamber (aqueous Humour) Posterior Osterior Chamb Chamber"
+    "en": "Antetior Chamber (aqueous Humour) Posterior Chamber Suspensory Ligament Of Lens"
    },
    "polygon": [
     [
@@ -442,14 +450,34 @@
    ],
    "texture": "dots",
    "keyRef": "a",
-   "confidence": 0.98,
+   "confidence": 0.94,
    "sourceLabel": {
-    "text": "Anterior chamber (aqueous humour) Posterior osterior chamb chamber",
-    "ocrConfidence": 0.94
+    "text": "antetior chamber (aqueous humour) Posterior chamber Suspensory ligament of lens",
+    "ocrConfidence": 0.85
    }
   }
  ],
  "lines": [
+  {
+   "id": "l-01",
+   "name": {
+    "en": "Line 1"
+   },
+   "path": [
+    [
+     113.13,
+     73.4
+    ],
+    [
+     136.6,
+     60.92
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "h"
+  },
   {
    "id": "l-03",
    "name": {
@@ -457,12 +485,12 @@
    },
    "path": [
     [
-     87.14,
-     145.53
+     140.61,
+     139.92
     ],
     [
-     98.7,
-     115.42
+     154.35,
+     124.01
     ]
    ],
    "width": 1.2,
@@ -471,78 +499,18 @@
    "keyRef": "l"
   },
   {
-   "id": "l-02",
+   "id": "l-07",
    "name": {
-    "en": "Line 2"
+    "en": "Line 7"
    },
    "path": [
     [
-     102.6,
-     101.22
+     54.39,
+     122.06
     ],
     [
-     105.92,
-     73.74
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "i"
-  },
-  {
-   "id": "l-06",
-   "name": {
-    "en": "Line 6"
-   },
-   "path": [
-    [
-     94.69,
-     137.98
-    ],
-    [
-     103.17,
-     114.73
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "j"
-  },
-  {
-   "id": "l-08",
-   "name": {
-    "en": "Line 8"
-   },
-   "path": [
-    [
-     78.89,
-     50.5
-    ],
-    [
-     102.02,
-     46.03
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "g"
-  },
-  {
-   "id": "l-09",
-   "name": {
-    "en": "Line 9"
-   },
-   "path": [
-    [
-     117.37,
-     139.12
-    ],
-    [
-     128.02,
-     118.4
+     68.93,
+     135.23
     ]
    ],
    "width": 1.2,
@@ -551,18 +519,18 @@
    "keyRef": "k"
   },
   {
-   "id": "l-12",
+   "id": "l-08",
    "name": {
-    "en": "Line 12"
+    "en": "Line 8"
    },
    "path": [
     [
-     92.63,
-     143.02
+     127.44,
+     145.31
     ],
     [
-     114.16,
-     141.53
+     135.92,
+     128.02
     ]
    ],
    "width": 1.2,
@@ -571,24 +539,64 @@
    "keyRef": "m"
   },
   {
+   "id": "l-10",
+   "name": {
+    "en": "Line 10"
+   },
+   "path": [
+    [
+     68.02,
+     68.36
+    ],
+    [
+     86.91,
+     68.02
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "g"
+  },
+  {
+   "id": "l-14",
+   "name": {
+    "en": "Line 14"
+   },
+   "path": [
+    [
+     126.87,
+     116.34
+    ],
+    [
+     142.67,
+     107.29
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "j"
+  },
+  {
    "id": "l-16",
    "name": {
     "en": "Line 16"
    },
    "path": [
     [
-     65.15,
-     64.81
+     69.73,
+     102.71
     ],
     [
-     84.5,
-     65.15
+     86.79,
+     98.13
     ]
    ],
    "width": 1.2,
    "style": "single",
    "arrow": "none",
-   "keyRef": "h"
+   "keyRef": "i"
   }
  ],
  "relations": [
@@ -597,9 +605,9 @@
    "to": "r-05",
    "kind": "connects",
    "direction": "forward",
-   "confidence": 0.93,
+   "confidence": 0.91,
    "source": "detected",
-   "via": "l-02"
+   "via": "l-05"
   }
  ],
  "key": [
@@ -607,7 +615,7 @@
    "ref": "a",
    "regionId": "r-06",
    "text": {
-    "en": "Anterior Chamber (aqueous Humour) Posterior Osterior Chamb Chamber"
+    "en": "Antetior Chamber (aqueous Humour) Posterior Chamber Suspensory Ligament Of Lens"
    },
    "braille": {}
   },
@@ -615,7 +623,7 @@
    "ref": "b",
    "regionId": "r-05",
    "text": {
-    "en": "Antetior Chamber (aqueous Humour) Posterior Chamber Suspensory Ligament Of Lens"
+    "en": "Canal"
    },
    "braille": {}
   },
@@ -623,7 +631,7 @@
    "ref": "c",
    "regionId": "r-04",
    "text": {
-    "en": "Region 4"
+    "en": "Retinal Blood Sy. Vessels Vf"
    },
    "braille": {}
   },
@@ -631,7 +639,7 @@
    "ref": "d",
    "regionId": "r-03",
    "text": {
-    "en": "Region 3"
+    "en": "A"
    },
    "braille": {}
   },
@@ -639,7 +647,7 @@
    "ref": "e",
    "regionId": "r-01",
    "text": {
-    "en": "Say"
+    "en": "Optic Disc"
    },
    "braille": {}
   },
@@ -653,14 +661,22 @@
   },
   {
    "ref": "g",
-   "regionId": "l-08",
+   "regionId": "l-10",
    "text": {
-    "en": "Line 8"
+    "en": "Line 10"
    },
    "braille": {}
   },
   {
    "ref": "h",
+   "regionId": "l-01",
+   "text": {
+    "en": "Line 1"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "i",
    "regionId": "l-16",
    "text": {
     "en": "Line 16"
@@ -668,26 +684,18 @@
    "braille": {}
   },
   {
-   "ref": "i",
-   "regionId": "l-02",
-   "text": {
-    "en": "Line 2"
-   },
-   "braille": {}
-  },
-  {
    "ref": "j",
-   "regionId": "l-06",
+   "regionId": "l-14",
    "text": {
-    "en": "Line 6"
+    "en": "Line 14"
    },
    "braille": {}
   },
   {
    "ref": "k",
-   "regionId": "l-09",
+   "regionId": "l-07",
    "text": {
-    "en": "Line 9"
+    "en": "Line 7"
    },
    "braille": {}
   },
@@ -701,9 +709,9 @@
   },
   {
    "ref": "m",
-   "regionId": "l-12",
+   "regionId": "l-08",
    "text": {
-    "en": "Line 12"
+    "en": "Line 8"
    },
    "braille": {}
   }
@@ -715,13 +723,13 @@
   "r-03",
   "r-01",
   "r-02",
-  "l-08",
+  "l-10",
+  "l-01",
   "l-16",
-  "l-02",
-  "l-06",
-  "l-09",
+  "l-14",
+  "l-07",
   "l-03",
-  "l-12"
+  "l-08"
  ],
  "languages": {
   "primary": "en",
@@ -734,7 +742,7 @@
   "blocking": [
    {
     "rule": "R3",
-    "msg": "Detected: Line 2 connects Region 4 to Antetior Chamber (aqueous Humour) Posterior Chamber Suspensory Ligament Of Lens (93%) — confirm or remove",
+    "msg": "Detected: A stroke connects Retinal Blood Sy. Vessels Vf to Canal (91%) — confirm or remove",
     "ids": [
      "r-04",
      "r-05"
@@ -744,20 +752,6 @@
   "advisory": [
    {
     "rule": "N1",
-    "msg": "r-04 has no label",
-    "ids": [
-     "r-04"
-    ]
-   },
-   {
-    "rule": "O1",
-    "msg": "Say: read at 45% confidence",
-    "ids": [
-     "r-01"
-    ]
-   },
-   {
-    "rule": "N1",
     "msg": "r-02 has no label",
     "ids": [
      "r-02"
@@ -765,9 +759,9 @@
    },
    {
     "rule": "N1",
-    "msg": "r-03 has no label",
+    "msg": "l-01 has no label",
     "ids": [
-     "r-03"
+     "l-01"
     ]
    },
    {
@@ -779,16 +773,9 @@
    },
    {
     "rule": "N1",
-    "msg": "l-02 has no label",
+    "msg": "l-07 has no label",
     "ids": [
-     "l-02"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-06 has no label",
-    "ids": [
-     "l-06"
+     "l-07"
     ]
    },
    {
@@ -800,16 +787,16 @@
    },
    {
     "rule": "N1",
-    "msg": "l-09 has no label",
+    "msg": "l-10 has no label",
     "ids": [
-     "l-09"
+     "l-10"
     ]
    },
    {
     "rule": "N1",
-    "msg": "l-12 has no label",
+    "msg": "l-14 has no label",
     "ids": [
-     "l-12"
+     "l-14"
     ]
    },
    {

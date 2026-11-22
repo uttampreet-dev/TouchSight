@@ -3,39 +3,42 @@
     "name": "astro-solarsystem-01",
     "difficulty": "medium",
     "truth": true,
-    "understandMs": 1026,
+    "understandMs": 1231,
     "labels": [
       "rls",
+      "4",
       "Pluto",
+      "Sun",
+      "eit",
       "moe",
       "Comets"
     ],
     "regionsFound": 8,
-    "strokes": 264,
+    "strokes": 251,
     "timings": {
       "segment": 25,
-      "ocr": 754,
-      "lines": 66,
-      "total": 989
+      "ocr": 949,
+      "lines": 68,
+      "total": 1194
     },
     "draft": {
       "regions": 8,
       "lines": 16,
       "relations": [
         [
-          "Line 2",
-          "Rls",
+          "Line 1",
+          "Pluto",
+          1
+        ],
+        [
+          "Region 8",
+          "Pluto",
           1
         ],
         [
           "Line 3",
-          "Rls",
-          1
-        ],
-        [
-          "Rls",
-          "Pluto",
-          0.98
+          "Region 4",
+          0.96
         ],
         [
           "Region 3",
@@ -47,44 +50,44 @@
     "report": {
       "dropped": [
         {
-          "id": "l-01",
-          "why": "length 7.2 mm < 8"
+          "id": "l-07",
+          "why": "within 3 mm of l-01"
+        },
+        {
+          "id": "l-12",
+          "why": "within 3 mm of l-03"
+        },
+        {
+          "id": "l-13",
+          "why": "within 3 mm of l-05"
         },
         {
           "id": "l-10",
-          "why": "length 7.5 mm < 8"
+          "why": "within 3 mm of l-05"
         },
         {
-          "id": "l-03",
-          "why": "within 3 mm of l-02"
+          "id": "l-14",
+          "why": "within 3 mm of l-05"
         },
         {
           "id": "l-15",
           "why": "within 3 mm of l-05"
         },
         {
-          "id": "l-06",
+          "id": "l-08",
           "why": "runs within 3 mm of r-05 without connecting"
         },
         {
-          "id": "l-07",
-          "why": "within 3 mm of l-02"
+          "id": "l-02",
+          "why": "runs within 3 mm of r-08 without connecting"
         },
         {
-          "id": "l-08",
-          "why": "within 3 mm of l-02"
+          "id": "l-16",
+          "why": "within 3 mm of l-01"
         },
         {
-          "id": "l-11",
-          "why": "within 3 mm of l-02"
-        },
-        {
-          "id": "l-04",
-          "why": "within 3 mm of l-02"
-        },
-        {
-          "id": "l-12",
-          "why": "within 3 mm of l-02"
+          "id": "l-09",
+          "why": "within 3 mm of l-05"
         }
       ],
       "merged": 0,
@@ -98,15 +101,15 @@
       "regions": [
         "Pluto",
         "Region 4",
-        "Moe",
-        "Rls",
+        "Region 2",
+        "Region 8",
         "Region 5",
         "Region 3",
         "Comets",
         "Region 7"
       ],
       "lines": 6,
-      "relations": 3,
+      "relations": 4,
       "key": 14
     },
     "validation": {
@@ -114,12 +117,13 @@
       "blocking": [
         "R3",
         "R3",
+        "R3",
         "R3"
       ],
       "advisory": [
         "N1",
-        "O1",
-        "O1",
+        "N1",
+        "N1",
         "N1",
         "N1",
         "O1",
@@ -132,57 +136,54 @@
         "N1"
       ],
       "msgs": [
-        "R3: Detected: Line 2 connects Line 2 to Rls (100%) — confirm or remove",
-        "R3: Detected: A stroke connects Rls to Pluto (98%) — confirm or remove",
-        "R3: Detected: A stroke connects Region 3 to Region 5 (99%) — confirm or remove"
+        "R3: Detected: Line 1 connects Line 1 to Pluto (100%) — confirm or remove",
+        "R3: Detected: A stroke connects Region 8 to Pluto (100%) — confirm or remove",
+        "R3: Detected: Line 3 connects Line 3 to Region 4 (96%) — confirm or remove",
+        "R3: Detected: Line 5 connects Region 3 to Region 5 (99%) — confirm or remove"
       ]
     },
     "ms": {
-      "draft": 4.799999982118607,
-      "simplify": 9.599999994039536,
-      "validate": 1.300000011920929,
-      "exports": 17.69999998807907
+      "draft": 5.899999976158142,
+      "simplify": 10,
+      "validate": 1.3000000715255737,
+      "exports": 18.5
     },
     "exports": {
       "svg": {
         "ok": true,
-        "cells": 140,
+        "cells": 150,
         "keyEntries": 14,
         "keyFits": true
       },
       "stl": {
         "ok": true,
-        "triangles": 10768,
-        "shells": 361,
+        "triangles": 11580,
+        "shells": 390,
         "openEdges": 0,
         "bbox": {
           "x": 10,
-          "y": 31.5,
+          "y": 11.8,
           "z": 0,
-          "w": 183.3,
-          "h": 212.8,
+          "w": 180.9,
+          "h": 211.6,
           "d": 3
         },
-        "kb": 526
+        "kb": 566
       },
       "alt": {
         "ok": true,
-        "words": 116
+        "words": 127
       },
       "brf": {
         "ok": true,
         "pages": 1,
-        "cells": 137
+        "cells": 145
       }
     },
     "sem": {
       "labelsPrinted": 17,
-      "labelsRead": 2,
+      "labelsRead": 3,
       "missing": [
-        [
-          "Sun",
-          "rls"
-        ],
         [
           "Mercury",
           "rls"
@@ -246,108 +247,80 @@
       "relMatched": 0
     },
     "geomClean": true,
-    "r3": 3
+    "r3": 4
   },
   {
     "name": "bio-brain-fr-01",
     "difficulty": "easy",
     "truth": true,
-    "understandMs": 1065,
+    "understandMs": 1159,
     "labels": [
       "ofe par tal",
       "par",
       "tal",
       "atal",
+      "occ",
+      "Lo ete",
+      "Tronc crbral",
       "Tronc"
     ],
     "regionsFound": 4,
-    "strokes": 267,
+    "strokes": 258,
     "timings": {
-      "segment": 316,
-      "ocr": 457,
-      "lines": 148,
-      "total": 1038
+      "segment": 325,
+      "ocr": 553,
+      "lines": 139,
+      "total": 1135
     },
     "draft": {
       "regions": 4,
       "lines": 16,
       "relations": [
         [
-          "Tronc",
-          "Ofe Par Tal",
-          0.91
-        ],
-        [
-          "Line 2",
-          "Tronc",
-          1
-        ],
-        [
-          "Tronc",
           "Atal",
+          "Tal",
+          0.83
+        ],
+        [
+          "Tal",
+          "Lo Ete",
           1
-        ],
-        [
-          "Ofe Par Tal",
-          "Region 3",
-          0.96
-        ],
-        [
-          "Tronc",
-          "Region 3",
-          0.96
         ]
       ]
     },
     "report": {
       "dropped": [
         {
-          "id": "l-09",
-          "why": "length 7.1 mm < 8"
-        },
-        {
-          "id": "l-02",
-          "why": "runs within 3 mm of r-01 without connecting"
+          "id": "l-06",
+          "why": "length 5.6 mm < 8"
         },
         {
           "id": "l-10",
-          "why": "runs within 3 mm of r-03 without connecting"
-        },
-        {
-          "id": "l-11",
-          "why": "within 3 mm of l-03"
-        },
-        {
-          "id": "l-14",
-          "why": "runs within 3 mm of r-01 without connecting"
-        },
-        {
-          "id": "l-04",
-          "why": "runs within 3 mm of r-01 without connecting"
+          "why": "length 5.6 mm < 8"
         },
         {
           "id": "l-01",
           "why": "runs within 3 mm of r-01 without connecting"
         },
         {
-          "id": "l-16",
-          "why": "runs within 3 mm of r-01 without connecting"
-        },
-        {
           "id": "l-07",
-          "why": "within 3 mm of l-03"
+          "why": "runs within 3 mm of r-02 without connecting"
         },
         {
           "id": "l-08",
-          "why": "within 3 mm of l-03"
+          "why": "within 3 mm of l-02"
         },
         {
-          "id": "l-06",
-          "why": "runs within 3 mm of r-03 without connecting"
+          "id": "l-11",
+          "why": "within 3 mm of l-02"
         },
         {
-          "id": "l-05",
-          "why": "within 3 mm of l-03"
+          "id": "l-12",
+          "why": "within 3 mm of l-02"
+        },
+        {
+          "id": "l-03",
+          "why": "within 3 mm of l-15"
         }
       ],
       "merged": 0,
@@ -360,25 +333,25 @@
     "out": {
       "regions": [
         "Atal",
-        "Tronc",
-        "Ofe Par Tal",
-        "Region 3"
+        "Lo Ete",
+        "Tal",
+        "Occ"
       ],
-      "lines": 4,
-      "relations": 4,
-      "key": 8
+      "lines": 8,
+      "relations": 2,
+      "key": 12
     },
     "validation": {
       "status": "fail",
       "blocking": [
         "R3",
-        "R3",
-        "R3",
         "R3"
       ],
       "advisory": [
         "O1",
-        "O1",
+        "N1",
+        "N1",
+        "N1",
         "N1",
         "N1",
         "N1",
@@ -386,39 +359,37 @@
         "N1"
       ],
       "msgs": [
-        "R3: Detected: A stroke connects Tronc to Ofe Par Tal (91%) — confirm or remove",
-        "R3: Detected: A stroke connects Tronc to Atal (100%) — confirm or remove",
-        "R3: Detected: A stroke connects Ofe Par Tal to Region 3 (96%) — confirm or remove",
-        "R3: Detected: A stroke connects Tronc to Region 3 (96%) — confirm or remove"
+        "R3: Detected: A stroke connects Atal to Tal (83%) — confirm or remove",
+        "R3: Detected: Line 14 connects Tal to Lo Ete (100%) — confirm or remove"
       ]
     },
     "ms": {
-      "draft": 2.0999999940395355,
-      "simplify": 10.300000011920929,
+      "draft": 2.4000000953674316,
+      "simplify": 10.699999928474426,
       "validate": 2.5,
-      "exports": 42.099999994039536
+      "exports": 42.300000071525574
     },
     "exports": {
       "svg": {
         "ok": true,
-        "cells": 86,
-        "keyEntries": 8,
+        "cells": 113,
+        "keyEntries": 12,
         "keyFits": true
       },
       "stl": {
         "ok": true,
-        "triangles": 24592,
-        "shells": 809,
+        "triangles": 25956,
+        "shells": 860,
         "openEdges": 0,
         "bbox": {
           "x": 10,
-          "y": 18.1,
+          "y": 20.2,
           "z": 0,
           "w": 180.2,
-          "h": 202.4,
+          "h": 240.3,
           "d": 3
         },
-        "kb": 1201
+        "kb": 1267
       },
       "alt": {
         "ok": true,
@@ -427,7 +398,7 @@
       "brf": {
         "ok": true,
         "pages": 1,
-        "cells": 87
+        "cells": 108
       }
     },
     "sem": {
@@ -456,7 +427,7 @@
         ],
         [
           "Tronc cérébral",
-          "Tronc"
+          "Tronc crbral"
         ]
       ],
       "regionsExpected": 6,
@@ -465,29 +436,36 @@
       "relMatched": 0
     },
     "geomClean": true,
-    "r3": 4
+    "r3": 2
   },
   {
     "name": "bio-cellcycle-01",
     "difficulty": "hard",
     "truth": true,
-    "understandMs": 1859,
+    "understandMs": 2370,
     "labels": [
       "Telophase and Cytokinesis Nuclear membrane reforms nucleoli reappear chromosomes unwind into chromatin",
       "Aly",
+      "4",
       "Myosin It and actin filament ring contract to cleave cell in two Contractile ring",
+      "furrow",
       "Cleavage furrow",
       "Daughter cells",
       "Contractile ring",
-      "Resting Phase Cell leaves cycle",
+      "Resting Phase G Cell leaves cycle",
       "Anaphase Chromosomes break at centromeres and sister chromatids move to opposite ends of the cell",
       "cycle",
+      "chromatids",
       "ste orate",
+      "Chromosome Sater",
       "Chrom",
       "Sister",
       "Metaphase Chromosomes line up along metaphase plate (imaginary plane)",
+      "hase",
+      "Meta",
       "Gap Cell grows",
       "The Cell Cycle (Animal Cells)",
+      "7",
       "(Animal Cells)",
       "Interphase",
       "Mitotic Phase M-Phase",
@@ -496,15 +474,16 @@
       "Microtubules",
       "Prometaphase Nuclear membrane breaks down",
       "Prometaphase",
-      "Lon",
+      "ma ns",
       "Nucleus membrane",
       "Nuclear membrane breaks down",
       "DNA Synthesis Phase S-Phase",
       "Chromatin",
-      "Kinetochore microtubules invade nuclear space and attach to kinetochores",
+      "Kinetochore invade nuclear microtubules space and attach to kinetochores",
       "Kinetochore",
-      "invade Kinetochore nuciea microtubules Kinctochores Polar microtubules push against each other moving centrosomes apart Astral microtubules",
-      "Cell duplicates its DNA Centrosome duplicates",
+      "Kinetochore microtubules invade nuciea Kinctochores Polar microtubules push against each other moving centrosomes apart Astral microtubules",
+      "Cell duplicates its DNA",
+      "Centrosome duplicates",
       "Cell duplicates its",
       "Centrosome duplicates",
       "Chromosome.",
@@ -517,45 +496,45 @@
       "ell",
       "grows some more"
     ],
-    "regionsFound": 16,
-    "strokes": 280,
+    "regionsFound": 15,
+    "strokes": 292,
     "timings": {
-      "segment": 38,
-      "ocr": 1596,
-      "lines": 74,
-      "total": 1833
+      "segment": 39,
+      "ocr": 2115,
+      "lines": 73,
+      "total": 2341
     },
     "draft": {
-      "regions": 16,
+      "regions": 15,
       "lines": 16,
       "relations": [
         [
-          "Centrioles",
+          "Myosin It And Actin Filament Ring Contract To Cleave Cell In Two Contractile Ring",
+          "The Cell Cycle (animal Cells)",
+          0.51
+        ],
+        [
           "Mitotic Phase M-phase",
-          0.7
-        ],
-        [
-          "Centrioles",
-          "Myosin It And Actin Filament Ring Contract To Cleave Cell In Two Contractile Ring",
-          0.77
-        ],
-        [
-          "Myosin It And Actin Filament Ring Contract To Cleave Cell In Two Contractile Ring",
-          "Chrom",
-          0.24
-        ],
-        [
-          "Dna Synthesis Phase S-phase",
-          "(animal Cells)",
-          1
-        ],
-        [
-          "Myosin It And Actin Filament Ring Contract To Cleave Cell In Two Contractile Ring",
-          "Metaphase Chromosomes Line Up Along Metaphase Plate (imaginary Plane)",
+          "Nucleus Membrane",
           0.83
         ],
         [
-          "Gap Iig Cell Grows Some More",
+          "The Cell Cycle (animal Cells)",
+          "Chromosome Sater",
+          0.89
+        ],
+        [
+          "Mitotic Phase M-phase",
+          "The Cell Cycle (animal Cells)",
+          0.99
+        ],
+        [
+          "Nucleus Membrane",
+          "Myosin It And Actin Filament Ring Contract To Cleave Cell In Two Contractile Ring",
+          0.61
+        ],
+        [
+          "Cell Duplicates Its Dna",
           "Dna Synthesis Phase S-phase",
           0.9
         ]
@@ -565,19 +544,11 @@
       "dropped": [
         {
           "id": "l-04",
-          "why": "length 7.5 mm < 8"
-        },
-        {
-          "id": "l-09",
-          "why": "length 6.8 mm < 8"
-        },
-        {
-          "id": "l-10",
-          "why": "length 7.2 mm < 8"
+          "why": "length 5.1 mm < 8"
         },
         {
           "id": "l-14",
-          "why": "length 5.4 mm < 8"
+          "why": "length 5.6 mm < 8"
         },
         {
           "id": "r-13",
@@ -585,79 +556,75 @@
         },
         {
           "id": "r-03",
-          "why": "inside r-02 with too little left once a gap is kept from its outline"
-        },
-        {
-          "id": "r-14",
-          "why": "inner region too small once separated from r-16"
+          "why": "inner region too small once separated from r-02"
         },
         {
           "id": "l-01",
           "why": "runs within 3 mm of r-10 without connecting"
         },
         {
-          "id": "l-02",
-          "why": "runs within 3 mm of r-10 without connecting"
-        },
-        {
-          "id": "l-06",
-          "why": "runs within 3 mm of r-10 without connecting"
+          "id": "l-05",
+          "why": "runs within 3 mm of r-06 without connecting"
         },
         {
           "id": "l-07",
-          "why": "runs within 3 mm of r-12 without connecting"
+          "why": "runs within 3 mm of r-06 without connecting"
         },
         {
           "id": "l-08",
-          "why": "runs within 3 mm of r-11 without connecting"
+          "why": "runs within 3 mm of r-06 without connecting"
         },
         {
-          "id": "l-12",
-          "why": "runs within 3 mm of r-04 without connecting"
+          "id": "l-09",
+          "why": "runs within 3 mm of r-12 without connecting"
         },
         {
-          "id": "l-13",
+          "id": "l-02",
+          "why": "runs within 3 mm of r-06 without connecting"
+        },
+        {
+          "id": "l-11",
           "why": "runs within 3 mm of r-12 without connecting"
         },
         {
           "id": "l-15",
+          "why": "within 3 mm of l-10"
+        },
+        {
+          "id": "l-16",
           "why": "runs within 3 mm of r-01 without connecting"
         },
         {
-          "id": "l-05",
-          "why": "runs within 3 mm of r-12 without connecting"
-        },
-        {
           "id": "l-03",
-          "why": "runs within 3 mm of r-06 without connecting"
+          "why": "runs within 3 mm of r-10 without connecting"
         }
       ],
       "merged": 0,
-      "minGapBefore": 0.06,
-      "minGapAfter": 3.02,
+      "minGapBefore": 0.19,
+      "minGapAfter": 3.1,
       "passes": 2,
-      "scaledBy": 0.872,
+      "scaledBy": 0.936,
       "textures": 3
     },
     "out": {
       "regions": [
-        "Centrioles",
+        "Nucleus Membrane",
         "Myosin It And Actin Filament Ring Contract To Cleave Cell In Two Contractile Ring",
         "Mitotic Phase M-phase",
-        "Metaphase Chromosomes Line Up Along Metaphase Plate (imaginary Plane)",
-        "Daughter Cells",
-        "Ats",
+        "The Cell Cycle (animal Cells)",
+        "4",
+        "Centrosome",
         "Dna Synthesis Phase S-phase",
         "(animal Cells)",
-        "Region 11",
-        "Gap Iig Cell Grows Some More",
-        "Region 8",
+        "Sister",
+        "Cell Duplicates Its Dna",
+        "Chrom",
         "Gap Cell Grows",
-        "Chrom"
+        "Chromosome Sater"
       ],
-      "lines": 2,
+      "lines": 4,
       "relations": 6,
-      "key": 15
+      "key": 17
     },
     "validation": {
       "status": "fail",
@@ -671,57 +638,59 @@
       ],
       "advisory": [
         "O1",
-        "N1",
-        "N1",
         "O1",
+        "O1",
+        "O1",
+        "N1",
+        "N1",
         "N1",
         "N1"
       ],
       "msgs": [
-        "R3: Detected: A stroke connects Centrioles to Mitotic Phase M-phase (70%) — confirm or remove",
-        "R3: Detected: A stroke connects Centrioles to Myosin It And Actin Filament Ring Contract To Cleave Cell In Two Contractile Ring (77%) — confirm or remove",
-        "R3: Detected: A stroke connects Myosin It And Actin Filament Ring Contract To Cleave Cell In Two Contractile Ring to Chrom (24%) — confirm or remove",
-        "R3: Detected: A stroke connects Dna Synthesis Phase S-phase to (animal Cells) (100%) — confirm or remove",
-        "R3: Detected: A stroke connects Myosin It And Actin Filament Ring Contract To Cleave Cell In Two Contractile Ring to Metaphase Chromosomes Line Up Along Metaphase Plate (imaginary Plane) (83%) — confirm or remove",
-        "R3: Detected: A stroke connects Gap Iig Cell Grows Some More to Dna Synthesis Phase S-phase (90%) — confirm or remove"
+        "R3: Detected: A stroke connects Myosin It And Actin Filament Ring Contract To Cleave Cell In Two Contractile Ring to The Cell Cycle (animal Cells) (51%) — confirm or remove",
+        "R3: Detected: A stroke connects Mitotic Phase M-phase to Nucleus Membrane (83%) — confirm or remove",
+        "R3: Detected: A stroke connects The Cell Cycle (animal Cells) to Chromosome Sater (89%) — confirm or remove",
+        "R3: Detected: A stroke connects Mitotic Phase M-phase to The Cell Cycle (animal Cells) (99%) — confirm or remove",
+        "R3: Detected: Line 10 connects Nucleus Membrane to Myosin It And Actin Filament Ring Contract To Cleave Cell In Two Contractile Ring (61%) — confirm or remove",
+        "R3: Detected: A stroke connects Cell Duplicates Its Dna to Dna Synthesis Phase S-phase (90%) — confirm or remove"
       ]
     },
     "ms": {
-      "draft": 4.600000023841858,
-      "simplify": 26,
-      "validate": 2,
-      "exports": 22.599999994039536
+      "draft": 4.899999976158142,
+      "simplify": 25.5,
+      "validate": 2.100000023841858,
+      "exports": 24.700000047683716
     },
     "exports": {
       "svg": {
         "ok": true,
-        "cells": 186,
-        "keyEntries": 15,
+        "cells": 203,
+        "keyEntries": 17,
         "keyFits": true
       },
       "stl": {
         "ok": true,
-        "triangles": 16696,
-        "shells": 549,
+        "triangles": 18712,
+        "shells": 621,
         "openEdges": 0,
         "bbox": {
           "x": 10,
           "y": 10.1,
           "z": 0,
           "w": 184,
-          "h": 233,
+          "h": 262.2,
           "d": 3
         },
-        "kb": 815
+        "kb": 914
       },
       "alt": {
         "ok": true,
-        "words": 235
+        "words": 227
       },
       "brf": {
         "ok": true,
         "pages": 1,
-        "cells": 362
+        "cells": 339
       }
     },
     "sem": {
@@ -734,7 +703,7 @@
         ],
         [
           "Resting Phase G0",
-          "Resting Phase Cell leaves cycle"
+          "Resting Phase G Cell leaves cycle"
         ],
         [
           "Gap I G1",
@@ -746,7 +715,7 @@
         ]
       ],
       "regionsExpected": 9,
-      "regionsNamed": 2,
+      "regionsNamed": 1,
       "relTruth": 4,
       "relMatched": 0
     },
@@ -757,10 +726,10 @@
     "name": "bio-digestive-01",
     "difficulty": "hard",
     "truth": true,
-    "understandMs": 1820,
+    "understandMs": 2145,
     "labels": [
+      "Mouth Palate Uvula",
       "Mouth",
-      "Palate Uvula",
       "Palate Uvula Tongue Teeth",
       "Palate",
       "we ts",
@@ -768,7 +737,10 @@
       "Pharynx",
       "Salivary glands",
       "Esophagus",
-      "Sublingual- Submandibular Parotid",
+      "7",
+      "Sublingual-",
+      "Submandibular",
+      "Parotid",
       "Parotid",
       "Liver",
       "Stomach",
@@ -776,16 +748,20 @@
       "Gallbladder Common",
       "Gallbladder",
       "Pancreas",
+      "4",
       "Pancreatic duct",
       "duct",
       "uct",
       "ile",
       "Small intestine",
       "Large intestine",
+      "A",
       "Transverse colon",
       "Duodenum",
       "Duodenum vm lleum",
-      "Ascending Cecum Descending",
+      "3",
+      "Jeyunum",
+      "Ascending colon Gecum Descending colon Sigmoid colon",
       "Ascending Cecum",
       "colon",
       "eum",
@@ -798,65 +774,67 @@
       "Rectum"
     ],
     "regionsFound": 10,
-    "strokes": 275,
+    "strokes": 269,
     "timings": {
-      "segment": 319,
-      "ocr": 1225,
+      "segment": 313,
+      "ocr": 1569,
       "lines": 98,
-      "total": 1786
+      "total": 2116
     },
     "draft": {
       "regions": 10,
       "lines": 16,
       "relations": [
         [
-          "Eum",
-          "Esophagus",
-          1
+          "Liver",
+          "A",
+          0.32
         ],
         [
-          "Palate Uvula",
-          "Mouth",
-          0.99
+          "Duodenum Vm Lleum",
+          "Liver",
+          0.97
         ],
         [
-          "Palate Uvula Tongue Teeth",
-          "Esophagus",
-          0.85
+          "Liver",
+          "7",
+          0.86
         ],
         [
-          "Esophagus",
-          "Large Intestine",
-          0.99
+          "Liver",
+          "Pancreatic Duct",
+          0.83
         ],
         [
           "Gallbladder Common Bile Duct",
-          "Large Intestine",
-          1
+          "Pancreatic Duct",
+          0.87
         ],
         [
-          "Stomach",
-          "Esophagus",
-          1
+          "Duodenum Vm Lleum",
+          "Pancreatic Duct",
+          0.17
+        ],
+        [
+          "Gallbladder Common Bile Duct",
+          "Duodenum Vm Lleum",
+          0.67
+        ],
+        [
+          "Gallbladder Common Bile Duct",
+          "A",
+          0.77
         ]
       ]
     },
     "report": {
       "dropped": [
         {
-          "id": "l-05",
-          "why": "length 6.9 mm < 8"
-        },
-        {
-          "id": "l-11",
-          "why": "length 8.0 mm < 8"
+          "id": "r-03",
+          "why": "too small once moved 3 mm clear of the outline of r-08"
         },
         {
           "id": "r-01",
-          "why": "straddles the outline of r-08 with too little inside"
-        },
-        {
-          "id": "r-03",
           "why": "too small once moved 3 mm clear of the outline of r-08"
         },
         {
@@ -868,54 +846,61 @@
           "why": "inner region too small once separated from r-10"
         },
         {
-          "id": "l-07",
-          "why": "within 3 mm of l-01"
-        },
-        {
-          "id": "l-08",
-          "why": "within 3 mm of l-01"
-        },
-        {
           "id": "l-02",
-          "why": "runs within 3 mm of r-02 without connecting"
+          "why": "within 3 mm of l-01"
+        },
+        {
+          "id": "l-07",
+          "why": "within 3 mm of l-05"
+        },
+        {
+          "id": "l-10",
+          "why": "within 3 mm of l-05"
+        },
+        {
+          "id": "l-11",
+          "why": "within 3 mm of l-04"
+        },
+        {
+          "id": "l-12",
+          "why": "within 3 mm of l-05"
         },
         {
           "id": "l-13",
-          "why": "within 3 mm of l-06"
-        },
-        {
-          "id": "l-15",
-          "why": "within 3 mm of l-01"
+          "why": "within 3 mm of l-05"
         },
         {
           "id": "l-16",
           "why": "within 3 mm of l-03"
+        },
+        {
+          "id": "l-06",
+          "why": "runs within 3 mm of r-05 without connecting"
         }
       ],
       "merged": 0,
-      "minGapBefore": 0.18,
+      "minGapBefore": 0.19,
       "minGapAfter": 3.1,
-      "passes": 3,
-      "scaledBy": 0.892,
+      "passes": 4,
+      "scaledBy": 0.943,
       "textures": 3
     },
     "out": {
       "regions": [
-        "Esophagus",
+        "Liver",
         "Gallbladder Common Bile Duct",
-        "Palate Uvula Tongue Teeth",
-        "Palate Uvula",
-        "Large Intestine",
-        "Stomach"
+        "7",
+        "Mouth Palate Uvula",
+        "A",
+        "4"
       ],
       "lines": 8,
-      "relations": 4,
+      "relations": 3,
       "key": 14
     },
     "validation": {
       "status": "fail",
       "blocking": [
-        "R3",
         "R3",
         "R3",
         "R3"
@@ -931,72 +916,66 @@
         "N1"
       ],
       "msgs": [
-        "R3: Detected: Line 6 connects Palate Uvula Tongue Teeth to Esophagus (85%) — confirm or remove",
-        "R3: Detected: A stroke connects Esophagus to Large Intestine (99%) — confirm or remove",
-        "R3: Detected: Line 9 connects Gallbladder Common Bile Duct to Large Intestine (100%) — confirm or remove",
-        "R3: Detected: Line 10 connects Stomach to Esophagus (100%) — confirm or remove"
+        "R3: Detected: Line 1 connects Liver to A (32%) — confirm or remove",
+        "R3: Detected: Line 4 connects Liver to 7 (86%) — confirm or remove",
+        "R3: Detected: A stroke connects Gallbladder Common Bile Duct to A (77%) — confirm or remove"
       ]
     },
     "ms": {
-      "draft": 3.4000000059604645,
-      "simplify": 17.099999994039536,
-      "validate": 0.9000000059604645,
-      "exports": 17
+      "draft": 4.299999952316284,
+      "simplify": 17.700000047683716,
+      "validate": 1.100000023841858,
+      "exports": 16.600000023841858
     },
     "exports": {
       "svg": {
         "ok": true,
-        "cells": 161,
+        "cells": 130,
         "keyEntries": 14,
         "keyFits": true
       },
       "stl": {
         "ok": true,
-        "triangles": 12320,
-        "shells": 398,
+        "triangles": 11032,
+        "shells": 350,
         "openEdges": 0,
         "bbox": {
           "x": 10,
           "y": 10.2,
           "z": 0,
           "w": 166,
-          "h": 260.3,
+          "h": 273.8,
           "d": 3
         },
-        "kb": 602
+        "kb": 539
       },
       "alt": {
         "ok": true,
-        "words": 134
+        "words": 118
       },
       "brf": {
         "ok": true,
         "pages": 1,
-        "cells": 192
+        "cells": 149
       }
     },
     "sem": {
       "labelsPrinted": 30,
-      "labelsRead": 29,
-      "missing": [
-        [
-          "Jejunum",
-          "Mouth"
-        ]
-      ],
+      "labelsRead": 30,
+      "missing": [],
       "regionsExpected": 7,
-      "regionsNamed": 3,
+      "regionsNamed": 2,
       "relTruth": 4,
-      "relMatched": 1
+      "relMatched": 0
     },
     "geomClean": true,
-    "r3": 4
+    "r3": 3
   },
   {
     "name": "bio-digestive-02",
     "difficulty": "hard",
     "truth": true,
-    "understandMs": 1724,
+    "understandMs": 2079,
     "labels": [
       "Mouth Palate Uvula Tongue Teeth",
       "ESS",
@@ -1005,9 +984,11 @@
       "Tongue Teeth",
       "eet",
       "Pharynx",
-      "LL wa",
+      "wa LL",
       "Salivary glands",
       "Esophagus",
+      "7",
+      "Z",
       "Sublingual- Submandibular Parotid",
       "Parotid",
       "Liver",
@@ -1017,14 +998,18 @@
       "Gallbladder Common bile duct",
       "Gallbladder",
       "Pancreas",
+      "4",
       "Pancreatic duct",
       "Large intestine",
       "Small intestine",
+      "A",
       "TES",
       "Transverse colon",
       "Duodenum",
-      "Jejunum lleum",
-      "Ascending Cecum Descending colon Sigmoid colon",
+      "3",
+      "Jejunum",
+      "dk dv",
+      "Ascending colon Cecum Descending colon Sigmoid colon",
       "Ascending Cecum",
       "AC al",
       "colon",
@@ -1038,99 +1023,122 @@
       "Rectum"
     ],
     "regionsFound": 7,
-    "strokes": 266,
+    "strokes": 256,
     "timings": {
-      "segment": 311,
-      "ocr": 1185,
-      "lines": 79,
-      "total": 1697
+      "segment": 316,
+      "ocr": 1532,
+      "lines": 76,
+      "total": 2048
     },
     "draft": {
       "regions": 7,
       "lines": 16,
       "relations": [
         [
-          "Descending Colon",
-          "Region 3",
-          0.6
+          "Appendix",
+          "A",
+          0.95
         ],
         [
-          "Mouth Palate Uvula Tongue Teeth",
-          "Region 5",
-          0.84
+          "Pancreas",
+          "A",
+          0.77
+        ],
+        [
+          "Liver",
+          "Pharynx",
+          0.91
+        ],
+        [
+          "Pharynx",
+          "A",
+          0.87
+        ],
+        [
+          "Liver",
+          "A",
+          1
+        ],
+        [
+          "Pancreas",
+          "Pharynx",
+          1
+        ],
+        [
+          "Appendix",
+          "Pharynx",
+          0.57
         ]
       ]
     },
     "report": {
       "dropped": [
         {
-          "id": "l-09",
-          "why": "length 7.3 mm < 8"
+          "id": "l-07",
+          "why": "length 7.4 mm < 8"
         },
         {
-          "id": "l-10",
-          "why": "length 6.9 mm < 8"
+          "id": "l-08",
+          "why": "length 7.6 mm < 8"
+        },
+        {
+          "id": "r-04",
+          "why": "too small once moved 3 mm clear of the outline of r-07"
         },
         {
           "id": "l-14",
-          "why": "length 6.2 mm < 8"
+          "why": "within 3 mm of l-09"
         },
         {
-          "id": "l-02",
-          "why": "runs within 3 mm of r-03 without connecting"
+          "id": "l-03",
+          "why": "runs within 3 mm of r-01 without connecting"
         },
         {
-          "id": "l-05",
-          "why": "runs within 3 mm of r-03 without connecting"
-        },
-        {
-          "id": "l-07",
-          "why": "runs within 3 mm of r-02 without connecting"
+          "id": "l-16",
+          "why": "within 3 mm of l-09"
         },
         {
           "id": "l-01",
-          "why": "runs within 3 mm of r-02 without connecting"
+          "why": "within 3 mm of l-15"
         },
         {
-          "id": "l-11",
-          "why": "within 3 mm of l-04"
-        },
-        {
-          "id": "l-13",
-          "why": "within 3 mm of l-08"
+          "id": "l-06",
+          "why": "within 3 mm of l-02"
         }
       ],
       "merged": 0,
       "minGapBefore": 0.23,
-      "minGapAfter": 3.09,
+      "minGapAfter": 3.1,
       "passes": 1,
-      "scaledBy": 0.993,
-      "textures": 3
+      "scaledBy": 0.939,
+      "textures": 2
     },
     "out": {
       "regions": [
-        "Mouth Palate Uvula Tongue Teeth",
-        "Region 5",
-        "Descending Colon",
-        "Region 3",
         "Pharynx",
-        "Fon",
-        "Region 1"
+        "Liver",
+        "A",
+        "Pancreas",
+        "7",
+        "Appendix"
       ],
-      "lines": 7,
-      "relations": 2,
-      "key": 14
+      "lines": 9,
+      "relations": 7,
+      "key": 15
     },
     "validation": {
       "status": "fail",
       "blocking": [
         "R3",
+        "R3",
+        "R3",
+        "R3",
+        "R3",
+        "R3",
         "R3"
       ],
       "advisory": [
         "N1",
-        "N1",
-        "O1",
         "N1",
         "N1",
         "N1",
@@ -1141,139 +1149,118 @@
         "N1"
       ],
       "msgs": [
-        "R3: Detected: A stroke connects Descending Colon to Region 3 (60%) — confirm or remove",
-        "R3: Detected: Line 4 connects Mouth Palate Uvula Tongue Teeth to Region 5 (84%) — confirm or remove"
+        "R3: Detected: A stroke connects Appendix to A (95%) — confirm or remove",
+        "R3: Detected: Line 4 connects Pancreas to A (77%) — confirm or remove",
+        "R3: Detected: Line 5 connects Liver to Pharynx (91%) — confirm or remove",
+        "R3: Detected: A stroke connects Pharynx to A (87%) — confirm or remove",
+        "R3: Detected: Line 9 connects Liver to A (100%) — confirm or remove",
+        "R3: Detected: Line 13 connects Pancreas to Pharynx (100%) — confirm or remove",
+        "R3: Detected: Line 15 connects Appendix to Pharynx (57%) — confirm or remove"
       ]
     },
     "ms": {
-      "draft": 3.0999999940395355,
-      "simplify": 15.099999994039536,
-      "validate": 1.199999988079071,
-      "exports": 16.80000001192093
+      "draft": 3.100000023841858,
+      "simplify": 14.100000023841858,
+      "validate": 0.8999999761581421,
+      "exports": 15.299999952316284
     },
     "exports": {
       "svg": {
         "ok": true,
-        "cells": 153,
-        "keyEntries": 14,
+        "cells": 143,
+        "keyEntries": 15,
         "keyFits": true
       },
       "stl": {
         "ok": true,
-        "triangles": 11776,
-        "shells": 378,
+        "triangles": 10872,
+        "shells": 346,
         "openEdges": 0,
         "bbox": {
           "x": 10,
           "y": 10.4,
           "z": 0,
           "w": 166,
-          "h": 269.7,
+          "h": 268.4,
           "d": 3
         },
-        "kb": 575
+        "kb": 531
       },
       "alt": {
         "ok": true,
-        "words": 118
+        "words": 145
       },
       "brf": {
         "ok": true,
         "pages": 1,
-        "cells": 171
+        "cells": 136
       }
     },
     "sem": {
       "labelsPrinted": 30,
-      "labelsRead": 30,
-      "missing": [],
+      "labelsRead": 29,
+      "missing": [
+        [
+          "Ileum",
+          "Mouth Palate Uvula Tongue Teeth"
+        ]
+      ],
       "regionsExpected": 8,
-      "regionsNamed": 1,
+      "regionsNamed": 2,
       "relTruth": 4,
       "relMatched": 0
     },
     "geomClean": true,
-    "r3": 2
+    "r3": 7
   },
   {
     "name": "bio-dna-01",
     "difficulty": "medium",
     "truth": true,
-    "understandMs": 842,
-    "labels": [],
+    "understandMs": 993,
+    "labels": [
+      "4",
+      "2",
+      "H",
+      "Q",
+      "O",
+      "N",
+      "2",
+      "4",
+      "N",
+      "N",
+      "9",
+      "H",
+      "N",
+      "N",
+      "N",
+      "4",
+      "9"
+    ],
     "regionsFound": 5,
-    "strokes": 273,
+    "strokes": 271,
     "timings": {
       "segment": 30,
-      "ocr": 613,
-      "lines": 60,
-      "total": 814
+      "ocr": 778,
+      "lines": 55,
+      "total": 965
     },
     "draft": {
       "regions": 5,
-      "lines": 16,
+      "lines": 1,
       "relations": [
         [
-          "Region 1",
-          "Region 4",
-          0.99
-        ],
-        [
-          "Region 5",
-          "Region 3",
-          0.98
+          "N",
+          "N",
+          1
         ]
       ]
     },
     "report": {
       "dropped": [
         {
-          "id": "l-03",
-          "why": "length 5.5 mm < 8"
-        },
-        {
           "id": "l-01",
           "why": "runs within 3 mm of r-03 without connecting"
-        },
-        {
-          "id": "l-02",
-          "why": "runs within 3 mm of r-03 without connecting"
-        },
-        {
-          "id": "l-05",
-          "why": "runs within 3 mm of r-03 without connecting"
-        },
-        {
-          "id": "l-07",
-          "why": "runs within 3 mm of r-01 without connecting"
-        },
-        {
-          "id": "l-08",
-          "why": "runs within 3 mm of r-03 without connecting"
-        },
-        {
-          "id": "l-10",
-          "why": "within 3 mm of l-04"
-        },
-        {
-          "id": "l-11",
-          "why": "within 3 mm of l-06"
-        },
-        {
-          "id": "l-12",
-          "why": "runs within 3 mm of r-03 without connecting"
-        },
-        {
-          "id": "l-13",
-          "why": "runs within 3 mm of r-02 without connecting"
-        },
-        {
-          "id": "l-14",
-          "why": "runs within 3 mm of r-01 without connecting"
-        },
-        {
-          "id": "l-15",
-          "why": "within 3 mm of l-04"
         }
       ],
       "merged": 0,
@@ -1285,103 +1272,83 @@
     },
     "out": {
       "regions": [
-        "Region 5",
-        "Region 4",
-        "Region 3",
-        "Region 1",
-        "Region 2"
+        "N",
+        "N",
+        "N",
+        "9",
+        "4"
       ],
-      "lines": 4,
-      "relations": 2,
-      "key": 9
+      "lines": 0,
+      "relations": 1,
+      "key": 5
     },
     "validation": {
       "status": "fail",
       "blocking": [
-        "R3",
         "R3"
       ],
-      "advisory": [
-        "N1",
-        "N1",
-        "N1",
-        "N1",
-        "N1",
-        "N1",
-        "N1",
-        "N1",
-        "N1"
-      ],
+      "advisory": [],
       "msgs": [
-        "R3: Detected: A stroke connects Region 1 to Region 4 (99%) — confirm or remove",
-        "R3: Detected: A stroke connects Region 5 to Region 3 (98%) — confirm or remove"
+        "R3: Detected: A stroke connects N to N (100%) — confirm or remove"
       ]
     },
     "ms": {
-      "draft": 2.4000000059604645,
-      "simplify": 4.0999999940395355,
-      "validate": 0.4000000059604645,
-      "exports": 15.299999982118607
+      "draft": 1.899999976158142,
+      "simplify": 4,
+      "validate": 0.2999999523162842,
+      "exports": 9.5
     },
     "exports": {
       "svg": {
         "ok": true,
-        "cells": 101,
-        "keyEntries": 9,
+        "cells": 20,
+        "keyEntries": 5,
         "keyFits": true
       },
       "stl": {
         "ok": true,
-        "triangles": 10568,
-        "shells": 365,
+        "triangles": 5200,
+        "shells": 171,
         "openEdges": 0,
         "bbox": {
           "x": 10,
-          "y": 48,
+          "y": 48.1,
           "z": 0,
           "w": 139.7,
-          "h": 180.6,
+          "h": 139.7,
           "d": 3
         },
-        "kb": 516
+        "kb": 254
       },
       "alt": {
         "ok": true,
-        "words": 89
+        "words": 50
       },
       "brf": {
         "ok": true,
         "pages": 1,
-        "cells": 94
+        "cells": 26
       }
     },
     "sem": {
       "labelsPrinted": 6,
-      "labelsRead": 0,
+      "labelsRead": 2,
       "missing": [
         [
           "1",
-          ""
-        ],
-        [
-          "2",
-          ""
+          "4"
         ],
         [
           "3",
-          ""
-        ],
-        [
-          "4",
-          ""
+          "4"
         ],
         [
           "5",
-          ""
+          "4"
         ],
         [
           "6",
-          ""
+          "4"
         ]
       ],
       "regionsExpected": 3,
@@ -1390,13 +1357,13 @@
       "relMatched": 0
     },
     "geomClean": true,
-    "r3": 2
+    "r3": 1
   },
   {
     "name": "bio-eye-01",
     "difficulty": "medium",
     "truth": true,
-    "understandMs": 1935,
+    "understandMs": 2193,
     "labels": [
       "antetior chamber (aqueous humour) Posterior chamber Suspensory ligament of lens",
       "Cornea",
@@ -1406,8 +1373,8 @@
       "Iris",
       "Suspensory ligament of lens",
       "Suspensor",
+      "Cilia",
       "Ciliary bodly",
-      "Cili",
       "ili",
       "of lens",
       "Choroid",
@@ -1416,8 +1383,10 @@
       "Vitreou humou",
       "Hyaloid canal",
       "canal",
-      "Retinal Sy. vessels blood Vf",
+      "4",
+      "Retinal blood Sy. vessels Vf",
       "Retinal blood vessels",
+      "A",
       "Retina",
       "Macula",
       "Say",
@@ -1426,61 +1395,61 @@
       "Optic nerve"
     ],
     "regionsFound": 6,
-    "strokes": 290,
+    "strokes": 282,
     "timings": {
-      "segment": 408,
-      "ocr": 1230,
-      "lines": 132,
-      "total": 1899
+      "segment": 405,
+      "ocr": 1488,
+      "lines": 139,
+      "total": 2166
     },
     "draft": {
       "regions": 6,
       "lines": 16,
       "relations": [
         [
-          "Region 4",
-          "Antetior Chamber (aqueous Humour) Posterior Chamber Suspensory Ligament Of Lens",
-          0.93
+          "Retinal Blood Sy. Vessels Vf",
+          "Canal",
+          0.91
         ]
       ]
     },
     "report": {
       "dropped": [
         {
-          "id": "l-01",
-          "why": "length 7.7 mm < 8"
-        },
-        {
-          "id": "l-05",
-          "why": "within 3 mm of l-03"
-        },
-        {
-          "id": "l-07",
-          "why": "within 3 mm of l-03"
-        },
-        {
-          "id": "l-10",
-          "why": "within 3 mm of l-03"
-        },
-        {
-          "id": "l-11",
-          "why": "within 3 mm of l-03"
-        },
-        {
-          "id": "l-13",
-          "why": "within 3 mm of l-02"
-        },
-        {
-          "id": "l-14",
-          "why": "within 3 mm of l-02"
-        },
-        {
-          "id": "l-15",
-          "why": "within 3 mm of l-03"
+          "id": "l-02",
+          "why": "runs within 3 mm of r-04 without connecting"
         },
         {
           "id": "l-04",
-          "why": "within 3 mm of l-02"
+          "why": "within 3 mm of l-03"
+        },
+        {
+          "id": "l-05",
+          "why": "runs within 3 mm of r-05 without connecting"
+        },
+        {
+          "id": "l-06",
+          "why": "runs within 3 mm of r-05 without connecting"
+        },
+        {
+          "id": "l-09",
+          "why": "within 3 mm of l-01"
+        },
+        {
+          "id": "l-11",
+          "why": "within 3 mm of l-08"
+        },
+        {
+          "id": "l-12",
+          "why": "within 3 mm of l-10"
+        },
+        {
+          "id": "l-13",
+          "why": "within 3 mm of l-01"
+        },
+        {
+          "id": "l-15",
+          "why": "within 3 mm of l-10"
         }
       ],
       "merged": 0,
@@ -1492,12 +1461,12 @@
     },
     "out": {
       "regions": [
-        "Antetior Chamber (aqueous Humour) Posterior Chamber Suspensory Ligament Of Lens",
-        "Region 4",
-        "Say",
+        "Canal",
+        "Retinal Blood Sy. Vessels Vf",
+        "Optic Disc",
         "Region 2",
-        "Region 3",
-        "Anterior Chamber (aqueous Humour) Posterior Osterior Chamb Chamber"
+        "A",
+        "Antetior Chamber (aqueous Humour) Posterior Chamber Suspensory Ligament Of Lens"
       ],
       "lines": 7,
       "relations": 1,
@@ -1510,9 +1479,6 @@
       ],
       "advisory": [
         "N1",
-        "O1",
-        "N1",
-        "N1",
         "N1",
         "N1",
         "N1",
@@ -1522,26 +1488,26 @@
         "N1"
       ],
       "msgs": [
-        "R3: Detected: Line 2 connects Region 4 to Antetior Chamber (aqueous Humour) Posterior Chamber Suspensory Ligament Of Lens (93%) — confirm or remove"
+        "R3: Detected: A stroke connects Retinal Blood Sy. Vessels Vf to Canal (91%) — confirm or remove"
       ]
     },
     "ms": {
-      "draft": 2,
-      "simplify": 5.4000000059604645,
-      "validate": 0.800000011920929,
-      "exports": 34.099999994039536
+      "draft": 2.4000000953674316,
+      "simplify": 5.199999928474426,
+      "validate": 0.8000000715255737,
+      "exports": 32.89999997615814
     },
     "exports": {
       "svg": {
         "ok": true,
-        "cells": 142,
+        "cells": 139,
         "keyEntries": 13,
         "keyFits": true
       },
       "stl": {
         "ok": true,
-        "triangles": 24684,
-        "shells": 866,
+        "triangles": 24124,
+        "shells": 846,
         "openEdges": 0,
         "bbox": {
           "x": 10,
@@ -1551,16 +1517,16 @@
           "h": 233.4,
           "d": 3
         },
-        "kb": 1205
+        "kb": 1178
       },
       "alt": {
         "ok": true,
-        "words": 115
+        "words": 107
       },
       "brf": {
         "ok": true,
         "pages": 1,
-        "cells": 251
+        "cells": 212
       }
     },
     "sem": {
@@ -1569,11 +1535,11 @@
       "missing": [
         [
           "Ciliary body",
-          "Ciliary bodly"
+          "Cilia"
         ]
       ],
       "regionsExpected": 7,
-      "regionsNamed": 1,
+      "regionsNamed": 2,
       "relTruth": 3,
       "relMatched": 0
     },
@@ -1584,15 +1550,21 @@
     "name": "bio-eye-02",
     "difficulty": "hard",
     "truth": true,
-    "understandMs": 2316,
+    "understandMs": 2609,
     "labels": [
       "Sclera",
       "Reflection of conjunctiva",
       "Bat",
       "Tris",
+      "ing",
+      "4",
       "Granula iridis",
+      "7",
+      "4",
+      "4",
       "Cornea",
       "Cornea",
+      "0",
       "nerve",
       "Optic nerve",
       "Loi",
@@ -1600,28 +1572,33 @@
       "AES",
       "abe",
       "papilla",
+      "Optic",
       "Lens Anterior chamber",
+      "Lens",
       "Sat",
       "Retrobulbar fat",
+      "chamber",
       "Antertor chamber",
       "Gas",
       "Rectus oculi inferior",
       "Ciliary",
       "Ciliary processes",
       "Chorioid",
-      "oF contour of the erystalline lens is MEM",
+      "oF contour MEM of the erystalline lens is",
+      "oF Horer anovt",
       "Sectiox",
       "ABour",
       "Fic.",
-      "The contour of the crystalline lens is dotted."
+      "The contour of the crystalline lens is dotted.",
+      "lens fs dotted"
     ],
     "regionsFound": 2,
-    "strokes": 262,
+    "strokes": 261,
     "timings": {
       "segment": 8,
-      "ocr": 2134,
-      "lines": 34,
-      "total": 2278
+      "ocr": 2443,
+      "lines": 33,
+      "total": 2584
     },
     "draft": {
       "regions": 2,
@@ -1629,56 +1606,48 @@
       "relations": [
         [
           "Sclera",
-          "Granula Iridis",
-          0.72
+          "4",
+          0.96
         ]
       ]
     },
     "report": {
       "dropped": [
         {
-          "id": "l-11",
-          "why": "length 7.4 mm < 8"
-        },
-        {
-          "id": "l-13",
-          "why": "length 7.5 mm < 8"
-        },
-        {
-          "id": "l-03",
-          "why": "within 3 mm of l-01"
-        },
-        {
-          "id": "l-04",
-          "why": "runs within 3 mm of r-02 without connecting"
-        },
-        {
-          "id": "l-05",
-          "why": "within 3 mm of l-01"
-        },
-        {
-          "id": "l-15",
-          "why": "within 3 mm of l-02"
-        },
-        {
-          "id": "l-16",
-          "why": "within 3 mm of l-01"
-        },
-        {
           "id": "l-06",
-          "why": "within 3 mm of l-02"
-        },
-        {
-          "id": "l-14",
-          "why": "runs within 3 mm of r-01 without connecting"
-        },
-        {
-          "id": "l-10",
-          "why": "within 3 mm of l-01"
+          "why": "within 3 mm of l-04"
         },
         {
           "id": "l-08",
-          "why": "runs within 3 mm of r-01 without connecting"
+          "why": "within 3 mm of l-04"
+        },
+        {
+          "id": "l-01",
+          "why": "within 3 mm of l-04"
+        },
+        {
+          "id": "l-10",
+          "why": "within 3 mm of l-04"
+        },
+        {
+          "id": "l-11",
+          "why": "within 3 mm of l-04"
+        },
+        {
+          "id": "l-16",
+          "why": "within 3 mm of l-05"
+        },
+        {
+          "id": "l-03",
+          "why": "within 3 mm of l-04"
+        },
+        {
+          "id": "l-07",
+          "why": "within 3 mm of l-02"
+        },
+        {
+          "id": "l-12",
+          "why": "within 3 mm of l-15"
         }
       ],
       "merged": 0,
@@ -1690,12 +1659,12 @@
     },
     "out": {
       "regions": [
-        "Sclera",
-        "Granula Iridis"
+        "4",
+        "Sclera"
       ],
-      "lines": 5,
+      "lines": 7,
       "relations": 1,
-      "key": 7
+      "key": 9
     },
     "validation": {
       "status": "fail",
@@ -1707,48 +1676,50 @@
         "N1",
         "N1",
         "N1",
+        "N1",
+        "N1",
         "N1"
       ],
       "msgs": [
-        "R3: Detected: A stroke connects Sclera to Granula Iridis (72%) — confirm or remove"
+        "R3: Detected: A stroke connects Sclera to 4 (96%) — confirm or remove"
       ]
     },
     "ms": {
-      "draft": 1.7000000178813934,
-      "simplify": 4.299999982118607,
-      "validate": 0.20000001788139343,
-      "exports": 46.69999998807907
+      "draft": 1.899999976158142,
+      "simplify": 4.399999976158142,
+      "validate": 0.30000007152557373,
+      "exports": 46.799999952316284
     },
     "exports": {
       "svg": {
         "ok": true,
-        "cells": 78,
-        "keyEntries": 7,
+        "cells": 86,
+        "keyEntries": 9,
         "keyFits": true
       },
       "stl": {
         "ok": true,
-        "triangles": 35672,
-        "shells": 1276,
+        "triangles": 36060,
+        "shells": 1291,
         "openEdges": 0,
         "bbox": {
           "x": 10,
-          "y": 18,
+          "y": 18.2,
           "z": 0,
           "w": 153.6,
-          "h": 188.2,
+          "h": 208,
           "d": 3
         },
-        "kb": 1742
+        "kb": 1761
       },
       "alt": {
         "ok": true,
-        "words": 64
+        "words": 68
       },
       "brf": {
         "ok": true,
         "pages": 1,
-        "cells": 76
+        "cells": 81
       }
     },
     "sem": {
@@ -1776,7 +1747,7 @@
     "name": "bio-flower-01",
     "difficulty": "medium",
     "truth": true,
-    "understandMs": 999,
+    "understandMs": 1146,
     "labels": [
       "Mature flower",
       "ovules",
@@ -1785,9 +1756,12 @@
       "stigma",
       "style",
       "ovary",
+      "3",
       "SIN",
       "connective",
+      "anf",
       "petal/corolla sepal/calyx perianth",
+      "anther",
       "microsporangium filament",
       "floral axis",
       "nectary",
@@ -1795,39 +1769,55 @@
       "pedicel"
     ],
     "regionsFound": 8,
-    "strokes": 264,
+    "strokes": 246,
     "timings": {
-      "segment": 234,
-      "ocr": 529,
-      "lines": 66,
-      "total": 970
+      "segment": 236,
+      "ocr": 677,
+      "lines": 65,
+      "total": 1117
     },
     "draft": {
       "regions": 8,
       "lines": 16,
       "relations": [
         [
-          "Sin",
-          "Region 1",
-          0.98
-        ],
-        [
           "Stigma",
-          "Sin",
-          1
+          "Ovary",
+          0.88
         ],
         [
-          "Stigma Style",
-          "Sin",
-          1
+          "Ovary",
+          "Floral Axis",
+          0.68
+        ],
+        [
+          "Ovary",
+          "Region 2",
+          0.59
         ]
       ]
     },
     "report": {
       "dropped": [
         {
-          "id": "l-12",
-          "why": "length 7.7 mm < 8"
+          "id": "l-04",
+          "why": "length 5.6 mm < 8"
+        },
+        {
+          "id": "l-06",
+          "why": "length 5.4 mm < 8"
+        },
+        {
+          "id": "l-07",
+          "why": "length 7.8 mm < 8"
+        },
+        {
+          "id": "l-09",
+          "why": "length 6.8 mm < 8"
+        },
+        {
+          "id": "l-10",
+          "why": "length 8.0 mm < 8"
         },
         {
           "id": "r-03",
@@ -1842,36 +1832,28 @@
           "why": "area 58 mm² after redesign"
         },
         {
-          "id": "l-01",
-          "why": "runs within 3 mm of r-05 without connecting"
-        },
-        {
-          "id": "l-07",
-          "why": "runs within 3 mm of r-07 without connecting"
+          "id": "l-11",
+          "why": "within 3 mm of l-02"
         },
         {
           "id": "l-13",
-          "why": "within 3 mm of l-05"
+          "why": "within 3 mm of l-02"
         },
         {
           "id": "l-14",
-          "why": "within 3 mm of l-05"
-        },
-        {
-          "id": "l-04",
           "why": "within 3 mm of l-02"
         },
         {
-          "id": "l-16",
+          "id": "l-15",
           "why": "within 3 mm of l-02"
         },
         {
-          "id": "l-10",
-          "why": "within 3 mm of l-06"
+          "id": "l-12",
+          "why": "within 3 mm of l-02"
         },
         {
-          "id": "l-03",
-          "why": "within 3 mm of l-02"
+          "id": "l-01",
+          "why": "within 3 mm of l-08"
         }
       ],
       "merged": 0,
@@ -1883,27 +1865,25 @@
     },
     "out": {
       "regions": [
-        "Sin",
         "Ovary",
+        "Region 8",
         "Ovules",
-        "Region 1",
+        "Floral Axis",
         "Region 2"
       ],
-      "lines": 7,
-      "relations": 1,
-      "key": 12
+      "lines": 5,
+      "relations": 2,
+      "key": 10
     },
     "validation": {
       "status": "fail",
       "blocking": [
+        "R3",
         "R3"
       ],
       "advisory": [
+        "N1",
         "O1",
-        "O1",
-        "N1",
-        "N1",
-        "N1",
         "N1",
         "N1",
         "N1",
@@ -1912,36 +1892,37 @@
         "N1"
       ],
       "msgs": [
-        "R3: Detected: Line 5 connects Sin to Region 1 (98%) — confirm or remove"
+        "R3: Detected: Line 2 connects Ovary to Floral Axis (68%) — confirm or remove",
+        "R3: Detected: Line 16 connects Ovary to Region 2 (59%) — confirm or remove"
       ]
     },
     "ms": {
-      "draft": 3.199999988079071,
-      "simplify": 6.800000011920929,
-      "validate": 0.5999999940395355,
-      "exports": 12.199999988079071
+      "draft": 3.299999952316284,
+      "simplify": 6.899999976158142,
+      "validate": 0.6000000238418579,
+      "exports": 11.799999952316284
     },
     "exports": {
       "svg": {
         "ok": true,
-        "cells": 119,
-        "keyEntries": 12,
+        "cells": 107,
+        "keyEntries": 10,
         "keyFits": true
       },
       "stl": {
         "ok": true,
-        "triangles": 8684,
-        "shells": 286,
+        "triangles": 8100,
+        "shells": 264,
         "openEdges": 0,
         "bbox": {
           "x": 10,
           "y": 16.9,
           "z": 0,
           "w": 142.3,
-          "h": 232.1,
+          "h": 210.2,
           "d": 3
         },
-        "kb": 424
+        "kb": 396
       },
       "alt": {
         "ok": true,
@@ -1950,31 +1931,26 @@
       "brf": {
         "ok": true,
         "pages": 1,
-        "cells": 112
+        "cells": 103
       }
     },
     "sem": {
       "labelsPrinted": 17,
-      "labelsRead": 16,
-      "missing": [
-        [
-          "anther",
-          "Mature flower"
-        ]
-      ],
+      "labelsRead": 17,
+      "missing": [],
       "regionsExpected": 6,
       "regionsNamed": 1,
       "relTruth": 5,
       "relMatched": 0
     },
     "geomClean": true,
-    "r3": 1
+    "r3": 2
   },
   {
     "name": "bio-flower-02",
     "difficulty": "easy",
     "truth": true,
-    "understandMs": 793,
+    "understandMs": 886,
     "labels": [
       "PETAL",
       "LEE",
@@ -1986,9 +1962,9 @@
     "strokes": 261,
     "timings": {
       "segment": 24,
-      "ocr": 506,
-      "lines": 106,
-      "total": 764
+      "ocr": 596,
+      "lines": 108,
+      "total": 860
     },
     "draft": {
       "regions": 1,
@@ -1996,7 +1972,7 @@
       "relations": [
         [
           "Line 1",
-          "Lee",
+          "Pistil",
           0
         ]
       ]
@@ -2004,16 +1980,12 @@
     "report": {
       "dropped": [
         {
-          "id": "l-02",
-          "why": "length 7.8 mm < 8"
-        },
-        {
-          "id": "l-07",
-          "why": "length 6.5 mm < 8"
-        },
-        {
-          "id": "l-12",
+          "id": "l-08",
           "why": "length 7.7 mm < 8"
+        },
+        {
+          "id": "l-02",
+          "why": "within 3 mm of l-01"
         },
         {
           "id": "l-03",
@@ -2024,24 +1996,32 @@
           "why": "within 3 mm of l-01"
         },
         {
-          "id": "l-05",
-          "why": "within 3 mm of l-01"
-        },
-        {
-          "id": "l-16",
-          "why": "within 3 mm of l-01"
-        },
-        {
-          "id": "l-11",
-          "why": "within 3 mm of l-01"
-        },
-        {
-          "id": "l-08",
-          "why": "within 3 mm of l-13"
-        },
-        {
           "id": "l-10",
-          "why": "within 3 mm of l-14"
+          "why": "within 3 mm of l-01"
+        },
+        {
+          "id": "l-13",
+          "why": "within 3 mm of l-12"
+        },
+        {
+          "id": "l-14",
+          "why": "within 3 mm of l-01"
+        },
+        {
+          "id": "l-15",
+          "why": "within 3 mm of l-12"
+        },
+        {
+          "id": "l-06",
+          "why": "within 3 mm of l-09"
+        },
+        {
+          "id": "l-07",
+          "why": "within 3 mm of l-12"
+        },
+        {
+          "id": "l-05",
+          "why": "within 3 mm of l-12"
         }
       ],
       "merged": 0,
@@ -2053,11 +2033,11 @@
     },
     "out": {
       "regions": [
-        "Lee"
+        "Pistil"
       ],
-      "lines": 6,
+      "lines": 5,
       "relations": 1,
-      "key": 7
+      "key": 6
     },
     "validation": {
       "status": "fail",
@@ -2069,49 +2049,48 @@
         "N1",
         "N1",
         "N1",
-        "N1",
         "N1"
       ],
       "msgs": [
-        "R3: Detected: Line 1 connects Line 1 to Lee (0%) — confirm or remove"
+        "R3: Detected: Line 1 connects Line 1 to Pistil (0%) — confirm or remove"
       ]
     },
     "ms": {
-      "draft": 0.8999999761581421,
-      "simplify": 2.800000011920929,
-      "validate": 0.09999999403953552,
-      "exports": 23.80000001192093
+      "draft": 1.2000000476837158,
+      "simplify": 2.399999976158142,
+      "validate": 0.19999992847442627,
+      "exports": 22.5
     },
     "exports": {
       "svg": {
         "ok": true,
-        "cells": 69,
-        "keyEntries": 7,
+        "cells": 62,
+        "keyEntries": 6,
         "keyFits": true
       },
       "stl": {
         "ok": true,
-        "triangles": 15304,
-        "shells": 537,
+        "triangles": 14928,
+        "shells": 523,
         "openEdges": 0,
         "bbox": {
           "x": 10,
           "y": 15.3,
           "z": 0,
           "w": 151.3,
-          "h": 180.8,
+          "h": 170.8,
           "d": 3
         },
-        "kb": 747
+        "kb": 729
       },
       "alt": {
         "ok": true,
-        "words": 60
+        "words": 54
       },
       "brf": {
         "ok": true,
         "pages": 1,
-        "cells": 70
+        "cells": 65
       }
     },
     "sem": {
@@ -2119,7 +2098,7 @@
       "labelsRead": 4,
       "missing": [],
       "regionsExpected": 4,
-      "regionsNamed": 0,
+      "regionsNamed": 1,
       "relTruth": 4,
       "relMatched": 0
     },
@@ -2130,71 +2109,72 @@
     "name": "bio-heart-01",
     "difficulty": "hard",
     "truth": true,
-    "understandMs": 1512,
+    "understandMs": 1748,
     "labels": [
       "Superior Vena Cava",
       "Aorta",
       "Pulmonary Art",
       "eS Ce",
       "ery",
+      "4",
       "Pulmonary Vein",
+      "Atria",
       "Mitral Valve",
       "Right trium",
       "gone",
       "Aortic Valve",
-      "Pulmonary Valve",
+      "wet",
+      "Pulmonary... Valve",
       "Left",
       "Ventri",
+      "SR Ve",
       "ae ON",
       "Tricuspid Valve",
-      "Inferior Vena Cava"
+      "ric",
+      "Inferior Vena Cava",
+      "Pericardium"
     ],
     "regionsFound": 9,
-    "strokes": 265,
+    "strokes": 258,
     "timings": {
-      "segment": 381,
-      "ocr": 929,
-      "lines": 74,
-      "total": 1486
+      "segment": 379,
+      "ocr": 1163,
+      "lines": 73,
+      "total": 1714
     },
     "draft": {
       "regions": 9,
       "lines": 16,
       "relations": [
         [
-          "Region 5",
-          "Pulmonary Vein",
+          "Pulmonary... Valve",
+          "Inferior Vena Cava",
           0.78
         ],
         [
-          "Region 5",
-          "Region 1",
-          0.89
+          "Inferior Vena Cava",
+          "Ventri",
+          0.75
         ],
         [
-          "Region 5",
-          "Region 2",
-          0.45
-        ],
-        [
-          "Aorta",
-          "Gone",
+          "Ventri",
+          "Pulmonary Art",
           1
         ],
         [
-          "Pulmonary Vein",
-          "Gone",
-          0.92
+          "Pulmonary Art",
+          "Left",
+          1
         ],
         [
-          "Pulmonary Vein",
-          "Region 6",
-          0.98
-        ],
-        [
-          "Es Ce",
+          "Region 7",
           "Aorta",
-          0.76
+          0.84
+        ],
+        [
+          "Aorta",
+          "Pulmonary Art",
+          0.53
         ]
       ]
     },
@@ -2205,77 +2185,66 @@
           "why": "area 31 mm² < 60"
         },
         {
-          "id": "l-08",
-          "why": "length 5.9 mm < 8"
-        },
-        {
-          "id": "l-13",
-          "why": "length 7.8 mm < 8"
-        },
-        {
-          "id": "r-01",
-          "why": "too small once moved 3 mm clear of the outline of r-04"
-        },
-        {
-          "id": "l-01",
-          "why": "runs within 3 mm of r-05 without connecting"
-        },
-        {
-          "id": "l-04",
-          "why": "runs within 3 mm of r-02 without connecting"
-        },
-        {
-          "id": "l-09",
-          "why": "within 3 mm of l-07"
-        },
-        {
-          "id": "l-14",
-          "why": "within 3 mm of l-07"
-        },
-        {
-          "id": "l-15",
-          "why": "within 3 mm of l-02"
-        },
-        {
-          "id": "l-05",
-          "why": "runs within 3 mm of r-08 without connecting"
-        },
-        {
-          "id": "l-06",
-          "why": "runs within 3 mm of r-02 without connecting"
-        },
-        {
-          "id": "l-10",
-          "why": "within 3 mm of l-02"
-        },
-        {
-          "id": "l-11",
-          "why": "within 3 mm of l-07"
+          "id": "r-03",
+          "why": "overlaps r-05 and too little remains once separated"
         },
         {
           "id": "l-03",
           "why": "runs within 3 mm of r-04 without connecting"
+        },
+        {
+          "id": "l-04",
+          "why": "runs within 3 mm of r-04 without connecting"
+        },
+        {
+          "id": "l-09",
+          "why": "within 3 mm of l-08"
+        },
+        {
+          "id": "l-12",
+          "why": "within 3 mm of l-08"
+        },
+        {
+          "id": "l-13",
+          "why": "within 3 mm of l-08"
+        },
+        {
+          "id": "l-14",
+          "why": "within 3 mm of l-11"
+        },
+        {
+          "id": "l-02",
+          "why": "within 3 mm of l-08"
+        },
+        {
+          "id": "l-16",
+          "why": "within 3 mm of l-08"
+        },
+        {
+          "id": "l-15",
+          "why": "within 3 mm of l-08"
         }
       ],
-      "merged": 1,
-      "minGapBefore": 0.26,
+      "merged": 0,
+      "minGapBefore": 0.98,
       "minGapAfter": 3.1,
-      "passes": 7,
+      "passes": 1,
       "scaledBy": 1,
       "textures": 2
     },
     "out": {
       "regions": [
-        "Gone",
-        "Pulmonary Vein",
+        "Ventri",
+        "Pulmonary Art",
         "Aorta",
-        "Es Ce",
-        "Region 2",
-        "Region 5"
+        "Region 7",
+        "Inferior Vena Cava",
+        "Pulmonary... Valve",
+        "Region 1"
       ],
-      "lines": 4,
+      "lines": 7,
       "relations": 5,
-      "key": 10
+      "key": 14
     },
     "validation": {
       "status": "fail",
@@ -2287,9 +2256,9 @@
         "R3"
       ],
       "advisory": [
-        "O1",
-        "O1",
-        "O1",
+        "N1",
+        "N1",
+        "N1",
         "N1",
         "N1",
         "N1",
@@ -2298,54 +2267,54 @@
         "N1"
       ],
       "msgs": [
-        "R3: Detected: A stroke connects Region 5 to Pulmonary Vein (78%) — confirm or remove",
-        "R3: Detected: A stroke connects Region 5 to Region 2 (45%) — confirm or remove",
-        "R3: Detected: A stroke connects Aorta to Gone (100%) — confirm or remove",
-        "R3: Detected: A stroke connects Pulmonary Vein to Gone (92%) — confirm or remove",
-        "R3: Detected: Line 16 connects Es Ce to Aorta (76%) — confirm or remove"
+        "R3: Detected: Line 1 connects Pulmonary... Valve to Inferior Vena Cava (78%) — confirm or remove",
+        "R3: Detected: A stroke connects Inferior Vena Cava to Ventri (75%) — confirm or remove",
+        "R3: Detected: Line 5 connects Ventri to Pulmonary Art (100%) — confirm or remove",
+        "R3: Detected: Line 10 connects Region 7 to Aorta (84%) — confirm or remove",
+        "R3: Detected: A stroke connects Aorta to Pulmonary Art (53%) — confirm or remove"
       ]
     },
     "ms": {
-      "draft": 5,
-      "simplify": 32.19999998807907,
-      "validate": 6.800000011920929,
-      "exports": 25.599999994039536
+      "draft": 6,
+      "simplify": 13,
+      "validate": 2,
+      "exports": 25.59999990463257
     },
     "exports": {
       "svg": {
         "ok": true,
-        "cells": 104,
-        "keyEntries": 10,
+        "cells": 155,
+        "keyEntries": 14,
         "keyFits": true
       },
       "stl": {
         "ok": true,
-        "triangles": 16008,
-        "shells": 399,
+        "triangles": 17560,
+        "shells": 552,
         "openEdges": 0,
         "bbox": {
           "x": 10,
           "y": 17.6,
           "z": 0,
-          "w": 172,
-          "h": 227,
+          "w": 166,
+          "h": 247,
           "d": 3
         },
-        "kb": 782
+        "kb": 858
       },
       "alt": {
         "ok": true,
-        "words": 112
+        "words": 137
       },
       "brf": {
         "ok": true,
         "pages": 1,
-        "cells": 103
+        "cells": 161
       }
     },
     "sem": {
       "labelsPrinted": 14,
-      "labelsRead": 9,
+      "labelsRead": 10,
       "missing": [
         [
           "Pulmonary Artery",
@@ -2353,7 +2322,7 @@
         ],
         [
           "Left Atrium",
-          "Right trium"
+          "Atria"
         ],
         [
           "Left Ventricle",
@@ -2362,10 +2331,6 @@
         [
           "Right Ventricle",
           "Right trium"
-        ],
-        [
-          "Pericardium",
-          "Superior Vena Cava"
         ]
       ],
       "regionsExpected": 4,
@@ -2380,7 +2345,7 @@
     "name": "bio-heart-02",
     "difficulty": "easy",
     "truth": true,
-    "understandMs": 759,
+    "understandMs": 874,
     "labels": [
       "Superior vena cava",
       "Pulmonary artery",
@@ -2395,42 +2360,17 @@
     "regionsFound": 5,
     "strokes": 184,
     "timings": {
-      "segment": 46,
-      "ocr": 520,
+      "segment": 48,
+      "ocr": 629,
       "lines": 60,
-      "total": 733
+      "total": 847
     },
     "draft": {
       "regions": 5,
-      "lines": 16,
+      "lines": 2,
       "relations": [
         [
           "Right Ventricle",
-          "Left Atrium",
-          0.76
-        ],
-        [
-          "Right Atrium",
-          "Right Ventricle",
-          0.83
-        ],
-        [
-          "Left Atrium",
-          "Left Ventricle",
-          0.72
-        ],
-        [
-          "Left Ventricle",
-          "Superior Vena Cava",
-          0.78
-        ],
-        [
-          "Right Ventricle",
-          "Left Ventricle",
-          0.83
-        ],
-        [
-          "Right Atrium",
           "Left Atrium",
           0.76
         ]
@@ -2439,44 +2379,12 @@
     "report": {
       "dropped": [
         {
-          "id": "l-05",
-          "why": "length 6.4 mm < 8"
-        },
-        {
-          "id": "l-09",
-          "why": "length 6.4 mm < 8"
-        },
-        {
-          "id": "l-13",
-          "why": "length 6.6 mm < 8"
-        },
-        {
-          "id": "l-14",
-          "why": "length 8.0 mm < 8"
-        },
-        {
           "id": "l-01",
           "why": "runs within 3 mm of r-02 without connecting"
         },
         {
-          "id": "l-15",
+          "id": "l-02",
           "why": "runs within 3 mm of r-02 without connecting"
-        },
-        {
-          "id": "l-06",
-          "why": "within 3 mm of l-03"
-        },
-        {
-          "id": "l-08",
-          "why": "runs within 3 mm of r-05 without connecting"
-        },
-        {
-          "id": "l-11",
-          "why": "within 3 mm of l-10"
-        },
-        {
-          "id": "l-07",
-          "why": "within 3 mm of l-02"
         }
       ],
       "merged": 0,
@@ -2494,73 +2402,56 @@
         "Right Atrium",
         "Left Atrium"
       ],
-      "lines": 6,
-      "relations": 6,
-      "key": 11
+      "lines": 0,
+      "relations": 1,
+      "key": 5
     },
     "validation": {
       "status": "fail",
       "blocking": [
-        "R3",
-        "R3",
-        "R3",
-        "R3",
-        "R3",
         "R3"
       ],
-      "advisory": [
-        "N1",
-        "N1",
-        "N1",
-        "N1",
-        "N1",
-        "N1"
-      ],
+      "advisory": [],
       "msgs": [
-        "R3: Detected: A stroke connects Right Ventricle to Left Atrium (76%) — confirm or remove",
-        "R3: Detected: Line 2 connects Right Atrium to Right Ventricle (83%) — confirm or remove",
-        "R3: Detected: Line 3 connects Left Atrium to Left Ventricle (72%) — confirm or remove",
-        "R3: Detected: A stroke connects Left Ventricle to Superior Vena Cava (78%) — confirm or remove",
-        "R3: Detected: Line 10 connects Right Ventricle to Left Ventricle (83%) — confirm or remove",
-        "R3: Detected: Line 12 connects Right Atrium to Left Atrium (76%) — confirm or remove"
+        "R3: Detected: A stroke connects Right Ventricle to Left Atrium (76%) — confirm or remove"
       ]
     },
     "ms": {
-      "draft": 1.4000000059604645,
-      "simplify": 4.5,
-      "validate": 0.19999998807907104,
-      "exports": 29
+      "draft": 1,
+      "simplify": 4.400000095367432,
+      "validate": 0.2999999523162842,
+      "exports": 24
     },
     "exports": {
       "svg": {
         "ok": true,
-        "cells": 154,
-        "keyEntries": 11,
+        "cells": 91,
+        "keyEntries": 5,
         "keyFits": true
       },
       "stl": {
         "ok": true,
-        "triangles": 22428,
-        "shells": 816,
+        "triangles": 18688,
+        "shells": 679,
         "openEdges": 0,
         "bbox": {
           "x": 10,
-          "y": 23.5,
+          "y": 46.9,
           "z": 0,
           "w": 148,
-          "h": 262.2,
+          "h": 168,
           "d": 3
         },
-        "kb": 1095
+        "kb": 913
       },
       "alt": {
         "ok": true,
-        "words": 140
+        "words": 57
       },
       "brf": {
         "ok": true,
         "pages": 1,
-        "cells": 144
+        "cells": 93
       }
     },
     "sem": {
@@ -2570,95 +2461,130 @@
       "regionsExpected": 4,
       "regionsNamed": 4,
       "relTruth": 4,
-      "relMatched": 2
+      "relMatched": 0
     },
     "geomClean": true,
-    "r3": 6
+    "r3": 1
   },
   {
     "name": "bio-neuron-01",
     "difficulty": "hard",
     "truth": true,
-    "understandMs": 1871,
+    "understandMs": 2286,
     "labels": [
+      "4",
+      "Synapse",
       "Microtubule Neurofibrils Neurotransmitter Receptor",
       "Microtubule",
       "Dendrites",
-      "Synaptic vesicles Synapse Synaptic cleft ING",
-      "Receptor.",
+      "Synaptic vesicles",
+      "Synapse",
+      "Synaptic cleft ING",
+      "vesicles",
+      "Synaptic",
+      "5",
+      "Rece tor",
       "Synaptic cleft",
       "Axonal terminal",
       "Rough ER body)",
-      "Polyribosomes Ribosomes",
+      "Polyribosomes",
+      "Ribosomes",
       "Polyribosomes",
       "Node of Ranvier",
+      "7",
       "Ribosomes",
+      "IN",
+      "Ribosomes",
+      "Sy",
+      "(Axos",
       "SyNapse",
       "apse matic)",
       "Golgi apparatus",
       "Myelin Sheath (Schwann cell)",
-      "hillock",
+      "Axon hillock",
       "Axon",
       "Nucleus Nucleolus Membrane Microtubule",
       "Nucleus",
+      "Nucleus",
       "Nucleus (Schwann cell)",
+      "1",
       "embrane",
       "chwann",
       "cel",
+      "2",
       "Microtubule",
       "YY Vy",
+      "ndrion yd Smooth ER",
       "Ondrion",
-      "Vy bis Microfilament Microtubule Axon",
+      "A ao",
       "Smooth ER",
+      "Microfilament Microtubule Axon",
       "Microfilament Microtubule",
       "Microfilament",
       "Microtubule",
       "Axon",
-      "Synapse (Axodendritic)",
+      "synapse",
       "Dendrites"
     ],
     "regionsFound": 12,
-    "strokes": 278,
+    "strokes": 287,
     "timings": {
-      "segment": 283,
-      "ocr": 1249,
-      "lines": 206,
-      "total": 1844
+      "segment": 280,
+      "ocr": 1660,
+      "lines": 208,
+      "total": 2259
     },
     "draft": {
       "regions": 12,
       "lines": 16,
       "relations": [
         [
-          "Nucleus Nucleolus Membrane Microtubule",
-          "Rough Er Body)",
-          0.43
+          "Line 1",
+          "Synapse",
+          0.22
         ],
         [
-          "Region 12",
+          "Line 3",
+          "(axos",
+          0.16
+        ],
+        [
+          "Line 4",
+          "Synapse",
+          0.81
+        ],
+        [
+          "Line 5",
+          "Ribosomes",
+          1
+        ],
+        [
+          "Synapse",
+          "Ribosomes",
+          1
+        ],
+        [
+          "Synapse",
           "Microtubule Neurofibrils Neurotransmitter Receptor",
-          0.94
+          0.97
         ],
         [
-          "Region 12",
-          "Receptor.",
-          0.8
+          "Ribosomes",
+          "(axos",
+          1
+        ],
+        [
+          "Cel",
+          "Axon",
+          0.91
         ]
       ]
     },
     "report": {
       "dropped": [
         {
-          "id": "l-06",
-          "why": "length 7.8 mm < 8"
-        },
-        {
-          "id": "l-10",
-          "why": "length 7.3 mm < 8"
-        },
-        {
-          "id": "l-14",
-          "why": "length 6.8 mm < 8"
+          "id": "l-13",
+          "why": "length 5.8 mm < 8"
         },
         {
           "id": "r-11",
@@ -2673,32 +2599,44 @@
           "why": "within 3 mm of l-01"
         },
         {
-          "id": "l-05",
-          "why": "within 3 mm of l-03"
+          "id": "l-03",
+          "why": "within 3 mm of l-01"
         },
         {
-          "id": "l-07",
-          "why": "within 3 mm of l-04"
+          "id": "l-04",
+          "why": "within 3 mm of l-01"
+        },
+        {
+          "id": "l-05",
+          "why": "within 3 mm of l-01"
+        },
+        {
+          "id": "l-06",
+          "why": "within 3 mm of l-01"
         },
         {
           "id": "l-09",
-          "why": "within 3 mm of l-04"
+          "why": "within 3 mm of l-01"
         },
         {
           "id": "l-11",
-          "why": "within 3 mm of l-04"
+          "why": "within 3 mm of l-10"
         },
         {
           "id": "l-12",
-          "why": "within 3 mm of l-04"
+          "why": "within 3 mm of l-01"
         },
         {
-          "id": "l-16",
-          "why": "within 3 mm of l-04"
+          "id": "l-14",
+          "why": "runs within 3 mm of r-06 without connecting"
         },
         {
-          "id": "l-13",
-          "why": "within 3 mm of l-03"
+          "id": "l-08",
+          "why": "within 3 mm of l-10"
+        },
+        {
+          "id": "l-07",
+          "why": "runs within 3 mm of r-04 without connecting"
         }
       ],
       "merged": 0,
@@ -2710,110 +2648,112 @@
     },
     "out": {
       "regions": [
-        "Region 12",
-        "Node Of Ranvier",
-        "Vy Bis Microfilament Microtubule Axon",
-        "Nucleus (schwann Cell)",
-        "Synapse (axodendritic)",
+        "Rece Tor",
+        "Axon",
+        "Microfilament",
+        "Cel",
+        "Region 3",
         "Region 2",
-        "Nucleus Nucleolus Membrane Microtubule",
-        "Region 1",
-        "Polyribosomes Ribosomes",
-        "Rough Er Body)"
+        "Synapse",
+        "Dendrites",
+        "Ribosomes",
+        "(axos"
       ],
-      "lines": 5,
-      "relations": 1,
-      "key": 15
+      "lines": 4,
+      "relations": 4,
+      "key": 14
     },
     "validation": {
       "status": "fail",
       "blocking": [
+        "R3",
+        "R3",
+        "R3",
         "R3"
       ],
       "advisory": [
         "N1",
         "N1",
-        "N1",
-        "N1",
+        "O1",
         "N1",
         "N1",
         "N1",
         "N1"
       ],
       "msgs": [
-        "R3: Detected: A stroke connects Nucleus Nucleolus Membrane Microtubule to Rough Er Body) (43%) — confirm or remove"
+        "R3: Detected: Line 1 connects Line 1 to Synapse (22%) — confirm or remove",
+        "R3: Detected: A stroke connects Synapse to Ribosomes (100%) — confirm or remove",
+        "R3: Detected: A stroke connects Ribosomes to (axos (100%) — confirm or remove",
+        "R3: Detected: A stroke connects Cel to Axon (91%) — confirm or remove"
       ]
     },
     "ms": {
-      "draft": 4.699999988079071,
-      "simplify": 12.099999994039536,
-      "validate": 1.9000000059604645,
-      "exports": 27.30000001192093
+      "draft": 5.700000047683716,
+      "simplify": 12.199999928474426,
+      "validate": 1.899999976158142,
+      "exports": 24.600000023841858
     },
     "exports": {
       "svg": {
         "ok": true,
-        "cells": 186,
-        "keyEntries": 15,
+        "cells": 147,
+        "keyEntries": 14,
         "keyFits": true
       },
       "stl": {
         "ok": true,
-        "triangles": 18668,
-        "shells": 621,
+        "triangles": 16332,
+        "shells": 537,
         "openEdges": 0,
         "bbox": {
           "x": 10,
           "y": 14,
           "z": 0,
           "w": 184,
-          "h": 219.3,
+          "h": 209.3,
           "d": 3
         },
-        "kb": 912
+        "kb": 798
       },
       "alt": {
         "ok": true,
-        "words": 119
+        "words": 118
       },
       "brf": {
         "ok": true,
         "pages": 1,
-        "cells": 269
+        "cells": 142
       }
     },
     "sem": {
       "labelsPrinted": 29,
-      "labelsRead": 27,
+      "labelsRead": 28,
       "missing": [
         [
           "Mitochondrion",
-          "Microtubule Neurofibrils Neurotransmitter Receptor"
-        ],
-        [
-          "Axon hillock",
-          "hillock"
+          "4"
         ]
       ],
       "regionsExpected": 6,
-      "regionsNamed": 1,
+      "regionsNamed": 3,
       "relTruth": 3,
       "relMatched": 0
     },
     "geomClean": true,
-    "r3": 1
+    "r3": 4
   },
   {
     "name": "bio-plantcell-01",
     "difficulty": "medium",
     "truth": true,
-    "understandMs": 1679,
+    "understandMs": 1961,
     "labels": [
       "Filamentous cytoskeleton",
       "Plasmodesmata Plasma membrane",
       "Plasmodesmata",
       "Small membranous",
-      "WA SIRI",
+      "WA",
+      "SIRI",
       "Plasma membrane",
       "vesicles",
       "Cell wall",
@@ -2822,11 +2762,13 @@
       "ins.",
       "Starch grain",
       "Smooth endoplasmic reticulum",
+      "Vacuole Vacuole Tonoplast",
       "Vacuole",
       "facuole",
       "Tonoplast Mitochondrion (mitochondria)",
       "Tonoplast",
       "Ribosomes",
+      "7",
       "SS SOK Ss",
       "Peroxi eroxisome",
       "SOK",
@@ -2840,53 +2782,49 @@
       "Rough endoplasmic reticulum"
     ],
     "regionsFound": 10,
-    "strokes": 269,
+    "strokes": 256,
     "timings": {
-      "segment": 333,
-      "ocr": 1102,
-      "lines": 96,
-      "total": 1651
+      "segment": 335,
+      "ocr": 1382,
+      "lines": 94,
+      "total": 1933
     },
     "draft": {
       "regions": 10,
       "lines": 16,
       "relations": [
         [
-          "Chloroplast Thylakoid Membrane",
-          "Region 6",
+          "Siri",
+          "Smooth Endoplasmic Reticulum",
+          0.94
+        ],
+        [
+          "Siri",
+          "Vesicles",
           1
         ],
         [
-          "Region 4",
-          "Region 7",
-          0.53
+          "Siri",
+          "Rough Endoplasmic Reticulum",
+          0.88
         ],
         [
-          "Golgi Body (golgi Apparatus)",
-          "Region 6",
-          0.82
+          "Vesicles",
+          "Ribosomes",
+          0.92
         ],
         [
-          "Region 6",
-          "Region 5",
-          0.28
-        ],
-        [
-          "Region 6",
-          "Region 4",
-          0.73
+          "Golgi Vesicles",
+          "Siri",
+          0.91
         ]
       ]
     },
     "report": {
       "dropped": [
         {
-          "id": "l-03",
-          "why": "length 5.6 mm < 8"
-        },
-        {
           "id": "l-12",
-          "why": "length 7.7 mm < 8"
+          "why": "length 7.9 mm < 8"
         },
         {
           "id": "r-07",
@@ -2909,16 +2847,36 @@
           "why": "too small once moved 3 mm clear of the outline of r-10"
         },
         {
-          "id": "l-11",
-          "why": "within 3 mm of l-07"
+          "id": "l-08",
+          "why": "within 3 mm of l-02"
         },
         {
-          "id": "l-16",
-          "why": "within 3 mm of l-14"
+          "id": "l-13",
+          "why": "within 3 mm of l-02"
+        },
+        {
+          "id": "l-09",
+          "why": "within 3 mm of l-15"
+        },
+        {
+          "id": "l-10",
+          "why": "runs within 3 mm of r-06 without connecting"
+        },
+        {
+          "id": "l-03",
+          "why": "within 3 mm of l-11"
+        },
+        {
+          "id": "l-07",
+          "why": "within 3 mm of l-16"
+        },
+        {
+          "id": "l-14",
+          "why": "within 3 mm of l-16"
         },
         {
           "id": "l-01",
-          "why": "within 3 mm of l-15"
+          "why": "within 3 mm of l-11"
         }
       ],
       "merged": 0,
@@ -2930,29 +2888,25 @@
     },
     "out": {
       "regions": [
-        "Chloroplast Thylakoid Membrane",
-        "Region 6",
+        "Vesicles",
+        "Siri",
         "Nucl Ucleus Nuclear Pore Nuclear Envelope",
-        "Region 4",
+        "Ribosomes",
         "Rough Endoplasmic Reticulum"
       ],
-      "lines": 11,
-      "relations": 2,
-      "key": 16
+      "lines": 7,
+      "relations": 3,
+      "key": 12
     },
     "validation": {
       "status": "fail",
       "blocking": [
         "R3",
+        "R3",
         "R3"
       ],
       "advisory": [
-        "N1",
-        "N1",
-        "N1",
-        "N1",
-        "N1",
-        "N1",
+        "O1",
         "N1",
         "N1",
         "N1",
@@ -2962,46 +2916,47 @@
         "N1"
       ],
       "msgs": [
-        "R3: Detected: Line 2 connects Chloroplast Thylakoid Membrane to Region 6 (100%) — confirm or remove",
-        "R3: Detected: Line 15 connects Region 6 to Region 4 (73%) — confirm or remove"
+        "R3: Detected: A stroke connects Siri to Vesicles (100%) — confirm or remove",
+        "R3: Detected: A stroke connects Siri to Rough Endoplasmic Reticulum (88%) — confirm or remove",
+        "R3: Detected: A stroke connects Vesicles to Ribosomes (92%) — confirm or remove"
       ]
     },
     "ms": {
-      "draft": 3.9000000059604645,
-      "simplify": 8.700000017881393,
-      "validate": 0.699999988079071,
-      "exports": 27.69999998807907
+      "draft": 3.100000023841858,
+      "simplify": 9.299999952316284,
+      "validate": 0.7000000476837158,
+      "exports": 25.600000023841858
     },
     "exports": {
       "svg": {
         "ok": true,
-        "cells": 180,
-        "keyEntries": 16,
+        "cells": 163,
+        "keyEntries": 12,
         "keyFits": true
       },
       "stl": {
         "ok": true,
-        "triangles": 19144,
-        "shells": 652,
+        "triangles": 17864,
+        "shells": 604,
         "openEdges": 0,
         "bbox": {
           "x": 10,
           "y": 30.7,
           "z": 0,
-          "w": 166,
-          "h": 197,
+          "w": 190,
+          "h": 237,
           "d": 3
         },
-        "kb": 935
+        "kb": 872
       },
       "alt": {
         "ok": true,
-        "words": 127
+        "words": 105
       },
       "brf": {
         "ok": true,
         "pages": 1,
-        "cells": 233
+        "cells": 175
       }
     },
     "sem": {
@@ -3014,54 +2969,51 @@
         ]
       ],
       "regionsExpected": 6,
-      "regionsNamed": 2,
+      "regionsNamed": 1,
       "relTruth": 3,
       "relMatched": 0
     },
     "geomClean": true,
-    "r3": 2
+    "r3": 3
   },
   {
     "name": "bio-plantcell-02",
     "difficulty": "easy",
     "truth": true,
-    "understandMs": 700,
+    "understandMs": 816,
     "labels": [
+      "roplast",
       "Cell wall",
       "ucleus",
       "Vacuole",
       "Chloroplast",
-      "ondrion",
+      "Mitoc ondrion",
       "Cytoplasm"
     ],
     "regionsFound": 9,
-    "strokes": 181,
+    "strokes": 175,
     "timings": {
-      "segment": 49,
-      "ocr": 453,
-      "lines": 59,
-      "total": 674
+      "segment": 50,
+      "ocr": 573,
+      "lines": 56,
+      "total": 790
     },
     "draft": {
       "regions": 9,
-      "lines": 16,
+      "lines": 6,
       "relations": [
         [
+          "Cytoplasm",
           "Cell Wall",
-          "Chloroplast",
-          0.78
+          0.96
         ]
       ]
     },
     "report": {
       "dropped": [
         {
-          "id": "l-13",
-          "why": "length 7.4 mm < 8"
-        },
-        {
-          "id": "l-16",
-          "why": "length 6.9 mm < 8"
+          "id": "l-06",
+          "why": "length 6.7 mm < 8"
         },
         {
           "id": "r-01",
@@ -3085,31 +3037,11 @@
         },
         {
           "id": "l-04",
-          "why": "within 3 mm of l-01"
+          "why": "within 3 mm of l-02"
         },
         {
-          "id": "l-07",
-          "why": "within 3 mm of l-06"
-        },
-        {
-          "id": "l-09",
-          "why": "within 3 mm of l-08"
-        },
-        {
-          "id": "l-05",
-          "why": "within 3 mm of l-08"
-        },
-        {
-          "id": "l-15",
-          "why": "within 3 mm of l-08"
-        },
-        {
-          "id": "l-11",
-          "why": "within 3 mm of l-08"
-        },
-        {
-          "id": "l-12",
-          "why": "within 3 mm of l-01"
+          "id": "l-01",
+          "why": "within 3 mm of l-05"
         }
       ],
       "merged": 0,
@@ -3121,15 +3053,15 @@
     },
     "out": {
       "regions": [
+        "Cytoplasm",
         "Cell Wall",
-        "Chloroplast",
         "Region 3",
-        "Region 7",
+        "Ucleus",
         "Region 5"
       ],
-      "lines": 6,
+      "lines": 2,
       "relations": 1,
-      "key": 11
+      "key": 7
     },
     "validation": {
       "status": "fail",
@@ -3140,53 +3072,48 @@
         "N1",
         "N1",
         "N1",
-        "N1",
-        "N1",
-        "N1",
-        "N1",
-        "N1",
         "N1"
       ],
       "msgs": [
-        "R3: Detected: Line 1 connects Cell Wall to Chloroplast (78%) — confirm or remove"
+        "R3: Detected: Line 2 connects Cytoplasm to Cell Wall (96%) — confirm or remove"
       ]
     },
     "ms": {
-      "draft": 2.5999999940395355,
-      "simplify": 12.300000011920929,
-      "validate": 1.300000011920929,
-      "exports": 18.19999998807907
+      "draft": 1.7999999523162842,
+      "simplify": 12.399999976158142,
+      "validate": 1,
+      "exports": 15.5
     },
     "exports": {
       "svg": {
         "ok": true,
-        "cells": 125,
-        "keyEntries": 11,
+        "cells": 78,
+        "keyEntries": 7,
         "keyFits": true
       },
       "stl": {
         "ok": true,
-        "triangles": 13556,
-        "shells": 433,
+        "triangles": 10624,
+        "shells": 326,
         "openEdges": 0,
         "bbox": {
           "x": 10,
-          "y": 30.1,
+          "y": 36.2,
           "z": 0,
-          "w": 166,
-          "h": 208,
+          "w": 140.9,
+          "h": 206.3,
           "d": 3
         },
-        "kb": 662
+        "kb": 519
       },
       "alt": {
         "ok": true,
-        "words": 84
+        "words": 59
       },
       "brf": {
         "ok": true,
         "pages": 1,
-        "cells": 121
+        "cells": 83
       }
     },
     "sem": {
@@ -3195,15 +3122,15 @@
       "missing": [
         [
           "Nucleolus",
-          "Cell wall"
+          "roplast"
         ],
         [
           "Mitochondrion",
-          "Cell wall"
+          "roplast"
         ]
       ],
       "regionsExpected": 9,
-      "regionsNamed": 4,
+      "regionsNamed": 3,
       "relTruth": 2,
       "relMatched": 0
     },
@@ -3214,16 +3141,21 @@
     "name": "bio-respiratory-01",
     "difficulty": "hard",
     "truth": true,
-    "understandMs": 2337,
+    "understandMs": 2853,
     "labels": [
       "Capilllary beds",
       "Paranasal sinuses Frontal Sphenoid",
+      "Paranasal sinuses",
       "Connective tissue",
       "Frontal",
+      "Sphenoid",
       "Nose Nasal cavity Nasal conchae Nasal vestibule",
+      "Nose",
       "Alveolar",
       "sacs",
-      "Alveolar duct/7",
+      "Alveolar duc",
+      "A",
+      "4",
       "Mucous gland Mucosal ining",
       "Pharynx Larynx Epiglottis Thyroid cartilage Cricoid cartilage",
       "Ree",
@@ -3234,11 +3166,12 @@
       "alveoli Atrium",
       "Atrium",
       "Vocal folds",
-      "Trachea- Carina of trachea",
+      "Trachea Carina of trach",
       "Trachea",
       "Carina of tra",
+      "Tracheal and and bro bro chi ch",
       "bronchi",
-      "Tracheal and bronchi rings",
+      "pen bronchi",
       "ain bronchi",
       "SYR",
       "Lingular division bronchi",
@@ -3249,102 +3182,100 @@
       "Left lung",
       "LAL Ke",
       "Right lung Superior perior lob lobe",
+      "lobe",
       "ior",
       "Apex of left lung",
       "Horizontal fissure",
-      "Oblique fissure sir Cardiac notch Lingula of lung Inferior lobe",
+      "Oblique fissure Cardiac notch sir Lingula of lung Inferior lobe",
+      "4",
       "Oblique fissure",
       "ique",
-      "Middle iddle lob lobe inferior lobe",
+      "Middle lob lobe iddle inferior lobe",
       "Middle lobe",
+      "5",
       "Inferior lobe",
       "Diaphragm",
       "Superior Inferior Middle",
+      "Superior",
+      "Middle",
       "Lobar bronchus"
     ],
     "regionsFound": 6,
-    "strokes": 275,
+    "strokes": 265,
     "timings": {
       "segment": 39,
-      "ocr": 2009,
-      "lines": 145,
-      "total": 2308
+      "ocr": 2519,
+      "lines": 150,
+      "total": 2825
     },
     "draft": {
       "regions": 6,
-      "lines": 16,
+      "lines": 11,
       "relations": [
         [
-          "Lal Ke",
-          "Oblique Fissure",
-          0.5
+          "Ww Nal Gees Ben",
+          "Pen Bronchi",
+          0.83
         ],
         [
-          "Line 3",
-          "Vocal Folds",
-          0.84
+          "Line 5",
+          "Pen Bronchi",
+          0.23
         ],
         [
-          "Mucous Gland Mucosal Ining",
-          "Capilllary Beds",
-          1
+          "Line 6",
+          "Pen Bronchi",
+          0.8
         ],
         [
-          "Oblique Fissure",
-          "Vocal Folds",
-          0.89
+          "Pulmonary Artery Pulmonary Vein",
+          "Alveoli",
+          0.91
+        ],
+        [
+          "Region 2",
+          "Ww Nal Gees Ben",
+          0.94
         ]
       ]
     },
     "report": {
       "dropped": [
         {
-          "id": "l-07",
-          "why": "length 8.0 mm < 8"
-        },
-        {
-          "id": "l-09",
-          "why": "length 6.9 mm < 8"
-        },
-        {
           "id": "l-01",
           "why": "runs within 3 mm of r-02 without connecting"
         },
         {
-          "id": "l-06",
-          "why": "within 3 mm of l-02"
+          "id": "l-04",
+          "why": "runs within 3 mm of r-01 without connecting"
         },
         {
-          "id": "l-03",
+          "id": "l-05",
+          "why": "within 3 mm of l-03"
+        },
+        {
+          "id": "l-06",
           "why": "runs within 3 mm of r-04 without connecting"
         },
         {
-          "id": "l-10",
-          "why": "runs within 3 mm of r-06 without connecting"
+          "id": "l-02",
+          "why": "within 3 mm of l-03"
         },
         {
-          "id": "l-12",
-          "why": "within 3 mm of l-11"
-        },
-        {
-          "id": "l-14",
-          "why": "runs within 3 mm of r-06 without connecting"
-        },
-        {
-          "id": "l-15",
-          "why": "within 3 mm of l-11"
-        },
-        {
-          "id": "l-16",
-          "why": "within 3 mm of l-13"
-        },
-        {
-          "id": "l-04",
-          "why": "within 3 mm of l-05"
+          "id": "l-07",
+          "why": "runs within 3 mm of r-05 without connecting"
         },
         {
           "id": "l-08",
-          "why": "within 3 mm of l-05"
+          "why": "runs within 3 mm of r-05 without connecting"
+        },
+        {
+          "id": "l-10",
+          "why": "within 3 mm of l-09"
+        },
+        {
+          "id": "l-11",
+          "why": "runs within 3 mm of r-01 without connecting"
         }
       ],
       "merged": 0,
@@ -3356,16 +3287,16 @@
     },
     "out": {
       "regions": [
-        "Mucous Gland Mucosal Ining",
-        "Oblique Fissure",
-        "Lal Ke",
-        "Paranasal Sinuses Frontal Sphenoid",
-        "Vocal Folds",
-        "Capilllary Beds"
+        "Pulmonary Artery Pulmonary Vein",
+        "Region 2",
+        "Ww Nal Gees Ben",
+        "Nose Nasal Cavity Nasal Conchae Nasal Vestibule",
+        "Pen Bronchi",
+        "Alveoli"
       ],
-      "lines": 4,
+      "lines": 2,
       "relations": 3,
-      "key": 10
+      "key": 8
     },
     "validation": {
       "status": "fail",
@@ -3375,59 +3306,58 @@
         "R3"
       ],
       "advisory": [
+        "N1",
         "O1",
-        "N1",
-        "N1",
         "N1",
         "N1"
       ],
       "msgs": [
-        "R3: Detected: A stroke connects Lal Ke to Oblique Fissure (50%) — confirm or remove",
-        "R3: Detected: Line 11 connects Mucous Gland Mucosal Ining to Capilllary Beds (100%) — confirm or remove",
-        "R3: Detected: Line 13 connects Oblique Fissure to Vocal Folds (89%) — confirm or remove"
+        "R3: Detected: A stroke connects Ww Nal Gees Ben to Pen Bronchi (83%) — confirm or remove",
+        "R3: Detected: A stroke connects Pulmonary Artery Pulmonary Vein to Alveoli (91%) — confirm or remove",
+        "R3: Detected: A stroke connects Region 2 to Ww Nal Gees Ben (94%) — confirm or remove"
       ]
     },
     "ms": {
-      "draft": 3,
-      "simplify": 5.800000011920929,
-      "validate": 0.699999988079071,
-      "exports": 14.599999994039536
+      "draft": 3.5,
+      "simplify": 5.900000095367432,
+      "validate": 0.6999999284744263,
+      "exports": 16
     },
     "exports": {
       "svg": {
         "ok": true,
-        "cells": 122,
-        "keyEntries": 10,
+        "cells": 138,
+        "keyEntries": 8,
         "keyFits": true
       },
       "stl": {
         "ok": true,
-        "triangles": 10116,
-        "shells": 341,
+        "triangles": 11856,
+        "shells": 402,
         "openEdges": 0,
         "bbox": {
           "x": 10,
           "y": 26.6,
           "z": 0,
-          "w": 178.7,
-          "h": 222.4,
+          "w": 190,
+          "h": 252.4,
           "d": 3
         },
-        "kb": 494
+        "kb": 579
       },
       "alt": {
         "ok": true,
-        "words": 108
+        "words": 104
       },
       "brf": {
         "ok": true,
         "pages": 1,
-        "cells": 172
+        "cells": 166
       }
     },
     "sem": {
       "labelsPrinted": 48,
-      "labelsRead": 44,
+      "labelsRead": 42,
       "missing": [
         [
           "Esophagus",
@@ -3442,12 +3372,20 @@
           "bronchi"
         ],
         [
+          "Tracheal and bronchi rings",
+          "Tracheal and and bro bro chi ch"
+        ],
+        [
           "Alveolar sacs",
+          "Alveolar"
+        ],
+        [
+          "Alveolar duct",
           "Alveolar"
         ]
       ],
       "regionsExpected": 7,
-      "regionsNamed": 0,
+      "regionsNamed": 2,
       "relTruth": 3,
       "relMatched": 0
     },
@@ -3458,97 +3396,104 @@
     "name": "chem-distillation-01",
     "difficulty": "medium",
     "truth": true,
-    "understandMs": 890,
+    "understandMs": 1008,
     "labels": [
-      "Sf SS"
+      "Sf SS",
+      "3",
+      "10",
+      "9",
+      "2",
+      "14",
+      "1",
+      "16",
+      "13"
     ],
     "regionsFound": 6,
-    "strokes": 244,
+    "strokes": 211,
     "timings": {
-      "segment": 38,
-      "ocr": 640,
-      "lines": 57,
-      "total": 843
+      "segment": 37,
+      "ocr": 777,
+      "lines": 54,
+      "total": 978
     },
     "draft": {
       "regions": 6,
-      "lines": 16,
+      "lines": 11,
       "relations": [
         [
-          "Region 4",
-          "Sf Ss",
-          0.67
+          "2",
+          "3",
+          0.66
         ],
         [
-          "Region 4",
+          "2",
           "Region 2",
-          0.91
+          0.85
+        ],
+        [
+          "Region 2",
+          "14",
+          0.99
         ]
       ]
     },
     "report": {
       "dropped": [
         {
-          "id": "l-07",
-          "why": "length 7.9 mm < 8"
+          "id": "r-05",
+          "why": "area 58 mm² < 60"
         },
         {
           "id": "l-08",
-          "why": "length 7.0 mm < 8"
+          "why": "length 7.5 mm < 8"
         },
         {
-          "id": "l-03",
-          "why": "runs within 3 mm of r-01 without connecting"
+          "id": "l-09",
+          "why": "length 6.9 mm < 8"
         },
         {
-          "id": "l-04",
-          "why": "within 3 mm of l-02"
+          "id": "l-10",
+          "why": "length 6.8 mm < 8"
         },
         {
           "id": "l-11",
-          "why": "runs within 3 mm of r-04 without connecting"
+          "why": "length 6.6 mm < 8"
+        },
+        {
+          "id": "l-01",
+          "why": "within 3 mm of l-02"
         },
         {
           "id": "l-05",
-          "why": "runs within 3 mm of r-01 without connecting"
+          "why": "runs within 3 mm of r-04 without connecting"
         },
         {
-          "id": "l-12",
-          "why": "within 3 mm of l-09"
-        },
-        {
-          "id": "l-15",
-          "why": "within 3 mm of l-09"
-        },
-        {
-          "id": "l-06",
-          "why": "runs within 3 mm of r-03 without connecting"
+          "id": "l-07",
+          "why": "runs within 3 mm of r-02 without connecting"
         }
       ],
       "merged": 0,
-      "minGapBefore": 0.74,
-      "minGapAfter": 3.11,
+      "minGapBefore": 0.67,
+      "minGapAfter": 3.12,
       "passes": 1,
-      "scaledBy": 1,
+      "scaledBy": 0.985,
       "textures": 2
     },
     "out": {
       "regions": [
-        "Region 6",
-        "Region 1",
-        "Region 4",
+        "14",
+        "1",
+        "2",
         "Region 2",
-        "Region 3",
-        "Sf Ss"
+        "16"
       ],
-      "lines": 7,
+      "lines": 4,
       "relations": 2,
-      "key": 13
+      "key": 9
     },
     "validation": {
       "status": "fail",
       "blocking": [
-        "K1",
         "R3",
         "R3"
       ],
@@ -3557,76 +3502,55 @@
         "N1",
         "N1",
         "N1",
-        "N1",
-        "O1",
-        "N1",
-        "N1",
-        "N1",
-        "N1",
-        "N1",
-        "N1",
         "N1"
       ],
       "msgs": [
-        "K1: braille key (13 entries in 2 columns) needs 17 mm more sheet",
-        "R3: Detected: Line 1 connects Region 4 to Sf Ss (67%) — confirm or remove",
-        "R3: Detected: A stroke connects Region 4 to Region 2 (91%) — confirm or remove"
+        "R3: Detected: A stroke connects 2 to Region 2 (85%) — confirm or remove",
+        "R3: Detected: A stroke connects Region 2 to 14 (99%) — confirm or remove"
       ]
     },
     "ms": {
-      "draft": 2.600000023841858,
-      "simplify": 8.799999982118607,
-      "validate": 0.9000000059604645,
-      "exports": 19.400000005960464
+      "draft": 1.5,
+      "simplify": 4.600000023841858,
+      "validate": 0.3999999761581421,
+      "exports": 14.600000023841858
     },
     "exports": {
       "svg": {
         "ok": true,
-        "cells": 143,
-        "keyEntries": 13,
-        "keyFits": false
+        "cells": 70,
+        "keyEntries": 9,
+        "keyFits": true
       },
       "stl": {
         "ok": true,
-        "triangles": 14332,
-        "shells": 504,
+        "triangles": 9580,
+        "shells": 336,
         "openEdges": 0,
         "bbox": {
           "x": 10,
-          "y": 94,
+          "y": 14.6,
           "z": 0,
-          "w": 168.7,
-          "h": 209.6,
+          "w": 169.6,
+          "h": 262.4,
           "d": 3
         },
-        "kb": 700
+        "kb": 468
       },
       "alt": {
         "ok": true,
-        "words": 113
+        "words": 84
       },
       "brf": {
         "ok": true,
         "pages": 1,
-        "cells": 138
+        "cells": 77
       }
     },
     "sem": {
       "labelsPrinted": 16,
-      "labelsRead": 0,
+      "labelsRead": 8,
       "missing": [
-        [
-          "1",
-          "Sf SS"
-        ],
-        [
-          "2",
-          "Sf SS"
-        ],
-        [
-          "3",
-          "Sf SS"
-        ],
         [
           "4",
           "Sf SS"
@@ -3648,14 +3572,6 @@
           "Sf SS"
         ],
         [
-          "9",
-          "Sf SS"
-        ],
-        [
-          "10",
-          "Sf SS"
-        ],
-        [
           "11",
           "Sf SS"
         ],
@@ -3664,19 +3580,7 @@
           "Sf SS"
         ],
         [
-          "13",
-          "Sf SS"
-        ],
-        [
-          "14",
-          "Sf SS"
-        ],
-        [
           "15",
-          "Sf SS"
-        ],
-        [
-          "16",
           "Sf SS"
         ]
       ],
@@ -3685,42 +3589,53 @@
       "relTruth": 3,
       "relMatched": 0
     },
-    "geomClean": false,
+    "geomClean": true,
     "r3": 2
   },
   {
     "name": "geo-tectonic-01",
     "difficulty": "medium",
     "truth": true,
-    "understandMs": 1740,
+    "understandMs": 1964,
     "labels": [
       "of AMERICAN",
       "NORTH",
       "AMERICAN",
       "PLATE",
+      "3",
+      "5",
       "EURASIAN PLATE",
       "PLATE",
       "EURASIAN",
+      "9",
       "PLATE",
       "PLATE",
       "PLATE",
       "kf ih",
       "Ana",
+      "3",
       "the",
       "SS es",
-      "JUAN DE",
+      "6",
+      "JUAN DE FUCA",
       "FUCA",
       "PLATE",
       "PLATE",
+      "9",
       "CARIBBEAN PLATE",
-      "/PLATE",
+      "CARIBBEAN",
+      "PHILIPPINE",
+      "PLATE",
       "PHILIPPINE",
       "PLATE",
       "ARABIAN",
-      "IN PLATE",
-      "ws SU",
       "PLATE",
+      "SU ws",
       "PLATE",
+      "INDIAN PLATE",
+      "PLATE",
+      "N",
+      "cocos PLATE",
       "cocos",
       "EQUATOR",
       "AFRICAN",
@@ -3728,8 +3643,9 @@
       "PACIFIC",
       "NAZCA",
       "PLATE",
+      "PLATE",
+      "SOUTH AMERICAN",
       "SOUTH",
-      "AMERICAN",
       "AUSTRALIAN PLATE",
       "PLATE",
       "PLATE",
@@ -3737,69 +3653,88 @@
       "PLATE",
       "AUSTRALIAN",
       "PLATE",
+      "SCOTIA PLATE",
       "ANTARCTIC",
       "PLATE"
     ],
     "regionsFound": 10,
-    "strokes": 288,
+    "strokes": 268,
     "timings": {
-      "segment": 306,
-      "ocr": 1201,
-      "lines": 101,
-      "total": 1716
+      "segment": 311,
+      "ocr": 1414,
+      "lines": 100,
+      "total": 1937
     },
     "draft": {
       "regions": 10,
       "lines": 16,
       "relations": [
         [
-          "Kf Ih",
-          "In Plate",
-          0.64
+          "Plate",
+          "N",
+          0.53
         ],
         [
-          "Line 2",
-          "Of American",
-          0.82
+          "American",
+          "North",
+          0.99
         ],
         [
-          "Region 5",
-          "Kf Ih",
-          0.95
+          "North",
+          "Equator",
+          1
         ],
         [
-          "Eurasian Plate",
-          "Of American",
+          "Plate",
+          "Plate",
+          0.9
+        ],
+        [
+          "Philippine",
+          "Equator",
           0.91
         ],
         [
-          "Kf Ih",
-          "South",
-          0.93
+          "Plate",
+          "Plate",
+          0.97
         ],
         [
-          "Caribbean Plate",
-          "South",
-          0.95
+          "American",
+          "Equator",
+          0.94
+        ],
+        [
+          "Equator",
+          "Plate",
+          0.93
         ]
       ]
     },
     "report": {
       "dropped": [
         {
-          "id": "l-06",
-          "why": "length 5.7 mm < 8"
-        },
-        {
           "id": "l-01",
           "why": "runs within 3 mm of r-02 without connecting"
         },
         {
-          "id": "l-02",
-          "why": "runs within 3 mm of r-09 without connecting"
+          "id": "l-03",
+          "why": "runs within 3 mm of r-08 without connecting"
+        },
+        {
+          "id": "l-04",
+          "why": "runs within 3 mm of r-02 without connecting"
+        },
+        {
+          "id": "l-05",
+          "why": "runs within 3 mm of r-08 without connecting"
         },
         {
           "id": "l-07",
+          "why": "runs within 3 mm of r-06 without connecting"
+        },
+        {
+          "id": "l-06",
           "why": "runs within 3 mm of r-08 without connecting"
         },
         {
@@ -3808,19 +3743,15 @@
         },
         {
           "id": "l-09",
-          "why": "runs within 3 mm of r-02 without connecting"
+          "why": "runs within 3 mm of r-08 without connecting"
         },
         {
           "id": "l-10",
-          "why": "runs within 3 mm of r-01 without connecting"
+          "why": "runs within 3 mm of r-09 without connecting"
         },
         {
           "id": "l-11",
-          "why": "runs within 3 mm of r-01 without connecting"
-        },
-        {
-          "id": "l-04",
-          "why": "runs within 3 mm of r-02 without connecting"
+          "why": "runs within 3 mm of r-06 without connecting"
         },
         {
           "id": "l-13",
@@ -3828,18 +3759,14 @@
         },
         {
           "id": "l-14",
-          "why": "runs within 3 mm of r-01 without connecting"
-        },
-        {
-          "id": "l-15",
-          "why": "runs within 3 mm of r-02 without connecting"
-        },
-        {
-          "id": "l-16",
           "why": "runs within 3 mm of r-08 without connecting"
         },
         {
-          "id": "l-05",
+          "id": "l-02",
+          "why": "runs within 3 mm of r-09 without connecting"
+        },
+        {
+          "id": "l-16",
           "why": "runs within 3 mm of r-09 without connecting"
         }
       ],
@@ -3852,19 +3779,19 @@
     },
     "out": {
       "regions": [
-        "Kf Ih",
-        "South",
-        "African",
-        "Of American",
-        "Ss Es",
-        "Nazca",
-        "Caribbean Plate",
-        "Eurasian Plate",
-        "In Plate",
-        "Region 5"
+        "Equator",
+        "Plate",
+        "Plate",
+        "American",
+        "Plate",
+        "Plate",
+        "Plate",
+        "North",
+        "N",
+        "Philippine"
       ],
       "lines": 2,
-      "relations": 5,
+      "relations": 8,
       "key": 12
     },
     "validation": {
@@ -3874,40 +3801,43 @@
         "R3",
         "R3",
         "R3",
+        "R3",
+        "R3",
+        "R3",
         "R3"
       ],
       "advisory": [
-        "O1",
-        "O1",
-        "N1",
         "N1",
         "N1"
       ],
       "msgs": [
-        "R3: Detected: A stroke connects Kf Ih to In Plate (64%) — confirm or remove",
-        "R3: Detected: Line 3 connects Region 5 to Kf Ih (95%) — confirm or remove",
-        "R3: Detected: A stroke connects Eurasian Plate to Of American (91%) — confirm or remove",
-        "R3: Detected: A stroke connects Kf Ih to South (93%) — confirm or remove",
-        "R3: Detected: A stroke connects Caribbean Plate to South (95%) — confirm or remove"
+        "R3: Detected: A stroke connects Plate to N (53%) — confirm or remove",
+        "R3: Detected: A stroke connects American to North (99%) — confirm or remove",
+        "R3: Detected: A stroke connects North to Equator (100%) — confirm or remove",
+        "R3: Detected: A stroke connects Plate to Plate (90%) — confirm or remove",
+        "R3: Detected: A stroke connects Philippine to Equator (91%) — confirm or remove",
+        "R3: Detected: A stroke connects Plate to Plate (97%) — confirm or remove",
+        "R3: Detected: A stroke connects American to Equator (94%) — confirm or remove",
+        "R3: Detected: A stroke connects Equator to Plate (93%) — confirm or remove"
       ]
     },
     "ms": {
-      "draft": 5.199999988079071,
-      "simplify": 19.600000023841858,
-      "validate": 5.899999976158142,
-      "exports": 41.20000001788139
+      "draft": 5.200000047683716,
+      "simplify": 19.299999952316284,
+      "validate": 5.800000071525574,
+      "exports": 38.59999990463257
     },
     "exports": {
       "svg": {
         "ok": true,
-        "cells": 141,
+        "cells": 108,
         "keyEntries": 12,
         "keyFits": true
       },
       "stl": {
         "ok": true,
-        "triangles": 26572,
-        "shells": 846,
+        "triangles": 25284,
+        "shells": 800,
         "openEdges": 0,
         "bbox": {
           "x": 10,
@@ -3917,44 +3847,36 @@
           "h": 235.8,
           "d": 3
         },
-        "kb": 1298
+        "kb": 1235
       },
       "alt": {
         "ok": true,
-        "words": 127
+        "words": 136
       },
       "brf": {
         "ok": true,
         "pages": 1,
-        "cells": 136
+        "cells": 110
       }
     },
     "sem": {
       "labelsPrinted": 18,
-      "labelsRead": 6,
+      "labelsRead": 9,
       "missing": [
         [
           "NORTH AMERICAN PLATE",
-          "of AMERICAN"
+          "SOUTH AMERICAN"
         ],
         [
           "JUAN DE FUCA PLATE",
-          "JUAN DE"
+          "JUAN DE FUCA"
         ],
         [
           "PHILIPPINE PLATE",
           "PLATE"
         ],
         [
-          "COCOS PLATE",
-          "PLATE"
-        ],
-        [
           "ARABIAN PLATE",
-          "PLATE"
-        ],
-        [
-          "INDIAN PLATE",
           "PLATE"
         ],
         [
@@ -3963,7 +3885,7 @@
         ],
         [
           "SOUTH AMERICAN PLATE",
-          "of AMERICAN"
+          "SOUTH AMERICAN"
         ],
         [
           "NAZCA PLATE",
@@ -3974,136 +3896,160 @@
           "PLATE"
         ],
         [
-          "SCOTIA PLATE",
-          "PLATE"
-        ],
-        [
           "ANTARCTIC PLATE",
           "PLATE"
         ]
       ],
       "regionsExpected": 7,
-      "regionsNamed": 4,
+      "regionsNamed": 7,
       "relTruth": 3,
       "relMatched": 0
     },
     "geomClean": true,
-    "r3": 5
+    "r3": 8
   },
   {
     "name": "geo-watercycle-01",
     "difficulty": "hard",
     "truth": true,
-    "understandMs": 1840,
+    "understandMs": 2244,
     "labels": [
       "The",
       "Af acer Cycie",
       "akc",
-      "Volcanic steagi",
+      "Volcanic ste",
       "Atmosphere",
       "Condensation",
       "Sublimation",
-      "Fe. ecipitation",
       "Ice and",
+      "Precipitation",
       "ice",
       "snow",
       "Desublimation",
       "Evapotranspiration",
+      "mation",
+      "7",
       "Evaporation",
-      "Surface",
+      "7",
+      "Surface sunoff",
+      "Snowmelt runoff",
+      "New",
       "OTT",
+      "Streamflow",
+      "Evaporation",
+      "Seepage Ont ON we",
+      "1",
+      "and",
+      "Flora",
       "Une",
       "Fresh- SSN",
-      "Oceans",
+      "Ocean ceans",
+      "uptake",
       "SEE",
+      "Water",
       "flow",
       "Vents and volcanos",
       "ator",
       "Groundwater storage"
     ],
     "regionsFound": 14,
-    "strokes": 239,
+    "strokes": 244,
     "timings": {
-      "segment": 275,
-      "ocr": 1385,
-      "lines": 45,
-      "total": 1812
+      "segment": 264,
+      "ocr": 1806,
+      "lines": 40,
+      "total": 2216
     },
     "draft": {
       "regions": 14,
       "lines": 16,
       "relations": [
         [
-          "Snow",
-          "Region 14",
-          1
+          "Line 3",
+          "Af Acer Cycie",
+          0.86
+        ],
+        [
+          "Line 4",
+          "Snowmelt Runoff",
+          0.21
+        ],
+        [
+          "Line 6",
+          "Precipitation",
+          0.15
+        ],
+        [
+          "Line 8",
+          "Af Acer Cycie",
+          0.02
         ],
         [
           "Af Acer Cycie",
           "Atmosphere",
-          0.94
+          0.68
         ],
         [
-          "Snow",
-          "Fe. Ecipitation",
+          "Line 10",
+          "Volcanic Ste",
           1
         ],
         [
-          "Snow",
-          "Vents And Volcanos",
-          0.96
+          "Fresh- Ssn",
+          "Snowmelt Runoff",
+          1
         ]
       ]
     },
     "report": {
       "dropped": [
         {
-          "id": "l-13",
-          "why": "length 7.7 mm < 8"
+          "id": "l-02",
+          "why": "length 7.9 mm < 8"
+        },
+        {
+          "id": "l-07",
+          "why": "length 5.5 mm < 8"
+        },
+        {
+          "id": "l-15",
+          "why": "length 5.6 mm < 8"
         },
         {
           "id": "r-07",
           "why": "overlaps r-13 and too little remains once separated"
         },
         {
-          "id": "l-08",
-          "why": "within 3 mm of l-07"
-        },
-        {
-          "id": "l-09",
-          "why": "within 3 mm of l-02"
-        },
-        {
-          "id": "l-12",
-          "why": "within 3 mm of l-07"
+          "id": "l-06",
+          "why": "within 3 mm of l-04"
         },
         {
           "id": "l-03",
-          "why": "within 3 mm of l-07"
-        },
-        {
-          "id": "l-10",
-          "why": "within 3 mm of l-02"
-        },
-        {
-          "id": "l-14",
-          "why": "within 3 mm of l-07"
-        },
-        {
-          "id": "l-11",
-          "why": "runs within 3 mm of r-02 without connecting"
-        },
-        {
-          "id": "l-05",
-          "why": "within 3 mm of l-07"
-        },
-        {
-          "id": "l-06",
           "why": "runs within 3 mm of r-13 without connecting"
         },
         {
-          "id": "l-04",
-          "why": "within 3 mm of l-07"
+          "id": "l-08",
+          "why": "within 3 mm of l-04"
+        },
+        {
+          "id": "l-09",
+          "why": "runs within 3 mm of r-13 without connecting"
+        },
+        {
+          "id": "l-14",
+          "why": "runs within 3 mm of r-05 without connecting"
+        },
+        {
+          "id": "l-01",
+          "why": "within 3 mm of l-05"
+        },
+        {
+          "id": "l-16",
+          "why": "within 3 mm of l-11"
+        },
+        {
+          "id": "l-12",
+          "why": "within 3 mm of l-11"
         }
       ],
       "merged": 0,
@@ -4115,19 +4061,19 @@
     },
     "out": {
       "regions": [
-        "Condensation",
-        "Snow",
+        "Ocean Ceans",
+        "Fresh- Ssn",
         "Af Acer Cycie",
-        "Fe. Ecipitation",
-        "Region 14",
-        "Une",
-        "Region 8",
-        "Region 10",
-        "Region 11",
-        "Region 4",
-        "Ice And",
-        "Region 3",
-        "Vents And Volcanos"
+        "Snowmelt Runoff",
+        "Volcanic Ste",
+        "Flora",
+        "Condensation",
+        "Streamflow",
+        "Vents And Volcanos",
+        "Evapotranspiration",
+        "Precipitation",
+        "Evaporation",
+        "Groundwater Storage"
       ],
       "lines": 5,
       "relations": 3,
@@ -4143,13 +4089,8 @@
       "advisory": [
         "O1",
         "O1",
-        "N1",
         "O1",
-        "N1",
-        "N1",
-        "N1",
-        "N1",
-        "N1",
+        "O1",
         "N1",
         "N1",
         "N1",
@@ -4157,28 +4098,28 @@
         "N1"
       ],
       "msgs": [
-        "R3: Detected: Line 1 connects Snow to Region 14 (100%) — confirm or remove",
-        "R3: Detected: A stroke connects Snow to Fe. Ecipitation (100%) — confirm or remove",
-        "R3: Detected: Line 16 connects Snow to Vents And Volcanos (96%) — confirm or remove"
+        "R3: Detected: Line 4 connects Line 4 to Snowmelt Runoff (21%) — confirm or remove",
+        "R3: Detected: Line 10 connects Line 10 to Volcanic Ste (100%) — confirm or remove",
+        "R3: Detected: A stroke connects Fresh- Ssn to Snowmelt Runoff (100%) — confirm or remove"
       ]
     },
     "ms": {
-      "draft": 5.800000011920929,
-      "simplify": 21.400000005960464,
-      "validate": 6,
-      "exports": 48.69999998807907
+      "draft": 5.600000023841858,
+      "simplify": 22,
+      "validate": 5.899999976158142,
+      "exports": 50.89999997615814
     },
     "exports": {
       "svg": {
         "ok": true,
-        "cells": 207,
+        "cells": 228,
         "keyEntries": 18,
         "keyFits": true
       },
       "stl": {
         "ok": true,
-        "triangles": 35068,
-        "shells": 1146,
+        "triangles": 36860,
+        "shells": 1210,
         "openEdges": 0,
         "bbox": {
           "x": 10,
@@ -4188,25 +4129,29 @@
           "h": 232.7,
           "d": 3
         },
-        "kb": 1712
+        "kb": 1800
       },
       "alt": {
         "ok": true,
-        "words": 145
+        "words": 144
       },
       "brf": {
         "ok": true,
         "pages": 1,
-        "cells": 209
+        "cells": 254
       }
     },
     "sem": {
       "labelsPrinted": 24,
-      "labelsRead": 11,
+      "labelsRead": 14,
       "missing": [
         [
           "The Water Cycle",
           "The"
+        ],
+        [
+          "Volcanic steam",
+          "Volcanic ste"
         ],
         [
           "Ice and snow",
@@ -4214,14 +4159,6 @@
         ],
         [
           "Fog drip",
-          "The"
-        ],
-        [
-          "Surface runoff",
-          "Surface"
-        ],
-        [
-          "Snowmelt runoff",
           "The"
         ],
         [
@@ -4233,20 +4170,12 @@
           "The"
         ],
         [
-          "Streamflow",
-          "The"
-        ],
-        [
-          "Seepage",
-          "The"
-        ],
-        [
           "Spring",
           "The"
         ],
         [
           "Plant uptake",
-          "The"
+          "uptake"
         ],
         [
           "Freshwater",
@@ -4258,7 +4187,7 @@
         ]
       ],
       "regionsExpected": 4,
-      "regionsNamed": 1,
+      "regionsNamed": 2,
       "relTruth": 3,
       "relMatched": 0
     },
@@ -4269,81 +4198,102 @@
     "name": "geo-watercycle-02",
     "difficulty": "hard",
     "truth": true,
-    "understandMs": 2103,
+    "understandMs": 2390,
     "labels": [
+      "CLOUDS and WATER",
+      "VAPOR",
       "CLOUDS",
+      "VAPOR",
       "CLOUDS and WATER VAPOR",
       "CLOUDS and WATER VAPOR",
       "TRANSPORT",
+      "4",
       "SNOW GLACIERS and ICESHEETS",
       "SNOW",
       "GLACIE",
       "ee Cae",
-      "and SS ICESHEETS SS",
+      "and",
+      "and ICESHEETS SS SS",
       "ess",
       "and",
+      "ICESHEETS",
       "ICESHEE",
+      "A",
       "cee",
       "Hedy",
+      "4",
       "PERMAFROST",
       "PRECIPITATION",
       "EVAPORATION",
+      "5",
       "NFILTRATION",
       "SURFACE",
       "SES",
       "SOIL MOISTURE",
       "RUNOFF",
+      "4",
       "ra (oe",
+      "2",
+      "LAKES",
       "OCEAN",
+      "and",
       "RIVERS and",
+      "R",
       "met",
       "RGE.",
-      "GROUNDWATER"
+      "4",
+      "GROUNDWATER",
+      "SEAIC"
     ],
     "regionsFound": 14,
-    "strokes": 240,
+    "strokes": 248,
     "timings": {
-      "segment": 311,
-      "ocr": 1528,
-      "lines": 112,
-      "total": 2060
+      "segment": 277,
+      "ocr": 1903,
+      "lines": 71,
+      "total": 2364
     },
     "draft": {
       "regions": 14,
       "lines": 16,
       "relations": [
         [
-          "Clouds",
-          "Nfiltration",
+          "A",
+          "2",
           0.91
         ],
         [
-          "Evaporation",
-          "Region 8",
-          0.98
-        ],
-        [
-          "Groundwater",
-          "Ra (oe",
+          "Ocean",
+          "2",
           1
         ],
         [
-          "Region 4",
+          "Seaic",
           "Groundwater",
           0.99
         ],
         [
+          "Ocean",
           "Rivers And",
-          "Ra (oe",
-          0.97
+          0.94
+        ],
+        [
+          "2",
+          "Lakes",
+          0.96
+        ],
+        [
+          "Ocean",
+          "Lakes",
+          1
         ]
       ]
     },
     "report": {
       "dropped": [
         {
-          "id": "l-16",
-          "why": "length 7.3 mm < 8"
+          "id": "l-11",
+          "why": "length 6.1 mm < 8"
         },
         {
           "id": "r-08",
@@ -4358,44 +4308,44 @@
           "why": "runs within 3 mm of r-03 without connecting"
         },
         {
-          "id": "l-09",
-          "why": "within 3 mm of l-05"
-        },
-        {
-          "id": "l-07",
-          "why": "within 3 mm of l-05"
-        },
-        {
-          "id": "l-08",
-          "why": "runs within 3 mm of r-04 without connecting"
-        },
-        {
-          "id": "l-04",
-          "why": "within 3 mm of l-05"
-        },
-        {
-          "id": "l-12",
-          "why": "within 3 mm of l-05"
-        },
-        {
-          "id": "l-15",
-          "why": "runs within 3 mm of r-04 without connecting"
-        },
-        {
-          "id": "l-03",
-          "why": "runs within 3 mm of r-03 without connecting"
-        },
-        {
-          "id": "l-06",
-          "why": "within 3 mm of l-05"
+          "id": "l-10",
+          "why": "within 3 mm of l-03"
         },
         {
           "id": "l-02",
-          "why": "runs within 3 mm of r-03 without connecting"
+          "why": "within 3 mm of l-03"
         },
         {
-          "id": "l-14",
-          "why": "within 3 mm of l-10"
+          "id": "l-04",
+          "why": "runs within 3 mm of r-10 without connecting"
+        },
+        {
+          "id": "l-07",
+          "why": "within 3 mm of l-08"
+        },
+        {
+          "id": "l-09",
+          "why": "runs within 3 mm of r-01 without connecting"
+        },
+        {
+          "id": "l-06",
+          "why": "runs within 3 mm of r-04 without connecting"
+        },
+        {
+          "id": "l-12",
+          "why": "runs within 3 mm of r-04 without connecting"
+        },
+        {
+          "id": "l-13",
+          "why": "runs within 3 mm of r-01 without connecting"
+        },
+        {
+          "id": "l-15",
+          "why": "within 3 mm of l-08"
+        },
+        {
+          "id": "l-16",
+          "why": "runs within 3 mm of r-10 without connecting"
         }
       ],
       "merged": 0,
@@ -4407,21 +4357,21 @@
     },
     "out": {
       "regions": [
-        "Clouds",
-        "Evaporation",
+        "A",
+        "Ocean",
+        "Vapor",
+        "2",
+        "Lakes",
+        "4",
+        "Permafrost",
         "Clouds And Water Vapor",
-        "Nfiltration",
-        "Ra (oe",
-        "And Ss Icesheets Ss",
-        "Region 11",
-        "Region 14",
-        "Region 4",
-        "Runoff",
+        "Seaic",
+        "Surface",
         "Groundwater",
         "Rivers And"
       ],
       "lines": 4,
-      "relations": 4,
+      "relations": 6,
       "key": 16
     },
     "validation": {
@@ -4430,44 +4380,42 @@
         "R3",
         "R3",
         "R3",
+        "R3",
+        "R3",
         "R3"
       ],
       "advisory": [
-        "O1",
-        "O1",
-        "O1",
-        "N1",
-        "N1",
-        "N1",
         "N1",
         "N1",
         "N1",
         "N1"
       ],
       "msgs": [
-        "R3: Detected: A stroke connects Clouds to Nfiltration (91%) — confirm or remove",
-        "R3: Detected: Line 5 connects Groundwater to Ra (oe (100%) — confirm or remove",
-        "R3: Detected: A stroke connects Region 4 to Groundwater (99%) — confirm or remove",
-        "R3: Detected: Line 11 connects Rivers And to Ra (oe (97%) — confirm or remove"
+        "R3: Detected: A stroke connects A to 2 (91%) — confirm or remove",
+        "R3: Detected: A stroke connects Ocean to 2 (100%) — confirm or remove",
+        "R3: Detected: A stroke connects Seaic to Groundwater (99%) — confirm or remove",
+        "R3: Detected: A stroke connects Ocean to Rivers And (94%) — confirm or remove",
+        "R3: Detected: A stroke connects 2 to Lakes (96%) — confirm or remove",
+        "R3: Detected: A stroke connects Ocean to Lakes (100%) — confirm or remove"
       ]
     },
     "ms": {
-      "draft": 5.5999999940395355,
-      "simplify": 30.19999998807907,
-      "validate": 10.700000017881393,
-      "exports": 57.5
+      "draft": 5.5,
+      "simplify": 30.299999952316284,
+      "validate": 10.900000095367432,
+      "exports": 55.39999997615814
     },
     "exports": {
       "svg": {
         "ok": true,
-        "cells": 192,
+        "cells": 150,
         "keyEntries": 16,
         "keyFits": true
       },
       "stl": {
         "ok": true,
-        "triangles": 41000,
-        "shells": 1324,
+        "triangles": 38032,
+        "shells": 1218,
         "openEdges": 0,
         "bbox": {
           "x": 10,
@@ -4477,16 +4425,16 @@
           "h": 200.4,
           "d": 3
         },
-        "kb": 2002
+        "kb": 1857
       },
       "alt": {
         "ok": true,
-        "words": 143
+        "words": 148
       },
       "brf": {
         "ok": true,
         "pages": 1,
-        "cells": 204
+        "cells": 158
       }
     },
     "sem": {
@@ -4495,7 +4443,7 @@
       "missing": [
         [
           "SEA ICE",
-          "CLOUDS"
+          "CLOUDS and WATER"
         ],
         [
           "SNOW, GLACIERS and ICE SHEETS",
@@ -4503,7 +4451,7 @@
         ],
         [
           "EVAPOTRANSPIRATION",
-          "CLOUDS"
+          "CLOUDS and WATER"
         ],
         [
           "SURFACE RUNOFF",
@@ -4515,7 +4463,7 @@
         ],
         [
           "PERCOLATION",
-          "CLOUDS"
+          "CLOUDS and WATER"
         ],
         [
           "RIVER DISCHARGE",
@@ -4523,121 +4471,101 @@
         ],
         [
           "GROUND-WATER FLOW",
-          "CLOUDS and WATER VAPOR"
+          "CLOUDS and WATER"
         ]
       ],
       "regionsExpected": 4,
-      "regionsNamed": 1,
+      "regionsNamed": 3,
       "relTruth": 4,
       "relMatched": 0
     },
     "geomClean": true,
-    "r3": 4
+    "r3": 6
   },
   {
     "name": "math-keplertriangle-01",
     "difficulty": "hard",
     "truth": true,
-    "understandMs": 976,
+    "understandMs": 1111,
     "labels": [
       "VoA(-10)",
       "vpr(-8)",
       "Vor(-9)",
+      "381",
+      "VpA(",
+      "VOC",
+      "vor(",
       "HoH"
     ],
     "regionsFound": 6,
-    "strokes": 200,
+    "strokes": 177,
     "timings": {
-      "segment": 53,
-      "ocr": 695,
+      "segment": 50,
+      "ocr": 838,
       "lines": 82,
-      "total": 946
+      "total": 1085
     },
     "draft": {
       "regions": 6,
       "lines": 16,
       "relations": [
         [
+          "Region 1",
           "Region 5",
-          "Region 1",
-          0.53
-        ],
-        [
-          "Region 3",
-          "Voa(-10)",
-          0.94
-        ],
-        [
-          "Region 1",
-          "Region 3",
-          0.7
-        ],
-        [
-          "Region 2",
-          "Voa(-10)",
-          0.58
-        ],
-        [
-          "Region 1",
-          "Voa(-10)",
           1
         ],
         [
-          "Region 1",
           "Region 2",
-          0.93
+          "Region 6",
+          0.57
         ],
         [
-          "Region 5",
-          "Voa(-10)",
-          0.78
+          "Region 1",
+          "Region 3",
+          1
         ]
       ]
     },
     "report": {
       "dropped": [
         {
-          "id": "l-06",
-          "why": "within 3 mm of l-05"
+          "id": "l-10",
+          "why": "length 7.0 mm < 8"
         },
         {
-          "id": "l-03",
-          "why": "runs within 3 mm of r-01 without connecting"
-        },
-        {
-          "id": "l-08",
-          "why": "runs within 3 mm of r-06 without connecting"
-        },
-        {
-          "id": "l-09",
-          "why": "runs within 3 mm of r-01 without connecting"
+          "id": "l-05",
+          "why": "within 3 mm of l-03"
         },
         {
           "id": "l-01",
           "why": "within 3 mm of l-02"
         },
         {
-          "id": "l-04",
-          "why": "runs within 3 mm of r-03 without connecting"
-        },
-        {
-          "id": "l-13",
-          "why": "runs within 3 mm of r-01 without connecting"
-        },
-        {
-          "id": "l-12",
-          "why": "runs within 3 mm of r-03 without connecting"
-        },
-        {
-          "id": "l-15",
+          "id": "l-07",
           "why": "runs within 3 mm of r-06 without connecting"
         },
         {
-          "id": "l-16",
-          "why": "runs within 3 mm of r-02 without connecting"
+          "id": "l-06",
+          "why": "runs within 3 mm of r-01 without connecting"
         },
         {
-          "id": "l-10",
+          "id": "l-08",
+          "why": "within 3 mm of l-02"
+        },
+        {
+          "id": "l-16",
+          "why": "within 3 mm of l-13"
+        },
+        {
+          "id": "l-12",
+          "why": "runs within 3 mm of r-05 without connecting"
+        },
+        {
+          "id": "l-09",
+          "why": "within 3 mm of l-11"
+        },
+        {
+          "id": "l-15",
           "why": "within 3 mm of l-11"
         }
       ],
@@ -4650,30 +4578,27 @@
     },
     "out": {
       "regions": [
-        "Voa(-10)",
+        "Region 6",
         "Region 1",
         "Region 2",
         "Region 3",
         "Region 4",
         "Region 5"
       ],
-      "lines": 5,
-      "relations": 7,
-      "key": 11
+      "lines": 6,
+      "relations": 3,
+      "key": 12
     },
     "validation": {
       "status": "fail",
       "blocking": [
         "R3",
         "R3",
-        "R3",
-        "R3",
-        "R3",
-        "R3",
         "R3"
       ],
       "advisory": [
-        "O1",
+        "N1",
+        "N1",
         "N1",
         "N1",
         "N1",
@@ -4686,56 +4611,52 @@
         "N1"
       ],
       "msgs": [
-        "R3: Detected: A stroke connects Region 5 to Region 1 (53%) — confirm or remove",
-        "R3: Detected: A stroke connects Region 3 to Voa(-10) (94%) — confirm or remove",
-        "R3: Detected: Line 7 connects Region 1 to Region 3 (70%) — confirm or remove",
-        "R3: Detected: A stroke connects Region 2 to Voa(-10) (58%) — confirm or remove",
-        "R3: Detected: A stroke connects Region 1 to Voa(-10) (100%) — confirm or remove",
-        "R3: Detected: A stroke connects Region 1 to Region 2 (93%) — confirm or remove",
-        "R3: Detected: A stroke connects Region 5 to Voa(-10) (78%) — confirm or remove"
+        "R3: Detected: A stroke connects Region 1 to Region 5 (100%) — confirm or remove",
+        "R3: Detected: A stroke connects Region 2 to Region 6 (57%) — confirm or remove",
+        "R3: Detected: Line 11 connects Region 1 to Region 3 (100%) — confirm or remove"
       ]
     },
     "ms": {
-      "draft": 0.7999999821186066,
-      "simplify": 3.100000023841858,
-      "validate": 0.29999998211860657,
-      "exports": 15.800000011920929
+      "draft": 0.8999999761581421,
+      "simplify": 3.299999952316284,
+      "validate": 0.20000004768371582,
+      "exports": 15.899999976158142
     },
     "exports": {
       "svg": {
         "ok": true,
-        "cells": 124,
-        "keyEntries": 11,
+        "cells": 135,
+        "keyEntries": 12,
         "keyFits": true
       },
       "stl": {
         "ok": true,
-        "triangles": 11068,
-        "shells": 405,
+        "triangles": 11612,
+        "shells": 425,
         "openEdges": 0,
         "bbox": {
           "x": 10,
           "y": 47.7,
           "z": 0,
-          "w": 155.9,
-          "h": 229.8,
+          "w": 166,
+          "h": 179.8,
           "d": 3
         },
-        "kb": 541
+        "kb": 567
       },
       "alt": {
         "ok": true,
-        "words": 142
+        "words": 112
       },
       "brf": {
         "ok": true,
         "pages": 1,
-        "cells": 126
+        "cells": 134
       }
     },
     "sem": {
       "labelsPrinted": 15,
-      "labelsRead": 0,
+      "labelsRead": 1,
       "missing": [
         [
           "√φ^(-10) ≈ .090",
@@ -4759,10 +4680,6 @@
         ],
         [
           "√φ^(-5) ≈ .300",
-          "VoA(-10)"
-        ],
-        [
-          "√φ^(-4) ≈ .381",
           "VoA(-10)"
         ],
         [
@@ -4804,104 +4721,44 @@
       "relMatched": 0
     },
     "geomClean": true,
-    "r3": 7
+    "r3": 3
   },
   {
     "name": "math-parallelogram-01",
     "difficulty": "easy",
     "truth": true,
-    "understandMs": 530,
+    "understandMs": 597,
     "labels": [],
     "regionsFound": 4,
     "strokes": 80,
     "timings": {
       "segment": 34,
-      "ocr": 314,
-      "lines": 43,
-      "total": 500
+      "ocr": 389,
+      "lines": 44,
+      "total": 571
     },
     "draft": {
       "regions": 4,
-      "lines": 16,
-      "relations": [
-        [
-          "Region 2",
-          "Region 3",
-          0.75
-        ],
-        [
-          "Region 1",
-          "Region 3",
-          0.68
-        ],
-        [
-          "Region 1",
-          "Region 2",
-          0.78
-        ]
-      ]
+      "lines": 5,
+      "relations": []
     },
     "report": {
       "dropped": [
         {
-          "id": "l-07",
-          "why": "length 6.4 mm < 8"
-        },
-        {
-          "id": "l-01",
-          "why": "runs within 3 mm of r-02 without connecting"
-        },
-        {
-          "id": "l-04",
-          "why": "within 3 mm of l-02"
-        },
-        {
-          "id": "l-05",
-          "why": "runs within 3 mm of r-03 without connecting"
-        },
-        {
-          "id": "l-10",
-          "why": "runs within 3 mm of r-02 without connecting"
-        },
-        {
-          "id": "l-14",
-          "why": "within 3 mm of l-02"
+          "id": "l-02",
+          "why": "length 7.3 mm < 8"
         },
         {
           "id": "l-03",
-          "why": "runs within 3 mm of r-04 without connecting"
+          "why": "length 6.5 mm < 8"
         },
         {
-          "id": "l-12",
-          "why": "runs within 3 mm of r-02 without connecting"
+          "id": "l-04",
+          "why": "length 5.8 mm < 8"
         },
         {
-          "id": "l-08",
-          "why": "runs within 3 mm of r-04 without connecting"
-        },
-        {
-          "id": "l-15",
-          "why": "runs within 3 mm of r-03 without connecting"
-        },
-        {
-          "id": "l-06",
-          "why": "runs within 3 mm of r-02 without connecting"
-        },
-        {
-          "id": "l-09",
-          "why": "runs within 3 mm of r-04 without connecting"
-        },
-        {
-          "id": "l-16",
-          "why": "runs within 3 mm of r-04 without connecting"
-        },
-        {
-          "id": "l-11",
-          "why": "runs within 3 mm of r-03 without connecting"
-        },
-        {
-          "id": "l-13",
-          "why": "runs within 3 mm of r-04 without connecting"
+          "id": "l-05",
+          "why": "length 5.5 mm < 8"
         }
       ],
       "merged": 0,
@@ -4919,16 +4776,12 @@
         "Region 1"
       ],
       "lines": 1,
-      "relations": 3,
+      "relations": 0,
       "key": 5
     },
     "validation": {
-      "status": "fail",
-      "blocking": [
-        "R3",
-        "R3",
-        "R3"
-      ],
+      "status": "pass",
+      "blocking": [],
       "advisory": [
         "N1",
         "N1",
@@ -4936,17 +4789,13 @@
         "N1",
         "N1"
       ],
-      "msgs": [
-        "R3: Detected: A stroke connects Region 2 to Region 3 (75%) — confirm or remove",
-        "R3: Detected: Line 2 connects Region 1 to Region 3 (68%) — confirm or remove",
-        "R3: Detected: A stroke connects Region 1 to Region 2 (78%) — confirm or remove"
-      ]
+      "msgs": []
     },
     "ms": {
       "draft": 0.5,
       "simplify": 2.899999976158142,
-      "validate": 0.10000002384185791,
-      "exports": 66.89999997615814
+      "validate": 0.20000004768371582,
+      "exports": 71.89999997615814
     },
     "exports": {
       "svg": {
@@ -4957,8 +4806,8 @@
       },
       "stl": {
         "ok": true,
-        "triangles": 56436,
-        "shells": 2008,
+        "triangles": 56408,
+        "shells": 2007,
         "openEdges": 0,
         "bbox": {
           "x": 10,
@@ -4968,11 +4817,11 @@
           "h": 171,
           "d": 3
         },
-        "kb": 2756
+        "kb": 2754
       },
       "alt": {
         "ok": true,
-        "words": 73
+        "words": 43
       },
       "brf": {
         "ok": true,
@@ -5007,34 +4856,36 @@
       "relMatched": 0
     },
     "geomClean": true,
-    "r3": 3
+    "r3": 0
   },
   {
     "name": "math-triangleproof-01",
     "difficulty": "medium",
     "truth": true,
-    "understandMs": 710,
-    "labels": [],
+    "understandMs": 819,
+    "labels": [
+      "A",
+      "D",
+      "B",
+      "C",
+      "B",
+      "E"
+    ],
     "regionsFound": 7,
-    "strokes": 245,
+    "strokes": 163,
     "timings": {
-      "segment": 41,
-      "ocr": 473,
-      "lines": 60,
-      "total": 679
+      "segment": 42,
+      "ocr": 586,
+      "lines": 54,
+      "total": 791
     },
     "draft": {
       "regions": 7,
-      "lines": 16,
+      "lines": 2,
       "relations": [
         [
-          "Region 1",
           "Region 2",
-          0.88
-        ],
-        [
-          "Region 6",
-          "Region 3",
+          "E",
           0.98
         ]
       ]
@@ -5046,52 +4897,8 @@
           "why": "runs within 3 mm of r-01 without connecting"
         },
         {
-          "id": "l-04",
-          "why": "runs within 3 mm of r-03 without connecting"
-        },
-        {
-          "id": "l-13",
-          "why": "runs within 3 mm of r-03 without connecting"
-        },
-        {
-          "id": "l-07",
-          "why": "runs within 3 mm of r-03 without connecting"
-        },
-        {
-          "id": "l-03",
-          "why": "runs within 3 mm of r-03 without connecting"
-        },
-        {
-          "id": "l-12",
-          "why": "runs within 3 mm of r-01 without connecting"
-        },
-        {
-          "id": "l-14",
-          "why": "runs within 3 mm of r-03 without connecting"
-        },
-        {
-          "id": "l-10",
-          "why": "runs within 3 mm of r-01 without connecting"
-        },
-        {
-          "id": "l-06",
-          "why": "runs within 3 mm of r-01 without connecting"
-        },
-        {
-          "id": "l-11",
-          "why": "within 3 mm of l-09"
-        },
-        {
-          "id": "l-15",
-          "why": "runs within 3 mm of r-02 without connecting"
-        },
-        {
-          "id": "l-08",
-          "why": "within 3 mm of l-09"
-        },
-        {
           "id": "l-02",
-          "why": "within 3 mm of l-09"
+          "why": "runs within 3 mm of r-01 without connecting"
         }
       ],
       "merged": 0,
@@ -5103,21 +4910,249 @@
     },
     "out": {
       "regions": [
-        "Region 5",
-        "Region 7",
-        "Region 6",
-        "Region 4",
-        "Region 1",
+        "B",
+        "B",
+        "D",
+        "A",
+        "E",
         "Region 2",
         "Region 3"
       ],
-      "lines": 3,
-      "relations": 2,
-      "key": 10
+      "lines": 0,
+      "relations": 1,
+      "key": 7
     },
     "validation": {
       "status": "fail",
       "blocking": [
+        "R3"
+      ],
+      "advisory": [
+        "N1",
+        "N1"
+      ],
+      "msgs": [
+        "R3: Detected: A stroke connects Region 2 to E (98%) — confirm or remove"
+      ]
+    },
+    "ms": {
+      "draft": 1,
+      "simplify": 6,
+      "validate": 1,
+      "exports": 24.5
+    },
+    "exports": {
+      "svg": {
+        "ok": true,
+        "cells": 44,
+        "keyEntries": 7,
+        "keyFits": true
+      },
+      "stl": {
+        "ok": true,
+        "triangles": 16456,
+        "shells": 570,
+        "openEdges": 0,
+        "bbox": {
+          "x": 10,
+          "y": 46.5,
+          "z": 0,
+          "w": 172,
+          "h": 212.8,
+          "d": 3
+        },
+        "kb": 804
+      },
+      "alt": {
+        "ok": true,
+        "words": 60
+      },
+      "brf": {
+        "ok": true,
+        "pages": 1,
+        "cells": 57
+      }
+    },
+    "sem": {
+      "labelsPrinted": 8,
+      "labelsRead": 7,
+      "missing": [
+        [
+          "F",
+          "A"
+        ]
+      ],
+      "regionsExpected": 3,
+      "regionsNamed": 0,
+      "relTruth": 3,
+      "relMatched": 0
+    },
+    "geomClean": true,
+    "r3": 1
+  },
+  {
+    "name": "phy-circuit-schematic-01",
+    "difficulty": "hard",
+    "truth": true,
+    "understandMs": 1409,
+    "labels": [
+      "4",
+      "AMMETER",
+      "BATTERY",
+      "RESISTOR",
+      "PICTORIAL DIAGRAM OF CIRCUIT",
+      "VOLTMETER",
+      "AMPERES",
+      "12 VOLTS",
+      "OHMS",
+      "CIRCUIT",
+      "Figure",
+      "Diagrem of basta",
+      "circuit."
+    ],
+    "regionsFound": 10,
+    "strokes": 239,
+    "timings": {
+      "segment": 36,
+      "ocr": 1147,
+      "lines": 78,
+      "total": 1385
+    },
+    "draft": {
+      "regions": 10,
+      "lines": 16,
+      "relations": [
+        [
+          "Resistor",
+          "Battery",
+          0.9
+        ],
+        [
+          "Voltmeter",
+          "Region 6",
+          0.59
+        ],
+        [
+          "Battery",
+          "Ammeter",
+          0.51
+        ],
+        [
+          "Ammeter",
+          "Region 9",
+          1
+        ],
+        [
+          "Region 4",
+          "Ammeter",
+          0.91
+        ],
+        [
+          "Resistor",
+          "Region 2",
+          0.95
+        ],
+        [
+          "Resistor",
+          "Voltmeter",
+          0.92
+        ],
+        [
+          "Region 6",
+          "Battery",
+          0.6
+        ]
+      ]
+    },
+    "report": {
+      "dropped": [
+        {
+          "id": "l-02",
+          "why": "length 7.3 mm < 8"
+        },
+        {
+          "id": "l-11",
+          "why": "length 7.6 mm < 8"
+        },
+        {
+          "id": "l-12",
+          "why": "length 6.7 mm < 8"
+        },
+        {
+          "id": "r-02",
+          "why": "inner region too small once separated from r-03"
+        },
+        {
+          "id": "r-08",
+          "why": "cannot be separated from r-09 at 3 mm"
+        },
+        {
+          "id": "l-06",
+          "why": "within 3 mm of l-03"
+        },
+        {
+          "id": "l-09",
+          "why": "runs within 3 mm of r-07 without connecting"
+        },
+        {
+          "id": "l-10",
+          "why": "runs within 3 mm of r-06 without connecting"
+        },
+        {
+          "id": "l-13",
+          "why": "within 3 mm of l-04"
+        },
+        {
+          "id": "l-14",
+          "why": "within 3 mm of l-04"
+        },
+        {
+          "id": "l-15",
+          "why": "within 3 mm of l-04"
+        },
+        {
+          "id": "l-07",
+          "why": "runs within 3 mm of r-06 without connecting"
+        },
+        {
+          "id": "l-01",
+          "why": "within 3 mm of l-03"
+        },
+        {
+          "id": "l-05",
+          "why": "within 3 mm of l-16"
+        }
+      ],
+      "merged": 0,
+      "minGapBefore": 0.3,
+      "minGapAfter": 3.1,
+      "passes": 2,
+      "scaledBy": 1,
+      "textures": 3
+    },
+    "out": {
+      "regions": [
+        "Resistor",
+        "Amperes",
+        "Ammeter",
+        "Region 6",
+        "Voltmeter",
+        "Battery",
+        "Region 9",
+        "Region 4"
+      ],
+      "lines": 4,
+      "relations": 7,
+      "key": 12
+    },
+    "validation": {
+      "status": "fail",
+      "blocking": [
+        "R3",
+        "R3",
+        "R3",
+        "R3",
+        "R3",
         "R3",
         "R3"
       ],
@@ -5128,278 +5163,54 @@
         "N1",
         "N1",
         "N1",
-        "N1",
-        "N1",
-        "N1",
         "N1"
       ],
       "msgs": [
-        "R3: Detected: A stroke connects Region 1 to Region 2 (88%) — confirm or remove",
-        "R3: Detected: A stroke connects Region 6 to Region 3 (98%) — confirm or remove"
+        "R3: Detected: A stroke connects Resistor to Battery (90%) — confirm or remove",
+        "R3: Detected: Line 4 connects Voltmeter to Region 6 (59%) — confirm or remove",
+        "R3: Detected: A stroke connects Battery to Ammeter (51%) — confirm or remove",
+        "R3: Detected: A stroke connects Ammeter to Region 9 (100%) — confirm or remove",
+        "R3: Detected: A stroke connects Region 4 to Ammeter (91%) — confirm or remove",
+        "R3: Detected: A stroke connects Resistor to Voltmeter (92%) — confirm or remove",
+        "R3: Detected: Line 16 connects Region 6 to Battery (60%) — confirm or remove"
       ]
     },
     "ms": {
-      "draft": 1.7000000178813934,
-      "simplify": 6.199999988079071,
-      "validate": 1,
-      "exports": 29.900000005960464
+      "draft": 2.399999976158142,
+      "simplify": 12.5,
+      "validate": 1.8000000715255737,
+      "exports": 66.29999995231628
     },
     "exports": {
       "svg": {
         "ok": true,
-        "cells": 115,
-        "keyEntries": 10,
-        "keyFits": true
-      },
-      "stl": {
-        "ok": true,
-        "triangles": 21588,
-        "shells": 755,
-        "openEdges": 0,
-        "bbox": {
-          "x": 10,
-          "y": 46.5,
-          "z": 0,
-          "w": 172,
-          "h": 222.8,
-          "d": 3
-        },
-        "kb": 1054
-      },
-      "alt": {
-        "ok": true,
-        "words": 93
-      },
-      "brf": {
-        "ok": true,
-        "pages": 1,
-        "cells": 117
-      }
-    },
-    "sem": {
-      "labelsPrinted": 8,
-      "labelsRead": 0,
-      "missing": [
-        [
-          "A",
-          ""
-        ],
-        [
-          "B",
-          ""
-        ],
-        [
-          "C",
-          ""
-        ],
-        [
-          "D",
-          ""
-        ],
-        [
-          "E",
-          ""
-        ],
-        [
-          "F",
-          ""
-        ],
-        [
-          "A (D)",
-          ""
-        ],
-        [
-          "C (F)",
-          ""
-        ]
-      ],
-      "regionsExpected": 3,
-      "regionsNamed": 0,
-      "relTruth": 3,
-      "relMatched": 0
-    },
-    "geomClean": true,
-    "r3": 2
-  },
-  {
-    "name": "phy-circuit-schematic-01",
-    "difficulty": "hard",
-    "truth": true,
-    "understandMs": 1205,
-    "labels": [
-      "AMMETER",
-      "BATTERY",
-      "RESISTOR",
-      "PICTORIAL DIAGRAM OF CIRCUIT",
-      "VOLTMETER",
-      "AMPERES",
-      "VOLTS",
-      "OHMS",
-      "CIRCUIT",
-      "Figure",
-      "Diagrem of basta",
-      "circuit."
-    ],
-    "regionsFound": 13,
-    "strokes": 246,
-    "timings": {
-      "segment": 37,
-      "ocr": 933,
-      "lines": 78,
-      "total": 1178
-    },
-    "draft": {
-      "regions": 13,
-      "lines": 16,
-      "relations": [
-        [
-          "Amperes",
-          "Circuit",
-          0.97
-        ]
-      ]
-    },
-    "report": {
-      "dropped": [
-        {
-          "id": "l-05",
-          "why": "length 7.4 mm < 8"
-        },
-        {
-          "id": "l-11",
-          "why": "length 6.9 mm < 8"
-        },
-        {
-          "id": "r-01",
-          "why": "near-duplicate outline of r-12"
-        },
-        {
-          "id": "r-04",
-          "why": "near-duplicate outline of r-03"
-        },
-        {
-          "id": "r-02",
-          "why": "inner region too small once separated from r-03"
-        },
-        {
-          "id": "r-09",
-          "why": "inner region too small once separated from r-10"
-        },
-        {
-          "id": "l-02",
-          "why": "runs within 3 mm of r-07 without connecting"
-        },
-        {
-          "id": "l-03",
-          "why": "within 3 mm of l-16"
-        },
-        {
-          "id": "l-12",
-          "why": "runs within 3 mm of r-08 without connecting"
-        },
-        {
-          "id": "l-13",
-          "why": "within 3 mm of l-01"
-        },
-        {
-          "id": "l-08",
-          "why": "runs within 3 mm of r-07 without connecting"
-        },
-        {
-          "id": "l-09",
-          "why": "runs within 3 mm of r-08 without connecting"
-        },
-        {
-          "id": "l-15",
-          "why": "runs within 3 mm of r-07 without connecting"
-        },
-        {
-          "id": "l-06",
-          "why": "within 3 mm of l-16"
-        },
-        {
-          "id": "l-10",
-          "why": "within 3 mm of l-14"
-        },
-        {
-          "id": "l-04",
-          "why": "runs within 3 mm of r-08 without connecting"
-        }
-      ],
-      "merged": 1,
-      "minGapBefore": 0.3,
-      "minGapAfter": 3.1,
-      "passes": 3,
-      "scaledBy": 1,
-      "textures": 3
-    },
-    "out": {
-      "regions": [
-        "Region 13",
-        "Circuit",
-        "Ammeter",
-        "Voltmeter",
-        "Region 3",
-        "Region 10",
-        "Region 6",
-        "Region 5"
-      ],
-      "lines": 4,
-      "relations": 0,
-      "key": 12
-    },
-    "validation": {
-      "status": "pass",
-      "blocking": [],
-      "advisory": [
-        "N1",
-        "N1",
-        "N1",
-        "N1",
-        "N1",
-        "N1",
-        "N1",
-        "N1",
-        "N1"
-      ],
-      "msgs": []
-    },
-    "ms": {
-      "draft": 3.9000000059604645,
-      "simplify": 14.899999976158142,
-      "validate": 1.800000011920929,
-      "exports": 61.900000005960464
-    },
-    "exports": {
-      "svg": {
-        "ok": true,
-        "cells": 136,
+        "cells": 130,
         "keyEntries": 12,
         "keyFits": true
       },
       "stl": {
         "ok": true,
-        "triangles": 49516,
-        "shells": 1713,
+        "triangles": 47488,
+        "shells": 1641,
         "openEdges": 0,
         "bbox": {
           "x": 10,
           "y": 12.8,
           "z": 0,
           "w": 172,
-          "h": 266.2,
+          "h": 265,
           "d": 3
         },
-        "kb": 2418
+        "kb": 2319
       },
       "alt": {
         "ok": true,
-        "words": 76
+        "words": 134
       },
       "brf": {
         "ok": true,
         "pages": 1,
-        "cells": 140
+        "cells": 136
       }
     },
     "sem": {
@@ -5408,15 +5219,15 @@
       "missing": [
         [
           "1",
-          "AMMETER"
+          "4"
         ],
         [
           "A",
-          "AMMETER"
+          "4"
         ],
         [
           "I=4 AMPERES",
-          "AMPERES"
+          "4"
         ],
         [
           "R=3 OHMS",
@@ -5424,23 +5235,23 @@
         ],
         [
           "+",
-          "AMMETER"
+          "4"
         ],
         [
           "V",
-          "AMMETER"
+          "4"
         ],
         [
           "-",
-          "AMMETER"
+          "4"
         ],
         [
           "E=12 VOLTS",
-          "VOLTS"
+          "12 VOLTS"
         ],
         [
           "2",
-          "AMMETER"
+          "4"
         ],
         [
           "SCHEMATIC OF CIRCUIT",
@@ -5454,99 +5265,119 @@
       "regionsExpected": 6,
       "regionsNamed": 4,
       "relTruth": 3,
-      "relMatched": 0
+      "relMatched": 1
     },
     "geomClean": true,
-    "r3": 0
+    "r3": 7
   },
   {
     "name": "phy-pulley-01",
     "difficulty": "medium",
     "truth": true,
-    "understandMs": 795,
+    "understandMs": 846,
     "labels": [
       "FAF",
-      "Nut"
+      "Nut",
+      "F",
+      "D"
     ],
     "regionsFound": 9,
-    "strokes": 230,
+    "strokes": 239,
     "timings": {
-      "segment": 50,
-      "ocr": 521,
-      "lines": 68,
-      "total": 761
+      "segment": 47,
+      "ocr": 588,
+      "lines": 69,
+      "total": 820
     },
     "draft": {
       "regions": 9,
       "lines": 16,
       "relations": [
         [
-          "Region 9",
-          "Region 3",
-          0.57
+          "Region 6",
+          "F",
+          1
         ],
         [
+          "Region 5",
+          "F",
+          1
+        ],
+        [
+          "Region 3",
           "Region 8",
-          "Region 9",
-          0.77
+          0.31
         ],
         [
           "Region 6",
-          "Region 8",
-          0.99
+          "Faf",
+          1
         ],
         [
-          "Region 3",
-          "Region 4",
-          0.37
+          "Region 8",
+          "Region 6",
+          0.42
+        ],
+        [
+          "F",
+          "Region 8",
+          1
         ]
       ]
     },
     "report": {
       "dropped": [
         {
-          "id": "l-13",
-          "why": "length 7.6 mm < 8"
-        },
-        {
-          "id": "l-01",
-          "why": "runs within 3 mm of r-09 without connecting"
-        },
-        {
           "id": "l-09",
-          "why": "runs within 3 mm of r-07 without connecting"
-        },
-        {
-          "id": "l-10",
-          "why": "runs within 3 mm of r-08 without connecting"
-        },
-        {
-          "id": "l-04",
-          "why": "runs within 3 mm of r-06 without connecting"
-        },
-        {
-          "id": "l-07",
-          "why": "within 3 mm of l-12"
-        },
-        {
-          "id": "l-08",
-          "why": "runs within 3 mm of r-08 without connecting"
+          "why": "length 6.2 mm < 8"
         },
         {
           "id": "l-11",
-          "why": "runs within 3 mm of r-06 without connecting"
+          "why": "length 7.6 mm < 8"
+        },
+        {
+          "id": "l-04",
+          "why": "runs within 3 mm of r-07 without connecting"
         },
         {
           "id": "l-03",
-          "why": "runs within 3 mm of r-06 without connecting"
-        },
-        {
-          "id": "l-06",
           "why": "runs within 3 mm of r-08 without connecting"
         },
         {
-          "id": "l-14",
-          "why": "within 3 mm of l-02"
+          "id": "l-02",
+          "why": "runs within 3 mm of r-08 without connecting"
+        },
+        {
+          "id": "l-01",
+          "why": "runs within 3 mm of r-08 without connecting"
+        },
+        {
+          "id": "l-15",
+          "why": "runs within 3 mm of r-04 without connecting"
+        },
+        {
+          "id": "l-08",
+          "why": "runs within 3 mm of r-06 without connecting"
+        },
+        {
+          "id": "l-10",
+          "why": "runs within 3 mm of r-06 without connecting"
+        },
+        {
+          "id": "l-05",
+          "why": "runs within 3 mm of r-06 without connecting"
+        },
+        {
+          "id": "l-12",
+          "why": "runs within 3 mm of r-06 without connecting"
+        },
+        {
+          "id": "l-16",
+          "why": "runs within 3 mm of r-07 without connecting"
+        },
+        {
+          "id": "l-06",
+          "why": "within 3 mm of l-07"
         }
       ],
       "merged": 0,
@@ -5558,34 +5389,31 @@
     },
     "out": {
       "regions": [
-        "Region 9",
+        "D",
         "Region 3",
         "Faf",
         "Region 8",
-        "Nut",
+        "Region 2",
         "Region 6",
-        "Region 4",
+        "F",
         "Region 5",
         "Region 1"
       ],
-      "lines": 5,
-      "relations": 4,
-      "key": 14
+      "lines": 3,
+      "relations": 6,
+      "key": 12
     },
     "validation": {
       "status": "fail",
       "blocking": [
-        "K1",
+        "R3",
+        "R3",
         "R3",
         "R3",
         "R3",
         "R3"
       ],
       "advisory": [
-        "N1",
-        "N1",
-        "N1",
-        "O1",
         "N1",
         "N1",
         "N1",
@@ -5597,77 +5425,62 @@
         "N1"
       ],
       "msgs": [
-        "K1: braille key (14 entries in 2 columns) needs 1 mm more sheet",
-        "R3: Detected: Line 2 connects Region 9 to Region 3 (57%) — confirm or remove",
-        "R3: Detected: A stroke connects Region 8 to Region 9 (77%) — confirm or remove",
-        "R3: Detected: A stroke connects Region 6 to Region 8 (99%) — confirm or remove",
-        "R3: Detected: Line 16 connects Region 3 to Region 4 (37%) — confirm or remove"
+        "R3: Detected: A stroke connects Region 6 to F (100%) — confirm or remove",
+        "R3: Detected: A stroke connects Region 5 to F (100%) — confirm or remove",
+        "R3: Detected: A stroke connects Region 3 to Region 8 (31%) — confirm or remove",
+        "R3: Detected: A stroke connects Region 6 to Faf (100%) — confirm or remove",
+        "R3: Detected: A stroke connects Region 8 to Region 6 (42%) — confirm or remove",
+        "R3: Detected: A stroke connects F to Region 8 (100%) — confirm or remove"
       ]
     },
     "ms": {
-      "draft": 2.300000011920929,
-      "simplify": 16.599999994039536,
-      "validate": 2.199999988079071,
-      "exports": 49.400000005960464
+      "draft": 1.9000000953674316,
+      "simplify": 10.199999928474426,
+      "validate": 2.200000047683716,
+      "exports": 49.199999928474426
     },
     "exports": {
       "svg": {
         "ok": true,
-        "cells": 149,
-        "keyEntries": 14,
-        "keyFits": false
+        "cells": 118,
+        "keyEntries": 12,
+        "keyFits": true
       },
       "stl": {
         "ok": true,
-        "triangles": 37268,
-        "shells": 1330,
+        "triangles": 35200,
+        "shells": 1255,
         "openEdges": 0,
         "bbox": {
           "x": 10,
           "y": 45.7,
           "z": 0,
           "w": 174.9,
-          "h": 242.7,
+          "h": 232.7,
           "d": 3
         },
-        "kb": 1820
+        "kb": 1719
       },
       "alt": {
         "ok": true,
-        "words": 130
+        "words": 134
       },
       "brf": {
         "ok": true,
         "pages": 1,
-        "cells": 137
+        "cells": 111
       }
     },
     "sem": {
       "labelsPrinted": 6,
-      "labelsRead": 0,
+      "labelsRead": 4,
       "missing": [
         [
           "F_N",
-          "FAF"
-        ],
-        [
-          "F + ΔF",
-          "FAF"
+          "F"
         ],
         [
           "β",
-          "FAF"
-        ],
-        [
-          "F",
-          "FAF"
-        ],
-        [
-          "d",
-          "FAF"
-        ],
-        [
-          "D",
           "FAF"
         ]
       ],
@@ -5676,7 +5489,7 @@
       "relTruth": 3,
       "relMatched": 0
     },
-    "geomClean": false,
-    "r3": 4
+    "geomClean": true,
+    "r3": 6
   }
 ]

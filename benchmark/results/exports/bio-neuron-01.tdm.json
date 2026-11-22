@@ -11,13 +11,13 @@
  "source": {
   "kind": "upload",
   "file": "bio-neuron-01",
-  "captured": "2026-10-31T00:31:14.298Z"
+  "captured": "2026-11-18T15:44:23.109Z"
  },
  "regions": [
   {
    "id": "r-12",
    "name": {
-    "en": "Region 12"
+    "en": "Rece Tor"
    },
    "polygon": [
     [
@@ -79,12 +79,16 @@
    ],
    "texture": "empty",
    "keyRef": "b",
-   "confidence": 0.5
+   "confidence": 0.98,
+   "sourceLabel": {
+    "text": "Rece tor",
+    "ocrConfidence": 0.94
+   }
   },
   {
    "id": "r-07",
    "name": {
-    "en": "Node Of Ranvier"
+    "en": "Axon"
    },
    "polygon": [
     [
@@ -330,16 +334,16 @@
    ],
    "texture": "dots",
    "keyRef": "e",
-   "confidence": 0.98,
+   "confidence": 0.96,
    "sourceLabel": {
-    "text": "Node of Ranvier",
-    "ocrConfidence": 0.96
+    "text": "Axon",
+    "ocrConfidence": 0.9
    }
   },
   {
    "id": "r-05",
    "name": {
-    "en": "Vy Bis Microfilament Microtubule Axon"
+    "en": "Microfilament"
    },
    "polygon": [
     [
@@ -409,16 +413,16 @@
    ],
    "texture": "dots",
    "keyRef": "j",
-   "confidence": 0.94,
+   "confidence": 0.96,
    "sourceLabel": {
-    "text": "Vy bis Microfilament Microtubule Axon",
-    "ocrConfidence": 0.85
+    "text": "Microfilament",
+    "ocrConfidence": 0.91
    }
   },
   {
    "id": "r-06",
    "name": {
-    "en": "Nucleus (schwann Cell)"
+    "en": "Cel"
    },
    "polygon": [
     [
@@ -490,14 +494,14 @@
    "keyRef": "f",
    "confidence": 0.97,
    "sourceLabel": {
-    "text": "Nucleus (Schwann cell)",
+    "text": "cel",
     "ocrConfidence": 0.92
    }
   },
   {
    "id": "r-03",
    "name": {
-    "en": "Synapse (axodendritic)"
+    "en": "Region 3"
    },
    "polygon": [
     [
@@ -571,11 +575,7 @@
    ],
    "texture": "dots",
    "keyRef": "g",
-   "confidence": 0.94,
-   "sourceLabel": {
-    "text": "Synapse (Axodendritic)",
-    "ocrConfidence": 0.86
-   }
+   "confidence": 0.5
   },
   {
    "id": "r-02",
@@ -659,7 +659,7 @@
   {
    "id": "r-04",
    "name": {
-    "en": "Nucleus Nucleolus Membrane Microtubule"
+    "en": "Synapse"
    },
    "polygon": [
     [
@@ -707,14 +707,14 @@
    "keyRef": "c",
    "confidence": 0.98,
    "sourceLabel": {
-    "text": "Nucleus Nucleolus Membrane Microtubule",
+    "text": "synapse",
     "ocrConfidence": 0.95
    }
   },
   {
    "id": "r-01",
    "name": {
-    "en": "Region 1"
+    "en": "Dendrites"
    },
    "polygon": [
     [
@@ -752,12 +752,16 @@
    ],
    "texture": "diagonal-lines",
    "keyRef": "i",
-   "confidence": 0.5
+   "confidence": 0.97,
+   "sourceLabel": {
+    "text": "Dendrites",
+    "ocrConfidence": 0.92
+   }
   },
   {
    "id": "r-08",
    "name": {
-    "en": "Polyribosomes Ribosomes"
+    "en": "Ribosomes"
    },
    "polygon": [
     [
@@ -797,14 +801,14 @@
    "keyRef": "d",
    "confidence": 0.98,
    "sourceLabel": {
-    "text": "Polyribosomes Ribosomes",
+    "text": "Ribosomes",
     "ocrConfidence": 0.94
    }
   },
   {
    "id": "r-10",
    "name": {
-    "en": "Rough Er Body)"
+    "en": "(axos"
    },
    "polygon": [
     [
@@ -842,10 +846,10 @@
    ],
    "texture": "dots",
    "keyRef": "a",
-   "confidence": 0.98,
+   "confidence": 0.87,
    "sourceLabel": {
-    "text": "Rough ER body)",
-    "ocrConfidence": 0.96
+    "text": "(Axos",
+    "ocrConfidence": 0.68
    }
   }
  ],
@@ -857,12 +861,12 @@
    },
    "path": [
     [
-     38.63,
-     82.92
+     32.72,
+     108.52
     ],
     [
-     85.17,
-     104.58
+     78.7,
+     64.22
     ]
    ],
    "width": 1.2,
@@ -871,38 +875,18 @@
    "keyRef": "n"
   },
   {
-   "id": "l-03",
+   "id": "l-10",
    "name": {
-    "en": "Line 3"
+    "en": "Line 10"
    },
    "path": [
     [
-     97.97,
-     40.17
+     94.31,
+     50.86
     ],
     [
-     130.45,
-     48.89
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "m"
-  },
-  {
-   "id": "l-04",
-   "name": {
-    "en": "Line 4"
-   },
-   "path": [
-    [
-     100.78,
-     36.52
-    ],
-    [
-     131.86,
-     36.52
+     116.67,
+     30.05
     ]
    ],
    "width": 1.2,
@@ -917,49 +901,76 @@
    },
    "path": [
     [
-     102.47,
-     28.5
+     110.48,
+     53.81
+    ],
+    [
+     128.91,
+     35.39
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "m"
+  },
+  {
+   "id": "l-16",
+   "name": {
+    "en": "Line 16"
+   },
+   "path": [
+    [
+     108.66,
+     45.23
     ],
     [
      128.48,
-     31.31
+     28.5
     ]
    ],
    "width": 1.2,
    "style": "single",
    "arrow": "none",
    "keyRef": "l"
-  },
-  {
-   "id": "l-08",
-   "name": {
-    "en": "Line 8"
-   },
-   "path": [
-    [
-     66.33,
-     85.59
-    ],
-    [
-     72.66,
-     90.52
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "o"
   }
  ],
  "relations": [
   {
+   "from": "l-01",
+   "to": "r-04",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.22,
+   "source": "detected",
+   "via": "l-01"
+  },
+  {
    "from": "r-04",
+   "to": "r-08",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 1,
+   "source": "detected",
+   "via": "l-07"
+  },
+  {
+   "from": "r-08",
    "to": "r-10",
    "kind": "connects",
    "direction": "forward",
-   "confidence": 0.43,
+   "confidence": 1,
    "source": "detected",
-   "via": "l-02"
+   "via": "l-12"
+  },
+  {
+   "from": "r-06",
+   "to": "r-07",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.91,
+   "source": "detected",
+   "via": "l-14"
   }
  ],
  "key": [
@@ -967,7 +978,7 @@
    "ref": "a",
    "regionId": "r-10",
    "text": {
-    "en": "Rough Er Body)"
+    "en": "(axos"
    },
    "braille": {}
   },
@@ -975,7 +986,7 @@
    "ref": "b",
    "regionId": "r-12",
    "text": {
-    "en": "Region 12"
+    "en": "Rece Tor"
    },
    "braille": {}
   },
@@ -983,7 +994,7 @@
    "ref": "c",
    "regionId": "r-04",
    "text": {
-    "en": "Nucleus Nucleolus Membrane Microtubule"
+    "en": "Synapse"
    },
    "braille": {}
   },
@@ -991,7 +1002,7 @@
    "ref": "d",
    "regionId": "r-08",
    "text": {
-    "en": "Polyribosomes Ribosomes"
+    "en": "Ribosomes"
    },
    "braille": {}
   },
@@ -999,7 +1010,7 @@
    "ref": "e",
    "regionId": "r-07",
    "text": {
-    "en": "Node Of Ranvier"
+    "en": "Axon"
    },
    "braille": {}
   },
@@ -1007,7 +1018,7 @@
    "ref": "f",
    "regionId": "r-06",
    "text": {
-    "en": "Nucleus (schwann Cell)"
+    "en": "Cel"
    },
    "braille": {}
   },
@@ -1015,7 +1026,7 @@
    "ref": "g",
    "regionId": "r-03",
    "text": {
-    "en": "Synapse (axodendritic)"
+    "en": "Region 3"
    },
    "braille": {}
   },
@@ -1031,7 +1042,7 @@
    "ref": "i",
    "regionId": "r-01",
    "text": {
-    "en": "Region 1"
+    "en": "Dendrites"
    },
    "braille": {}
   },
@@ -1039,31 +1050,31 @@
    "ref": "j",
    "regionId": "r-05",
    "text": {
-    "en": "Vy Bis Microfilament Microtubule Axon"
+    "en": "Microfilament"
    },
    "braille": {}
   },
   {
    "ref": "k",
-   "regionId": "l-04",
+   "regionId": "l-10",
    "text": {
-    "en": "Line 4"
+    "en": "Line 10"
    },
    "braille": {}
   },
   {
    "ref": "l",
-   "regionId": "l-15",
+   "regionId": "l-16",
    "text": {
-    "en": "Line 15"
+    "en": "Line 16"
    },
    "braille": {}
   },
   {
    "ref": "m",
-   "regionId": "l-03",
+   "regionId": "l-15",
    "text": {
-    "en": "Line 3"
+    "en": "Line 15"
    },
    "braille": {}
   },
@@ -1072,14 +1083,6 @@
    "regionId": "l-01",
    "text": {
     "en": "Line 1"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "o",
-   "regionId": "l-08",
-   "text": {
-    "en": "Line 8"
    },
    "braille": {}
   }
@@ -1095,11 +1098,10 @@
   "r-02",
   "r-01",
   "r-05",
-  "l-04",
+  "l-10",
+  "l-16",
   "l-15",
-  "l-03",
-  "l-01",
-  "l-08"
+  "l-01"
  ],
  "languages": {
   "primary": "en",
@@ -1112,19 +1114,43 @@
   "blocking": [
    {
     "rule": "R3",
-    "msg": "Detected: A stroke connects Nucleus Nucleolus Membrane Microtubule to Rough Er Body) (43%) — confirm or remove",
+    "msg": "Detected: Line 1 connects Line 1 to Synapse (22%) — confirm or remove",
+    "ids": [
+     "l-01",
+     "r-04"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: A stroke connects Synapse to Ribosomes (100%) — confirm or remove",
     "ids": [
      "r-04",
+     "r-08"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: A stroke connects Ribosomes to (axos (100%) — confirm or remove",
+    "ids": [
+     "r-08",
      "r-10"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: A stroke connects Cel to Axon (91%) — confirm or remove",
+    "ids": [
+     "r-06",
+     "r-07"
     ]
    }
   ],
   "advisory": [
    {
     "rule": "N1",
-    "msg": "r-12 has no label",
+    "msg": "r-03 has no label",
     "ids": [
-     "r-12"
+     "r-03"
     ]
    },
    {
@@ -1135,10 +1161,10 @@
     ]
    },
    {
-    "rule": "N1",
-    "msg": "r-01 has no label",
+    "rule": "O1",
+    "msg": "(axos: read at 68% confidence",
     "ids": [
-     "r-01"
+     "r-10"
     ]
    },
    {
@@ -1150,16 +1176,9 @@
    },
    {
     "rule": "N1",
-    "msg": "l-03 has no label",
+    "msg": "l-10 has no label",
     "ids": [
-     "l-03"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-04 has no label",
-    "ids": [
-     "l-04"
+     "l-10"
     ]
    },
    {
@@ -1171,9 +1190,9 @@
    },
    {
     "rule": "N1",
-    "msg": "l-08 has no label",
+    "msg": "l-16 has no label",
     "ids": [
-     "l-08"
+     "l-16"
     ]
    }
   ]

@@ -11,13 +11,13 @@
  "source": {
   "kind": "upload",
   "file": "bio-flower-01",
-  "captured": "2026-10-31T00:31:06.964Z"
+  "captured": "2026-11-18T15:44:14.963Z"
  },
  "regions": [
   {
    "id": "r-07",
    "name": {
-    "en": "Sin"
+    "en": "Ovary"
    },
    "polygon": [
     [
@@ -147,16 +147,16 @@
    ],
    "texture": "empty",
    "keyRef": "e",
-   "confidence": 0.81,
+   "confidence": 0.98,
    "sourceLabel": {
-    "text": "SIN",
-    "ocrConfidence": 0.53
+    "text": "ovary",
+    "ocrConfidence": 0.96
    }
   },
   {
    "id": "r-08",
    "name": {
-    "en": "Ovary"
+    "en": "Region 8"
    },
    "polygon": [
     [
@@ -222,11 +222,7 @@
    ],
    "texture": "empty",
    "keyRef": "b",
-   "confidence": 0.98,
-   "sourceLabel": {
-    "text": "ovary",
-    "ocrConfidence": 0.96
-   }
+   "confidence": 0.5
   },
   {
    "id": "r-05",
@@ -317,16 +313,16 @@
    ],
    "texture": "dots",
    "keyRef": "a",
-   "confidence": 0.82,
+   "confidence": 0.86,
    "sourceLabel": {
     "text": "ovules",
-    "ocrConfidence": 0.55
+    "ocrConfidence": 0.65
    }
   },
   {
    "id": "r-01",
    "name": {
-    "en": "Region 1"
+    "en": "Floral Axis"
    },
    "polygon": [
     [
@@ -372,7 +368,11 @@
    ],
    "texture": "dots",
    "keyRef": "d",
-   "confidence": 0.5
+   "confidence": 0.98,
+   "sourceLabel": {
+    "text": "floral axis",
+    "ocrConfidence": 0.96
+   }
   },
   {
    "id": "r-02",
@@ -408,18 +408,18 @@
  ],
  "lines": [
   {
-   "id": "l-05",
+   "id": "l-02",
    "name": {
-    "en": "Line 5"
+    "en": "Line 2"
    },
    "path": [
     [
-     75.19,
-     85.88
+     88.91,
+     84.75
     ],
     [
-     104.55,
-     78.56
+     111.75,
+     80.36
     ]
    ],
    "width": 1.2,
@@ -428,38 +428,18 @@
    "keyRef": "j"
   },
   {
-   "id": "l-02",
+   "id": "l-08",
    "name": {
-    "en": "Line 2"
+    "en": "Line 8"
    },
    "path": [
     [
-     103.2,
-     92.96
+     87.45,
+     40.65
     ],
     [
-     121.88,
-     75.53
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "k"
-  },
-  {
-   "id": "l-06",
-   "name": {
-    "en": "Line 6"
-   },
-   "path": [
-    [
-     74.06,
-     42.34
-    ],
-    [
-     93.3,
-     52.91
+     99.15,
+     51.23
     ]
    ],
    "width": 1.2,
@@ -468,18 +448,18 @@
    "keyRef": "f"
   },
   {
-   "id": "l-08",
+   "id": "l-03",
    "name": {
-    "en": "Line 8"
+    "en": "Line 3"
    },
    "path": [
     [
-     90.83,
-     43.8
+     87.45,
+     40.54
     ],
     [
-     109.5,
-     53.7
+     100.73,
+     48.19
     ]
    ],
    "width": 1.2,
@@ -488,38 +468,18 @@
    "keyRef": "g"
   },
   {
-   "id": "l-11",
+   "id": "l-16",
    "name": {
-    "en": "Line 11"
+    "en": "Line 16"
    },
    "path": [
     [
-     91.39,
-     72.83
+     126.49,
+     73.5
     ],
     [
-     110.29,
-     72.49
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "h"
-  },
-  {
-   "id": "l-15",
-   "name": {
-    "en": "Line 15"
-   },
-   "path": [
-    [
-     68.21,
-     81.49
-    ],
-    [
-     83.06,
-     72.6
+     139.31,
+     71.7
     ]
    ],
    "width": 1.2,
@@ -528,24 +488,24 @@
    "keyRef": "i"
   },
   {
-   "id": "l-09",
+   "id": "l-05",
    "name": {
-    "en": "Line 9"
+    "en": "Line 5"
    },
    "path": [
     [
-     95.1,
-     114
+     105.11,
+     74.63
     ],
     [
-     97.24,
-     105.11
+     116.03,
+     76.99
     ]
    ],
    "width": 1.2,
    "style": "single",
    "arrow": "none",
-   "keyRef": "l"
+   "keyRef": "h"
   }
  ],
  "relations": [
@@ -554,9 +514,18 @@
    "to": "r-01",
    "kind": "connects",
    "direction": "forward",
-   "confidence": 0.98,
+   "confidence": 0.68,
    "source": "detected",
-   "via": "l-05"
+   "via": "l-02"
+  },
+  {
+   "from": "r-07",
+   "to": "r-02",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.59,
+   "source": "detected",
+   "via": "l-16"
   }
  ],
  "key": [
@@ -572,7 +541,7 @@
    "ref": "b",
    "regionId": "r-08",
    "text": {
-    "en": "Ovary"
+    "en": "Region 8"
    },
    "braille": {}
   },
@@ -588,7 +557,7 @@
    "ref": "d",
    "regionId": "r-01",
    "text": {
-    "en": "Region 1"
+    "en": "Floral Axis"
    },
    "braille": {}
   },
@@ -596,20 +565,12 @@
    "ref": "e",
    "regionId": "r-07",
    "text": {
-    "en": "Sin"
+    "en": "Ovary"
    },
    "braille": {}
   },
   {
    "ref": "f",
-   "regionId": "l-06",
-   "text": {
-    "en": "Line 6"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "g",
    "regionId": "l-08",
    "text": {
     "en": "Line 8"
@@ -617,23 +578,15 @@
    "braille": {}
   },
   {
+   "ref": "g",
+   "regionId": "l-03",
+   "text": {
+    "en": "Line 3"
+   },
+   "braille": {}
+  },
+  {
    "ref": "h",
-   "regionId": "l-11",
-   "text": {
-    "en": "Line 11"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "i",
-   "regionId": "l-15",
-   "text": {
-    "en": "Line 15"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "j",
    "regionId": "l-05",
    "text": {
     "en": "Line 5"
@@ -641,18 +594,18 @@
    "braille": {}
   },
   {
-   "ref": "k",
-   "regionId": "l-02",
+   "ref": "i",
+   "regionId": "l-16",
    "text": {
-    "en": "Line 2"
+    "en": "Line 16"
    },
    "braille": {}
   },
   {
-   "ref": "l",
-   "regionId": "l-09",
+   "ref": "j",
+   "regionId": "l-02",
    "text": {
-    "en": "Line 9"
+    "en": "Line 2"
    },
    "braille": {}
   }
@@ -663,13 +616,11 @@
   "r-02",
   "r-01",
   "r-07",
-  "l-06",
   "l-08",
-  "l-11",
-  "l-15",
+  "l-03",
   "l-05",
-  "l-02",
-  "l-09"
+  "l-16",
+  "l-02"
  ],
  "languages": {
   "primary": "en",
@@ -682,33 +633,34 @@
   "blocking": [
    {
     "rule": "R3",
-    "msg": "Detected: Line 5 connects Sin to Region 1 (98%) — confirm or remove",
+    "msg": "Detected: Line 2 connects Ovary to Floral Axis (68%) — confirm or remove",
     "ids": [
      "r-07",
      "r-01"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: Line 16 connects Ovary to Region 2 (59%) — confirm or remove",
+    "ids": [
+     "r-07",
+     "r-02"
     ]
    }
   ],
   "advisory": [
    {
-    "rule": "O1",
-    "msg": "Sin: read at 53% confidence",
+    "rule": "N1",
+    "msg": "r-08 has no label",
     "ids": [
-     "r-07"
+     "r-08"
     ]
    },
    {
     "rule": "O1",
-    "msg": "Ovules: read at 55% confidence",
+    "msg": "Ovules: read at 65% confidence",
     "ids": [
      "r-05"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "r-01 has no label",
-    "ids": [
-     "r-01"
     ]
    },
    {
@@ -720,23 +672,9 @@
    },
    {
     "rule": "N1",
-    "msg": "l-05 has no label",
-    "ids": [
-     "l-05"
-    ]
-   },
-   {
-    "rule": "N1",
     "msg": "l-02 has no label",
     "ids": [
      "l-02"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-06 has no label",
-    "ids": [
-     "l-06"
     ]
    },
    {
@@ -748,23 +686,23 @@
    },
    {
     "rule": "N1",
-    "msg": "l-11 has no label",
+    "msg": "l-03 has no label",
     "ids": [
-     "l-11"
+     "l-03"
     ]
    },
    {
     "rule": "N1",
-    "msg": "l-15 has no label",
+    "msg": "l-16 has no label",
     "ids": [
-     "l-15"
+     "l-16"
     ]
    },
    {
     "rule": "N1",
-    "msg": "l-09 has no label",
+    "msg": "l-05 has no label",
     "ids": [
-     "l-09"
+     "l-05"
     ]
    }
   ]

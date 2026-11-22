@@ -11,13 +11,13 @@
  "source": {
   "kind": "upload",
   "file": "bio-eye-02",
-  "captured": "2026-10-31T00:31:05.357Z"
+  "captured": "2026-11-18T15:44:13.205Z"
  },
  "regions": [
   {
    "id": "r-02",
    "name": {
-    "en": "Sclera"
+    "en": "4"
    },
    "polygon": [
     [
@@ -99,16 +99,16 @@
    ],
    "texture": "dots",
    "keyRef": "a",
-   "confidence": 0.96,
+   "confidence": 0.98,
    "sourceLabel": {
-    "text": "Sclera",
-    "ocrConfidence": 0.9
+    "text": "4",
+    "ocrConfidence": 0.95
    }
   },
   {
    "id": "r-01",
    "name": {
-    "en": "Granula Iridis"
+    "en": "Sclera"
    },
    "polygon": [
     [
@@ -244,71 +244,31 @@
    "keyRef": "b",
    "confidence": 0.96,
    "sourceLabel": {
-    "text": "Granula iridis",
-    "ocrConfidence": 0.89
+    "text": "Sclera",
+    "ocrConfidence": 0.9
    }
   }
  ],
  "lines": [
   {
-   "id": "l-01",
+   "id": "l-04",
    "name": {
-    "en": "Line 1"
+    "en": "Line 4"
    },
    "path": [
     [
-     113.03,
-     23.03
+     127.62,
+     117.65
     ],
     [
-     155.11,
-     54.65
+     135.16,
+     75.08
     ]
    ],
    "width": 1.2,
    "style": "single",
    "arrow": "none",
-   "keyRef": "c"
-  },
-  {
-   "id": "l-02",
-   "name": {
-    "en": "Line 2"
-   },
-   "path": [
-    [
-     119.35,
-     41.76
-    ],
-    [
-     129.32,
-     93.32
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "e"
-  },
-  {
-   "id": "l-07",
-   "name": {
-    "en": "Line 7"
-   },
-   "path": [
-    [
-     77.51,
-     93.08
-    ],
-    [
-     78.97,
-     47.84
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "f"
+   "keyRef": "i"
   },
   {
    "id": "l-09",
@@ -317,49 +277,129 @@
    },
    "path": [
     [
-     125.68,
-     93.32
+     134.19,
+     99.16
     ],
     [
-     124.22,
-     103.54
+     139.05,
+     77.03
     ]
    ],
    "width": 1.2,
    "style": "single",
    "arrow": "none",
-   "keyRef": "g"
+   "keyRef": "h"
   },
   {
-   "id": "l-12",
+   "id": "l-05",
    "name": {
-    "en": "Line 12"
+    "en": "Line 5"
    },
    "path": [
     [
-     55.14,
+     114.97,
      54.41
     ],
     [
-     62.19,
-     49.05
+     133.95,
+     56.35
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "c"
+  },
+  {
+   "id": "l-13",
+   "name": {
+    "en": "Line 13"
+   },
+   "path": [
+    [
+     145.62,
+     70.22
+    ],
+    [
+     141,
+     54.41
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "f"
+  },
+  {
+   "id": "l-15",
+   "name": {
+    "en": "Line 15"
+   },
+   "path": [
+    [
+     125.19,
+     79.46
+    ],
+    [
+     129.57,
+     69.24
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "e"
+  },
+  {
+   "id": "l-02",
+   "name": {
+    "en": "Line 2"
+   },
+   "path": [
+    [
+     115.7,
+     78.97
+    ],
+    [
+     121.3,
+     69.73
     ]
    ],
    "width": 1.2,
    "style": "single",
    "arrow": "none",
    "keyRef": "d"
+  },
+  {
+   "id": "l-14",
+   "name": {
+    "en": "Line 14"
+   },
+   "path": [
+    [
+     124.46,
+     90.41
+    ],
+    [
+     115.95,
+     87.97
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "g"
   }
  ],
  "relations": [
   {
-   "from": "r-02",
-   "to": "r-01",
+   "from": "r-01",
+   "to": "r-02",
    "kind": "connects",
    "direction": "forward",
-   "confidence": 0.72,
+   "confidence": 0.96,
    "source": "detected",
-   "via": "l-03"
+   "via": "l-01"
   }
  ],
  "key": [
@@ -367,7 +407,7 @@
    "ref": "a",
    "regionId": "r-02",
    "text": {
-    "en": "Sclera"
+    "en": "4"
    },
    "braille": {}
   },
@@ -375,28 +415,20 @@
    "ref": "b",
    "regionId": "r-01",
    "text": {
-    "en": "Granula Iridis"
+    "en": "Sclera"
    },
    "braille": {}
   },
   {
    "ref": "c",
-   "regionId": "l-01",
+   "regionId": "l-05",
    "text": {
-    "en": "Line 1"
+    "en": "Line 5"
    },
    "braille": {}
   },
   {
    "ref": "d",
-   "regionId": "l-12",
-   "text": {
-    "en": "Line 12"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "e",
    "regionId": "l-02",
    "text": {
     "en": "Line 2"
@@ -404,18 +436,42 @@
    "braille": {}
   },
   {
-   "ref": "f",
-   "regionId": "l-07",
+   "ref": "e",
+   "regionId": "l-15",
    "text": {
-    "en": "Line 7"
+    "en": "Line 15"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "f",
+   "regionId": "l-13",
+   "text": {
+    "en": "Line 13"
    },
    "braille": {}
   },
   {
    "ref": "g",
+   "regionId": "l-14",
+   "text": {
+    "en": "Line 14"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "h",
    "regionId": "l-09",
    "text": {
     "en": "Line 9"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "i",
+   "regionId": "l-04",
+   "text": {
+    "en": "Line 4"
    },
    "braille": {}
   }
@@ -423,11 +479,13 @@
  "readingOrder": [
   "r-02",
   "r-01",
-  "l-01",
-  "l-12",
+  "l-05",
   "l-02",
-  "l-07",
-  "l-09"
+  "l-15",
+  "l-13",
+  "l-14",
+  "l-09",
+  "l-04"
  ],
  "languages": {
   "primary": "en",
@@ -440,33 +498,19 @@
   "blocking": [
    {
     "rule": "R3",
-    "msg": "Detected: A stroke connects Sclera to Granula Iridis (72%) — confirm or remove",
+    "msg": "Detected: A stroke connects Sclera to 4 (96%) — confirm or remove",
     "ids": [
-     "r-02",
-     "r-01"
+     "r-01",
+     "r-02"
     ]
    }
   ],
   "advisory": [
    {
     "rule": "N1",
-    "msg": "l-01 has no label",
+    "msg": "l-04 has no label",
     "ids": [
-     "l-01"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-02 has no label",
-    "ids": [
-     "l-02"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-07 has no label",
-    "ids": [
-     "l-07"
+     "l-04"
     ]
    },
    {
@@ -478,9 +522,37 @@
    },
    {
     "rule": "N1",
-    "msg": "l-12 has no label",
+    "msg": "l-05 has no label",
     "ids": [
-     "l-12"
+     "l-05"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-13 has no label",
+    "ids": [
+     "l-13"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-15 has no label",
+    "ids": [
+     "l-15"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-02 has no label",
+    "ids": [
+     "l-02"
+    ]
+   },
+   {
+    "rule": "N1",
+    "msg": "l-14 has no label",
+    "ids": [
+     "l-14"
     ]
    }
   ]

@@ -11,13 +11,13 @@
  "source": {
   "kind": "upload",
   "file": "geo-watercycle-01",
-  "captured": "2026-10-31T00:31:27.083Z"
+  "captured": "2026-11-18T15:44:37.562Z"
  },
  "regions": [
   {
    "id": "r-05",
    "name": {
-    "en": "Condensation"
+    "en": "Ocean Ceans"
    },
    "polygon": [
     [
@@ -230,17 +230,17 @@
     ]
    ],
    "texture": "dots",
-   "keyRef": "l",
-   "confidence": 0.98,
+   "keyRef": "k",
+   "confidence": 0.97,
    "sourceLabel": {
-    "text": "Condensation",
-    "ocrConfidence": 0.96
+    "text": "Ocean ceans",
+    "ocrConfidence": 0.93
    }
   },
   {
    "id": "r-02",
    "name": {
-    "en": "Snow"
+    "en": "Fresh- Ssn"
    },
    "polygon": [
     [
@@ -410,10 +410,10 @@
    ],
    "texture": "dots",
    "keyRef": "j",
-   "confidence": 0.98,
+   "confidence": 0.87,
    "sourceLabel": {
-    "text": "snow",
-    "ocrConfidence": 0.95
+    "text": "Fresh- SSN",
+    "ocrConfidence": 0.67
    }
   },
   {
@@ -558,7 +558,7 @@
   {
    "id": "r-01",
    "name": {
-    "en": "Fe. Ecipitation"
+    "en": "Snowmelt Runoff"
    },
    "polygon": [
     [
@@ -916,16 +916,16 @@
    ],
    "texture": "dots",
    "keyRef": "f",
-   "confidence": 0.9,
+   "confidence": 0.91,
    "sourceLabel": {
-    "text": "Fe. ecipitation",
-    "ocrConfidence": 0.74
+    "text": "Snowmelt runoff",
+    "ocrConfidence": 0.78
    }
   },
   {
    "id": "r-14",
    "name": {
-    "en": "Region 14"
+    "en": "Volcanic Ste"
    },
    "polygon": [
     [
@@ -971,12 +971,16 @@
    ],
    "texture": "dots",
    "keyRef": "a",
-   "confidence": 0.5
+   "confidence": 0.97,
+   "sourceLabel": {
+    "text": "Volcanic ste",
+    "ocrConfidence": 0.92
+   }
   },
   {
    "id": "r-09",
    "name": {
-    "en": "Une"
+    "en": "Flora"
    },
    "polygon": [
     [
@@ -1078,16 +1082,16 @@
    ],
    "texture": "diagonal-lines",
    "keyRef": "h",
-   "confidence": 0.8,
+   "confidence": 0.81,
    "sourceLabel": {
-    "text": "Une",
-    "ocrConfidence": 0.49
+    "text": "Flora",
+    "ocrConfidence": 0.53
    }
   },
   {
    "id": "r-08",
    "name": {
-    "en": "Region 8"
+    "en": "Condensation"
    },
    "polygon": [
     [
@@ -1197,12 +1201,16 @@
    ],
    "texture": "diagonal-lines",
    "keyRef": "c",
-   "confidence": 0.5
+   "confidence": 0.98,
+   "sourceLabel": {
+    "text": "Condensation",
+    "ocrConfidence": 0.96
+   }
   },
   {
    "id": "r-10",
    "name": {
-    "en": "Region 10"
+    "en": "Streamflow"
    },
    "polygon": [
     [
@@ -1264,12 +1272,16 @@
    ],
    "texture": "diagonal-lines",
    "keyRef": "g",
-   "confidence": 0.5
+   "confidence": 0.98,
+   "sourceLabel": {
+    "text": "Streamflow",
+    "ocrConfidence": 0.95
+   }
   },
   {
    "id": "r-11",
    "name": {
-    "en": "Region 11"
+    "en": "Vents And Volcanos"
    },
    "polygon": [
     [
@@ -1307,12 +1319,16 @@
    ],
    "texture": "diagonal-lines",
    "keyRef": "m",
-   "confidence": 0.5
+   "confidence": 0.98,
+   "sourceLabel": {
+    "text": "Vents and volcanos",
+    "ocrConfidence": 0.96
+   }
   },
   {
    "id": "r-04",
    "name": {
-    "en": "Region 4"
+    "en": "Evapotranspiration"
    },
    "polygon": [
     [
@@ -1366,12 +1382,16 @@
    ],
    "texture": "dots",
    "keyRef": "e",
-   "confidence": 0.5
+   "confidence": 0.96,
+   "sourceLabel": {
+    "text": "Evapotranspiration",
+    "ocrConfidence": 0.91
+   }
   },
   {
    "id": "r-06",
    "name": {
-    "en": "Ice And"
+    "en": "Precipitation"
    },
    "polygon": [
     [
@@ -1417,16 +1437,16 @@
    ],
    "texture": "dots",
    "keyRef": "d",
-   "confidence": 0.94,
+   "confidence": 0.98,
    "sourceLabel": {
-    "text": "Ice and",
-    "ocrConfidence": 0.84
+    "text": "Precipitation",
+    "ocrConfidence": 0.95
    }
   },
   {
    "id": "r-03",
    "name": {
-    "en": "Region 3"
+    "en": "Evaporation"
    },
    "polygon": [
     [
@@ -1468,12 +1488,16 @@
    ],
    "texture": "dots",
    "keyRef": "i",
-   "confidence": 0.5
+   "confidence": 0.84,
+   "sourceLabel": {
+    "text": "Evaporation",
+    "ocrConfidence": 0.6
+   }
   },
   {
    "id": "r-12",
    "name": {
-    "en": "Vents And Volcanos"
+    "en": "Groundwater Storage"
    },
    "polygon": [
     [
@@ -1514,68 +1538,28 @@
     ]
    ],
    "texture": "diagonal-lines",
-   "keyRef": "k",
+   "keyRef": "l",
    "confidence": 0.98,
    "sourceLabel": {
-    "text": "Vents and volcanos",
-    "ocrConfidence": 0.96
+    "text": "Groundwater storage",
+    "ocrConfidence": 0.94
    }
   }
  ],
  "lines": [
   {
-   "id": "l-01",
+   "id": "l-04",
    "name": {
-    "en": "Line 1"
+    "en": "Line 4"
    },
    "path": [
     [
-     16.98,
-     85.62
+     31.54,
+     64.88
     ],
     [
-     15.49,
-     15
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "n"
-  },
-  {
-   "id": "l-02",
-   "name": {
-    "en": "Line 2"
-   },
-   "path": [
-    [
-     32.04,
-     130.56
-    ],
-    [
-     81.17,
-     132.78
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "p"
-  },
-  {
-   "id": "l-07",
-   "name": {
-    "en": "Line 7"
-   },
-   "path": [
-    [
-     15.99,
-     123.15
-    ],
-    [
-     46.11,
-     92.04
+     76.48,
+     35.74
     ]
    ],
    "width": 1.2,
@@ -1584,18 +1568,18 @@
    "keyRef": "o"
   },
   {
-   "id": "l-16",
+   "id": "l-05",
    "name": {
-    "en": "Line 16"
+    "en": "Line 5"
    },
    "path": [
     [
-     85.62,
-     125.62
+     17.72,
+     137.47
     ],
     [
-     118.21,
-     126.85
+     32.28,
+     86.36
     ]
    ],
    "width": 1.2,
@@ -1604,35 +1588,84 @@
    "keyRef": "q"
   },
   {
-   "id": "l-15",
+   "id": "l-11",
    "name": {
-    "en": "Line 15"
+    "en": "Line 11"
    },
    "path": [
     [
-     100.43,
-     131.3
+     17.96,
+     137.47
     ],
     [
-     117.22,
-     130.31
+     66.36,
+     131.05
     ]
    ],
    "width": 1.2,
    "style": "single",
    "arrow": "none",
    "keyRef": "r"
+  },
+  {
+   "id": "l-10",
+   "name": {
+    "en": "Line 10"
+   },
+   "path": [
+    [
+     15,
+     15
+    ],
+    [
+     15.74,
+     60.43
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "n"
+  },
+  {
+   "id": "l-13",
+   "name": {
+    "en": "Line 13"
+   },
+   "path": [
+    [
+     99.69,
+     114.51
+    ],
+    [
+     128.58,
+     137.72
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "p"
   }
  ],
  "relations": [
   {
-   "from": "r-02",
+   "from": "l-04",
+   "to": "r-01",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.21,
+   "source": "detected",
+   "via": "l-04"
+  },
+  {
+   "from": "l-10",
    "to": "r-14",
    "kind": "connects",
    "direction": "forward",
    "confidence": 1,
    "source": "detected",
-   "via": "l-01"
+   "via": "l-10"
   },
   {
    "from": "r-02",
@@ -1641,16 +1674,7 @@
    "direction": "forward",
    "confidence": 1,
    "source": "detected",
-   "via": "l-08"
-  },
-  {
-   "from": "r-02",
-   "to": "r-12",
-   "kind": "connects",
-   "direction": "forward",
-   "confidence": 0.96,
-   "source": "detected",
-   "via": "l-16"
+   "via": "l-15"
   }
  ],
  "key": [
@@ -1658,7 +1682,7 @@
    "ref": "a",
    "regionId": "r-14",
    "text": {
-    "en": "Region 14"
+    "en": "Volcanic Ste"
    },
    "braille": {}
   },
@@ -1674,7 +1698,7 @@
    "ref": "c",
    "regionId": "r-08",
    "text": {
-    "en": "Region 8"
+    "en": "Condensation"
    },
    "braille": {}
   },
@@ -1682,7 +1706,7 @@
    "ref": "d",
    "regionId": "r-06",
    "text": {
-    "en": "Ice And"
+    "en": "Precipitation"
    },
    "braille": {}
   },
@@ -1690,7 +1714,7 @@
    "ref": "e",
    "regionId": "r-04",
    "text": {
-    "en": "Region 4"
+    "en": "Evapotranspiration"
    },
    "braille": {}
   },
@@ -1698,7 +1722,7 @@
    "ref": "f",
    "regionId": "r-01",
    "text": {
-    "en": "Fe. Ecipitation"
+    "en": "Snowmelt Runoff"
    },
    "braille": {}
   },
@@ -1706,7 +1730,7 @@
    "ref": "g",
    "regionId": "r-10",
    "text": {
-    "en": "Region 10"
+    "en": "Streamflow"
    },
    "braille": {}
   },
@@ -1714,7 +1738,7 @@
    "ref": "h",
    "regionId": "r-09",
    "text": {
-    "en": "Une"
+    "en": "Flora"
    },
    "braille": {}
   },
@@ -1722,7 +1746,7 @@
    "ref": "i",
    "regionId": "r-03",
    "text": {
-    "en": "Region 3"
+    "en": "Evaporation"
    },
    "braille": {}
   },
@@ -1730,23 +1754,23 @@
    "ref": "j",
    "regionId": "r-02",
    "text": {
-    "en": "Snow"
+    "en": "Fresh- Ssn"
    },
    "braille": {}
   },
   {
    "ref": "k",
-   "regionId": "r-12",
+   "regionId": "r-05",
    "text": {
-    "en": "Vents And Volcanos"
+    "en": "Ocean Ceans"
    },
    "braille": {}
   },
   {
    "ref": "l",
-   "regionId": "r-05",
+   "regionId": "r-12",
    "text": {
-    "en": "Condensation"
+    "en": "Groundwater Storage"
    },
    "braille": {}
   },
@@ -1754,47 +1778,47 @@
    "ref": "m",
    "regionId": "r-11",
    "text": {
-    "en": "Region 11"
+    "en": "Vents And Volcanos"
    },
    "braille": {}
   },
   {
    "ref": "n",
-   "regionId": "l-01",
+   "regionId": "l-10",
    "text": {
-    "en": "Line 1"
+    "en": "Line 10"
    },
    "braille": {}
   },
   {
    "ref": "o",
-   "regionId": "l-07",
+   "regionId": "l-04",
    "text": {
-    "en": "Line 7"
+    "en": "Line 4"
    },
    "braille": {}
   },
   {
    "ref": "p",
-   "regionId": "l-02",
+   "regionId": "l-13",
    "text": {
-    "en": "Line 2"
+    "en": "Line 13"
    },
    "braille": {}
   },
   {
    "ref": "q",
-   "regionId": "l-16",
+   "regionId": "l-05",
    "text": {
-    "en": "Line 16"
+    "en": "Line 5"
    },
    "braille": {}
   },
   {
    "ref": "r",
-   "regionId": "l-15",
+   "regionId": "l-11",
    "text": {
-    "en": "Line 15"
+    "en": "Line 11"
    },
    "braille": {}
   }
@@ -1810,14 +1834,14 @@
   "r-09",
   "r-03",
   "r-02",
-  "r-12",
   "r-05",
+  "r-12",
   "r-11",
-  "l-01",
-  "l-07",
-  "l-02",
-  "l-16",
-  "l-15"
+  "l-10",
+  "l-04",
+  "l-13",
+  "l-05",
+  "l-11"
  ],
  "languages": {
   "primary": "en",
@@ -1830,30 +1854,37 @@
   "blocking": [
    {
     "rule": "R3",
-    "msg": "Detected: Line 1 connects Snow to Region 14 (100%) — confirm or remove",
+    "msg": "Detected: Line 4 connects Line 4 to Snowmelt Runoff (21%) — confirm or remove",
     "ids": [
-     "r-02",
-     "r-14"
-    ]
-   },
-   {
-    "rule": "R3",
-    "msg": "Detected: A stroke connects Snow to Fe. Ecipitation (100%) — confirm or remove",
-    "ids": [
-     "r-02",
+     "l-04",
      "r-01"
     ]
    },
    {
     "rule": "R3",
-    "msg": "Detected: Line 16 connects Snow to Vents And Volcanos (96%) — confirm or remove",
+    "msg": "Detected: Line 10 connects Line 10 to Volcanic Ste (100%) — confirm or remove",
+    "ids": [
+     "l-10",
+     "r-14"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: A stroke connects Fresh- Ssn to Snowmelt Runoff (100%) — confirm or remove",
     "ids": [
      "r-02",
-     "r-12"
+     "r-01"
     ]
    }
   ],
   "advisory": [
+   {
+    "rule": "O1",
+    "msg": "Fresh- Ssn: read at 67% confidence",
+    "ids": [
+     "r-02"
+    ]
+   },
    {
     "rule": "O1",
     "msg": "Af Acer Cycie: read at 66% confidence",
@@ -1863,93 +1894,51 @@
    },
    {
     "rule": "O1",
-    "msg": "Fe. Ecipitation: read at 74% confidence",
-    "ids": [
-     "r-01"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "r-14 has no label",
-    "ids": [
-     "r-14"
-    ]
-   },
-   {
-    "rule": "O1",
-    "msg": "Une: read at 49% confidence",
+    "msg": "Flora: read at 53% confidence",
     "ids": [
      "r-09"
     ]
    },
    {
-    "rule": "N1",
-    "msg": "r-08 has no label",
-    "ids": [
-     "r-08"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "r-10 has no label",
-    "ids": [
-     "r-10"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "r-11 has no label",
-    "ids": [
-     "r-11"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "r-04 has no label",
-    "ids": [
-     "r-04"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "r-03 has no label",
+    "rule": "O1",
+    "msg": "Evaporation: read at 60% confidence",
     "ids": [
      "r-03"
     ]
    },
    {
     "rule": "N1",
-    "msg": "l-01 has no label",
+    "msg": "l-04 has no label",
     "ids": [
-     "l-01"
+     "l-04"
     ]
    },
    {
     "rule": "N1",
-    "msg": "l-02 has no label",
+    "msg": "l-05 has no label",
     "ids": [
-     "l-02"
+     "l-05"
     ]
    },
    {
     "rule": "N1",
-    "msg": "l-07 has no label",
+    "msg": "l-11 has no label",
     "ids": [
-     "l-07"
+     "l-11"
     ]
    },
    {
     "rule": "N1",
-    "msg": "l-16 has no label",
+    "msg": "l-10 has no label",
     "ids": [
-     "l-16"
+     "l-10"
     ]
    },
    {
     "rule": "N1",
-    "msg": "l-15 has no label",
+    "msg": "l-13 has no label",
     "ids": [
-     "l-15"
+     "l-13"
     ]
    }
   ]

@@ -11,7 +11,7 @@
  "source": {
   "kind": "upload",
   "file": "math-parallelogram-01",
-  "captured": "2026-10-31T00:31:32.566Z"
+  "captured": "2026-11-18T15:44:43.551Z"
  },
  "regions": [
   {
@@ -177,18 +177,18 @@
  ],
  "lines": [
   {
-   "id": "l-02",
+   "id": "l-01",
    "name": {
-    "en": "Line 2"
+    "en": "Line 1"
    },
    "path": [
     [
-     21.19,
-     122.21
+     29.4,
+     119.85
     ],
     [
-     155.96,
-     122.21
+     32.55,
+     111.86
     ]
    ],
    "width": 1.2,
@@ -197,35 +197,7 @@
    "keyRef": "e"
   }
  ],
- "relations": [
-  {
-   "from": "r-02",
-   "to": "r-03",
-   "kind": "connects",
-   "direction": "forward",
-   "confidence": 0.75,
-   "source": "detected",
-   "via": "l-01"
-  },
-  {
-   "from": "r-01",
-   "to": "r-03",
-   "kind": "connects",
-   "direction": "forward",
-   "confidence": 0.68,
-   "source": "detected",
-   "via": "l-02"
-  },
-  {
-   "from": "r-01",
-   "to": "r-02",
-   "kind": "connects",
-   "direction": "forward",
-   "confidence": 0.78,
-   "source": "detected",
-   "via": "l-03"
-  }
- ],
+ "relations": [],
  "key": [
   {
    "ref": "a",
@@ -261,9 +233,9 @@
   },
   {
    "ref": "e",
-   "regionId": "l-02",
+   "regionId": "l-01",
    "text": {
-    "en": "Line 2"
+    "en": "Line 1"
    },
    "braille": {}
   }
@@ -273,7 +245,7 @@
   "r-04",
   "r-01",
   "r-02",
-  "l-02"
+  "l-01"
  ],
  "languages": {
   "primary": "en",
@@ -282,33 +254,8 @@
   ]
  },
  "validation": {
-  "status": "fail",
-  "blocking": [
-   {
-    "rule": "R3",
-    "msg": "Detected: A stroke connects Region 2 to Region 3 (75%) — confirm or remove",
-    "ids": [
-     "r-02",
-     "r-03"
-    ]
-   },
-   {
-    "rule": "R3",
-    "msg": "Detected: Line 2 connects Region 1 to Region 3 (68%) — confirm or remove",
-    "ids": [
-     "r-01",
-     "r-03"
-    ]
-   },
-   {
-    "rule": "R3",
-    "msg": "Detected: A stroke connects Region 1 to Region 2 (78%) — confirm or remove",
-    "ids": [
-     "r-01",
-     "r-02"
-    ]
-   }
-  ],
+  "status": "pass",
+  "blocking": [],
   "advisory": [
    {
     "rule": "N1",
@@ -340,9 +287,9 @@
    },
    {
     "rule": "N1",
-    "msg": "l-02 has no label",
+    "msg": "l-01 has no label",
     "ids": [
-     "l-02"
+     "l-01"
     ]
    }
   ]

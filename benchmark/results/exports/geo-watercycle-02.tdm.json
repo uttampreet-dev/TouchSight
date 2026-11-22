@@ -11,13 +11,13 @@
  "source": {
   "kind": "upload",
   "file": "geo-watercycle-02",
-  "captured": "2026-10-31T00:31:29.827Z"
+  "captured": "2026-11-18T15:44:40.600Z"
  },
  "regions": [
   {
    "id": "r-03",
    "name": {
-    "en": "Clouds"
+    "en": "A"
    },
    "polygon": [
     [
@@ -323,16 +323,16 @@
    ],
    "texture": "dots",
    "keyRef": "a",
-   "confidence": 0.93,
+   "confidence": 0.98,
    "sourceLabel": {
-    "text": "CLOUDS",
-    "ocrConfidence": 0.82
+    "text": "A",
+    "ocrConfidence": 0.94
    }
   },
   {
    "id": "r-10",
    "name": {
-    "en": "Evaporation"
+    "en": "Ocean"
    },
    "polygon": [
     [
@@ -657,17 +657,17 @@
     ]
    ],
    "texture": "diagonal-lines",
-   "keyRef": "g",
-   "confidence": 0.98,
+   "keyRef": "h",
+   "confidence": 0.95,
    "sourceLabel": {
-    "text": "EVAPORATION",
-    "ocrConfidence": 0.94
+    "text": "OCEAN",
+    "ocrConfidence": 0.88
    }
   },
   {
    "id": "r-05",
    "name": {
-    "en": "Clouds And Water Vapor"
+    "en": "Vapor"
    },
    "polygon": [
     [
@@ -815,14 +815,14 @@
    "keyRef": "d",
    "confidence": 0.98,
    "sourceLabel": {
-    "text": "CLOUDS and WATER VAPOR",
+    "text": "VAPOR",
     "ocrConfidence": 0.95
    }
   },
   {
    "id": "r-01",
    "name": {
-    "en": "Nfiltration"
+    "en": "2"
    },
    "polygon": [
     [
@@ -1196,16 +1196,16 @@
    ],
    "texture": "dots",
    "keyRef": "b",
-   "confidence": 0.89,
+   "confidence": 0.94,
    "sourceLabel": {
-    "text": "NFILTRATION",
-    "ocrConfidence": 0.73
+    "text": "2",
+    "ocrConfidence": 0.86
    }
   },
   {
    "id": "r-06",
    "name": {
-    "en": "Ra (oe"
+    "en": "Lakes"
    },
    "polygon": [
     [
@@ -1306,17 +1306,17 @@
     ]
    ],
    "texture": "dots",
-   "keyRef": "i",
-   "confidence": 0.8,
+   "keyRef": "g",
+   "confidence": 0.98,
    "sourceLabel": {
-    "text": "ra (oe",
-    "ocrConfidence": 0.49
+    "text": "LAKES",
+    "ocrConfidence": 0.96
    }
   },
   {
    "id": "r-13",
    "name": {
-    "en": "And Ss Icesheets Ss"
+    "en": "4"
    },
    "polygon": [
     [
@@ -1594,16 +1594,16 @@
    ],
    "texture": "diagonal-lines",
    "keyRef": "f",
-   "confidence": 0.86,
+   "confidence": 0.98,
    "sourceLabel": {
-    "text": "and SS ICESHEETS SS",
-    "ocrConfidence": 0.64
+    "text": "4",
+    "ocrConfidence": 0.95
    }
   },
   {
    "id": "r-11",
    "name": {
-    "en": "Region 11"
+    "en": "Permafrost"
    },
    "polygon": [
     [
@@ -1697,12 +1697,16 @@
    ],
    "texture": "dots",
    "keyRef": "e",
-   "confidence": 0.5
+   "confidence": 0.97,
+   "sourceLabel": {
+    "text": "PERMAFROST",
+    "ocrConfidence": 0.93
+   }
   },
   {
    "id": "r-14",
    "name": {
-    "en": "Region 14"
+    "en": "Clouds And Water Vapor"
    },
    "polygon": [
     [
@@ -1760,12 +1764,16 @@
    ],
    "texture": "diagonal-lines",
    "keyRef": "c",
-   "confidence": 0.5
+   "confidence": 0.98,
+   "sourceLabel": {
+    "text": "CLOUDS and WATER VAPOR",
+    "ocrConfidence": 0.95
+   }
   },
   {
    "id": "r-04",
    "name": {
-    "en": "Region 4"
+    "en": "Seaic"
    },
    "polygon": [
     [
@@ -1827,12 +1835,16 @@
    ],
    "texture": "dots",
    "keyRef": "k",
-   "confidence": 0.5
+   "confidence": 0.95,
+   "sourceLabel": {
+    "text": "SEAIC",
+    "ocrConfidence": 0.88
+   }
   },
   {
    "id": "r-07",
    "name": {
-    "en": "Runoff"
+    "en": "Surface"
    },
    "polygon": [
     [
@@ -1926,10 +1938,10 @@
    ],
    "texture": "diagonal-lines",
    "keyRef": "j",
-   "confidence": 0.93,
+   "confidence": 0.98,
    "sourceLabel": {
-    "text": "RUNOFF",
-    "ocrConfidence": 0.82
+    "text": "SURFACE",
+    "ocrConfidence": 0.94
    }
   },
   {
@@ -2027,7 +2039,7 @@
     ]
    ],
    "texture": "dots",
-   "keyRef": "h",
+   "keyRef": "i",
    "confidence": 0.97,
    "sourceLabel": {
     "text": "RIVERS and",
@@ -2037,38 +2049,18 @@
  ],
  "lines": [
   {
-   "id": "l-05",
+   "id": "l-03",
    "name": {
-    "en": "Line 5"
+    "en": "Line 3"
    },
    "path": [
     [
-     107.81,
-     115.41
+     26.95,
+     103.45
     ],
     [
-     156.33,
-     112.03
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "p"
-  },
-  {
-   "id": "l-10",
-   "name": {
-    "en": "Line 10"
-   },
-   "path": [
-    [
-     49.59,
-     103.88
-    ],
-    [
-     80.11,
-     102.33
+     87.56,
+     102.89
     ]
    ],
    "width": 1.2,
@@ -2077,18 +2069,38 @@
    "keyRef": "o"
   },
   {
-   "id": "l-11",
+   "id": "l-08",
    "name": {
-    "en": "Line 11"
+    "en": "Line 8"
    },
    "path": [
     [
-     143.25,
-     95.02
+     115.41,
+     106.69
     ],
     [
-     172.5,
-     87.28
+     143.39,
+     106.55
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "p"
+  },
+  {
+   "id": "l-14",
+   "name": {
+    "en": "Line 14"
+   },
+   "path": [
+    [
+     98.67,
+     68.86
+    ],
+    [
+     117.66,
+     70.13
     ]
    ],
    "width": 1.2,
@@ -2097,18 +2109,18 @@
    "keyRef": "n"
   },
   {
-   "id": "l-13",
+   "id": "l-05",
    "name": {
-    "en": "Line 13"
+    "en": "Line 5"
    },
    "path": [
     [
-     31.73,
-     21.75
+     42.84,
+     22.88
     ],
     [
-     23.72,
-     22.17
+     56.34,
+     23.16
     ]
    ],
    "width": 1.2,
@@ -2128,13 +2140,13 @@
    "via": "l-01"
   },
   {
-   "from": "r-12",
-   "to": "r-06",
+   "from": "r-10",
+   "to": "r-01",
    "kind": "connects",
    "direction": "forward",
    "confidence": 1,
    "source": "detected",
-   "via": "l-05"
+   "via": "l-04"
   },
   {
    "from": "r-04",
@@ -2143,16 +2155,34 @@
    "direction": "forward",
    "confidence": 0.99,
    "source": "detected",
-   "via": "l-08"
+   "via": "l-06"
   },
   {
-   "from": "r-09",
+   "from": "r-10",
+   "to": "r-09",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 0.94,
+   "source": "detected",
+   "via": "l-09"
+  },
+  {
+   "from": "r-01",
    "to": "r-06",
    "kind": "connects",
    "direction": "forward",
-   "confidence": 0.97,
+   "confidence": 0.96,
    "source": "detected",
    "via": "l-11"
+  },
+  {
+   "from": "r-10",
+   "to": "r-06",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 1,
+   "source": "detected",
+   "via": "l-16"
   }
  ],
  "key": [
@@ -2160,7 +2190,7 @@
    "ref": "a",
    "regionId": "r-03",
    "text": {
-    "en": "Clouds"
+    "en": "A"
    },
    "braille": {}
   },
@@ -2168,7 +2198,7 @@
    "ref": "b",
    "regionId": "r-01",
    "text": {
-    "en": "Nfiltration"
+    "en": "2"
    },
    "braille": {}
   },
@@ -2176,7 +2206,7 @@
    "ref": "c",
    "regionId": "r-14",
    "text": {
-    "en": "Region 14"
+    "en": "Clouds And Water Vapor"
    },
    "braille": {}
   },
@@ -2184,7 +2214,7 @@
    "ref": "d",
    "regionId": "r-05",
    "text": {
-    "en": "Clouds And Water Vapor"
+    "en": "Vapor"
    },
    "braille": {}
   },
@@ -2192,7 +2222,7 @@
    "ref": "e",
    "regionId": "r-11",
    "text": {
-    "en": "Region 11"
+    "en": "Permafrost"
    },
    "braille": {}
   },
@@ -2200,20 +2230,28 @@
    "ref": "f",
    "regionId": "r-13",
    "text": {
-    "en": "And Ss Icesheets Ss"
+    "en": "4"
    },
    "braille": {}
   },
   {
    "ref": "g",
-   "regionId": "r-10",
+   "regionId": "r-06",
    "text": {
-    "en": "Evaporation"
+    "en": "Lakes"
    },
    "braille": {}
   },
   {
    "ref": "h",
+   "regionId": "r-10",
+   "text": {
+    "en": "Ocean"
+   },
+   "braille": {}
+  },
+  {
+   "ref": "i",
    "regionId": "r-09",
    "text": {
     "en": "Rivers And"
@@ -2221,18 +2259,10 @@
    "braille": {}
   },
   {
-   "ref": "i",
-   "regionId": "r-06",
-   "text": {
-    "en": "Ra (oe"
-   },
-   "braille": {}
-  },
-  {
    "ref": "j",
    "regionId": "r-07",
    "text": {
-    "en": "Runoff"
+    "en": "Surface"
    },
    "braille": {}
   },
@@ -2240,7 +2270,7 @@
    "ref": "k",
    "regionId": "r-04",
    "text": {
-    "en": "Region 4"
+    "en": "Seaic"
    },
    "braille": {}
   },
@@ -2254,33 +2284,33 @@
   },
   {
    "ref": "m",
-   "regionId": "l-13",
+   "regionId": "l-05",
    "text": {
-    "en": "Line 13"
+    "en": "Line 5"
    },
    "braille": {}
   },
   {
    "ref": "n",
-   "regionId": "l-11",
+   "regionId": "l-14",
    "text": {
-    "en": "Line 11"
+    "en": "Line 14"
    },
    "braille": {}
   },
   {
    "ref": "o",
-   "regionId": "l-10",
+   "regionId": "l-03",
    "text": {
-    "en": "Line 10"
+    "en": "Line 3"
    },
    "braille": {}
   },
   {
    "ref": "p",
-   "regionId": "l-05",
+   "regionId": "l-08",
    "text": {
-    "en": "Line 5"
+    "en": "Line 8"
    },
    "braille": {}
   }
@@ -2292,16 +2322,16 @@
   "r-05",
   "r-11",
   "r-13",
+  "r-06",
   "r-10",
   "r-09",
-  "r-06",
   "r-07",
   "r-04",
   "r-12",
-  "l-13",
-  "l-11",
-  "l-10",
-  "l-05"
+  "l-05",
+  "l-14",
+  "l-03",
+  "l-08"
  ],
  "languages": {
   "primary": "en",
@@ -2314,7 +2344,7 @@
   "blocking": [
    {
     "rule": "R3",
-    "msg": "Detected: A stroke connects Clouds to Nfiltration (91%) — confirm or remove",
+    "msg": "Detected: A stroke connects A to 2 (91%) — confirm or remove",
     "ids": [
      "r-03",
      "r-01"
@@ -2322,15 +2352,15 @@
    },
    {
     "rule": "R3",
-    "msg": "Detected: Line 5 connects Groundwater to Ra (oe (100%) — confirm or remove",
+    "msg": "Detected: A stroke connects Ocean to 2 (100%) — confirm or remove",
     "ids": [
-     "r-12",
-     "r-06"
+     "r-10",
+     "r-01"
     ]
    },
    {
     "rule": "R3",
-    "msg": "Detected: A stroke connects Region 4 to Groundwater (99%) — confirm or remove",
+    "msg": "Detected: A stroke connects Seaic to Groundwater (99%) — confirm or remove",
     "ids": [
      "r-04",
      "r-12"
@@ -2338,54 +2368,49 @@
    },
    {
     "rule": "R3",
-    "msg": "Detected: Line 11 connects Rivers And to Ra (oe (97%) — confirm or remove",
+    "msg": "Detected: A stroke connects Ocean to Rivers And (94%) — confirm or remove",
     "ids": [
-     "r-09",
+     "r-10",
+     "r-09"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: A stroke connects 2 to Lakes (96%) — confirm or remove",
+    "ids": [
+     "r-01",
+     "r-06"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: A stroke connects Ocean to Lakes (100%) — confirm or remove",
+    "ids": [
+     "r-10",
      "r-06"
     ]
    }
   ],
   "advisory": [
    {
-    "rule": "O1",
-    "msg": "Nfiltration: read at 73% confidence",
+    "rule": "N1",
+    "msg": "l-03 has no label",
     "ids": [
-     "r-01"
-    ]
-   },
-   {
-    "rule": "O1",
-    "msg": "Ra (oe: read at 49% confidence",
-    "ids": [
-     "r-06"
-    ]
-   },
-   {
-    "rule": "O1",
-    "msg": "And Ss Icesheets Ss: read at 64% confidence",
-    "ids": [
-     "r-13"
+     "l-03"
     ]
    },
    {
     "rule": "N1",
-    "msg": "r-11 has no label",
+    "msg": "l-08 has no label",
     "ids": [
-     "r-11"
+     "l-08"
     ]
    },
    {
     "rule": "N1",
-    "msg": "r-14 has no label",
+    "msg": "l-14 has no label",
     "ids": [
-     "r-14"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "r-04 has no label",
-    "ids": [
-     "r-04"
+     "l-14"
     ]
    },
    {
@@ -2393,27 +2418,6 @@
     "msg": "l-05 has no label",
     "ids": [
      "l-05"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-10 has no label",
-    "ids": [
-     "l-10"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-11 has no label",
-    "ids": [
-     "l-11"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-13 has no label",
-    "ids": [
-     "l-13"
     ]
    }
   ]

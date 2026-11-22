@@ -11,13 +11,13 @@
  "source": {
   "kind": "upload",
   "file": "bio-plantcell-02",
-  "captured": "2026-10-31T00:31:17.879Z"
+  "captured": "2026-11-18T15:44:27.096Z"
  },
  "regions": [
   {
    "id": "r-09",
    "name": {
-    "en": "Cell Wall"
+    "en": "Cytoplasm"
    },
    "polygon": [
     [
@@ -139,16 +139,16 @@
    ],
    "texture": "empty",
    "keyRef": "b",
-   "confidence": 0.98,
+   "confidence": 0.97,
    "sourceLabel": {
-    "text": "Cell wall",
-    "ocrConfidence": 0.96
+    "text": "Cytoplasm",
+    "ocrConfidence": 0.92
    }
   },
   {
    "id": "r-04",
    "name": {
-    "en": "Chloroplast"
+    "en": "Cell Wall"
    },
    "polygon": [
     [
@@ -508,7 +508,7 @@
    "keyRef": "c",
    "confidence": 0.98,
    "sourceLabel": {
-    "text": "Chloroplast",
+    "text": "Cell wall",
     "ocrConfidence": 0.96
    }
   },
@@ -566,7 +566,7 @@
   {
    "id": "r-07",
    "name": {
-    "en": "Region 7"
+    "en": "Ucleus"
    },
    "polygon": [
     [
@@ -632,7 +632,11 @@
    ],
    "texture": "dots",
    "keyRef": "d",
-   "confidence": 0.5
+   "confidence": 0.96,
+   "sourceLabel": {
+    "text": "ucleus",
+    "ocrConfidence": 0.89
+   }
   },
   {
    "id": "r-05",
@@ -688,124 +692,44 @@
  ],
  "lines": [
   {
-   "id": "l-01",
-   "name": {
-    "en": "Line 1"
-   },
-   "path": [
-    [
-     62.14,
-     150.11
-    ],
-    [
-     62.14,
-     48.64
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "h"
-  },
-  {
    "id": "l-02",
    "name": {
     "en": "Line 2"
    },
    "path": [
     [
-     150.11,
-     150.11
+     51.34,
+     155.51
     ],
     [
-     150.11,
-     48.64
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "j"
-  },
-  {
-   "id": "l-06",
-   "name": {
-    "en": "Line 6"
-   },
-   "path": [
-    [
-     75.75,
-     35.14
-    ],
-    [
-     136.5,
-     35.14
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "f"
-  },
-  {
-   "id": "l-08",
-   "name": {
-    "en": "Line 8"
-   },
-   "path": [
-    [
-     83.96,
-     162.83
-    ],
-    [
-     135.6,
-     163.16
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "k"
-  },
-  {
-   "id": "l-10",
-   "name": {
-    "en": "Line 10"
-   },
-   "path": [
-    [
-     84.08,
+     83.51,
      157.09
-    ],
-    [
-     52.01,
-     155.63
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "i"
-  },
-  {
-   "id": "l-14",
-   "name": {
-    "en": "Line 14"
-   },
-   "path": [
-    [
-     111.98,
-     100.61
-    ],
-    [
-     112.99,
-     90.94
     ]
    ],
    "width": 1.2,
    "style": "single",
    "arrow": "none",
    "keyRef": "g"
+  },
+  {
+   "id": "l-05",
+   "name": {
+    "en": "Line 5"
+   },
+   "path": [
+    [
+     64.84,
+     138.86
+    ],
+    [
+     81.38,
+     136.84
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "f"
   }
  ],
  "relations": [
@@ -814,9 +738,9 @@
    "to": "r-04",
    "kind": "connects",
    "direction": "forward",
-   "confidence": 0.78,
+   "confidence": 0.96,
    "source": "detected",
-   "via": "l-01"
+   "via": "l-02"
   }
  ],
  "key": [
@@ -832,7 +756,7 @@
    "ref": "b",
    "regionId": "r-09",
    "text": {
-    "en": "Cell Wall"
+    "en": "Cytoplasm"
    },
    "braille": {}
   },
@@ -840,7 +764,7 @@
    "ref": "c",
    "regionId": "r-04",
    "text": {
-    "en": "Chloroplast"
+    "en": "Cell Wall"
    },
    "braille": {}
   },
@@ -848,7 +772,7 @@
    "ref": "d",
    "regionId": "r-07",
    "text": {
-    "en": "Region 7"
+    "en": "Ucleus"
    },
    "braille": {}
   },
@@ -862,49 +786,17 @@
   },
   {
    "ref": "f",
-   "regionId": "l-06",
+   "regionId": "l-05",
    "text": {
-    "en": "Line 6"
+    "en": "Line 5"
    },
    "braille": {}
   },
   {
    "ref": "g",
-   "regionId": "l-14",
-   "text": {
-    "en": "Line 14"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "h",
-   "regionId": "l-01",
-   "text": {
-    "en": "Line 1"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "i",
-   "regionId": "l-10",
-   "text": {
-    "en": "Line 10"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "j",
    "regionId": "l-02",
    "text": {
     "en": "Line 2"
-   },
-   "braille": {}
-  },
-  {
-   "ref": "k",
-   "regionId": "l-08",
-   "text": {
-    "en": "Line 8"
    },
    "braille": {}
   }
@@ -915,12 +807,8 @@
   "r-04",
   "r-07",
   "r-05",
-  "l-06",
-  "l-14",
-  "l-01",
-  "l-10",
-  "l-02",
-  "l-08"
+  "l-05",
+  "l-02"
  ],
  "languages": {
   "primary": "en",
@@ -933,7 +821,7 @@
   "blocking": [
    {
     "rule": "R3",
-    "msg": "Detected: Line 1 connects Cell Wall to Chloroplast (78%) — confirm or remove",
+    "msg": "Detected: Line 2 connects Cytoplasm to Cell Wall (96%) — confirm or remove",
     "ids": [
      "r-09",
      "r-04"
@@ -950,23 +838,9 @@
    },
    {
     "rule": "N1",
-    "msg": "r-07 has no label",
-    "ids": [
-     "r-07"
-    ]
-   },
-   {
-    "rule": "N1",
     "msg": "r-05 has no label",
     "ids": [
      "r-05"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-01 has no label",
-    "ids": [
-     "l-01"
     ]
    },
    {
@@ -978,30 +852,9 @@
    },
    {
     "rule": "N1",
-    "msg": "l-06 has no label",
+    "msg": "l-05 has no label",
     "ids": [
-     "l-06"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-08 has no label",
-    "ids": [
-     "l-08"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-10 has no label",
-    "ids": [
-     "l-10"
-    ]
-   },
-   {
-    "rule": "N1",
-    "msg": "l-14 has no label",
-    "ids": [
-     "l-14"
+     "l-05"
     ]
    }
   ]

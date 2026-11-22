@@ -11,7 +11,7 @@
  "source": {
   "kind": "upload",
   "file": "astro-solarsystem-01",
-  "captured": "2026-10-31T00:30:49.589Z"
+  "captured": "2026-11-18T15:43:55.435Z"
  },
  "regions": [
   {
@@ -147,7 +147,7 @@
   {
    "id": "r-02",
    "name": {
-    "en": "Moe"
+    "en": "Region 2"
    },
    "polygon": [
     [
@@ -189,16 +189,12 @@
    ],
    "texture": "dots",
    "keyRef": "h",
-   "confidence": 0.78,
-   "sourceLabel": {
-    "text": "moe",
-    "ocrConfidence": 0.45
-   }
+   "confidence": 0.5
   },
   {
    "id": "r-08",
    "name": {
-    "en": "Rls"
+    "en": "Region 8"
    },
    "polygon": [
     [
@@ -252,11 +248,7 @@
    ],
    "texture": "dots",
    "keyRef": "a",
-   "confidence": 0.8,
-   "sourceLabel": {
-    "text": "rls",
-    "ocrConfidence": 0.5
-   }
+   "confidence": 0.5
   },
   {
    "id": "r-05",
@@ -453,18 +445,18 @@
  ],
  "lines": [
   {
-   "id": "l-02",
+   "id": "l-01",
    "name": {
-    "en": "Line 2"
+    "en": "Line 1"
    },
    "path": [
     [
-     173.18,
-     46.28
+     156.75,
+     16.8
     ],
     [
-     188.25,
-     124.58
+     184.43,
+     85.65
     ]
    ],
    "width": 1.2,
@@ -473,38 +465,18 @@
    "keyRef": "i"
   },
   {
-   "id": "l-09",
+   "id": "l-03",
    "name": {
-    "en": "Line 9"
+    "en": "Line 3"
    },
    "path": [
     [
-     25.8,
-     107.7
+     56.63,
+     58.65
     ],
     [
-     24.45,
-     159.22
-    ]
-   ],
-   "width": 1.2,
-   "style": "single",
-   "arrow": "none",
-   "keyRef": "l"
-  },
-  {
-   "id": "l-05",
-   "name": {
-    "en": "Line 5"
-   },
-   "path": [
-    [
-     16.57,
-     98.48
-    ],
-    [
-     17.48,
-     145.72
+     83.63,
+     103.42
     ]
    ],
    "width": 1.2,
@@ -513,18 +485,18 @@
    "keyRef": "j"
   },
   {
-   "id": "l-14",
+   "id": "l-05",
    "name": {
-    "en": "Line 14"
+    "en": "Line 5"
    },
    "path": [
     [
-     178.8,
-     128.63
+     42,
+     117.38
     ],
     [
-     163.72,
-     131.78
+     53.7,
+     84.75
     ]
    ],
    "width": 1.2,
@@ -533,18 +505,38 @@
    "keyRef": "n"
   },
   {
-   "id": "l-13",
+   "id": "l-04",
    "name": {
-    "en": "Line 13"
+    "en": "Line 4"
    },
    "path": [
     [
-     54.83,
-     89.48
+     175.88,
+     78.68
     ],
     [
-     47.63,
-     97.8
+     180.6,
+     95.78
+    ]
+   ],
+   "width": 1.2,
+   "style": "single",
+   "arrow": "none",
+   "keyRef": "m"
+  },
+  {
+   "id": "l-06",
+   "name": {
+    "en": "Line 6"
+   },
+   "path": [
+    [
+     141.9,
+     71.25
+    ],
+    [
+     151.58,
+     80.92
     ]
    ],
    "width": 1.2,
@@ -553,30 +545,39 @@
    "keyRef": "k"
   },
   {
-   "id": "l-16",
+   "id": "l-11",
    "name": {
-    "en": "Line 16"
+    "en": "Line 11"
    },
    "path": [
     [
-     35.92,
-     101.85
+     172.28,
+     79.13
     ],
     [
-     46.5,
-     102.98
+     173.18,
+     68.1
     ]
    ],
    "width": 1.2,
    "style": "single",
    "arrow": "none",
-   "keyRef": "m"
+   "keyRef": "l"
   }
  ],
  "relations": [
   {
-   "from": "l-02",
-   "to": "r-08",
+   "from": "l-01",
+   "to": "r-06",
+   "kind": "connects",
+   "direction": "forward",
+   "confidence": 1,
+   "source": "detected",
+   "via": "l-01"
+  },
+  {
+   "from": "r-08",
+   "to": "r-06",
    "kind": "connects",
    "direction": "forward",
    "confidence": 1,
@@ -584,13 +585,13 @@
    "via": "l-02"
   },
   {
-   "from": "r-08",
-   "to": "r-06",
+   "from": "l-03",
+   "to": "r-04",
    "kind": "connects",
    "direction": "forward",
-   "confidence": 0.98,
+   "confidence": 0.96,
    "source": "detected",
-   "via": "l-04"
+   "via": "l-03"
   },
   {
    "from": "r-03",
@@ -599,7 +600,7 @@
    "direction": "forward",
    "confidence": 0.99,
    "source": "detected",
-   "via": "l-06"
+   "via": "l-05"
   }
  ],
  "key": [
@@ -607,7 +608,7 @@
    "ref": "a",
    "regionId": "r-08",
    "text": {
-    "en": "Rls"
+    "en": "Region 8"
    },
    "braille": {}
   },
@@ -663,55 +664,55 @@
    "ref": "h",
    "regionId": "r-02",
    "text": {
-    "en": "Moe"
+    "en": "Region 2"
    },
    "braille": {}
   },
   {
    "ref": "i",
-   "regionId": "l-02",
+   "regionId": "l-01",
    "text": {
-    "en": "Line 2"
+    "en": "Line 1"
    },
    "braille": {}
   },
   {
    "ref": "j",
-   "regionId": "l-05",
+   "regionId": "l-03",
    "text": {
-    "en": "Line 5"
+    "en": "Line 3"
    },
    "braille": {}
   },
   {
    "ref": "k",
-   "regionId": "l-13",
+   "regionId": "l-06",
    "text": {
-    "en": "Line 13"
+    "en": "Line 6"
    },
    "braille": {}
   },
   {
    "ref": "l",
-   "regionId": "l-09",
+   "regionId": "l-11",
    "text": {
-    "en": "Line 9"
+    "en": "Line 11"
    },
    "braille": {}
   },
   {
    "ref": "m",
-   "regionId": "l-16",
+   "regionId": "l-04",
    "text": {
-    "en": "Line 16"
+    "en": "Line 4"
    },
    "braille": {}
   },
   {
    "ref": "n",
-   "regionId": "l-14",
+   "regionId": "l-05",
    "text": {
-    "en": "Line 14"
+    "en": "Line 5"
    },
    "braille": {}
   }
@@ -725,12 +726,12 @@
   "r-05",
   "r-01",
   "r-02",
-  "l-02",
-  "l-05",
-  "l-13",
-  "l-09",
-  "l-16",
-  "l-14"
+  "l-01",
+  "l-03",
+  "l-06",
+  "l-11",
+  "l-04",
+  "l-05"
  ],
  "languages": {
   "primary": "en",
@@ -743,15 +744,15 @@
   "blocking": [
    {
     "rule": "R3",
-    "msg": "Detected: Line 2 connects Line 2 to Rls (100%) — confirm or remove",
+    "msg": "Detected: Line 1 connects Line 1 to Pluto (100%) — confirm or remove",
     "ids": [
-     "l-02",
-     "r-08"
+     "l-01",
+     "r-06"
     ]
    },
    {
     "rule": "R3",
-    "msg": "Detected: A stroke connects Rls to Pluto (98%) — confirm or remove",
+    "msg": "Detected: A stroke connects Region 8 to Pluto (100%) — confirm or remove",
     "ids": [
      "r-08",
      "r-06"
@@ -759,7 +760,15 @@
    },
    {
     "rule": "R3",
-    "msg": "Detected: A stroke connects Region 3 to Region 5 (99%) — confirm or remove",
+    "msg": "Detected: Line 3 connects Line 3 to Region 4 (96%) — confirm or remove",
+    "ids": [
+     "l-03",
+     "r-04"
+    ]
+   },
+   {
+    "rule": "R3",
+    "msg": "Detected: Line 5 connects Region 3 to Region 5 (99%) — confirm or remove",
     "ids": [
      "r-03",
      "r-05"
@@ -775,15 +784,15 @@
     ]
    },
    {
-    "rule": "O1",
-    "msg": "Moe: read at 45% confidence",
+    "rule": "N1",
+    "msg": "r-02 has no label",
     "ids": [
      "r-02"
     ]
    },
    {
-    "rule": "O1",
-    "msg": "Rls: read at 50% confidence",
+    "rule": "N1",
+    "msg": "r-08 has no label",
     "ids": [
      "r-08"
     ]
@@ -818,16 +827,16 @@
    },
    {
     "rule": "N1",
-    "msg": "l-02 has no label",
+    "msg": "l-01 has no label",
     "ids": [
-     "l-02"
+     "l-01"
     ]
    },
    {
     "rule": "N1",
-    "msg": "l-09 has no label",
+    "msg": "l-03 has no label",
     "ids": [
-     "l-09"
+     "l-03"
     ]
    },
    {
@@ -839,23 +848,23 @@
    },
    {
     "rule": "N1",
-    "msg": "l-14 has no label",
+    "msg": "l-04 has no label",
     "ids": [
-     "l-14"
+     "l-04"
     ]
    },
    {
     "rule": "N1",
-    "msg": "l-13 has no label",
+    "msg": "l-06 has no label",
     "ids": [
-     "l-13"
+     "l-06"
     ]
    },
    {
     "rule": "N1",
-    "msg": "l-16 has no label",
+    "msg": "l-11 has no label",
     "ids": [
-     "l-16"
+     "l-11"
     ]
    }
   ]
