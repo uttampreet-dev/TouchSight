@@ -13,16 +13,21 @@ export type ClassEvent =
   | { kind: 'explore'; diagramId: string; partId: string; partName: string; ms: number }
   | { kind: 'quiz'; diagramId: string; target: string; targetName: string; found: boolean; attempts: number; seconds: number }
   | { kind: 'tour'; diagramId: string }
+  | { kind: 'found'; diagramId: string; partId: string; partName: string; seconds: number; attempts: number }
   | { kind: 'lang'; lang: Lang }
 export type Activity = ClassEvent & { student: string; at: number }
 
 export type Incoming =
-  | { op: 'state'; roster: string[]; published: Tdm[]; activity: Activity[]; phones: number }
+  | { op: 'state'; roster: string[]; published: Tdm[]; activity: Activity[]; phones: number; pointing?: Pointing | null; students?: string[] }
   | { op: 'roster'; names: string[] }
   | { op: 'published'; tdm: Tdm }
   | { op: 'unpublished'; id: string }
   | { op: 'activity'; event: Activity }
   | { op: 'presence'; phones: number; student: string | null; joined: boolean }
+  | { op: 'point'; diagramId: string; id: string | null; name: string; at: number }
+
+/** What the teacher is pointing at for the whole room: one part of one diagram, or nothing. */
+export type Pointing = { diagramId: string; id: string; name: string; at: number }
 
 type Handler = (m: Incoming) => void
 const QUEUE_KEY = 'touchsight-class-queue'
@@ -52,6 +57,8 @@ class ClassLink {
   student: string | null = null
   state: 'off' | 'connecting' | 'open' = 'off'
   phones = 0
+  /** the part the teacher is pointing at right now; a phone that opens the diagram late still gets it */
+  pointing: Pointing | null = null
   /** runs after every (re)connect, once the join is sent: the console re-announces its roster and pushed diagrams so a relay restart loses nothing */
   onOpen: () => void = () => {}
 
@@ -63,6 +70,9 @@ class ClassLink {
     if (this.ws?.readyState === 1) { if (changed) this.ws.send(JSON.stringify({ type: 'class', op: 'join', room, role, student })) }
     else this.connect()
   }
+
+  /** Ask the relay for the room's state again; a view opened after the first join has missed it. */
+  sync() { if (this.room && this.ws?.readyState === 1) this.ws.send(JSON.stringify({ type: 'class', op: 'join', room: this.room, role: this.role, student: this.student })) }
 
   private connect() {
     if (this.ws || typeof WebSocket === 'undefined') return
@@ -77,7 +87,7 @@ class ClassLink {
         this.flush()
         this.onOpen()
       }
-      ws.onmessage = (e) => { try { const m = JSON.parse(e.data); if (m.type === 'class' && m.room === this.room) { if (m.op === 'presence' || m.op === 'state') this.phones = m.phones; this.handlers.forEach((h) => h(m)) } } catch { /* not ours */ } }
+      ws.onmessage = (e) => { try { const m = JSON.parse(e.data); if (m.type === 'class' && m.room === this.room) { if (m.op === 'presence' || m.op === 'state') this.phones = m.phones; if (m.op === 'point') this.pointing = m.id ? { diagramId: m.diagramId, id: m.id, name: m.name, at: m.at } : null; if (m.op === 'state') this.pointing = m.pointing ?? null; this.handlers.forEach((h) => h(m)) } } catch { /* not ours */ } }
       ws.onclose = () => { this.ws = null; this.state = 'off'; setTimeout(() => this.connect(), this.backoff); this.backoff = Math.min(10_000, this.backoff * 2) }
       ws.onerror = () => ws.close()
     } catch { this.ws = null; this.state = 'off' }
@@ -97,6 +107,8 @@ class ClassLink {
   publish(tdm: Tdm) { this.send({ op: 'publish', tdm }) }
   unpublish(id: string) { this.send({ op: 'unpublish', id }) }
   reset() { this.send({ op: 'reset' }) }
+  /** The teacher points at a part: every phone in the room is asked to find it. A null id stops pointing. */
+  point(diagramId: string, id: string | null, name = '') { const at = Date.now(); this.pointing = id ? { diagramId, id, name, at } : null; this.send({ op: 'point', diagramId, id, name, at }) }
 
   /** A student event: sent now, or queued on the device until the link is back. */
   activity(event: ClassEvent) {

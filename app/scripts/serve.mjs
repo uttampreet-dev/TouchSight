@@ -37,12 +37,12 @@ const server = createServer(async (req, res) => {
 })
 
 // /relay — two kinds of traffic on one socket.
-//   stage: every message without a room fans out to every other client; the last `hello` (the diagram) is replayed
-//          to late joiners so the projector can open after the phone.
+//   stage: every message carries a projector code and reaches only the sockets on that code; the last `hello`
+//          (the diagram) on a code is replayed to a projector that joins it late.
 //   class: messages with {type:'class', room} belong to a classroom. The server keeps each room's roster, published
 //          diagrams and student activity in memory, replays them to whoever joins, and fans out changes.
 const wss = new WebSocketServer({ noServer: true })
-let lastHello = null
+const lastHello = new Map() // projector code -> the diagram last announced on it
 // rooms survive a relay restart: written to scripts/.rooms.json on every change, read back at start
 const STORE = new URL('./.rooms.json', import.meta.url).pathname
 const rooms = new Map() // code -> { roster: string[], published: Map<id, json>, activity: [] }
@@ -59,7 +59,6 @@ server.on('upgrade', (req, socket, head) => {
   wss.handleUpgrade(req, socket, head, (ws) => wss.emit('connection', ws, req))
 })
 wss.on('connection', (ws) => {
-  if (lastHello) ws.send(lastHello)
   ws.on('message', (data) => {
     const text = data.toString()
     if (text.startsWith('{"type":"class"')) {
@@ -70,7 +69,7 @@ wss.on('connection', (ws) => {
         case 'join': {
           console.log(`${stamp()} join room=${m.room} role=${m.role} student=${m.student || '-'}`)
           ws.room = m.room; ws.role = m.role; ws.student = m.student || null
-          send(ws, { type: 'class', op: 'state', room: m.room, roster: r.roster, published: [...r.published.values()], activity: r.activity.slice(-500), phones: [...wss.clients].filter((c) => c.room === m.room && c.role === 'student').length })
+          send(ws, { type: 'class', op: 'state', room: m.room, students: [...wss.clients].filter((c) => c.room === m.room && c.role === 'student' && c.student).map((c) => c.student), pointing: r.pointing || null, roster: r.roster, published: [...r.published.values()], activity: r.activity.slice(-500), phones: [...wss.clients].filter((c) => c.room === m.room && c.role === 'student').length })
           toRoom(m.room, { type: 'class', op: 'presence', room: m.room, phones: [...wss.clients].filter((c) => c.room === m.room && c.role === 'student').length, student: m.student || null, joined: true }, ws)
           return
         }
@@ -78,13 +77,19 @@ wss.on('connection', (ws) => {
         case 'publish': if (m.tdm && m.tdm.id) { r.published.set(m.tdm.id, m.tdm); persist(); toRoom(m.room, { type: 'class', op: 'published', room: m.room, tdm: m.tdm }, ws) } return
         case 'unpublish': r.published.delete(m.id); persist(); toRoom(m.room, { type: 'class', op: 'unpublished', room: m.room, id: m.id }, ws); return
         case 'activity': { const ev = { ...m.event, student: m.student, at: m.at || Date.now() }; r.activity.push(ev); if (r.activity.length > 5000) r.activity.splice(0, 1000); persist(); toRoom(m.room, { type: 'class', op: 'activity', room: m.room, event: ev }, ws); return }
-        case 'reset': r.activity = []; persist(); toRoom(m.room, { type: 'class', op: 'state', room: m.room, roster: r.roster, published: [...r.published.values()], activity: [], phones: 0 }, ws); return
+        case 'point': r.pointing = m.id ? { diagramId: m.diagramId, id: m.id, name: m.name || '', at: m.at || Date.now() } : null; toRoom(m.room, { type: 'class', op: 'point', room: m.room, diagramId: m.diagramId, id: m.id || null, name: m.name || '', at: m.at || Date.now() }, ws); return
+        case 'reset': r.activity = []; r.pointing = null; persist(); toRoom(m.room, { type: 'class', op: 'state', room: m.room, roster: r.roster, published: [...r.published.values()], activity: [], phones: 0 }, ws); return
       }
       return
     }
-    if (text.startsWith('{"type":"hello"')) lastHello = text
-    for (const c of wss.clients) if (c !== ws && c.readyState === 1 && !c.room) c.send(text)
-    // a phone in a room still mirrors to a projector that has not joined any room
+    // stage traffic carries a projector code and reaches only the sockets on that code
+    let m; try { m = JSON.parse(text) } catch { return }
+    const code = typeof m.stage === 'string' ? m.stage.toUpperCase().slice(0, 8) : null
+    if (!code) return
+    ws.stage = code
+    if (m.type === 'stage-join') { const h = lastHello.get(code); if (h && m.src !== 'student') ws.send(h); return }
+    if (m.type === 'hello') { lastHello.set(code, text); if (lastHello.size > 300) lastHello.delete(lastHello.keys().next().value) }
+    for (const c of wss.clients) if (c !== ws && c.readyState === 1 && c.stage === code) c.send(text)
   })
   ws.on('close', () => { console.log(`${stamp()} close room=${ws.room || '-'} role=${ws.role || '-'}`); if (ws.room) toRoom(ws.room, { type: 'class', op: 'presence', room: ws.room, phones: [...wss.clients].filter((c) => c !== ws && c.room === ws.room && c.role === 'student').length, student: ws.student, joined: false }) })
 })

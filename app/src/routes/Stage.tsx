@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
 import QRCode from 'qrcode'
 import { Brand } from '../components/Brand'
-import { TdmCanvas } from '../components/TdmCanvas'
+import { TdmCanvas, diagramBox } from '../components/TdmCanvas'
 import type { Tdm, Point } from '../tdm/types'
 import { CHANNEL, relayUrl, type StageMessage } from '../student/mirror'
+import { newRoomCode } from '../class/classroom'
 import './stage.css'
 
 /**
@@ -15,7 +16,7 @@ type LogRow = { t: number; type: string; text: string }
 const TRAIL_MS = 1500
 const FLASH_MS = 450
 
-declare global { interface Window { __sg?: { events: number; lastSay: string; rtts: number[]; source: string | null; target: string | null } } }
+declare global { interface Window { __sg?: { events: number; lastSay: string; rtts: number[]; source: string | null; target: string | null; code: string } } }
 
 export function Stage() {
   const [tdm, setTdm] = useState<Tdm | null>(null)
@@ -38,8 +39,14 @@ export function Stage() {
   const ws = useRef<WebSocket | null>(null)
   const bc = useRef<BroadcastChannel | null>(null)
   const me = useRef(Math.random().toString(36).slice(2, 8))
+  // this projector's code: the class room it was opened for, else a code of its own that the QR hands to one phone
+  const code = useRef((() => {
+    const room = new URLSearchParams(location.search).get('room')
+    if (room && /^[A-Za-z]{4}$/.test(room)) return room.toUpperCase()
+    try { const k = 'touchsight-stage-own'; let c = sessionStorage.getItem(k); if (!c) { c = newRoomCode(); sessionStorage.setItem(k, c) } return c } catch { return newRoomCode() }
+  })())
 
-  useEffect(() => { QRCode.toDataURL(location.href, { margin: 1, width: 220, color: { dark: '#0c2b2d', light: '#ffffff' } }).then(setQr).catch(() => {}) }, [])
+  useEffect(() => { QRCode.toDataURL(`${location.origin}/student?stage=${code.current}`, { margin: 1, width: 220, color: { dark: '#0c2b2d', light: '#ffffff' } }).then(setQr).catch(() => {}) }, [])
 
   useEffect(() => {
     const nameOf = (t: Tdm | null, id: string | null) => (id && t ? t.regions.find((r) => r.id === id)?.name.en ?? t.lines.find((l) => l.id === id)?.name.en ?? id : '')
@@ -47,6 +54,7 @@ export function Stage() {
     const push = (type: string, text: string, t: number) => setLog((l) => [{ t, type, text }, ...l].slice(0, 16))
     const handle = (m: StageMessage, via: 'relay' | 'local') => {
       if (m.src !== 'student') return
+      if (via === 'relay' && m.stage !== code.current) return
       if (!sourceRef.current) { sourceRef.current = via; setSource(via) }
       if (sourceRef.current !== via) return
       events.current++
@@ -72,12 +80,14 @@ export function Stage() {
     const fingerIdRef = { current: null as string | null }
     try { bc.current = new BroadcastChannel(CHANNEL); bc.current.onmessage = (e: MessageEvent<StageMessage>) => handle(e.data, 'local') } catch { bc.current = null }
     let closed = false, backoff = 1000
+    // /stage?local shows only a phone on this device (the console's one-screen preview), never another room's
+    const localOnly = new URLSearchParams(location.search).has('local')
     const connect = () => {
-      if (closed) return
+      if (closed || localOnly) return
       try {
         const s = new WebSocket(relayUrl())
         ws.current = s
-        s.onopen = () => { backoff = 1000 }
+        s.onopen = () => { backoff = 1000; s.send(JSON.stringify({ type: 'stage-join', stage: code.current, src: 'stage' })) }
         s.onmessage = (e) => { try { handle(JSON.parse(e.data), 'relay') } catch { /* ignore */ } }
         s.onclose = () => { ws.current = null; if (!closed) { setTimeout(connect, backoff); backoff = Math.min(10_000, backoff * 2) } }
         s.onerror = () => s.close()
@@ -86,7 +96,7 @@ export function Stage() {
     connect()
     // round trip to the phone, independent of the two clocks
     const ping = setInterval(() => {
-      const m: StageMessage = { type: 'ping', t0: Date.now(), from: me.current, t: Date.now(), src: 'stage' }
+      const m: StageMessage = { type: 'ping', t0: Date.now(), from: me.current, t: Date.now(), src: 'stage', stage: code.current }
       if (sourceRef.current === 'local') bc.current?.postMessage(m)
       else if (ws.current?.readyState === 1) ws.current.send(JSON.stringify(m))
     }, 2000)
@@ -104,11 +114,13 @@ export function Stage() {
   const nameOf = (id: string | null) => (id && tdm ? tdm.regions.find((r) => r.id === id)?.name.en ?? tdm.lines.find((l) => l.id === id)?.name.en ?? id : '')
   const targetEl = target && tdm ? tdm.regions.find((r) => r.id === target) : null
   const flashEl = flashId && tdm ? tdm.regions.find((r) => r.id === flashId) : null
-  if (typeof window !== 'undefined') window.__sg = { events: events.current, lastSay: caption, rtts, source, target }
+  const box = tdm ? diagramBox(tdm) : null
+  const shown = caption || (fingerId ? nameOf(fingerId) : tdm ? 'Touch the diagram.' : '')
+  if (typeof window !== 'undefined') window.__sg = { events: events.current, lastSay: caption, rtts, source, target, code: code.current }
 
   return (
     <main className="sg">
-      <section className="sg-canvas">
+      <section className="sg-canvas" style={box ? ({ ['--ar' as string]: `${box.w} / ${box.h}` } as React.CSSProperties) : undefined}>
         {tdm ? (
           <TdmCanvas tdm={tdm} highlight={focus ? [focus] : fingerId ? [fingerId] : []} showRefs showKey={false} paper="#fbf8f2" ink="#0c2b2d" accent="#ff6f59">
             {targetEl && <path className="sg-target" d={targetEl.polygon.map((p, i) => `${i ? 'L' : 'M'}${p[0]} ${p[1]}`).join(' ') + ' Z'} fill="none" stroke="#ff6f59" strokeWidth={1.4} strokeDasharray="2.5 1.5" pointerEvents="none" />}
@@ -124,10 +136,10 @@ export function Stage() {
         ) : (
           <div className="sg-wait">
             <div className="kicker">Waiting for a phone…</div>
-            <h1 className="h1">Open the student app on the phone and start a diagram.</h1>
-            {qr && <img src={qr} alt="" width={220} height={220} />}
-            <div className="mono sg-url">{typeof location !== 'undefined' ? location.href : ''}</div>
-            <div className="mono sg-hint">relay {relayUrl()} · same tab or same origin</div>
+            <h1 className="h1">Scan this with the student's phone, then open a diagram.</h1>
+            {qr && <img src={qr} alt={`QR code that links a phone to projector ${code.current}`} width={220} height={220} />}
+            <div className="mono sg-url">projector <b>{code.current}</b> · {typeof location !== 'undefined' ? `${location.host}/student?stage=${code.current}` : ''}</div>
+            <div className="mono sg-hint">a phone already in class {code.current} mirrors here by itself · only a phone given this code is shown</div>
           </div>
         )}
       </section>
@@ -138,7 +150,7 @@ export function Stage() {
           <span className={`sg-badge ${source ? 'on' : ''}`}>{source === 'relay' ? 'phone · relay' : source === 'local' ? 'this device' : 'no source'}</span>
         </div>
         <div className="sg-mode mono">{tdm ? tdm.title : '—'} · <b>{mode}</b>{target ? ` · find ${nameOf(target)}` : ''}</div>
-        <div className="sg-caption" aria-live="polite">{caption || (fingerId ? nameOf(fingerId) : tdm ? 'Touch the diagram.' : '')}</div>
+        <div className={`sg-caption ${shown.length > 64 ? 'long' : ''}`} aria-live="polite">{shown}</div>
         <div className="sg-now mono">{fingerId ? `under the finger: ${nameOf(fingerId)}` : finger ? 'blank paper' : 'finger lifted'}</div>
         <div className="sg-latency mono">
           <span>round trip</span><b>{rtt == null ? '—' : `${rtt} ms`}</b>
