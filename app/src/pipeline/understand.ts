@@ -2,7 +2,7 @@ import { loadImage, prepare, fitToSheet, toMm, type Prepared, type SheetFit } fr
 import { segment, type RegionCandidate } from './segment'
 import { readLabels, type Label } from './ocr'
 import { detectSegments, type Segment } from './lines'
-import { associate, pointInPolygon, distToPolygon, type Association } from './associate'
+import { associate, splitStacked, pointInPolygon, distToPolygon, type Association } from './associate'
 import type { Tdm, TdmRegion, TdmLine, TdmRelation, Texture } from '../tdm/types'
 import { TEXTURES } from '../tdm/types'
 
@@ -31,11 +31,13 @@ export async function understand(src: Blob | string, onStage?: (s: string) => vo
   const segments = await detectSegments(seg.ink, seg.width, seg.height, ocr.labels.map((l) => l.bbox))
   const linesMs = Math.round(performance.now() - tl)
   onStage?.('matching labels to regions')
-  const associations = associate(ocr.labels, seg.regions, segments, Math.max(prepared.width, prepared.height) / 1000)
+  const scalePx = Math.max(prepared.width, prepared.height) / 1000
+  const labels = splitStacked(ocr.labels, segments, scalePx)
+  const associations = associate(labels, seg.regions, segments, scalePx)
   return {
     prepared,
     regions: seg.regions,
-    labels: ocr.labels,
+    labels,
     segments,
     associations,
     colourful: seg.colourful,
@@ -74,8 +76,16 @@ export function draftTdm(u: Understanding, meta: { id: string; title: string; su
   const longStroke = 0.25 * px
   const near = 6 * (px / 1000)
   const touchesRegion = (p: [number, number]) => u.regions.some((r) => pointInPolygon(p, r.polygon) || distToPolygon(p, r.polygon) <= near)
+  // a stroke that runs along the wall of a part is that part's outline, already raised; it is not a line of its own
+  const wall = 12 * (px / 1000)
+  const alongOutline = (s: { a: [number, number]; b: [number, number] }) => {
+    const at = (t: number): [number, number] => [s.a[0] + (s.b[0] - s.a[0]) * t, s.a[1] + (s.b[1] - s.a[1]) * t]
+    const pts = [0, 0.25, 0.5, 0.75, 1].map(at)
+    return u.regions.some((r) => pts.every((p) => distToPolygon(p, r.polygon) <= wall))
+  }
   const lines: TdmLine[] = u.segments
     .filter((s) => !leaderIds.has(s.id) && s.length >= 30 * (px / 1000))
+    .filter((s) => !alongOutline(s))
     .filter((s) => s.length >= longStroke || (touchesRegion(s.a) && touchesRegion(s.b)))
     .slice(0, 16)
     .map((s, i) => ({

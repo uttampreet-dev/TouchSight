@@ -108,6 +108,13 @@ export const GLOSSARY: Record<string, { hi: string; pa: string }> = {
   'mountain': { hi: 'पर्वत', pa: 'ਪਹਾੜ' },
   'rain': { hi: 'वर्षा', pa: 'ਮੀਂਹ' },
   'snow': { hi: 'हिम', pa: 'ਬਰਫ਼' },
+  // inside the Earth, and the atom
+  'crust': { hi: 'भूपर्पटी', pa: 'ਭੂ-ਪੇਪੜੀ' },
+  'mantle': { hi: 'मैंटल', pa: 'ਮੈਂਟਲ' },
+  'outer core': { hi: 'बाहरी क्रोड', pa: 'ਬਾਹਰੀ ਕੋਰ' },
+  'inner core': { hi: 'आंतरिक क्रोड', pa: 'ਅੰਦਰੂਨੀ ਕੋਰ' },
+  'first shell': { hi: 'पहला कोश', pa: 'ਪਹਿਲਾ ਖੋਲ' },
+  'second shell': { hi: 'दूसरा कोश', pa: 'ਦੂਜਾ ਖੋਲ' },
 }
 
 export function glossaryName(en: string, lang: Lang): string | undefined {

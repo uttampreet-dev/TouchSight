@@ -170,5 +170,9 @@ function enclosedRegions(cv: CV, inkMat: InstanceType<CV['Mat']>, imgArea: numbe
   const regions = contoursToRegions(cv, contours, imgArea, 'enclosed', startIdx)
   closed.delete(); kernel.delete(); paper.delete(); contours.delete(); hier.delete()
   // drop anything touching the image border: that is the page, not a part
-  return regions.filter((r) => r.bbox.x > 2 && r.bbox.y > 2 && r.bbox.x + r.bbox.w < inkMat.cols - 2 && r.bbox.y + r.bbox.h < inkMat.rows - 2)
+  const inPage = regions.filter((r) => r.bbox.x > 2 && r.bbox.y > 2 && r.bbox.x + r.bbox.w < inkMat.cols - 2 && r.bbox.y + r.bbox.h < inkMat.rows - 2)
+  // a drawn outline has two edges, and both are traced: the area inside the stroke and the stroke's own outer edge.
+  // When one region sits inside another and fills four fifths of it, the outer one is that second edge, not a part.
+  const within = (a: RegionCandidate, b: RegionCandidate) => a.bbox.x >= b.bbox.x && a.bbox.y >= b.bbox.y && a.bbox.x + a.bbox.w <= b.bbox.x + b.bbox.w && a.bbox.y + a.bbox.h <= b.bbox.y + b.bbox.h
+  return inPage.filter((outer) => !inPage.some((inner) => inner !== outer && inner.area < outer.area && inner.area >= 0.8 * outer.area && within(inner, outer)))
 }
