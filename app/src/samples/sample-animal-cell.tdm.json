@@ -1,0 +1,438 @@
+{
+  "tdm": "0.1",
+  "id": "sample-animal-cell",
+  "title": "Animal cell",
+  "subject": "Biology · Class 9 · The fundamental unit of life",
+  "sheet": {
+    "w": 210,
+    "h": 297,
+    "margin": 15
+  },
+  "source": {
+    "kind": "authored",
+    "file": "board-drawing.png",
+    "captured": "2026-11-21T08:22:41.843Z"
+  },
+  "regions": [
+    {
+      "id": "r-06",
+      "name": {
+        "en": "Cytoplasm"
+      },
+      "polygon": [
+        [
+          177.13,
+          70.7
+        ],
+        [
+          178.82,
+          89.69
+        ],
+        [
+          172.33,
+          107.55
+        ],
+        [
+          151.77,
+          127.61
+        ],
+        [
+          121.83,
+          138.75
+        ],
+        [
+          90.07,
+          139.11
+        ],
+        [
+          60.31,
+          128.95
+        ],
+        [
+          39.33,
+          110.44
+        ],
+        [
+          33.28,
+          98.95
+        ],
+        [
+          30.66,
+          85.96
+        ],
+        [
+          31.95,
+          73.23
+        ],
+        [
+          37.07,
+          60.94
+        ],
+        [
+          57.18,
+          40.77
+        ],
+        [
+          77.74,
+          31.48
+        ],
+        [
+          102.25,
+          27.64
+        ],
+        [
+          126.19,
+          29.93
+        ],
+        [
+          149.92,
+          39.07
+        ],
+        [
+          166.83,
+          52.73
+        ]
+      ],
+      "texture": "empty",
+      "keyRef": "c",
+      "confidence": 0.97,
+      "sourceLabel": {
+        "text": "Cytoplasm",
+        "ocrConfidence": 0.92
+      },
+      "meaning": "The jelly that fills the cell inside its membrane and holds every organelle.",
+      "meaningSource": "teacher"
+    },
+    {
+      "id": "r-03",
+      "name": {
+        "en": "Nucleus"
+      },
+      "polygon": [
+        [
+          101.21,
+          74.23
+        ],
+        [
+          100.15,
+          81.66
+        ],
+        [
+          95.39,
+          89.75
+        ],
+        [
+          88.43,
+          94.76
+        ],
+        [
+          80.38,
+          96.7
+        ],
+        [
+          71.85,
+          95.37
+        ],
+        [
+          65.26,
+          91.53
+        ],
+        [
+          59.76,
+          84.26
+        ],
+        [
+          57.69,
+          76.3
+        ],
+        [
+          59.06,
+          67.22
+        ],
+        [
+          62.84,
+          60.73
+        ],
+        [
+          70.45,
+          55.08
+        ],
+        [
+          78.06,
+          53.18
+        ],
+        [
+          86.35,
+          54.25
+        ],
+        [
+          93.59,
+          58.32
+        ],
+        [
+          99.12,
+          65.65
+        ]
+      ],
+      "texture": "empty",
+      "keyRef": "b",
+      "confidence": 0.98,
+      "sourceLabel": {
+        "text": "Nucleus",
+        "ocrConfidence": 0.96
+      },
+      "meaning": "Controls everything the cell does and holds the chromosomes.",
+      "meaningSource": "teacher"
+    },
+    {
+      "id": "r-01",
+      "name": {
+        "en": "Vacuole"
+      },
+      "polygon": [
+        [
+          131.76,
+          117.71
+        ],
+        [
+          123.36,
+          116.29
+        ],
+        [
+          116.83,
+          113.24
+        ],
+        [
+          114.22,
+          111.05
+        ],
+        [
+          112.18,
+          107.62
+        ],
+        [
+          111.82,
+          104.08
+        ],
+        [
+          114.33,
+          98.81
+        ],
+        [
+          120.65,
+          94.54
+        ],
+        [
+          127.71,
+          92.54
+        ],
+        [
+          134.67,
+          92.11
+        ],
+        [
+          142.3,
+          93.21
+        ],
+        [
+          148.99,
+          95.98
+        ],
+        [
+          153.7,
+          100.35
+        ],
+        [
+          154.98,
+          106.28
+        ],
+        [
+          153.1,
+          110.37
+        ],
+        [
+          148.72,
+          114
+        ],
+        [
+          141.35,
+          116.87
+        ]
+      ],
+      "texture": "dots",
+      "keyRef": "d",
+      "confidence": 0.96,
+      "sourceLabel": {
+        "text": "Vacuole",
+        "ocrConfidence": 0.91
+      },
+      "meaning": "A small store of water, food and waste. Animal cells have small vacuoles; plant cells have one large one.",
+      "meaningSource": "teacher"
+    },
+    {
+      "id": "r-05",
+      "name": {
+        "en": "Mitochondrion"
+      },
+      "polygon": [
+        [
+          144.39,
+          51.42
+        ],
+        [
+          149.07,
+          53.49
+        ],
+        [
+          151.62,
+          55.85
+        ],
+        [
+          152,
+          57.77
+        ],
+        [
+          150.84,
+          60.28
+        ],
+        [
+          152.07,
+          62.97
+        ],
+        [
+          149.31,
+          66.25
+        ],
+        [
+          142.08,
+          69.02
+        ],
+        [
+          133.23,
+          69.71
+        ],
+        [
+          126.44,
+          68.71
+        ],
+        [
+          120.65,
+          66.3
+        ],
+        [
+          116.93,
+          62.55
+        ],
+        [
+          116.43,
+          58.69
+        ],
+        [
+          117.78,
+          56.02
+        ],
+        [
+          123.12,
+          52.27
+        ],
+        [
+          129.09,
+          50.54
+        ],
+        [
+          136.76,
+          50.11
+        ]
+      ],
+      "texture": "dots",
+      "keyRef": "a",
+      "confidence": 0.96,
+      "sourceLabel": {
+        "text": "Mitochondrion",
+        "ocrConfidence": 0.91
+      },
+      "meaning": "Releases energy from food. The powerhouse of the cell.",
+      "meaningSource": "teacher"
+    }
+  ],
+  "lines": [],
+  "relations": [
+    {
+      "from": "r-06",
+      "to": "r-03",
+      "kind": "contains",
+      "direction": "forward",
+      "source": "teacher"
+    },
+    {
+      "from": "r-06",
+      "to": "r-05",
+      "kind": "contains",
+      "direction": "forward",
+      "source": "teacher"
+    },
+    {
+      "from": "r-06",
+      "to": "r-01",
+      "kind": "contains",
+      "direction": "forward",
+      "source": "teacher"
+    }
+  ],
+  "key": [
+    {
+      "ref": "a",
+      "regionId": "r-05",
+      "text": {
+        "en": "Mitochondrion"
+      },
+      "braille": {}
+    },
+    {
+      "ref": "b",
+      "regionId": "r-03",
+      "text": {
+        "en": "Nucleus"
+      },
+      "braille": {}
+    },
+    {
+      "ref": "c",
+      "regionId": "r-06",
+      "text": {
+        "en": "Cytoplasm"
+      },
+      "braille": {}
+    },
+    {
+      "ref": "d",
+      "regionId": "r-01",
+      "text": {
+        "en": "Vacuole"
+      },
+      "braille": {}
+    }
+  ],
+  "readingOrder": [
+    "r-05",
+    "r-03",
+    "r-06",
+    "r-01"
+  ],
+  "languages": {
+    "primary": "en",
+    "available": [
+      "en"
+    ]
+  },
+  "validation": {
+    "status": "pass",
+    "blocking": [],
+    "advisory": []
+  },
+  "provenance": {
+    "pipeline": "0.1",
+    "teacherReviewed": true,
+    "reviewedAt": "2026-11-21T08:22:41.860Z"
+  }
+}

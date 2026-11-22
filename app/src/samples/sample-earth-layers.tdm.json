@@ -1,0 +1,422 @@
+{
+  "tdm": "0.1",
+  "id": "sample-earth-layers",
+  "title": "Layers of the Earth",
+  "subject": "Geography · Class 7 · Inside our Earth",
+  "sheet": {
+    "w": 210,
+    "h": 297,
+    "margin": 15
+  },
+  "source": {
+    "kind": "authored",
+    "file": "board-drawing.png",
+    "captured": "2026-11-21T08:22:38.338Z"
+  },
+  "regions": [
+    {
+      "id": "r-04",
+      "name": {
+        "en": "Crust"
+      },
+      "polygon": [
+        [
+          164.19,
+          83.53
+        ],
+        [
+          160.68,
+          105.62
+        ],
+        [
+          149.28,
+          124.84
+        ],
+        [
+          129.65,
+          139.32
+        ],
+        [
+          107.58,
+          144.69
+        ],
+        [
+          85.47,
+          141.47
+        ],
+        [
+          65.41,
+          129.67
+        ],
+        [
+          51.04,
+          110.16
+        ],
+        [
+          45.67,
+          87.48
+        ],
+        [
+          49.63,
+          64.01
+        ],
+        [
+          62.13,
+          44.33
+        ],
+        [
+          80.5,
+          31.37
+        ],
+        [
+          103.34,
+          26.17
+        ],
+        [
+          127.35,
+          30.5
+        ],
+        [
+          145.96,
+          42.58
+        ],
+        [
+          159.09,
+          61.27
+        ]
+      ],
+      "texture": "empty",
+      "keyRef": "d",
+      "confidence": 0.98,
+      "sourceLabel": {
+        "text": "Crust",
+        "ocrConfidence": 0.96
+      },
+      "meaning": "The thin, solid outer layer we live on. It is only a few kilometres thick under the oceans.",
+      "meaningSource": "teacher"
+    },
+    {
+      "id": "r-03",
+      "name": {
+        "en": "Mantle"
+      },
+      "polygon": [
+        [
+          103.11,
+          41.18
+        ],
+        [
+          120.59,
+          43.98
+        ],
+        [
+          134.59,
+          52.47
+        ],
+        [
+          144.72,
+          65.95
+        ],
+        [
+          149.18,
+          83.7
+        ],
+        [
+          146.73,
+          100.07
+        ],
+        [
+          137.73,
+          115.24
+        ],
+        [
+          123.91,
+          125.46
+        ],
+        [
+          106.94,
+          129.69
+        ],
+        [
+          89.42,
+          126.93
+        ],
+        [
+          75.55,
+          118.63
+        ],
+        [
+          65.15,
+          104.91
+        ],
+        [
+          60.67,
+          87.3
+        ],
+        [
+          63.3,
+          70.29
+        ],
+        [
+          72.12,
+          55.61
+        ],
+        [
+          86.02,
+          45.34
+        ]
+      ],
+      "texture": "empty",
+      "keyRef": "c",
+      "confidence": 0.98,
+      "sourceLabel": {
+        "text": "Mantle",
+        "ocrConfidence": 0.96
+      },
+      "meaning": "The thickest layer, of hot rock that flows very slowly. It carries the plates of the crust.",
+      "meaningSource": "teacher"
+    },
+    {
+      "id": "r-02",
+      "name": {
+        "en": "Outer Core"
+      },
+      "polygon": [
+        [
+          131.91,
+          84.06
+        ],
+        [
+          130.04,
+          95.47
+        ],
+        [
+          124.39,
+          104.27
+        ],
+        [
+          116.26,
+          110.01
+        ],
+        [
+          106.19,
+          112.41
+        ],
+        [
+          95.43,
+          110.74
+        ],
+        [
+          86.66,
+          105.44
+        ],
+        [
+          80.58,
+          97.26
+        ],
+        [
+          77.94,
+          86.8
+        ],
+        [
+          79.6,
+          75.94
+        ],
+        [
+          84.91,
+          67.16
+        ],
+        [
+          92.76,
+          61.24
+        ],
+        [
+          103.51,
+          58.45
+        ],
+        [
+          114.48,
+          60.13
+        ],
+        [
+          123.37,
+          65.58
+        ],
+        [
+          129.39,
+          73.87
+        ]
+      ],
+      "texture": "dots",
+      "keyRef": "a",
+      "confidence": 0.98,
+      "sourceLabel": {
+        "text": "Outer core",
+        "ocrConfidence": 0.94
+      },
+      "meaning": "A layer of liquid iron and nickel. Its movement makes the Earth's magnetic field.",
+      "meaningSource": "teacher"
+    },
+    {
+      "id": "r-01",
+      "name": {
+        "en": "Inner core"
+      },
+      "polygon": [
+        [
+          115.64,
+          79.95
+        ],
+        [
+          116.95,
+          84.74
+        ],
+        [
+          116.39,
+          89.1
+        ],
+        [
+          114.04,
+          93.34
+        ],
+        [
+          110.57,
+          96.07
+        ],
+        [
+          105.74,
+          97.45
+        ],
+        [
+          101.32,
+          96.91
+        ],
+        [
+          96.99,
+          94.54
+        ],
+        [
+          94.41,
+          91.33
+        ],
+        [
+          92.9,
+          86.23
+        ],
+        [
+          93.44,
+          81.82
+        ],
+        [
+          95.81,
+          77.51
+        ],
+        [
+          99.28,
+          74.78
+        ],
+        [
+          104.11,
+          73.4
+        ],
+        [
+          108.53,
+          73.94
+        ],
+        [
+          112.87,
+          76.33
+        ]
+      ],
+      "texture": "diagonal-lines",
+      "keyRef": "b",
+      "confidence": 0.98,
+      "sourceLabel": {
+        "text": "Inner",
+        "ocrConfidence": 0.96
+      },
+      "meaning": "A solid ball of iron and nickel at the centre, the hottest part of the Earth.",
+      "meaningSource": "teacher"
+    }
+  ],
+  "lines": [],
+  "relations": [
+    {
+      "from": "r-03",
+      "to": "r-02",
+      "kind": "contains",
+      "direction": "forward",
+      "source": "teacher"
+    },
+    {
+      "from": "r-02",
+      "to": "r-01",
+      "kind": "contains",
+      "direction": "forward",
+      "source": "teacher"
+    },
+    {
+      "from": "r-04",
+      "to": "r-03",
+      "kind": "contains",
+      "direction": "forward",
+      "source": "teacher"
+    }
+  ],
+  "key": [
+    {
+      "ref": "a",
+      "regionId": "r-02",
+      "text": {
+        "en": "Outer Core"
+      },
+      "braille": {}
+    },
+    {
+      "ref": "b",
+      "regionId": "r-01",
+      "text": {
+        "en": "Inner core"
+      },
+      "braille": {}
+    },
+    {
+      "ref": "c",
+      "regionId": "r-03",
+      "text": {
+        "en": "Mantle"
+      },
+      "braille": {}
+    },
+    {
+      "ref": "d",
+      "regionId": "r-04",
+      "text": {
+        "en": "Crust"
+      },
+      "braille": {}
+    }
+  ],
+  "readingOrder": [
+    "r-02",
+    "r-01",
+    "r-03",
+    "r-04"
+  ],
+  "languages": {
+    "primary": "en",
+    "available": [
+      "en"
+    ]
+  },
+  "validation": {
+    "status": "pass",
+    "blocking": [],
+    "advisory": []
+  },
+  "provenance": {
+    "pipeline": "0.1",
+    "teacherReviewed": true,
+    "reviewedAt": "2026-11-21T08:22:38.353Z"
+  }
+}

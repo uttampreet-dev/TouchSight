@@ -1,0 +1,325 @@
+{
+  "tdm": "0.1",
+  "id": "sample-atom",
+  "title": "Structure of an atom",
+  "subject": "Science · Class 9 · Structure of the atom",
+  "sheet": {
+    "w": 210,
+    "h": 297,
+    "margin": 15
+  },
+  "source": {
+    "kind": "authored",
+    "file": "board-drawing.png",
+    "captured": "2026-11-21T08:22:40.127Z"
+  },
+  "regions": [
+    {
+      "id": "r-03",
+      "name": {
+        "en": "Second Shell"
+      },
+      "polygon": [
+        [
+          81.81,
+          30.97
+        ],
+        [
+          103.35,
+          26.17
+        ],
+        [
+          125.92,
+          30.09
+        ],
+        [
+          145.21,
+          42.43
+        ],
+        [
+          157.32,
+          59.46
+        ],
+        [
+          162.69,
+          81.9
+        ],
+        [
+          158.81,
+          104.83
+        ],
+        [
+          146.43,
+          124.2
+        ],
+        [
+          128.81,
+          136.58
+        ],
+        [
+          106.49,
+          141.68
+        ],
+        [
+          83.93,
+          137.76
+        ],
+        [
+          64.64,
+          125.42
+        ],
+        [
+          52.53,
+          108.38
+        ],
+        [
+          47.16,
+          85.95
+        ],
+        [
+          51.06,
+          62.97
+        ],
+        [
+          63.23,
+          43.84
+        ]
+      ],
+      "texture": "empty",
+      "keyRef": "c",
+      "confidence": 0.98,
+      "sourceLabel": {
+        "text": "Second shell",
+        "ocrConfidence": 0.96
+      },
+      "meaning": "The next path out. It can hold at most eight electrons.",
+      "meaningSource": "teacher"
+    },
+    {
+      "id": "r-02",
+      "name": {
+        "en": "First Shell"
+      },
+      "polygon": [
+        [
+          141.67,
+          82.55
+        ],
+        [
+          139.3,
+          97.05
+        ],
+        [
+          131.71,
+          109.21
+        ],
+        [
+          120.24,
+          117.41
+        ],
+        [
+          106.51,
+          120.69
+        ],
+        [
+          92.41,
+          118.53
+        ],
+        [
+          80.65,
+          111.62
+        ],
+        [
+          71.59,
+          99.52
+        ],
+        [
+          68.2,
+          86.2
+        ],
+        [
+          70.55,
+          70.8
+        ],
+        [
+          78.14,
+          58.64
+        ],
+        [
+          89.61,
+          50.44
+        ],
+        [
+          103.34,
+          47.16
+        ],
+        [
+          117.44,
+          49.32
+        ],
+        [
+          129.2,
+          56.23
+        ],
+        [
+          138.24,
+          68.29
+        ]
+      ],
+      "texture": "dots",
+      "keyRef": "a",
+      "confidence": 0.98,
+      "sourceLabel": {
+        "text": "First shell",
+        "ocrConfidence": 0.95
+      },
+      "meaning": "The path closest to the nucleus. It can hold at most two electrons.",
+      "meaningSource": "teacher"
+    },
+    {
+      "id": "r-01",
+      "name": {
+        "en": "Nucleus"
+      },
+      "polygon": [
+        [
+          119.95,
+          83.46
+        ],
+        [
+          119.42,
+          87.95
+        ],
+        [
+          116.49,
+          93.59
+        ],
+        [
+          112.27,
+          97.06
+        ],
+        [
+          106.2,
+          98.95
+        ],
+        [
+          100.36,
+          98.23
+        ],
+        [
+          95.05,
+          95.28
+        ],
+        [
+          91.42,
+          90.57
+        ],
+        [
+          89.89,
+          84.84
+        ],
+        [
+          90.43,
+          79.9
+        ],
+        [
+          93.43,
+          74.19
+        ],
+        [
+          97.95,
+          70.59
+        ],
+        [
+          104.21,
+          68.89
+        ],
+        [
+          108.98,
+          69.44
+        ],
+        [
+          114.67,
+          72.45
+        ],
+        [
+          118.4,
+          77.23
+        ]
+      ],
+      "texture": "diagonal-lines",
+      "keyRef": "b",
+      "confidence": 0.98,
+      "sourceLabel": {
+        "text": "Nucleus",
+        "ocrConfidence": 0.96
+      },
+      "meaning": "The tiny, dense centre of the atom. It holds the protons and the neutrons, and almost all the mass.",
+      "meaningSource": "teacher"
+    }
+  ],
+  "lines": [],
+  "relations": [
+    {
+      "from": "r-03",
+      "to": "r-02",
+      "kind": "contains",
+      "direction": "forward",
+      "source": "teacher"
+    },
+    {
+      "from": "r-02",
+      "to": "r-01",
+      "kind": "contains",
+      "direction": "forward",
+      "source": "teacher"
+    }
+  ],
+  "key": [
+    {
+      "ref": "a",
+      "regionId": "r-02",
+      "text": {
+        "en": "First Shell"
+      },
+      "braille": {}
+    },
+    {
+      "ref": "b",
+      "regionId": "r-01",
+      "text": {
+        "en": "Nucleus"
+      },
+      "braille": {}
+    },
+    {
+      "ref": "c",
+      "regionId": "r-03",
+      "text": {
+        "en": "Second Shell"
+      },
+      "braille": {}
+    }
+  ],
+  "readingOrder": [
+    "r-02",
+    "r-01",
+    "r-03"
+  ],
+  "languages": {
+    "primary": "en",
+    "available": [
+      "en"
+    ]
+  },
+  "validation": {
+    "status": "pass",
+    "blocking": [],
+    "advisory": []
+  },
+  "provenance": {
+    "pipeline": "0.1",
+    "teacherReviewed": true,
+    "reviewedAt": "2026-11-21T08:22:40.138Z"
+  }
+}
