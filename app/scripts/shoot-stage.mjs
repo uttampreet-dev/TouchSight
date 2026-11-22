@@ -28,6 +28,13 @@ await phone.addInitScript(() => {
   const fake = { speaking: false, speak(u) { fake.speaking = true; setTimeout(() => { fake.speaking = false; u.onend && u.onend() }, 80 + u.text.length * 3) }, cancel() { fake.speaking = false }, getVoices: () => [], onvoiceschanged: null }
   Object.defineProperty(window, 'speechSynthesis', { value: fake, configurable: true })
 })
+// the phone is given this projector's code, as the QR on the projector does; a second projector has a code of its own
+const code = await stage.evaluate(() => window.__sg.code)
+check(/^[A-Z]{4}$/.test(code), `projector shows its own code: ${code}`)
+const other = await (await browser.newContext({ viewport: { width: 1280, height: 720 } })).newPage()
+await other.goto('http://localhost:4173/stage', { waitUntil: 'networkidle' })
+await phone.addInitScript(() => { try { localStorage.setItem('touchsight-intro-seen', '1') } catch {} })
+await phone.goto(`http://localhost:4173/student?stage=${code}`, { waitUntil: 'networkidle' })
 await phone.goto('http://localhost:4173/student/d/sample-heart', { waitUntil: 'networkidle' })
 await phone.waitForSelector('.st-canvas svg')
 await stage.waitForSelector('.sg-canvas svg', { timeout: 10_000 }).catch(() => {})
@@ -78,5 +85,6 @@ const overflow = await stage.evaluate(() => document.documentElement.scrollWidth
 check(!overflow, 'no horizontal overflow on the projector')
 console.log(errors.length ? `page errors:\n${errors.join('\n')}` : 'no page errors')
 console.log(fail.length ? `FAILED: ${fail.length}` : 'ALL CHECKS PASSED')
+check((await other.locator('.sg-wait').count()) === 1 && (await other.evaluate(() => window.__sg.events)) === 0, 'a second projector, on its own code, saw nothing of this phone')
 await browser.close()
 process.exit(fail.length || errors.length ? 1 : 0)

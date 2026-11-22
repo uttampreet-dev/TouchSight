@@ -77,7 +77,7 @@ await console_.screenshot({ path: `${OUT}/class-console-progress.png` })
 // the projector still mirrors a phone that is in a room
 const stage = await laptop.newPage()
 stage.on('pageerror', (e) => errors.push(`stage: ${e.message}`))
-await stage.goto('http://localhost:4173/stage', { waitUntil: 'networkidle' })
+await stage.goto(`http://localhost:4173/stage?room=${code}`, { waitUntil: 'networkidle' }) // the room's own projector, as the Class view links it
 await phone.click('button[role=tab]:has-text("Explore")'); await phone.waitForTimeout(300)
 const p0 = at(0.3, 0.3); await phone.mouse.move(p0.x, p0.y); await phone.mouse.down(); await phone.mouse.move(at(0.7, 0.7).x, at(0.7, 0.7).y, { steps: 8 }); await phone.mouse.up()
 await stage.waitForFunction(() => document.querySelectorAll('.sg-log li, .sg-log div').length > 0, null, { timeout: 5_000 }).catch(() => {})
