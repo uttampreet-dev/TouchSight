@@ -4,6 +4,7 @@ import { Understand } from './teacher/Understand'
 import { Workbench } from './teacher/Workbench'
 import { Library } from './teacher/Library'
 import { ClassView } from './teacher/ClassView'
+import { Preview } from './teacher/Preview'
 import './teacher/teacher.css'
 
 export function Teacher() {
@@ -16,6 +17,7 @@ export function Teacher() {
           <NavLink to="/teacher" end>new</NavLink>
           <NavLink to="/teacher/library">library</NavLink>
           <NavLink to="/teacher/class">class</NavLink>
+          <NavLink to="/teacher/preview">preview</NavLink>
           <NavLink to="/teacher/inspect">inspect</NavLink>
         </nav>
       </header>
@@ -24,6 +26,8 @@ export function Teacher() {
         <Route path="d/:id" element={<Workbench />} />
         <Route path="library" element={<Library />} />
         <Route path="class" element={<ClassView />} />
+        <Route path="preview" element={<Preview />} />
+        <Route path="preview/:id" element={<Preview />} />
         <Route path="inspect" element={<Understand />} />
         <Route path="understand" element={<Understand />} />
       </Routes>

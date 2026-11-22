@@ -84,7 +84,7 @@ export interface Tdm {
   readingOrder: string[]
   languages: { primary: Lang; available: Lang[] }
   validation: TdmValidation
-  provenance: { pipeline: string; teacherReviewed: boolean; reviewedAt: string | null }
+  provenance: { pipeline: string; teacherReviewed: boolean; reviewedAt: string | null; /** what the teacher's review cost: seconds from the first draft to publish, and the edits made */ review?: { seconds: number; edits: number; byKind: Record<string, number> } }
 }
 
 export const TEXTURES: Texture[] = ['dots', 'diagonal-lines', 'horizontal-lines', 'grid', 'solid', 'empty']

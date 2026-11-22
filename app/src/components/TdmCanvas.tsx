@@ -1,5 +1,5 @@
 import type { Tdm, Texture } from '../tdm/types'
-import { centroid, diagramBox } from '../tdm/geometry'
+import { centroid, diagramBox, pointInPolygon, area } from '../tdm/geometry'
 export { diagramBox }
 
 /** The tactile model drawn as SVG in true millimetres. Shared by the console, the student app and the projector. */
@@ -67,6 +67,19 @@ export interface TdmCanvasProps {
   children?: React.ReactNode
 }
 
+/**
+ * Where a region's key letter sits. Normally its centre; but the centre of a ring (a shell around a nucleus, a layer
+ * around a core) lies inside the part it surrounds, so there the letter moves down into the band the ring really owns.
+ */
+function refPoint(tdm: Tdm, r: Tdm['regions'][number]): [number, number] {
+  const c = centroid(r.polygon)
+  const inner = tdm.regions.filter((o) => o !== r && area(o.polygon) < area(r.polygon) && pointInPolygon(c, o.polygon))
+  if (!inner.length) return c
+  const bottom = Math.max(...r.polygon.map((p) => p[1]))
+  const innerBottom = Math.max(...inner.flatMap((o) => o.polygon.map((p) => p[1])))
+  return bottom - innerBottom > 4 ? [c[0], (bottom + innerBottom) / 2] : c
+}
+
 export function TdmCanvas({ tdm, highlight = [], selected, onSelect, showRefs = true, showKey = false, marker, ink = '#17181a', paper = '#ffffff', accent = '#ff6f59', className, style, frame = 'diagram', showRelations = false, children }: TdmCanvasProps) {
   const box = frame === 'sheet' ? { x: 0, y: 0, w: tdm.sheet.w, h: tdm.sheet.h } : diagramBox(tdm)
   const keyRows = showKey ? Math.ceil(tdm.key.length / 2) : 0
@@ -82,7 +95,7 @@ export function TdmCanvas({ tdm, highlight = [], selected, onSelect, showRefs = 
       <rect x={vb.x} y={vb.y} width={vb.w} height={vb.h} fill={paper} />
       {tdm.regions.map((r) => {
         const d = r.polygon.map((p, i) => `${i ? 'L' : 'M'}${p[0]} ${p[1]}`).join(' ') + ' Z'
-        const c = centroid(r.polygon)
+        const c = refPoint(tdm, r)
         return (
           <g key={r.id} onClick={onSelect ? (e) => { e.stopPropagation(); onSelect(r.id) } : undefined} style={{ cursor: onSelect ? 'pointer' : 'default' }}>
             <path d={d} fill={r.texture === 'empty' ? 'none' : r.texture === 'solid' ? ink : `url(#tx-${r.texture})`} fillOpacity={r.texture === 'solid' ? 0.85 : 1} stroke={stroke(r.id)} strokeWidth={sw(r.id)} strokeLinejoin="round" />

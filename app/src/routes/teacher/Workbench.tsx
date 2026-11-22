@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
+import { FIGURES, figureByFile, loadFigure, type Figure } from '../../samples/figures'
 import { understand, draftTdm, type Understanding } from '../../pipeline/understand'
 import { drawUnderstanding, SHOW_ALL } from '../../pipeline/overlay'
 import { simplify, type SimplifyReport } from '../../tdm/simplify'
@@ -10,6 +11,7 @@ import { TEXTURES, RELATION_KINDS, type Tdm, type ValidationFinding, type TdmRel
 import { getDiagram, saveDiagram, saveImage, getImage } from '../../store/db'
 import { ExportPanel } from '../../components/ExportPanel'
 import { ReliefViewer } from '../../components/ReliefViewer'
+import { SketchPad, type SketchHandle } from '../../components/SketchPad'
 import { area } from '../../tdm/geometry'
 import { classroom, teacherRoom } from '../../class/classroom'
 
@@ -19,6 +21,7 @@ type Step = 'capture' | 'understand' | 'review' | 'published'
 export function Workbench() {
   const { id: routeId } = useParams()
   const nav = useNavigate()
+  const [params, setParams] = useSearchParams()
   const [step, setStep] = useState<Step>('capture')
   const [file, setFile] = useState<File | null>(null)
   const [stage, setStage] = useState('')
@@ -38,8 +41,22 @@ export function Workbench() {
   const [overlay, setOverlay] = useState(true)
   const [reveal, setReveal] = useState(1)
   const overlayRef = useRef<HTMLCanvasElement>(null)
+  // the cost of the teacher's review: started when the draft appears, one count per edit
+  const reviewT0 = useRef(0)
+  const edits = useRef<Record<string, number>>({})
+  const [editCount, setEditCount] = useState(0)
+  const [clock, setClock] = useState(0)
+  useEffect(() => { if (step !== 'review' || !reviewT0.current) return; const t = setInterval(() => setClock(Math.round((Date.now() - reviewT0.current) / 1000)), 1000); return () => clearInterval(t) }, [step])
   useEffect(() => { if (step !== 'published') return; const t = setInterval(() => setPhones(classroom.phones), 600); return () => clearInterval(t) }, [step])
   const fileRef = useRef<HTMLInputElement>(null)
+  // the source is a photograph or a drawing made on the board
+  const [source, setSource] = useState<'photo' | 'draw'>('photo')
+  const sketch = useRef<SketchHandle>(null)
+  const [strokes, setStrokes] = useState(0)
+  async function runSketch() { const f = await sketch.current?.toFile(); if (!f) return; setFile(f); await run(f, title || 'Board drawing', chapter) }
+  // typing a name or a meaning is one edit per part, not one per keystroke
+  const renaming = useRef(new Set<string>())
+  const meaningEdit = useRef(new Set<string>())
 
   // reopen a saved diagram
   useEffect(() => {
@@ -52,8 +69,28 @@ export function Workbench() {
     })
   }, [routeId])
 
-  async function run() {
-    if (!file) return
+  /** A shipped textbook figure goes through the very same path as a dropped photo. */
+  async function pickFigure(f: Figure) {
+    setErr('')
+    try {
+      const file = await loadFigure(f)
+      setFile(file); setTitle(f.title); setChapter(f.chapter)
+      await run(file, f.title, f.chapter)
+    } catch (e) { setErr((e as Error).message) }
+  }
+  // /teacher?sample=bio-heart-02 opens the console already compiling that figure
+  useEffect(() => {
+    const q = params.get('sample')
+    if (!q) return
+    const f = figureByFile(q)
+    params.delete('sample'); setParams(params, { replace: true })
+    if (f) pickFigure(f)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  async function run(src: File | null = file, srcTitle = title, srcChapter = chapter) {
+    if (!src) return
+    const file = src
     setErr(''); setStep('understand')
     try {
       const u = await understand(file, setStage)
@@ -62,8 +99,8 @@ export function Workbench() {
       // what was read, drawn in over the photo while the solver works: regions, then labels, then strokes and links
       setStage('what was read')
       await new Promise<void>((done) => { const t0 = performance.now(); const tick = () => { const k = Math.min(1, (performance.now() - t0) / 1400); setReveal(k); if (k < 1) requestAnimationFrame(tick); else done() }; requestAnimationFrame(tick) })
-      const id = (title || file.name.replace(/\.[^.]+$/, '')).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || `diagram-${Date.now()}`
-      const { tdm: draft } = draftTdm(u, { id, title: title || file.name.replace(/\.[^.]+$/, ''), subject: chapter.split(' ')[0] || 'general', sourceKind: 'photo', file: file.name })
+      const id = (srcTitle || file.name.replace(/\.[^.]+$/, '')).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || `diagram-${Date.now()}`
+      const { tdm: draft } = draftTdm(u, { id, title: srcTitle || file.name.replace(/\.[^.]+$/, ''), subject: srcChapter.split(' ')[0] || 'general', sourceKind: 'photo', file: file.name })
       setStage('redesigning for touch')
       await new Promise((r) => setTimeout(r, 30)) // let the stage paint before the solver takes the thread
       const { tdm: solved, report } = simplify(draft)
@@ -72,6 +109,7 @@ export function Workbench() {
       simplified.validation = validate(simplified)
       setImgUrl(URL.createObjectURL(file))
       setTdm(simplified); setReport(report); setTitle(simplified.title); setStep('review'); setStage('')
+      reviewT0.current = Date.now(); edits.current = {}; setEditCount(0); setClock(0)
       // storing is not on the way to the screen: a blocked database shows a note, never a frozen console
       saveImage(id, file, u.prepared.width, u.prepared.height).catch((e: Error) => setErr(e.message))
     } catch (e) {
@@ -88,7 +126,8 @@ export function Workbench() {
     return f ? f.ids : []
   }, [tdm, findings, selected])
 
-  async function saveDraft(t: Tdm) {
+  async function saveDraft(t: Tdm, kind = 'edit') {
+    edits.current[kind] = (edits.current[kind] ?? 0) + 1; setEditCount((n) => n + 1)
     setTdm(t)
     try { await saveDiagram(t, chapter || 'drafts', false) } catch (e) { setErr((e as Error).message) }
   }
@@ -96,14 +135,16 @@ export function Workbench() {
   async function publish() {
     if (!tdm || !canPublish) return
     const t = markReviewed({ ...tdm, title: title || tdm.title })
+    for (const r of t.regions) if (r.meaning) { r.meaning = r.meaning.trim(); if (r.meanings?.en) r.meanings.en = r.meanings.en.trim() }
+    if (reviewT0.current) t.provenance.review = { seconds: Math.round((Date.now() - reviewT0.current) / 1000), edits: Object.values(edits.current).reduce((a, b) => a + b, 0), byKind: { ...edits.current } }
     try { await saveDiagram(t, chapter || 'General', true) } catch (e) { setErr((e as Error).message) }
     classroom.join(teacherRoom(), 'console'); classroom.publish(t)
     setTdm(t); setStep('published')
   }
 
   function onPick(id: string | null) {
-    if (mergeWith && id && id !== mergeWith && tdm) { saveDraft(merge(tdm, mergeWith, id)); setMergeWith(null); setSelected(mergeWith); return }
-    if (relateFrom && id && id !== relateFrom && tdm) { saveDraft(addRelation(tdm, relateFrom, id, 'connects', 'forward')); setRelateFrom(null); setSelected(relateFrom); return }
+    if (mergeWith && id && id !== mergeWith && tdm) { saveDraft(merge(tdm, mergeWith, id), 'merge'); setMergeWith(null); setSelected(mergeWith); return }
+    if (relateFrom && id && id !== relateFrom && tdm) { saveDraft(addRelation(tdm, relateFrom, id, 'connects', 'forward'), 'relation'); setRelateFrom(null); setSelected(relateFrom); return }
     setSelected(id)
   }
   const nameOf = (id: string) => tdm?.regions.find((r) => r.id === id)?.name.en ?? tdm?.lines.find((l) => l.id === id)?.name.en ?? id
@@ -144,10 +185,12 @@ export function Workbench() {
       <div className="wb-table">
         {/* 01 · source */}
         <section className="wb-pane wb-source">
-          <header className="wb-pane-h"><span className="kicker">01 · Source</span><span className="mono">{file ? file.name : routeId ? routeId : 'photo · worksheet · slide · board'}</span></header>
+          <header className="wb-pane-h"><span className="kicker">01 · Source</span><span className="mono">{file ? file.name : routeId ? routeId : 'photo · worksheet · slide · board drawing'}</span></header>
           <div className="wb-pane-b">
             {step === 'capture' ? (
               <div className="wb-capture">
+                <div className="wb-src mono" role="tablist"><button role="tab" aria-selected={source === 'photo'} className={source === 'photo' ? 'on' : ''} onClick={() => setSource('photo')}>photo or file</button><button role="tab" aria-selected={source === 'draw'} className={source === 'draw' ? 'on' : ''} onClick={() => setSource('draw')}>draw it on the board</button></div>
+                {source === 'draw' ? <SketchPad ref={sketch} onChange={setStrokes} /> : (
                 <div className="wb-drop" onClick={() => fileRef.current?.click()} onDragOver={(e) => e.preventDefault()} onDrop={(e) => { e.preventDefault(); const f = e.dataTransfer.files?.[0]; if (f) setFile(f) }}>
                   <input ref={fileRef} type="file" accept="image/*" capture="environment" hidden onChange={(e) => setFile(e.target.files?.[0] ?? null)} />
                   {file ? <img src={URL.createObjectURL(file)} alt="" /> : (
@@ -158,12 +201,27 @@ export function Workbench() {
                     </div>
                   )}
                 </div>
+                )}
                 <div className="wb-fields">
                   <label><span className="kicker">Title</span><input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="The human heart" /></label>
                   <label><span className="kicker">Chapter</span><input value={chapter} onChange={(e) => setChapter(e.target.value)} placeholder="Biology · Class 10 · Life processes" /></label>
                 </div>
                 {err && <div className="wb-err mono">{err}</div>}
-                <button className="btn primary wb-go" disabled={!file} onClick={run}>Understand this diagram →</button>
+                {source === 'draw'
+                  ? <button className="btn primary wb-go" disabled={!strokes} onClick={runSketch}>Understand this drawing →</button>
+                  : <button className="btn primary wb-go" disabled={!file} onClick={() => run()}>Understand this diagram →</button>}
+                {source === 'photo' && <div className="wb-samples">
+                  <div className="wb-samples-h"><span className="kicker">No page to hand? Compile a textbook figure</span><span className="mono">the same pipeline, nothing pre-made</span></div>
+                  <div className="wb-sample-row">
+                    {FIGURES.map((f) => (
+                      <button key={f.file} className="wb-sample" onClick={() => pickFigure(f)} title={`${f.title} · ${f.chapter}`}>
+                        <span className="wb-sample-img"><img src={`/samples/${f.file}`} alt="" loading="lazy" /></span>
+                        <b>{f.short}</b>
+                        <span className="mono">{f.note}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>}
               </div>
             ) : (
               <div className={`wb-photo ${step === 'understand' && !u ? 'scanning' : ''}`}>
@@ -206,7 +264,7 @@ export function Workbench() {
               <>
                 <div className="wb-status" data-status={findings.status}>
                   <b>{findings.status === 'pass' ? 'Ready to publish' : `${findings.blocking.length} blocking`}</b>
-                  <span className="mono">{findings.advisory.length} advisory</span>
+                  <span className="mono">{findings.advisory.length} advisory{step === 'review' && reviewT0.current ? ` · review ${Math.floor(clock / 60)}:${String(clock % 60).padStart(2, '0')} · ${editCount} edit${editCount === 1 ? '' : 's'}` : tdm.provenance.review ? ` · reviewed in ${Math.floor(tdm.provenance.review.seconds / 60)}:${String(tdm.provenance.review.seconds % 60).padStart(2, '0')} · ${tdm.provenance.review.edits} edits` : ''}</span>
                 </div>
                 <div className="wb-findings">
                   {[...findings.blocking.map((f) => ({ ...f, blocking: true })), ...findings.advisory.map((f) => ({ ...f, blocking: false }))].map((f, i) => (
@@ -217,13 +275,13 @@ export function Workbench() {
                 {sel && (
                   <section className="wb-sel">
                     <div className="kicker">{sel.id} · key {sel.keyRef}</div>
-                    <input className="wb-name" value={sel.name.en} onChange={(e) => saveDraft(rename(tdm, sel.id, 'en', e.target.value))} />
+                    <input className="wb-name" value={sel.name.en} onChange={(e) => { if (!renaming.current.has(sel.id)) { renaming.current.add(sel.id); saveDraft(rename(tdm, sel.id, 'en', e.target.value), 'rename') } else { setTdm(rename(tdm, sel.id, 'en', e.target.value)); saveDiagram(rename(tdm, sel.id, 'en', e.target.value), chapter || 'drafts', false).catch(() => {}) } }} />
                     {'polygon' in sel && (
                       <>
                         <div className="mono wb-sel-facts">{area(sel.polygon).toFixed(0)} mm² · {sel.polygon.length} vertices{sel.sourceLabel ? ` · read "${sel.sourceLabel.text}" at ${Math.round(sel.sourceLabel.ocrConfidence * 100)}%` : ''}</div>
                         <div className="wb-textures">
                           {TEXTURES.filter((t) => t !== 'empty').map((t) => (
-                            <button key={t} className={`btn ${sel.texture === t ? 'primary' : ''}`} onClick={() => saveDraft(setTexture(tdm, sel.id, t))}>{TEXTURE_LABEL[t]}</button>
+                            <button key={t} className={`btn ${sel.texture === t ? 'primary' : ''}`} onClick={() => saveDraft(setTexture(tdm, sel.id, t), 'texture')}>{TEXTURE_LABEL[t]}</button>
                           ))}
                         </div>
                       </>
@@ -231,16 +289,16 @@ export function Workbench() {
                     {'polygon' in sel && (
                       <label className="wb-meaning">
                         <span className="kicker">What it does <em className={`mono ${sel.meaningSource ?? 'none'}`}>{sel.meaningSource === 'glossary' ? '· from glossary, confirm or rewrite' : sel.meaningSource === 'teacher' ? '· teacher' : '· spoken after the name when the finger rests'}</em></span>
-                        <textarea rows={2} value={sel.meaning ?? ''} placeholder="Receives deoxygenated blood from the body…" onChange={(e) => saveDraft(setMeaning(tdm, sel.id, e.target.value))} />
-                        {sel.meaningSource === 'glossary' && <div className="wb-meaning-row"><span className="mono">हिं · ਪੰ translations ready</span><button className="btn primary ok" onClick={() => saveDraft(confirmMeaning(tdm, sel.id))}>✓ confirm</button></div>}
+                        <textarea rows={2} value={sel.meaning ?? ''} placeholder="Receives deoxygenated blood from the body…" onChange={(e) => { if (!meaningEdit.current.has(sel.id)) { meaningEdit.current.add(sel.id); saveDraft(setMeaning(tdm, sel.id, e.target.value), 'meaning') } else { setTdm(setMeaning(tdm, sel.id, e.target.value)); saveDiagram(setMeaning(tdm, sel.id, e.target.value), chapter || 'drafts', false).catch(() => {}) } }} />
+                        {sel.meaningSource === 'glossary' && <div className="wb-meaning-row"><span className="mono">हिं · ਪੰ translations ready</span><button className="btn primary ok" onClick={() => saveDraft(confirmMeaning(tdm, sel.id), 'meaning')}>✓ confirm</button></div>}
                       </label>
                     )}
                     <div className="wb-sel-tools">
-                      <button className="btn" onClick={() => saveDraft(moveInOrder(tdm, sel.id, -1))}>↑ earlier</button>
-                      <button className="btn" onClick={() => saveDraft(moveInOrder(tdm, sel.id, 1))}>↓ later</button>
+                      <button className="btn" onClick={() => saveDraft(moveInOrder(tdm, sel.id, -1), 'order')}>↑ earlier</button>
+                      <button className="btn" onClick={() => saveDraft(moveInOrder(tdm, sel.id, 1), 'order')}>↓ later</button>
                       {'polygon' in sel && <button className={`btn ${mergeWith ? 'coral' : ''}`} onClick={() => { setRelateFrom(null); setMergeWith(mergeWith ? null : sel.id) }}>{mergeWith ? 'click the other region…' : 'merge with…'}</button>}
                       <button className={`btn ${relateFrom ? 'coral' : ''}`} onClick={() => { setMergeWith(null); setRelateFrom(relateFrom ? null : sel.id) }}>{relateFrom ? 'click the target…' : 'relate to…'}</button>
-                      <button className="btn wb-remove" onClick={() => { saveDraft(remove(tdm, sel.id)); setSelected(null) }}>remove</button>
+                      <button className="btn wb-remove" onClick={() => { saveDraft(remove(tdm, sel.id), 'remove'); setSelected(null) }}>remove</button>
                     </div>
                   </section>
                 )}
@@ -251,10 +309,10 @@ export function Workbench() {
                   <ul className="wb-rels">
                     {tdm.relations.map((rel, i) => (
                       <RelationRow key={`${rel.from}-${rel.to}-${i}`} rel={rel} from={nameOf(rel.from)} to={nameOf(rel.to)} active={!!selected && (rel.from === selected || rel.to === selected)}
-                        onKind={(k) => saveDraft(setRelation(tdm, i, { kind: k }))}
-                        onDirection={() => saveDraft(setRelation(tdm, i, { direction: rel.direction === 'forward' ? 'backward' : rel.direction === 'backward' ? 'both' : 'forward' }))}
-                        onConfirm={() => saveDraft(confirmRelation(tdm, i))}
-                        onRemove={() => saveDraft(removeRelation(tdm, i))}
+                        onKind={(k) => saveDraft(setRelation(tdm, i, { kind: k }), 'relation')}
+                        onDirection={() => saveDraft(setRelation(tdm, i, { direction: rel.direction === 'forward' ? 'backward' : rel.direction === 'backward' ? 'both' : 'forward' }), 'relation')}
+                        onConfirm={() => saveDraft(confirmRelation(tdm, i), 'relation')}
+                        onRemove={() => saveDraft(removeRelation(tdm, i), 'relation')}
                         onSelect={() => setSelected(rel.from)} />
                     ))}
                   </ul>
@@ -277,6 +335,7 @@ export function Workbench() {
             {step === 'published' && tdm ? (
               <div className="wb-published">
                 <div className="wb-pub-row"><b>Published</b><span className="mono">pushed to {phones} phone{phones === 1 ? '' : 's'} in class {teacherRoom()} · they keep it offline</span><button className="btn" onClick={() => nav('/teacher/library')}>Library</button><button className="btn" onClick={reset}>New</button></div>
+                <div className="wb-next"><button className="btn coral" onClick={() => nav(`/teacher/preview/${tdm.id}`)}>See it as the student →</button><button className="btn" onClick={() => nav('/teacher/class')}>Lead the class →</button></div>
                 <ExportPanel tdm={tdm} />
               </div>
             ) : tdm && step === 'review' ? (

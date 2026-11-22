@@ -121,7 +121,9 @@ export function setMeaning(tdm: Tdm, id: string, text: string): Tdm {
   if (!r) return tdm
   const clean = text.trim()
   if (!clean) { delete r.meaning; delete r.meanings; delete r.meaningSource; return t }
-  r.meaning = clean; r.meanings = { en: clean }; r.meaningSource = 'teacher'
+  // the text as typed, so a space at the end of a word survives the next keystroke; publishing trims it
+  const typed = text.replace(/^\s+/, '')
+  r.meaning = typed; r.meanings = { en: typed }; r.meaningSource = 'teacher'
   return t
 }
 /** A glossary sentence stands until the teacher confirms it. */
