@@ -27,6 +27,9 @@ export function setContrast(on: boolean) { try { localStorage.setItem(CONTRAST_K
 if (typeof document !== 'undefined' && contrastEnabled()) document.documentElement.classList.add('hc')
 export function introSeen(): boolean { try { return localStorage.getItem(INTRO_KEY) === '1' } catch { return true } }
 export function markIntroSeen() { try { localStorage.setItem(INTRO_KEY, '1') } catch { /* ignore */ } }
+const GUIDE_KEY = 'touchsight-guide-done'
+export function guideDone(): boolean { try { return localStorage.getItem(GUIDE_KEY) === '1' } catch { return false } }
+export function markGuideDone() { try { localStorage.setItem(GUIDE_KEY, '1') } catch { /* ignore */ } }
 
 /** Touch once to hear, touch again to act. Returns the handler factory and which control is armed. */
 export function useTouchToAct(lang: Lang) {

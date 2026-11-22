@@ -25,6 +25,9 @@ type Dict = {
   bestScore: (found: number, total: number) => string
   dontKnow: string; listening: string; notHeard: string; voiceNeedsNet: string; voiceHelp: string; touchToStart: string; touchAgain: string; tagline: string; g1: string; g2: string; g3: string; g4: string; intro: string; help: string; gestures: string; modeIs: (m: string) => string; speakFirst: string; speakFirstOn: string; speakFirstOff: string; soundOn: string; soundOff: string; sound: string; contrast: string; contrastOn: string; contrastOff: string
   classRoom: string; joinClass: string; roomCode: string; whoAreYou: string; thisIsMe: string; notMe: string; waitingRoster: string; joinedRoom: (room: string) => string; youAre: (name: string) => string
+  tryNow: string; tryNowSub: string; guideSkip: string; guideNext: string; guideStep: (i: number, n: number) => string; guide: string[]
+  teacherPoints: (name: string) => string; foundIt: (name: string) => string; leadOver: string
+  install: string; installed: string; projectorLinked: string
 }
 
 export type Position = 'top left' | 'top' | 'top right' | 'left' | 'centre' | 'right' | 'bottom left' | 'bottom' | 'bottom right'
@@ -37,7 +40,7 @@ const en: Dict = {
   correct: (n) => `Correct. That is the ${n}.`,
   wrong: (n) => `That is the ${n}. Try again.`,
   quizDone: (f, t) => `Quiz finished. ${f} of ${t} found.`,
-  tourIntro: (title, p, l) => `${title}. ${p} parts and ${l} lines. Reading from the top left.`,
+  tourIntro: (title, p, l) => `${title}. ${p} parts${l ? ` and ${l} lines` : ''}. Reading from the top left.`,
   parts: (n) => `${n} parts`,
   flowsInto: (n) => `Flows into the ${n}.`,
   connectsTo: (n) => `Connects to the ${n}.`,
@@ -57,6 +60,17 @@ const en: Dict = {
   sound: 'Sound', soundOn: 'Sound on. A tone follows your finger: higher up the sheet, higher the note. Each texture has its own voice.', soundOff: 'Sound off.',
   contrast: 'High contrast', contrastOn: 'High contrast on.', contrastOff: 'High contrast off.',
   classRoom: 'Class', joinClass: 'Join my class', roomCode: 'Room code', whoAreYou: 'Who is holding this phone? Touch a name to hear it. Touch it again to choose.', thisIsMe: 'This is me', notMe: 'Not me', waitingRoster: 'Waiting for the teacher to add names.', joinedRoom: (r) => `Joined class ${r.split('').join(' ')}.`, youAre: (n) => `${n}. Welcome.`,
+  tryNow: 'Try it now', tryNowSub: 'A one-minute guided first diagram. Nothing to find on the screen: the app tells you what to do and waits for you.', guideSkip: 'Skip', guideNext: 'Next', guideStep: (i, n) => `Step ${i} of ${n}`,
+  guide: [
+    'Welcome. This is the human heart. Put one finger on the screen and move it slowly.',
+    'That buzz was an edge. Every part has its own rhythm. Now rest your finger inside a part and keep it still: first its name, then what it does.',
+    'Now swipe left with two fingers. That opens the tour.',
+    'The tour reads every part in order, from the top left. Double-tap with two fingers to hear where you are.',
+    'Tap with three fingers to change the language. The guide brings you back.',
+    'You know TouchSight. Swipe to the quiz when you are ready: it asks for a part, and your finger is the answer.',
+  ],
+  teacherPoints: (n) => `Your teacher is pointing at the ${n}. Find it.`, foundIt: (n) => `Found it. ${n}.`, leadOver: 'The teacher has stopped pointing.',
+  install: 'Install the app', installed: 'Installed. Open TouchSight from the home screen; it works with Wi-Fi off.', projectorLinked: 'Linked to the projector. Open a diagram.',
 }
 
 const hi: Dict = {
@@ -67,7 +81,7 @@ const hi: Dict = {
   correct: (n) => `सही। यह ${n} है।`,
   wrong: (n) => `यह ${n} है। फिर कोशिश करो।`,
   quizDone: (f, t) => `प्रश्नोत्तरी पूरी। ${t} में से ${f} मिले।`,
-  tourIntro: (title, p, l) => `${title}। ${p} भाग और ${l} रेखाएँ। ऊपर बाएँ से शुरू।`,
+  tourIntro: (title, p, l) => `${title}। ${p} भाग${l ? ` और ${l} रेखाएँ` : ''}। ऊपर बाएँ से शुरू।`,
   parts: (n) => `${n} भाग`,
   flowsInto: (n) => `${n} में बहता है।`,
   connectsTo: (n) => `${n} से जुड़ा है।`,
@@ -87,6 +101,17 @@ const hi: Dict = {
   sound: 'ध्वनि', soundOn: 'ध्वनि चालू। एक सुर आपकी उँगली के साथ चलेगा: ऊपर जाएँ तो सुर ऊँचा। हर बनावट की अपनी आवाज़।', soundOff: 'ध्वनि बंद।',
   contrast: 'अधिक कंट्रास्ट', contrastOn: 'अधिक कंट्रास्ट चालू।', contrastOff: 'अधिक कंट्रास्ट बंद।',
   classRoom: 'कक्षा', joinClass: 'कक्षा से जुड़ें', roomCode: 'कक्षा कोड', whoAreYou: 'यह फ़ोन किसके पास है? नाम सुनने के लिए छुएँ। चुनने के लिए फिर छुएँ।', thisIsMe: 'यह मैं हूँ', notMe: 'मैं नहीं', waitingRoster: 'शिक्षक के नाम जोड़ने की प्रतीक्षा है।', joinedRoom: (r) => `कक्षा ${r.split('').join(' ')} से जुड़ गए।`, youAre: (n) => `${n}। स्वागत है।`,
+  tryNow: 'अभी आज़माएँ', tryNowSub: 'एक मिनट का निर्देशित पहला आरेख। स्क्रीन पर कुछ ढूँढना नहीं: ऐप बताता है क्या करना है और आपकी प्रतीक्षा करता है।', guideSkip: 'छोड़ें', guideNext: 'अगला', guideStep: (i, n) => `चरण ${i} / ${n}`,
+  guide: [
+    'स्वागत है। यह मानव हृदय है। एक उँगली स्क्रीन पर रखें और धीरे-धीरे घुमाएँ।',
+    'वह कंपन एक किनारा था। हर हिस्से की अपनी लय है। अब उँगली किसी हिस्से के अंदर रोकें और स्थिर रखें: पहले उसका नाम, फिर वह क्या करता है।',
+    'अब दो उँगलियों से बाएँ स्वाइप करें। इससे सैर खुलती है।',
+    'सैर हर हिस्से को क्रम से पढ़ती है, ऊपर बाएँ से। दो उँगलियों से दो बार छुएँ: आप कहाँ हैं।',
+    'तीन उँगलियों से छुएँ: भाषा बदलें। गाइड आपको वापस ले आएगा।',
+    'आप टचसाइट जानते हैं। तैयार हों तो प्रश्न तक स्वाइप करें: यह एक हिस्सा पूछता है, और आपकी उँगली ही उत्तर है।',
+  ],
+  teacherPoints: (n) => `आपके शिक्षक ${n} की ओर इशारा कर रहे हैं। इसे ढूँढो।`, foundIt: (n) => `मिल गया। ${n}।`, leadOver: 'शिक्षक ने इशारा करना बंद किया।',
+  install: 'ऐप इंस्टॉल करें', installed: 'इंस्टॉल हो गया। होम स्क्रीन से टचसाइट खोलें; यह बिना वाई-फ़ाई चलता है।', projectorLinked: 'प्रोजेक्टर से जुड़ गया। कोई आरेख खोलें।',
 }
 
 const pa: Dict = {
@@ -97,7 +122,7 @@ const pa: Dict = {
   correct: (n) => `ਸਹੀ। ਇਹ ${n} ਹੈ।`,
   wrong: (n) => `ਇਹ ${n} ਹੈ। ਫਿਰ ਕੋਸ਼ਿਸ਼ ਕਰੋ।`,
   quizDone: (f, t) => `ਕੁਇਜ਼ ਪੂਰੀ। ${t} ਵਿੱਚੋਂ ${f} ਲੱਭੇ।`,
-  tourIntro: (title, p, l) => `${title}। ${p} ਭਾਗ ਅਤੇ ${l} ਲਕੀਰਾਂ। ਉੱਪਰ ਖੱਬੇ ਤੋਂ ਸ਼ੁਰੂ।`,
+  tourIntro: (title, p, l) => `${title}। ${p} ਭਾਗ${l ? ` ਅਤੇ ${l} ਲਕੀਰਾਂ` : ''}। ਉੱਪਰ ਖੱਬੇ ਤੋਂ ਸ਼ੁਰੂ।`,
   parts: (n) => `${n} ਭਾਗ`,
   flowsInto: (n) => `${n} ਵਿੱਚ ਵਗਦਾ ਹੈ।`,
   connectsTo: (n) => `${n} ਨਾਲ ਜੁੜਿਆ ਹੈ।`,
@@ -117,6 +142,17 @@ const pa: Dict = {
   sound: 'ਆਵਾਜ਼', soundOn: 'ਆਵਾਜ਼ ਚਾਲੂ। ਇੱਕ ਸੁਰ ਤੁਹਾਡੀ ਉਂਗਲ ਨਾਲ ਚੱਲੇਗਾ: ਉੱਪਰ ਜਾਓ ਤਾਂ ਸੁਰ ਉੱਚਾ। ਹਰ ਬਣਤਰ ਦੀ ਆਪਣੀ ਆਵਾਜ਼।', soundOff: 'ਆਵਾਜ਼ ਬੰਦ।',
   contrast: 'ਵੱਧ ਕੰਟ੍ਰਾਸਟ', contrastOn: 'ਵੱਧ ਕੰਟ੍ਰਾਸਟ ਚਾਲੂ।', contrastOff: 'ਵੱਧ ਕੰਟ੍ਰਾਸਟ ਬੰਦ।',
   classRoom: 'ਜਮਾਤ', joinClass: 'ਜਮਾਤ ਨਾਲ ਜੁੜੋ', roomCode: 'ਜਮਾਤ ਕੋਡ', whoAreYou: 'ਇਹ ਫ਼ੋਨ ਕਿਸ ਕੋਲ ਹੈ? ਨਾਮ ਸੁਣਨ ਲਈ ਛੂਹੋ। ਚੁਣਨ ਲਈ ਫਿਰ ਛੂਹੋ।', thisIsMe: 'ਇਹ ਮੈਂ ਹਾਂ', notMe: 'ਮੈਂ ਨਹੀਂ', waitingRoster: 'ਅਧਿਆਪਕ ਦੇ ਨਾਮ ਜੋੜਨ ਦੀ ਉਡੀਕ ਹੈ।', joinedRoom: (r) => `ਜਮਾਤ ${r.split('').join(' ')} ਨਾਲ ਜੁੜ ਗਏ।`, youAre: (n) => `${n}। ਜੀ ਆਇਆਂ ਨੂੰ।`,
+  tryNow: 'ਹੁਣੇ ਅਜ਼ਮਾਓ', tryNowSub: 'ਇੱਕ ਮਿੰਟ ਦਾ ਨਿਰਦੇਸ਼ਿਤ ਪਹਿਲਾ ਚਿੱਤਰ। ਸਕ੍ਰੀਨ ਉੱਤੇ ਕੁਝ ਲੱਭਣਾ ਨਹੀਂ: ਐਪ ਦੱਸਦਾ ਹੈ ਕੀ ਕਰਨਾ ਹੈ ਤੇ ਤੁਹਾਡੀ ਉਡੀਕ ਕਰਦਾ ਹੈ।', guideSkip: 'ਛੱਡੋ', guideNext: 'ਅਗਲਾ', guideStep: (i, n) => `ਕਦਮ ${i} / ${n}`,
+  guide: [
+    'ਜੀ ਆਇਆਂ ਨੂੰ। ਇਹ ਮਨੁੱਖੀ ਦਿਲ ਹੈ। ਇੱਕ ਉਂਗਲ ਸਕ੍ਰੀਨ ਉੱਤੇ ਰੱਖੋ ਤੇ ਹੌਲੀ-ਹੌਲੀ ਘੁਮਾਓ।',
+    'ਉਹ ਕੰਬਣੀ ਇੱਕ ਕਿਨਾਰਾ ਸੀ। ਹਰ ਹਿੱਸੇ ਦੀ ਆਪਣੀ ਲੈਅ ਹੈ। ਹੁਣ ਉਂਗਲ ਕਿਸੇ ਹਿੱਸੇ ਦੇ ਅੰਦਰ ਰੋਕੋ ਤੇ ਸਥਿਰ ਰੱਖੋ: ਪਹਿਲਾਂ ਉਸਦਾ ਨਾਮ, ਫਿਰ ਉਹ ਕੀ ਕਰਦਾ ਹੈ।',
+    'ਹੁਣ ਦੋ ਉਂਗਲਾਂ ਨਾਲ ਖੱਬੇ ਸਵਾਈਪ ਕਰੋ। ਇਸ ਨਾਲ ਸੈਰ ਖੁੱਲ੍ਹਦੀ ਹੈ।',
+    'ਸੈਰ ਹਰ ਹਿੱਸੇ ਨੂੰ ਕ੍ਰਮ ਨਾਲ ਪੜ੍ਹਦੀ ਹੈ, ਉੱਪਰ ਖੱਬੇ ਤੋਂ। ਦੋ ਉਂਗਲਾਂ ਨਾਲ ਦੋ ਵਾਰ ਛੂਹੋ: ਤੁਸੀਂ ਕਿੱਥੇ ਹੋ।',
+    'ਤਿੰਨ ਉਂਗਲਾਂ ਨਾਲ ਛੂਹੋ: ਭਾਸ਼ਾ ਬਦਲੋ। ਗਾਈਡ ਤੁਹਾਨੂੰ ਵਾਪਸ ਲੈ ਆਵੇਗਾ।',
+    'ਤੁਸੀਂ ਟੱਚਸਾਈਟ ਜਾਣਦੇ ਹੋ। ਤਿਆਰ ਹੋਵੋ ਤਾਂ ਕੁਇਜ਼ ਤੱਕ ਸਵਾਈਪ ਕਰੋ: ਇਹ ਇੱਕ ਹਿੱਸਾ ਪੁੱਛਦਾ ਹੈ, ਤੇ ਤੁਹਾਡੀ ਉਂਗਲ ਹੀ ਜਵਾਬ ਹੈ।',
+  ],
+  teacherPoints: (n) => `ਤੁਹਾਡੇ ਅਧਿਆਪਕ ${n} ਵੱਲ ਇਸ਼ਾਰਾ ਕਰ ਰਹੇ ਹਨ। ਇਸਨੂੰ ਲੱਭੋ।`, foundIt: (n) => `ਲੱਭ ਗਿਆ। ${n}।`, leadOver: 'ਅਧਿਆਪਕ ਨੇ ਇਸ਼ਾਰਾ ਕਰਨਾ ਬੰਦ ਕੀਤਾ।',
+  install: 'ਐਪ ਇੰਸਟਾਲ ਕਰੋ', installed: 'ਇੰਸਟਾਲ ਹੋ ਗਿਆ। ਹੋਮ ਸਕ੍ਰੀਨ ਤੋਂ ਟੱਚਸਾਈਟ ਖੋਲ੍ਹੋ; ਇਹ ਬਿਨਾਂ ਵਾਈ-ਫ਼ਾਈ ਚੱਲਦਾ ਹੈ।', projectorLinked: 'ਪ੍ਰੋਜੈਕਟਰ ਨਾਲ ਜੁੜ ਗਿਆ। ਕੋਈ ਚਿੱਤਰ ਖੋਲ੍ਹੋ।',
 }
 
 export const STRINGS: Record<Lang, Dict> = { en, hi, pa }

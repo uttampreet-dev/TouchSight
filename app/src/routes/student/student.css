@@ -117,3 +117,20 @@ html.hc .st-card.armed, html.hc .st-import.armed, html.hc .st-modes button.armed
 .st-mic { width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(127,212,203,.4); background: transparent; color: var(--teal-soft); display: grid; place-items: center; }
 .st-mic.on { background: var(--coral); border-color: var(--coral); color: #fff; animation: st-mic 1s ease-in-out infinite; } .st-mic.armed { outline: 3px solid var(--coral); outline-offset: 2px; }
 @keyframes st-mic { 50% { box-shadow: 0 0 0 10px rgba(255,111,89,.25) } }
+
+/* the guided first diagram, and the teacher pointing */
+.st-try { display: grid; grid-template-columns: 56px 1fr auto; align-items: center; gap: 14px; margin: 12px 16px 2px; padding: 14px 16px; border-radius: 18px; background: linear-gradient(135deg, var(--coral), #ff8f6b); color: #fff; text-decoration: none; border: 0; text-align: left; width: calc(100% - 32px); font: inherit; box-shadow: 0 14px 30px -16px rgba(255,111,89,.9); }
+.st-try:active { transform: scale(.985); } .st-try.armed { outline: 3px solid #fff; outline-offset: 2px; }
+.st-try-ico { width: 56px; height: 56px; border-radius: 50%; background: rgba(255,255,255,.2); display: grid; place-items: center; position: relative; } .st-try-ico::after { content: ''; position: absolute; inset: 0; border-radius: 50%; border: 2px solid rgba(255,255,255,.7); animation: st-ring 1.8s ease-out infinite; }
+.st-try b { display: block; font-family: var(--head); font-size: 21px; letter-spacing: -0.01em; line-height: 1.1; } .st-try span.sub { display: block; font-size: 12.5px; line-height: 1.4; opacity: .95; margin-top: 4px; } .st-try em { font-style: normal; font-size: 24px; font-weight: 800; }
+.st-guide { margin: 0 12px 10px; padding: 12px 14px; border-radius: 16px; background: var(--deep-2); border: 1.5px solid var(--coral); display: grid; gap: 8px; }
+.st-guide-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; } .st-guide-top .kicker { color: var(--coral); white-space: nowrap; letter-spacing: .12em; }
+.st-guide-dots { display: flex; gap: 4px; flex-shrink: 0; } .st-guide-dots i { width: 13px; height: 5px; border-radius: 3px; background: rgba(127,212,203,.25); } .st-guide-dots i.done { background: var(--teal-soft); } .st-guide-dots i.on { background: var(--coral); }
+.st-guide p { margin: 0; font-size: 16px; line-height: 1.4; font-weight: 600; color: #fff; }
+.st-guide-a { display: grid; grid-template-columns: 1fr 1.6fr; gap: 8px; } .st-guide-a button { min-height: 44px; border-radius: 12px; border: 1px solid rgba(127,212,203,.3); background: transparent; color: #cfe3e1; font-weight: 700; font-size: 14px; } .st-guide-a button.primary { background: var(--coral); border-color: var(--coral); color: #fff; }
+.st-lead { margin: 0 12px 10px; padding: 12px 14px; border-radius: 16px; background: var(--coral); color: #fff; display: grid; grid-template-columns: 22px 1fr; gap: 12px; align-items: center; } .st-lead b { font-family: var(--head); font-size: 17px; line-height: 1.25; }
+.st-lead-ring { width: 18px; height: 18px; border-radius: 50%; border: 3px solid #fff; position: relative; } .st-lead-ring::after { content: ''; position: absolute; inset: -3px; border-radius: 50%; border: 3px solid #fff; animation: st-ring 1.4s ease-out infinite; }
+.st-canvas.lead { outline: 3px solid var(--coral); outline-offset: -3px; }
+html.hc .st-guide, html.hc .st-lead, html.hc .st-try { background: #000; border: 2px solid #ffe600; color: #ffe600; box-shadow: none; } html.hc .st-guide p, html.hc .st-lead b { color: #ffe600; }
+@media (max-height: 700px) { .st-guide p { font-size: 14px; } .st-guide { padding: 9px 12px; gap: 6px; } }
+.st-settings button.st-install { border-color: var(--coral); color: #fff; background: rgba(255,111,89,.18); } .st-settings button.st-install.armed { outline: 3px solid var(--coral); outline-offset: 2px; }

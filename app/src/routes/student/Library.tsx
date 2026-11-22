@@ -12,7 +12,8 @@ import { speak } from '../../device/speech'
 import { vibrate, CORRECT_PULSE } from '../../device/haptics'
 import { useSearchParams } from 'react-router-dom'
 import { classroom, studentProfile, setStudentProfile, type Incoming } from '../../class/classroom'
-import { useTouchToAct, introSeen, markIntroSeen, speakFirstEnabled, setSpeakFirst } from '../../student/a11y'
+import { setStageCode } from '../../student/mirror'
+import { useTouchToAct, introSeen, markIntroSeen, speakFirstEnabled, setSpeakFirst, guideDone } from '../../student/a11y'
 import { stopSpeech } from '../../device/speech'
 import { sound } from '../../device/sound'
 import { contrastEnabled, setContrast } from '../../student/a11y'
@@ -39,6 +40,17 @@ export function StudentLibrary() {
   const [snd, setSnd] = useState(sound.state.on)
   const [hc, setHc] = useState(contrastEnabled)
   const [, bump] = useState(0)
+  // the browser's install offer, shown as a button until the app is on the home screen
+  const [installable, setInstallable] = useState(() => !!(window as unknown as { __install?: Event }).__install)
+  useEffect(() => { const on = () => setInstallable(true); window.addEventListener('touchsight-installable', on); return () => window.removeEventListener('touchsight-installable', on) }, [])
+  async function install() {
+    const w = window as unknown as { __install?: Event & { prompt: () => Promise<void>; userChoice: Promise<{ outcome: string }> } }
+    if (!w.__install) return
+    await w.__install.prompt()
+    const { outcome } = await w.__install.userChoice
+    w.__install = undefined; setInstallable(false)
+    if (outcome === 'accepted') say(s.installed)
+  }
   const say = (text: string) => { stopSpeech(); speak(text, lang) }
   useEffect(() => { const t = setInterval(() => setLink(classroom.state), 700); return () => clearInterval(t) }, [])
 
@@ -46,7 +58,10 @@ export function StudentLibrary() {
   useEffect(() => {
     const r = params.get('room')?.toUpperCase()
     if (r && /^[A-Z]{4}$/.test(r) && r !== profile?.room) { const p = { room: r, name: null }; setStudentProfile(p); setProfile(p); speak(s.joinedRoom(r), lang) }
-    if (r) { params.delete('room'); setParams(params, { replace: true }) }
+    // a projector's QR carries its code: this phone mirrors to that projector for the session
+    const st = params.get('stage')?.toUpperCase()
+    if (st && /^[A-Z]{4}$/.test(st)) { setStageCode(st); speak(s.projectorLinked, lang) }
+    if (r || st) { params.delete('room'); params.delete('stage'); setParams(params, { replace: true }) }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -57,6 +72,9 @@ export function StudentLibrary() {
       if (m.op === 'state') { setRoster(m.roster); for (const t of m.published) await saveDiagram(t, t.subject || s.mine, true); load() }
       if (m.op === 'roster') setRoster(m.names)
       if (m.op === 'published') { await saveDiagram(m.tdm, m.tdm.subject || s.mine, true); load(); speak(nameIn({ en: m.tdm.title }, lang), lang) }
+      // the teacher points at a part: the phone opens that diagram, where the search begins
+      if (m.op === 'point' && m.id) nav(`/student/d/${m.diagramId}`)
+      if (m.op === 'state' && m.pointing) nav(`/student/d/${m.pointing.diagramId}`)
     })
     return off
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -169,10 +187,17 @@ export function StudentLibrary() {
         </form>
       )}
 
+      <button className={`st-try ${armedCtl === 'try' ? 'armed' : ''} ${guideDone() ? 'seen' : ''}`} onClick={handle('try', `${s.tryNow}. ${s.tryNowSub}`, () => nav('/student/d/sample-heart?guide=1'))}>
+        <span className="st-try-ico" aria-hidden><svg viewBox="0 0 40 40" width="30" height="30"><circle cx="20" cy="13" r="5" fill="#fff" /><rect x="17" y="13" width="6" height="18" rx="3" fill="#fff" opacity=".7" /></svg></span>
+        <span><b>{s.tryNow}</b><span className="sub">{s.tryNowSub}</span></span>
+        <em aria-hidden>→</em>
+      </button>
+
       <div className="st-settings" role="group">
         <button className={speakFirst ? 'on' : ''} aria-pressed={speakFirst} onClick={() => { const v = !speakFirst; setSpeakFirst(v); setSF(v); bump((n) => n + 1); say(v ? s.speakFirstOn : s.speakFirstOff) }}>{s.speakFirst}</button>
         <button className={snd ? 'on' : ''} aria-pressed={snd} onClick={() => { const v = !snd; sound.setOn(v); setSnd(v); say(v ? s.soundOn : s.soundOff) }}>{s.sound}</button>
         <button className={hc ? 'on' : ''} aria-pressed={hc} onClick={() => { const v = !hc; setContrast(v); setHc(v); say(v ? s.contrastOn : s.contrastOff) }}>{s.contrast}</button>
+        {installable && <button className={`st-install ${armedCtl === 'install' ? 'armed' : ''}`} onClick={handle('install', s.install, install)}>⤓ {s.install}</button>}
       </div>
 
       <section className="st-section">

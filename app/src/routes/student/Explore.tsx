@@ -1,19 +1,20 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useSearchParams } from 'react-router-dom'
 import { TdmCanvas } from '../../components/TdmCanvas'
 import { getDiagram, recordQuiz } from '../../store/db'
 import { sampleById } from '../../samples'
 import type { Tdm, Point, Lang } from '../../tdm/types'
 import { vibrate, stopVibration, CORRECT_PULSE, WRONG_PULSE, TEXTURE_PULSE, LINE_PULSE, type Pulse } from '../../device/haptics'
 import { speak, stopSpeech } from '../../device/speech'
-import { createState, step, describeFully, type Action } from '../../student/explore'
+import { createState, step, describeFully, EXPLAIN_MS, type Action } from '../../student/explore'
+import { meaningIn } from '../../i18n/meanings'
 import { directionTo, isNamed } from '../../student/hit'
 import { nameIn, t, LANG_NAME } from '../../i18n'
 import { useLang } from '../Student'
 import { BrailleKey } from './Key'
 import { mirror } from '../../student/mirror'
-import { classroom, studentProfile } from '../../class/classroom'
-import { useTouchToAct, useGestures, type Gesture } from '../../student/a11y'
+import { classroom, studentProfile, type Pointing, type Incoming } from '../../class/classroom'
+import { useTouchToAct, useGestures, markGuideDone, type Gesture } from '../../student/a11y'
 import { sound } from '../../device/sound'
 import { listenOnce, matchCommand, voiceSupported } from '../../device/voice'
 import { answer as answerQuestion } from '../../student/qa'
@@ -46,6 +47,19 @@ export function Explore() {
   const st = useRef(createState())
   const pending = useRef<number | null>(null)
   const pending2 = useRef<number | null>(null)
+  const [params] = useSearchParams()
+  // the guided first diagram: -1 is off; otherwise the step being taught
+  const [guide, setGuide] = useState(() => (params.get('guide') ? 0 : -1))
+  const guideRef = useRef(guide); guideRef.current = guide
+  const guideTalking = useRef(false)
+  const guideLang = useRef<Lang>(lang)
+  // what the teacher is pointing at for the whole room
+  const [lead, setLead] = useState<Pointing | null>(null)
+  const leadRef = useRef<Pointing | null>(null); leadRef.current = lead
+  const leadStart = useRef(0)
+  const leadTries = useRef(0)
+  // the last part the finger was on: "where am I" still answers after the finger lifts
+  const lastPart = useRef<string | null>(null)
 
   useEffect(() => {
     let live = true
@@ -59,6 +73,86 @@ export function Explore() {
   const hush = useCallback(() => { if (pending.current) { clearTimeout(pending.current); pending.current = null } if (pending2.current) { clearTimeout(pending2.current); pending2.current = null } }, [])
   useEffect(() => () => { hush(); stopSpeech(); stopVibration(); sound.lift() }, [hush])
   useEffect(() => { mirror.post({ type: 'mode', mode }) }, [mode])
+
+  // ---- the guided first diagram: each step is spoken, then waits for the real gesture
+  const GUIDE_STEPS = s.guide.length
+  const guideSay = useCallback(async (text: string) => {
+    guideTalking.current = true
+    hush()
+    await say(text)
+    guideTalking.current = false
+    // a finger that was resting on a part while the guide spoke now hears that part
+    const id = st.current.id
+    if (!tdm || !id || !st.current.down) return
+    const r = tdm.regions.find((x) => x.id === id), l = tdm.lines.find((x) => x.id === id)
+    const el = r ?? l
+    if (!el) return
+    await say(nameIn(el.name, lang))
+    const m = r ? meaningIn(r, lang) : undefined
+    if (pending2.current) clearTimeout(pending2.current)
+    pending2.current = window.setTimeout(async () => { pending2.current = null; if (m && st.current.id === id) { log('explain', m); await say(m, lang, false) } guideEvent('explain') }, m ? EXPLAIN_MS : 600)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [say, hush, tdm, lang])
+  const guideGo = (n: number) => { if (n >= GUIDE_STEPS) { setGuide(-1); return } setGuide(n) }
+  const guideEvent = (ev: 'edge' | 'explain' | 'swipe' | 'where' | 'lang') => {
+    const g = guideRef.current
+    const want = (['edge', 'explain', 'swipe', 'where', 'lang'] as const)[g]
+    if (g < 0 || want !== ev) return
+    log('guide', `step ${g + 1} done: ${ev}`)
+    guideGo(g + 1)
+  }
+  useEffect(() => {
+    if (guide < 0 || !tdm) return
+    if (guide === 0) guideLang.current = lang
+    if (guide === GUIDE_STEPS - 1) markGuideDone()
+    const id = window.setTimeout(() => guideSay(t(guide === GUIDE_STEPS - 1 ? guideLang.current : lang).guide[guide]), guide === 0 ? 700 : 150)
+    return () => clearTimeout(id)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [guide, !!tdm])
+  /** For a pointer that cannot make the gesture (a mouse on a laptop): do the step's action for the reader. */
+  const guideNext = () => {
+    const g = guideRef.current
+    if (g === 2) gestureRef.current('swipe-left')
+    else if (g === 3) gestureRef.current('double-tap-2')
+    else if (g === 4) gestureRef.current('tap-3')
+    else guideGo(g + 1)
+  }
+
+  // ---- the teacher points at a part: every phone in the room is asked to find it
+  const startLead = useCallback((p: Pointing) => {
+    if (!tdm || p.diagramId !== tdm.id) return
+    const r = tdm.regions.find((x) => x.id === p.id) ?? tdm.lines.find((x) => x.id === p.id)
+    if (!r) return
+    setLead(p); leadStart.current = Date.now(); leadTries.current = 0
+    tourRun.current++; setPlaying(false); setMode('explore'); setFocus(null)
+    buzz([60, 60, 60, 60, 160])
+    mirror.post({ type: 'quiz', target: p.id })
+    say(s.teacherPoints(nameIn(r.name, lang)))
+    log('lead', `find ${r.name.en}`)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tdm, lang, say, buzz, s])
+  const stopLead = useCallback((spoken: boolean) => { if (!leadRef.current) return; setLead(null); mirror.post({ type: 'quiz', target: null }); if (spoken) say(s.leadOver) }, [say, s])
+  useEffect(() => {
+    if (!tdm) return
+    if (classroom.pointing && classroom.pointing.diagramId === tdm.id) startLead(classroom.pointing)
+    return classroom.on((m: Incoming) => {
+      if (m.op === 'point') { if (m.id && m.diagramId === tdm.id) startLead({ diagramId: m.diagramId, id: m.id, name: m.name, at: m.at }); else stopLead(!m.id) }
+    })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tdm?.id])
+  const foundLead = async () => {
+    const p = leadRef.current
+    if (!tdm || !p) return
+    const el = tdm.regions.find((x) => x.id === p.id) ?? tdm.lines.find((x) => x.id === p.id)
+    const seconds = +((Date.now() - leadStart.current) / 1000).toFixed(1)
+    setLead(null); leadRef.current = null
+    buzz(CORRECT_PULSE)
+    mirror.post({ type: 'quiz', target: p.id, result: 'correct', hitId: p.id })
+    classroom.activity({ kind: 'found', diagramId: tdm.id, partId: p.id, partName: el?.name.en ?? p.name, seconds, attempts: leadTries.current + 1 })
+    log('lead', `found in ${seconds} s`)
+    await say(s.foundIt(el ? nameIn(el.name, lang) : p.name))
+    mirror.post({ type: 'quiz', target: null })
+  }
 
   // ---- quiz
   const [targets, setTargets] = useState<string[]>([])
@@ -188,15 +282,16 @@ export function Explore() {
     for (const a of acts) {
       if (a.do === 'pulse') buzz(a.pulse)
       else if (a.do === 'hush') { hush(); if (st.current.down) sound.tick() }
-      else if (a.do === 'focus') { const now = performance.now(); leavePart(now); dwell.current = { id: a.id, since: now }; if (mode !== 'quiz') setFocus(a.id) }
-      else if (a.do === 'say' && mode !== 'quiz') { hush(); pending.current = window.setTimeout(() => { pending.current = null; say(a.text) }, a.after) }
-      else if (a.do === 'explain' && mode === 'explore') { if (pending2.current) clearTimeout(pending2.current); pending2.current = window.setTimeout(() => { pending2.current = null; log('explain', a.text); say(a.text, lang, false) }, a.after) }
+      else if (a.do === 'focus') { const now = performance.now(); leavePart(now); dwell.current = { id: a.id, since: now }; if (mode !== 'quiz') setFocus(a.id); if (a.id) { lastPart.current = a.id; guideEvent('edge') } }
+      else if (guideTalking.current) continue // the guide is speaking: the part under the finger is read when it finishes
+      else if (a.do === 'say' && mode !== 'quiz') { hush(); const at = st.current.id; pending.current = window.setTimeout(() => { pending.current = null; if (leadRef.current && at === leadRef.current.id) { foundLead(); return } say(a.text) }, a.after) }
+      else if (a.do === 'explain' && mode === 'explore') { if (pending2.current) clearTimeout(pending2.current); pending2.current = window.setTimeout(async () => { pending2.current = null; if (leadRef.current) return; log('explain', a.text); await say(a.text, lang, false); guideEvent('explain') }, a.after) }
     }
   }
   const onPointer = (e: React.PointerEvent) => {
     if (!tdm || mode === 'tour') return
     if (rec.current.fingers > 1 || !e.isPrimary) { if (st.current.id !== null) apply(step(tdm, st.current, null, performance.now(), lang)); setFinger(null); return }
-    if (e.type === 'pointerdown') { (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId); if (mode === 'explore') stopSpeech() }
+    if (e.type === 'pointerdown') { (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId); if (mode === 'explore' && !guideTalking.current && !leadRef.current) stopSpeech() }
     const p = toMm(e)
     if (!p) return
     setFinger(p)
@@ -214,8 +309,9 @@ export function Explore() {
     setFinger(null)
     mirror.post({ type: 'finger', p: null, id: null })
     if (mode === 'quiz' && !qDone) answer(last, p)
+    else if (leadRef.current && last !== leadRef.current.id && p) { leadTries.current++; say(s.hintMove(directionTo(tdm, p, leadRef.current.id))) }
   }
-  const whereAmI = () => { if (!tdm) return; const f = focus ?? st.current.id; say(f ? describeFully(tdm, f, lang) : s.blank) }
+  const whereAmI = async () => { if (!tdm) return; const f = focus ?? st.current.id ?? lastPart.current; await say(f ? describeFully(tdm, f, lang) : s.blank); guideEvent('where') }
 
   // ---- two and three finger gestures: nothing on the screen has to be found
   const MODES: Mode[] = ['explore', 'tour', 'quiz', 'key']
@@ -225,10 +321,14 @@ export function Explore() {
     if (g === 'swipe-left' || g === 'swipe-right') {
       const i = MODES.indexOf(mode); const m = MODES[(i + (g === 'swipe-left' ? 1 : MODES.length - 1)) % MODES.length]
       log('gesture', `${g} → ${m}`)
-      if (m === 'quiz') startQuiz(); else { pauseTour(); hush(); setMode(m); setFocus(null); say(s.modeIs(s[m])) }
+      if (m === 'quiz') startQuiz(); else { pauseTour(); hush(); setMode(m); setFocus(null); Promise.resolve(say(s.modeIs(s[m]))).then(() => guideEvent('swipe')) }
     } else if (g === 'double-tap-2') { log('gesture', 'where am I'); whereAmI() }
     else if (g === 'hold-2') { log('gesture', 'hold → listen'); listen() }
-    else if (g === 'tap-3') { const n: Lang = lang === 'en' ? 'hi' : lang === 'hi' ? 'pa' : 'en'; log('gesture', `language ${n}`); setLang(n); speak(LANG_NAME[n], n) }
+    else if (g === 'tap-3') {
+      const n: Lang = lang === 'en' ? 'hi' : lang === 'hi' ? 'pa' : 'en'; log('gesture', `language ${n}`); setLang(n); speak(LANG_NAME[n], n)
+      // in the guide the language comes back by itself, so the last step is heard in the listener's own
+      if (guideRef.current === 4) window.setTimeout(() => { setLang(guideLang.current); guideEvent('lang') }, 1600)
+    }
   }
   const rec = useGestures(mainRef, (g) => gestureRef.current(g), !!tdm)
 
@@ -302,7 +402,18 @@ export function Explore() {
         ))}
       </nav>
 
-      <div ref={wrap} className={`st-canvas ${mode}`} onPointerDown={onPointer} onPointerMove={(e) => { if (e.buttons || e.pointerType === 'touch') onPointer(e) }} onPointerUp={onLift} onPointerCancel={onLift}>
+      {guide >= 0 && (
+        <div className="st-guide" role="status">
+          <div className="st-guide-top"><span className="kicker">{s.tryNow} · {s.guideStep(guide + 1, GUIDE_STEPS)}</span><span className="st-guide-dots" aria-hidden>{s.guide.map((_, i) => <i key={i} className={i < guide ? 'done' : i === guide ? 'on' : ''} />)}</span></div>
+          <p>{t(guide === GUIDE_STEPS - 1 ? guideLang.current : lang).guide[guide]}</p>
+          <div className="st-guide-a"><button onClick={() => { stopSpeech(); guideTalking.current = false; markGuideDone(); setGuide(-1) }}>{s.guideSkip}</button><button className="primary" onClick={guideNext}>{guide === GUIDE_STEPS - 1 ? '✓' : s.guideNext}</button></div>
+        </div>
+      )}
+      {lead && (() => { const el = tdm.regions.find((r) => r.id === lead.id) ?? tdm.lines.find((l) => l.id === lead.id); return (
+        <div className="st-lead" role="status"><span className="st-lead-ring" aria-hidden /><b>{s.teacherPoints(el ? nameIn(el.name, lang) : lead.name)}</b></div>
+      ) })()}
+
+      <div ref={wrap} className={`st-canvas ${mode} ${lead ? 'lead' : ''}`} onPointerDown={onPointer} onPointerMove={(e) => { if (e.buttons || e.pointerType === 'touch') onPointer(e) }} onPointerUp={onLift} onPointerCancel={onLift}>
         <TdmCanvas tdm={tdm} highlight={focus ? [focus] : []} marker={finger} showRefs={mode !== 'quiz'} />
       </div>
 
