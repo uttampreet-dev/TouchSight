@@ -12,7 +12,7 @@
   <b><a href="https://touchsight-one.vercel.app">Live demo</a></b> · <a href="#the-gap">The gap</a> · <a href="#how-a-diagram-compiles">How it compiles</a> · <a href="#five-surfaces-one-model">Five surfaces</a> · <a href="#a-classroom-live">Classroom</a> · <a href="#driven-without-sight">Without sight</a> · <a href="#the-validator">The validator</a> · <a href="#measured">Measured</a> · <a href="#run-it">Run it</a> · <a href="#project-structure">Project structure</a> · <a href="#what-comes-next">What comes next</a>
 </p>
 
-![The teacher console: the source figure with what was read drawn over it, the redesigned tactile sheet, and a model that has passed every check and been published](benchmark/results/screens/console-published-next.png)
+![The teacher console on a plant cell: the source figure with what was read drawn over it, the 3-D relief exactly as it prints, and a part the teacher has named, cleared by every check and ready to publish](benchmark/results/screens/console-plantcell-relief.png)
 
 ## The gap
 
