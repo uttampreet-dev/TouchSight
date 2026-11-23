@@ -27,7 +27,7 @@
 .wb-pane-f > span + span::before { content: '·'; margin-right: 14px; color: var(--coral); }
 
 /* source */
-.wb-capture { padding: 16px; display: grid; gap: 14px; align-content: start; height: 100%; }
+.wb-capture { padding: 16px; display: grid; gap: 14px; align-content: start; grid-auto-rows: max-content; min-height: 100%; }
 .wb-drop { border: 1.5px dashed rgba(14,124,123,.5); border-radius: 12px; background: #fff; min-height: 240px; display: grid; place-items: center; cursor: pointer; padding: 16px; transition: border-color .2s, background .2s; }
 .wb-drop:hover { border-color: var(--teal); background: var(--teal-tint); }
 .wb-drop img { max-height: 380px; max-width: 100%; border-radius: 8px; }
